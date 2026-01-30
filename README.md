@@ -9,6 +9,10 @@
 最终输出 PlantUML（final_usecase.puml）与全流程日志报告（report.json），并在检测到本机 plantuml/java 环境时可选渲染 png/svg（缺失则跳过且不报错）。
 
 ---
+## 工作流流程图
+<img width="1329" height="801" alt="开题报告工作流图(1)" src="https://github.com/user-attachments/assets/48abd8aa-bc6e-4fa3-a085-f6b622356991" />
+
+
 
 ## 运行环境
 - Python >= 3.10
@@ -63,7 +67,7 @@ python -m ucgen run --req <需求文件> --out <输出目录> [其他参数...]
 
 ## 配置真实 LLM（可选，未配置则自动 fallback 到 MockLLM）
 
-你可以通过环境变量或 `config.yaml`（示例见 `config.yaml.example`）配置：
+可以通过环境变量或 `config.yaml`（`config.yaml.example`）配置：
 
 ### OpenAI（骨架）
 ```bash
@@ -86,7 +90,7 @@ set QWEN_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 set QWEN_MODEL=qwen-plus
 ```
 
-> 注意：本项目对真实 API 调用仅提供“工程化适配器骨架 + 错误提示 + 自动 fallback mock”，保证无 Key 时流程也能完整跑通。
+> TIPS：本项目对真实 API 调用仅提供“工程化适配器骨架 + 错误提示 + 自动 fallback mock”，保证无 Key 时流程也能完整跑通。
 
 ---
 
