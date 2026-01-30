@@ -1,0 +1,62 @@
+{
+  "must_include": [],
+  "forbid_include": [
+    {
+      "base": "查询组件价格",
+      "included": "记录零件价格"
+    },
+    {
+      "base": "查询组件价格",
+      "included": "编号零件"
+    },
+    {
+      "base": "查询组件价格",
+      "included": "命名零件类型"
+    },
+    {
+      "base": "命名零件类型",
+      "included": "编号零件"
+    },
+    {
+      "base": "记录零件价格",
+      "included": "编号零件"
+    }
+  ],
+  "extend": [],
+  "forbid_extend": [
+    {
+      "base": "编号零件",
+      "extension": "查询组件价格"
+    },
+    {
+      "base": "命名零件类型",
+      "extension": "查询组件价格"
+    },
+    {
+      "base": "记录零件价格",
+      "extension": "查询组件价格"
+    },
+    {
+      "base": "编号零件",
+      "extension": "记录零件价格"
+    }
+  ],
+  "keep_actors": [
+    "管理员"
+  ],
+  "forbid_actors": [
+    "仓库管理员"
+  ],
+  "keep_usecases": [
+    "查询组件价格",
+    "命名零件类型",
+    "编号零件",
+    "记录零件价格"
+  ],
+  "forbid_usecases": [
+    "构建组件",
+    "定义组件构成",
+    "构建组件结构",
+    "构建组件层次结构"
+  ]
+}

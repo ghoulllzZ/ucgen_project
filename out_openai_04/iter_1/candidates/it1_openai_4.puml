@@ -1,0 +1,38 @@
+@startuml
+actor 用户
+
+usecase "创建图形选择框" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "改变图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "管理图层" as UC8
+
+' 创建图形选择框是启动功能的必含部分
+UC1 --> UC2
+
+' 删除图形需要先选择图形
+' 选择图形是删除图形的前提
+UC3 --> UC4
+
+' 改变图形尺寸是选择图形之后的扩展
+' 当用户选择图形后可以选择改变其尺寸
+UC3 --> UC5 : 选择后
+
+' 移动图形是选择图形之后的扩展
+' 当用户选择图形后可以拖动其进行移动
+UC3 --> UC6 : 选择后
+
+' 创建新图层的功能
+用户 --> UC1
+用户 --> UC2
+用户 --> UC3
+用户 --> UC4
+用户 --> UC5
+用户 --> UC6
+用户 --> UC7
+用户 --> UC8
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+actor User
+
+usecase "创建图形" as UC1
+usecase "选择图形" as UC2
+usecase "删除图形" as UC3
+usecase "调整图形尺寸" as UC4
+usecase "等比例缩放" as UC5
+usecase "移动图形" as UC6
+usecase "创建新图层" as UC7
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+
+' 等比例缩放执行时必须先选择图形
+UC5 ..> UC2 : include
+
+' 按住Shift时调整图形尺寸扩展为等比例缩放
+UC5 ..> UC4 : extend
+@enduml

@@ -1,0 +1,50 @@
+@startuml
+actor 用户 as User
+
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layer
+
+User --> create_shape
+User --> select_shape
+User --> delete_shape
+User --> resize_shape
+User --> move_shape
+User --> create_layer
+User --> manage_layer
+
+' A 执行过程中必须包含 B：创建图形依赖于从工具栏选择图形类型
+create_shape ..> select_shape : <<include>>
+
+' 删除图形前必须先选择图形
+delete_shape ..> select_shape : <<include>>
+
+' 改变图形尺寸需要先选择图形
+resize_shape ..> select_shape : <<include>>
+
+' 移动图形需要先选择图形
+move_shape ..> select_shape : <<include>>
+
+' 创建图层时会自动设置为当前图层并初始化状态
+create_layer ..> manage_layer : <<include>>
+
+' 管理图层包括切换图层操作，当点击“下一页”按钮时触发
+' extend：当用户点击“下一页”按钮且存在多个图层时，执行图层切换
+manage_layer ..> manage_layer : <<extend>>\n<<extension point: 切换图层>>\n[条件: 用户点击“下一页”按钮]
+
+' 创建图层时若图层数已达16则无法继续创建
+' extend：当图层数量小于16时才能成功创建新图层
+create_layer ..> create_layer : <<extend>>\n<<extension point: 创建限制>>\n[条件: 当前图层数 < 16]
+
+' 选择图形功能包含单选和多选行为，但根据约束禁止细化为独立用例
+' 因此将多选与单选合并到统一“选择图形”用例中，不单独建模
+
+' 改变图形尺寸可通过拖动控制点或点击放大/缩小按钮实现
+' 但“点击放大按钮”和“点击缩小按钮”被禁止作为独立用例
+' 故归入“改变图形尺寸”整体用例中，通过 include 隐含表达
+
+@enduml

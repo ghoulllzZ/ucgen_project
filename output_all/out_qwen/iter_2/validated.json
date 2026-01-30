@@ -1,0 +1,680 @@
+{
+  "actors": [
+    {
+      "name": "用户",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该参与者"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      }
+    }
+  ],
+  "usecases": [
+    {
+      "name": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "管理图层",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建新图层",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "启动图形编辑器",
+      "decision": "accept",
+      "reasons": [
+        "constraints.keep_usecases"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    }
+  ],
+  "relations": [
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "启动图形编辑器",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 15,
+            "raw": "User --> UC1",
+            "label": "",
+            "justification": "Associations between actor and use cases",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_3",
+            "line_no": 18,
+            "raw": "用户 --> UC1 : 启动软件",
+            "label": "启动软件",
+            "justification": "根据约束保留和禁止的用例处理：以下用例被明确禁止，不应出现 被禁用的用例（根据 forbid_usecases）：切换图层, 显示初始界面, 更新图形提示, 初始化编辑器, 点击放大缩小按钮, 切换当前图层, 选择创建的图形类型, 拖动控制点调整尺寸, 扩展支持的新图形类型, 动态绘制图形, 删除所选图形 参与者与用例关联",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 16,
+            "raw": "User --> UC2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_3",
+            "line_no": 19,
+            "raw": "用户 --> UC2 : 创建新图形",
+            "label": "创建新图形",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 17,
+            "raw": "User --> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_3",
+            "line_no": 20,
+            "raw": "用户 --> UC3 : 选择一个或多个图形",
+            "label": "选择一个或多个图形",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 18,
+            "raw": "User --> UC4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_3",
+            "line_no": 21,
+            "raw": "用户 --> UC4 : 删除已选图形",
+            "label": "删除已选图形",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 19,
+            "raw": "User --> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_3",
+            "line_no": 22,
+            "raw": "用户 --> UC5 : 改变图形大小",
+            "label": "改变图形大小",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 20,
+            "raw": "User --> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_3",
+            "line_no": 23,
+            "raw": "用户 --> UC6 : 拖动移动图形",
+            "label": "拖动移动图形",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建新图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 21,
+            "raw": "User --> UC7",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_3",
+            "line_no": 24,
+            "raw": "用户 --> UC7 : 添加新图层",
+            "label": "添加新图层",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "管理图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 22,
+            "raw": "User --> UC8",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_3",
+            "line_no": 25,
+            "raw": "用户 --> UC8 : 在多个图层间切换",
+            "label": "在多个图层间切换",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "删除图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "constraints.must_include"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 26,
+            "raw": "UC4 ..> UC3 : <<include>>",
+            "label": "<<include>>",
+            "justification": "Include relationships with causal comments 删除图形必须先选择图形",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_3",
+            "line_no": 29,
+            "raw": "UC4 .> UC3 : <<include>>",
+            "label": "<<include>>",
+            "justification": "include 关系（强制性依赖），依据 must_include 和约束判断 删除图形 前必须先 选择图形",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "调整图形尺寸",
+      "kind": "include",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "constraints.must_include"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 28,
+            "raw": "UC5 ..> UC3 : <<include>>",
+            "label": "<<include>>",
+            "justification": "调整图形尺寸前必须选择图形",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_3",
+            "line_no": 32,
+            "raw": "UC5 .> UC3 : <<include>>",
+            "label": "<<include>>",
+            "justification": "注释：删除图形前必须先选择图形 调整图形尺寸 前必须先 选择图形",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "移动图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "领域先验：移动/删除/调整尺寸通常必须先选择目标图形"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it2_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_5",
+            "line_no": 36,
+            "raw": "UC6 .> UC3 : <<include>>",
+            "label": "<<include>>",
+            "justification": "移动图形需要先选择图形（隐含逻辑，虽未在must_include中但符合需求）",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

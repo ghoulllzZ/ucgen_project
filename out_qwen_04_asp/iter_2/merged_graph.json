@@ -1,0 +1,882 @@
+{
+  "stats": {
+    "total_candidates": 3,
+    "nodes": 9,
+    "edges": 25,
+    "conflicts": 0
+  },
+  "nodes": {
+    "用户": {
+      "name": "用户",
+      "node_type": "actor",
+      "freq": 3,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3",
+        "it2_qwen_4"
+      ],
+      "status": "common"
+    },
+    "删除图形": {
+      "name": "删除图形",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common"
+    },
+    "创建新图层": {
+      "name": "创建新图层",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common"
+    },
+    "选择图形": {
+      "name": "选择图形",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common"
+    },
+    "切换图层": {
+      "name": "切换图层",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common"
+    },
+    "启动图形编辑器": {
+      "name": "启动图形编辑器",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common"
+    },
+    "创建图形": {
+      "name": "创建图形",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common"
+    },
+    "调整图形尺寸": {
+      "name": "调整图形尺寸",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common"
+    },
+    "移动图形": {
+      "name": "移动图形",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common"
+    }
+  },
+  "edges": {
+    "用户|assoc|启动图形编辑器": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "启动图形编辑器",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_2",
+          "line_no": 13,
+          "raw": "用户 --> usecase1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "line_no": 13,
+          "raw": "用户 --> usecase1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|创建图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_2",
+          "line_no": 14,
+          "raw": "用户 --> usecase2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "line_no": 14,
+          "raw": "用户 --> usecase2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|选择图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_2",
+          "line_no": 15,
+          "raw": "用户 --> usecase3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "line_no": 15,
+          "raw": "用户 --> usecase3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|删除图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_2",
+          "line_no": 16,
+          "raw": "用户 --> usecase4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "line_no": 16,
+          "raw": "用户 --> usecase4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|调整图形尺寸": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_2",
+          "line_no": 17,
+          "raw": "用户 --> usecase5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "line_no": 17,
+          "raw": "用户 --> usecase5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|移动图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_2",
+          "line_no": 18,
+          "raw": "用户 --> usecase6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "line_no": 18,
+          "raw": "用户 --> usecase6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|创建新图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建新图层",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_2",
+          "line_no": 19,
+          "raw": "用户 --> usecase7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "line_no": 19,
+          "raw": "用户 --> usecase7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|切换图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "切换图层",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_2",
+          "line_no": 20,
+          "raw": "用户 --> usecase8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "line_no": 20,
+          "raw": "用户 --> usecase8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "删除图形|include|选择图形": {
+      "src": "删除图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_2",
+          "line_no": 23,
+          "raw": "usecase4 ..> usecase3 : <<include>>",
+          "label": "<<include>>",
+          "justification": "删除图形前必须先选择图形（强制依赖）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "line_no": 23,
+          "raw": "usecase4 ..> usecase3 : <<include>>",
+          "label": "<<include>>",
+          "justification": "删除图形必须先选择图形（强制依赖）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "调整图形尺寸|include|选择图形": {
+      "src": "调整图形尺寸",
+      "kind": "include",
+      "dst": "选择图形",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_2",
+          "line_no": 25,
+          "raw": "usecase5 ..> usecase3 : <<include>>",
+          "label": "<<include>>",
+          "justification": "调整图形尺寸前必须先选择图形（强制依赖）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "line_no": 26,
+          "raw": "usecase5 ..> usecase3 : <<include>>",
+          "label": "<<include>>",
+          "justification": "调整图形尺寸必须先选择图形（强制依赖）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "移动图形|include|选择图形": {
+      "src": "移动图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "freq": 2,
+      "sources": [
+        "it2_qwen_2",
+        "it2_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_2",
+          "line_no": 27,
+          "raw": "usecase6 ..> usecase3 : <<include>>",
+          "label": "<<include>>",
+          "justification": "移动图形前必须先选择图形（强制依赖）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "line_no": 29,
+          "raw": "usecase6 ..> usecase3 : <<include>>",
+          "label": "<<include>>",
+          "justification": "移动图形必须先选择图形（强制依赖）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "(删除图形)|assoc|(选择图形)": {
+      "src": "(删除图形)",
+      "kind": "assoc",
+      "dst": "(选择图形)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 6,
+          "raw": "(删除图形) .> (选择图形) : include",
+          "label": "include",
+          "justification": "删除图形前必须先选择图形（强制依赖）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "(调整图形尺寸)|assoc|(选择图形)": {
+      "src": "(调整图形尺寸)",
+      "kind": "assoc",
+      "dst": "(选择图形)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 10,
+          "raw": "(调整图形尺寸) .> (选择图形) : include",
+          "label": "include",
+          "justification": "调整图形尺寸前必须先选择图形（强制依赖）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "(移动图形)|assoc|(选择图形)": {
+      "src": "(移动图形)",
+      "kind": "assoc",
+      "dst": "(选择图形)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 14,
+          "raw": "(移动图形) .> (选择图形) : include",
+          "label": "include",
+          "justification": "移动图形前必须先选择图形（强制依赖）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|(启动图形编辑器)": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "(启动图形编辑器)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 23,
+          "raw": "用户 --> (启动图形编辑器)",
+          "label": "",
+          "justification": "创建图形时不能包含切换图层（禁止关系） 创建新图层时不能包含切换图层（禁止关系） 启动图形编辑器时不直接创建新图层（禁止关系）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "user|assoc|(创建图形)": {
+      "src": "user",
+      "kind": "assoc",
+      "dst": "(创建图形)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 24,
+          "raw": "user --> (创建图形)",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "user|assoc|(选择图形)": {
+      "src": "user",
+      "kind": "assoc",
+      "dst": "(选择图形)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 25,
+          "raw": "user --> (选择图形)",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "user|assoc|(删除图形)": {
+      "src": "user",
+      "kind": "assoc",
+      "dst": "(删除图形)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 26,
+          "raw": "user --> (删除图形)",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "user|assoc|(调整图形尺寸)": {
+      "src": "user",
+      "kind": "assoc",
+      "dst": "(调整图形尺寸)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 27,
+          "raw": "user --> (调整图形尺寸)",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "user|assoc|(移动图形)": {
+      "src": "user",
+      "kind": "assoc",
+      "dst": "(移动图形)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 28,
+          "raw": "user --> (移动图形)",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "user|assoc|(创建新图层)": {
+      "src": "user",
+      "kind": "assoc",
+      "dst": "(创建新图层)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 29,
+          "raw": "user --> (创建新图层)",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "user|assoc|(切换图层)": {
+      "src": "user",
+      "kind": "assoc",
+      "dst": "(切换图层)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 30,
+          "raw": "user --> (切换图层)",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "(创建新图层)|assoc|(选择图形)": {
+      "src": "(创建新图层)",
+      "kind": "assoc",
+      "dst": "(选择图形)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 32,
+          "raw": "(创建新图层) .> (选择图形) : extend",
+          "label": "extend",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "(切换图层)|assoc|(选择图形)": {
+      "src": "(切换图层)",
+      "kind": "assoc",
+      "dst": "(选择图形)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 35,
+          "raw": "(切换图层) .> (选择图形) : extend",
+          "label": "extend",
+          "justification": "扩展条件：当新图层创建后，自动可进行图形选择操作（扩展点：新图层初始化完成后）",
+          "condition": "",
+          "extension_point": "新图层初始化完成后）",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "(创建图形)|assoc|(移动图形)": {
+      "src": "(创建图形)",
+      "kind": "assoc",
+      "dst": "(移动图形)",
+      "freq": 1,
+      "sources": [
+        "it2_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_qwen_4",
+          "line_no": 38,
+          "raw": "(创建图形) .> (移动图形) : extend",
+          "label": "extend",
+          "justification": "扩展条件：当图层切换完成并进入当前图层后，可进行图形选择（扩展点：图层切换成功后）",
+          "condition": "",
+          "extension_point": "图层切换成功后）",
+          "provenance": {
+            "candidate_id": "it2_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    }
+  }
+}

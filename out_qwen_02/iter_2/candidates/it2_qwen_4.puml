@@ -1,0 +1,50 @@
+@startuml
+actor 用户 as User
+
+usecase "启动图形编辑器" as usecase1
+usecase "创建图形" as usecase2
+usecase "选择图形" as usecase3
+usecase "删除图形" as usecase4
+usecase "调整图形尺寸" as usecase5
+usecase "移动图形" as usecase6
+usecase "创建图层" as usecase7
+usecase "管理图层" as usecase8
+usecase "拖动控制点调整尺寸" as usecase9
+
+User --> usecase1
+User --> usecase2
+User --> usecase3
+User --> usecase4
+User --> usecase5
+User --> usecase6
+User --> usecase7
+User --> usecase8
+User --> usecase9
+
+' 删除图形必须先选择图形
+usecase4 ..> usecase3 : include
+' 调整图形尺寸必须先选择图形
+usecase5 ..> usecase3 : include
+' 移动图形必须先选择图形
+usecase6 ..> usecase3 : include
+' 拖动控制点调整尺寸是调整图形尺寸的一种方式
+usecase9 ..> usecase5 : include
+
+note right of usecase1
+软件启动时初始化界面状态：
+- 创建图形选择框默认为矩形
+- 编辑区域生成第一个图层
+- 图形提示区域显示“第一页”
+end note
+
+note right of usecase7
+点击“新页”按钮创建新图层，最多16个。
+超过则无法创建。
+end note
+
+note right of usecase8
+点击“下一页”切换图层，循环切换。
+切换后当前图层编号更新，图形创建状态重置为矩形。
+end note
+
+@enduml

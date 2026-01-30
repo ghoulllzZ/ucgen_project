@@ -1,0 +1,81 @@
+@startuml
+left to right direction
+actor 用户
+
+'
+' 用例：创建图形
+'
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layer
+
+'
+' 基本关联：用户与用例
+'
+用户 --> create_shape : 创建新图形
+用户 --> select_shape : 选中图形以操作
+用户 --> delete_shape : 删除已选图形
+用户 --> resize_shape : 调整选中图形大小
+用户 --> move_shape : 拖动已选图形位置
+用户 --> create_layer : 添加新图层
+用户 --> manage_layer : 切换当前图层
+
+'
+' include 关系（强制包含）
+'
+
+' 创建图层时必须初始化当前图层状态（如默认选中矩形、提示页码）
+' 因此“创建图层”包含“创建图形”的初始化部分（即设置默认图形类型）
+' 但根据约束，不能 include “选择图形”等，此处仅反映合理 include
+
+' 根据需求3.6：新图层创建后，“创建图形选择框”重置为“矩形”
+' 表示创建图层后系统进入创建矩形的准备状态，这属于创建图形功能的子步骤
+' 所以创建图层 include 创建图形（作为初始化动作）
+' 注释说明因果关系
+' 创建图层会重置创建工具为“矩形”，因此包含创建图形的初始状态设置
+create_layer ..> create_shape : include
+
+' 管理图层切换后也重置创建工具为“矩形”
+' 因此也 include 创建图形的初始状态
+' 图层切换后默认创建状态为矩形，需重置创建工具
+manage_layer ..> create_shape : include
+
+'
+' extend 关系（扩展）
+'
+
+' 改变图形尺寸是在“选择图形”达到扩展点 EP1 后可能触发的扩展
+' 触发条件：用户拖动控制点或点击放大/缩小按钮
+' 扩展点：EP1 —— 图形已被选中并显示控制点
+' 根据约束，不允许“选择图形” include “改变图形尺寸”，但可以被扩展
+' 同时约束禁止“改变图形尺寸” extend “选择图形”，方向正确即可
+' 改变图形尺寸在“选择图形”完成并显示控制点后，由用户操作触发
+select_shape ..> resize_shape : extend
+note on link
+  扩展点: EP1 (图形已被选中并显示控制点)
+  触发条件: 拖动控制点 或 点击“放大/缩小”按钮
+end note
+
+' 移动图形是在“选择图形”达到扩展点 EP2 后可能触发的扩展
+' 扩展点：EP2 —— 图形已被选中
+' 触发条件：在已选图形内部按下并拖动
+' 移动图形在“选择图形”完成后，用户拖动时触发
+select_shape ..> move_shape : extend
+note on link
+  扩展点: EP2 (图形已被选中)
+  触发条件: 在已选中图形内部按下鼠标并拖动
+end note
+
+'
+' 删除图形依赖于先有图形被选中，但它不是“选择图形”的扩展或包含
+' 需求中明确：用户先选择，再点击删除按钮
+' 但根据约束 forbid_include 中禁止“选择图形” include “删除图形”
+' 且无 extend 关系描述，故不建立 include/extend
+' 它们是独立用例，通过用户顺序调用来实现流程
+'
+
+@enduml

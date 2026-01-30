@@ -1,0 +1,22 @@
+@startuml
+actor "管理员" as admin
+
+usecase "编号零件" as uc1
+usecase "命名零件类型" as uc2
+usecase "记录零件价格" as uc3
+usecase "查询组件价格" as uc4
+
+admin --> uc1 : 编号零件
+admin --> uc2 : 命名零件类型
+admin --> uc3 : 记录零件价格
+admin --> uc4 : 查询组件价格
+
+' 查询组件价格需要基于已记录的零件价格进行计算
+uc4 ..> uc3 : <<include>>
+
+' 编号零件是命名零件类型的前置步骤，必须先有编号才能命名
+uc2 ..> uc1 : <<include>>
+
+' 记录零件价格依赖于零件已编号（数据关联基础）
+uc3 ..> uc1 : <<include>>
+@enduml

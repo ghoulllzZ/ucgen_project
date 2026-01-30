@@ -1,0 +1,61 @@
+@startuml
+actor 用户
+
+'
+' 基础用例：用户与系统交互的核心功能
+'
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layer
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+
+'
+' 关联：用户触发的基本用例
+'
+用户 --> create_shape : 创建新图形
+用户 --> select_shape : 选中一个或多个图形
+用户 --> delete_shape : 删除已选中的图形
+用户 --> create_layer : 添加新的图层
+用户 --> manage_layer : 切换当前活动图层
+用户 --> resize_shape : 调整已选图形的大小
+用户 --> move_shape : 拖动已选图形改变位置
+
+'
+' 扩展关系说明：
+' 根据需求，"改变图形尺寸" 和 "移动图形" 是在 "选择图形" 的特定扩展点上被触发的
+' 需求中定义了两个扩展点：
+'   EP1: 图形已被选中并显示控制点（用于改变尺寸）
+'   EP2: 图形已被选中（用于移动）
+'
+' 注意：约束明确禁止将“选择图形” include “改变图形尺寸”或“移动图形”
+' 因此必须使用 <<extend>> 而非 <<include>>
+'
+
+' 扩展条件：当图形已被选中并显示控制点（EP1），且用户拖动控制点或点击放大/缩小按钮
+select_shape ..> resize_shape : <<extend>>
+note on link
+  扩展点 EP1: 图形已被选中并显示控制点
+  触发条件：用户拖动控制点或点击“放大/缩小”按钮
+end note
+
+' 扩展条件：当图形已被选中（EP2），且用户在图形内部按下并拖动
+select_shape ..> move_shape : <<extend>>
+note on link
+  扩展点 EP2: 图形已被选中
+  触发条件：用户在已选图形内部按下鼠标并拖动
+end note
+
+'
+' 其他逻辑依赖（隐式顺序）通过注释说明，不建模为 include
+' 例如：删除图形前必须先选择图形 —— 但根据约束，不能使用 include
+'
+' 约束说明：以下 include 被明确禁止：
+' - 选择图形 -> 删除图形 (include)
+' - 选择图形 -> 改变图形尺寸 (include)
+' - 选择图形 -> 移动图形 (include)
+' 因此这些关系只能以 extend 或无直接关系表达，此处已用 extend 正确建模
+
+@enduml

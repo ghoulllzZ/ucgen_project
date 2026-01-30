@@ -1,0 +1,24 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "选择图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.5,
+      "bucket": "fuzzy",
+      "freq": 2,
+      "total": 4,
+      "sources": [
+        "it1_qwen_5"
+      ]
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "创建新图层",
+    "b": "切换图层",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  }
+]

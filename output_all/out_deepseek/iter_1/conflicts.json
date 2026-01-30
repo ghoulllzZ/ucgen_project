@@ -1,0 +1,51 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "等比例缩放",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.16666666666666666,
+      "sources": [
+        "it1_deepseek_1"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "等比例缩放",
+    "b": "调整图形尺寸",
+    "details": {
+      "confidence": 0.16666666666666666,
+      "sources": [
+        "it1_deepseek_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "添加新图形类型",
+    "b": "创建图形",
+    "details": {
+      "confidence": 0.16666666666666666,
+      "sources": [
+        "it1_deepseek_5"
+      ]
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "等比例缩放",
+    "b": "调整图形尺寸",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "添加新图形类型",
+    "b": "创建图形",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  }
+]

@@ -1,0 +1,55 @@
+@startuml
+actor 用户 as User
+
+'
+' Use Cases (filtered by constraints)
+'
+
+usecase "启动图形编辑器" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建新图层" as UC7
+usecase "管理图层" as UC8
+
+'
+' Actor associations
+'
+
+User --> UC1 : 启动软件
+User --> UC2 : 创建直线、椭圆、矩形等
+User --> UC3 : 选择单个或多个图形
+User --> UC4 : 删除已选图形
+User --> UC5 : 调整图形大小
+User --> UC6 : 拖动移动图形
+User --> UC7 : 点击“新页”创建图层
+User --> UC8 : 点击“下一页”切换图层
+
+'
+' Include relationships (mandatory dependencies)
+'
+
+' 删除图形必须先选择图形 '
+UC4 .> UC3 : <<include>>
+
+' 调整图形尺寸必须先选择图形 '
+UC5 .> UC3 : <<include>>
+
+' 移动图形必须先选择图形 '
+UC6 .> UC3 : <<include>>
+
+'
+' Extend relationships (conditional extensions with conditions)
+'
+
+' 创建新图层仅在图层数少于16时才可执行 '
+UC7 ..> UC1 : <<extend>>\n<<condition: 当前图层总数 < 16>>
+note on link: 扩展点: 启动后任意时刻点击“新页”按钮\n条件: 图层数未超过16
+
+' 管理图层（切换）可在任何图层存在时触发，循环切换 '
+UC8 ..> UC7 : <<extend>>
+note on link: 扩展点: 存在多个图层时点击“下一页”\n条件: 至少有一个图层存在
+
+@enduml

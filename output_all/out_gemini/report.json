@@ -1,0 +1,858 @@
+{
+  "args": {
+    "req": "examples\\req_primary_graph_editor.txt",
+    "out": "out_gemini",
+    "max_iters": 5,
+    "backend": "gemini",
+    "temperature": 0.9,
+    "n_samples": 6,
+    "models": [],
+    "seed": 7,
+    "interactive": false,
+    "jaccard_threshold": 0.98,
+    "render": "auto"
+  },
+  "constraints": {
+    "must_include": [
+      {
+        "base": "删除图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "调整图形尺寸",
+        "included": "选择图形"
+      }
+    ],
+    "forbid_include": [
+      {
+        "base": "调整图形尺寸",
+        "included": "选择图形"
+      },
+      {
+        "base": "删除图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "等比例缩放",
+        "included": "调整图形尺寸"
+      },
+      {
+        "base": "移动图形",
+        "included": "选择图形"
+      }
+    ],
+    "extend": [],
+    "forbid_extend": [
+      {
+        "base": "选择图形",
+        "extension": "调整图形尺寸"
+      },
+      {
+        "base": "选择图形",
+        "extension": "删除图形"
+      },
+      {
+        "base": "选择图形",
+        "extension": "移动图形"
+      }
+    ],
+    "keep_actors": [],
+    "forbid_actors": [],
+    "keep_usecases": [
+      "等比例缩放"
+    ],
+    "forbid_usecases": []
+  },
+  "iterations": [
+    {
+      "iter_index": 1,
+      "candidates": [
+        {
+          "candidate_id": "it1_gemini_1",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 1065,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_gemini_2",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 1082,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC5 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时；扩展点：拖拽控制点时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_gemini_3",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 1099,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC5 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时；扩展点：拖拽控制点时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_gemini_4",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 1116,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n' 因果说明：删除图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC4 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_gemini_5",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 1133,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_gemini_6",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 1150,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时；扩展点：拖拽控制点时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 7,
+        "edges": 12,
+        "conflicts": 4
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_kind_mismatch",
+          "a": "调整图形尺寸",
+          "b": "选择图形",
+          "details": {
+            "kinds": [
+              "extend",
+              "include"
+            ],
+            "support": {
+              "extend": 2,
+              "include": 4
+            }
+          }
+        },
+        {
+          "conflict_type": "edge_kind_mismatch",
+          "a": "删除图形",
+          "b": "选择图形",
+          "details": {
+            "kinds": [
+              "extend",
+              "include"
+            ],
+            "support": {
+              "extend": 1,
+              "include": 2
+            }
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "删除图形",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.5,
+            "sources": [
+              "it1_gemini_2",
+              "it1_gemini_4",
+              "it1_gemini_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "等比例缩放",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.5,
+            "sources": [
+              "it1_gemini_2",
+              "it1_gemini_3",
+              "it1_gemini_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "等比例缩放",
+          "b": "",
+          "details": {
+            "freq": 0.6666666666666666,
+            "sources": [
+              "it1_gemini_2",
+              "it1_gemini_3",
+              "it1_gemini_5",
+              "it1_gemini_6"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "single_choice",
+          "target": {
+            "a": "调整图形尺寸",
+            "b": "选择图形"
+          },
+          "prompt": "在业务上，【调整图形尺寸】与【选择图形】更符合哪种关系？",
+          "choices": [
+            {
+              "value": "include",
+              "text": "调整图形尺寸 必须包含 选择图形（include：必经子步骤）"
+            },
+            {
+              "value": "extend",
+              "text": "调整图形尺寸 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+            },
+            {
+              "value": "none",
+              "text": "两者之间不需要 include/extend 关系"
+            }
+          ],
+          "observed": [
+            "extend",
+            "include"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "single_choice",
+          "target": {
+            "a": "删除图形",
+            "b": "选择图形"
+          },
+          "prompt": "在业务上，【删除图形】与【选择图形】更符合哪种关系？",
+          "choices": [
+            {
+              "value": "include",
+              "text": "删除图形 必须包含 选择图形（include：必经子步骤）"
+            },
+            {
+              "value": "extend",
+              "text": "删除图形 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+            },
+            {
+              "value": "none",
+              "text": "两者之间不需要 include/extend 关系"
+            }
+          ],
+          "observed": [
+            "extend",
+            "include"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "yes_no_include",
+          "target": {
+            "base": "删除图形",
+            "included": "选择图形"
+          },
+          "prompt": "用例【删除图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q4",
+          "type": "yes_no_include",
+          "target": {
+            "base": "等比例缩放",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q5",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "等比例缩放"
+          },
+          "prompt": "用例【等比例缩放】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no",
+        "q3": "yes",
+        "q4": "no",
+        "q5": "yes"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "删除图形|extend|选择图形",
+          "删除图形|include|选择图形",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|移动图形",
+          "用户|assoc|等比例缩放",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "移动图形|include|选择图形",
+          "等比例缩放|extend|调整图形尺寸",
+          "调整图形尺寸|extend|选择图形",
+          "调整图形尺寸|include|选择图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 2,
+      "candidates": [
+        {
+          "candidate_id": "it2_gemini_1",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 2065,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_gemini_2",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 2082,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_gemini_3",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 2099,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n' 因果说明：移动图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC3 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_gemini_4",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 2116,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n' 因果说明：移动图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC3 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时；扩展点：拖拽控制点时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_gemini_5",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 2133,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时；扩展点：拖拽控制点时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_gemini_6",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 2150,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n' 因果说明：移动图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC3 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时；扩展点：拖拽控制点时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 7,
+        "edges": 11,
+        "conflicts": 2
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_kind_mismatch",
+          "a": "移动图形",
+          "b": "选择图形",
+          "details": {
+            "kinds": [
+              "extend",
+              "include"
+            ],
+            "support": {
+              "extend": 3,
+              "include": 3
+            }
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "等比例缩放",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.5,
+            "sources": [
+              "it2_gemini_4",
+              "it2_gemini_5",
+              "it2_gemini_6"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "single_choice",
+          "target": {
+            "a": "移动图形",
+            "b": "选择图形"
+          },
+          "prompt": "在业务上，【移动图形】与【选择图形】更符合哪种关系？",
+          "choices": [
+            {
+              "value": "include",
+              "text": "移动图形 必须包含 选择图形（include：必经子步骤）"
+            },
+            {
+              "value": "extend",
+              "text": "移动图形 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+            },
+            {
+              "value": "none",
+              "text": "两者之间不需要 include/extend 关系"
+            }
+          ],
+          "observed": [
+            "extend",
+            "include"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "等比例缩放",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|移动图形",
+          "用户|assoc|等比例缩放",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "移动图形|extend|选择图形",
+          "移动图形|include|选择图形",
+          "等比例缩放|extend|调整图形尺寸"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 3,
+      "candidates": [
+        {
+          "candidate_id": "it3_gemini_1",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 3065,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC5 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_gemini_2",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 3082,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_gemini_3",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 3099,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时；扩展点：拖拽控制点时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_gemini_4",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 3116,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_gemini_5",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 3133,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC5 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_gemini_6",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 3150,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n' 因果说明：移动图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC3 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 7,
+        "edges": 12,
+        "conflicts": 3
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_kind_mismatch",
+          "a": "调整图形尺寸",
+          "b": "选择图形",
+          "details": {
+            "kinds": [
+              "extend",
+              "include"
+            ],
+            "support": {
+              "extend": 2,
+              "include": 3
+            }
+          }
+        },
+        {
+          "conflict_type": "edge_kind_mismatch",
+          "a": "移动图形",
+          "b": "选择图形",
+          "details": {
+            "kinds": [
+              "extend",
+              "include"
+            ],
+            "support": {
+              "extend": 1,
+              "include": 3
+            }
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "等比例缩放",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.16666666666666666,
+            "sources": [
+              "it3_gemini_3"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "single_choice",
+          "target": {
+            "a": "调整图形尺寸",
+            "b": "选择图形"
+          },
+          "prompt": "在业务上，【调整图形尺寸】与【选择图形】更符合哪种关系？",
+          "choices": [
+            {
+              "value": "include",
+              "text": "调整图形尺寸 必须包含 选择图形（include：必经子步骤）"
+            },
+            {
+              "value": "extend",
+              "text": "调整图形尺寸 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+            },
+            {
+              "value": "none",
+              "text": "两者之间不需要 include/extend 关系"
+            }
+          ],
+          "observed": [
+            "extend",
+            "include"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "single_choice",
+          "target": {
+            "a": "移动图形",
+            "b": "选择图形"
+          },
+          "prompt": "在业务上，【移动图形】与【选择图形】更符合哪种关系？",
+          "choices": [
+            {
+              "value": "include",
+              "text": "移动图形 必须包含 选择图形（include：必经子步骤）"
+            },
+            {
+              "value": "extend",
+              "text": "移动图形 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+            },
+            {
+              "value": "none",
+              "text": "两者之间不需要 include/extend 关系"
+            }
+          ],
+          "observed": [
+            "extend",
+            "include"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "yes_no_include",
+          "target": {
+            "base": "等比例缩放",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no",
+        "q3": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|移动图形",
+          "用户|assoc|等比例缩放",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "等比例缩放|extend|调整图形尺寸"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 4,
+      "candidates": [
+        {
+          "candidate_id": "it4_gemini_1",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 4065,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC4 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n' 因果说明：调整图形尺寸 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC5 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_gemini_2",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 4082,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC4 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_gemini_3",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 4099,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前\nUC5 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时；扩展点：拖拽控制点时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_gemini_4",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 4116,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_gemini_5",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 4133,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时；扩展点：拖拽控制点时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_gemini_6",
+          "model": "gemini",
+          "temperature": 0.9,
+          "seed": 4150,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 7,
+        "edges": 12,
+        "conflicts": 4
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_kind_mismatch",
+          "a": "删除图形",
+          "b": "选择图形",
+          "details": {
+            "kinds": [
+              "extend",
+              "include"
+            ],
+            "support": {
+              "extend": 2,
+              "include": 2
+            }
+          }
+        },
+        {
+          "conflict_type": "edge_kind_mismatch",
+          "a": "调整图形尺寸",
+          "b": "选择图形",
+          "details": {
+            "kinds": [
+              "extend",
+              "include"
+            ],
+            "support": {
+              "extend": 2,
+              "include": 1
+            }
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "调整图形尺寸",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.5,
+            "sources": [
+              "it4_gemini_1",
+              "it4_gemini_3",
+              "it4_gemini_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "等比例缩放",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it4_gemini_3",
+              "it4_gemini_5"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "single_choice",
+          "target": {
+            "a": "删除图形",
+            "b": "选择图形"
+          },
+          "prompt": "在业务上，【删除图形】与【选择图形】更符合哪种关系？",
+          "choices": [
+            {
+              "value": "include",
+              "text": "删除图形 必须包含 选择图形（include：必经子步骤）"
+            },
+            {
+              "value": "extend",
+              "text": "删除图形 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+            },
+            {
+              "value": "none",
+              "text": "两者之间不需要 include/extend 关系"
+            }
+          ],
+          "observed": [
+            "extend",
+            "include"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "single_choice",
+          "target": {
+            "a": "调整图形尺寸",
+            "b": "选择图形"
+          },
+          "prompt": "在业务上，【调整图形尺寸】与【选择图形】更符合哪种关系？",
+          "choices": [
+            {
+              "value": "include",
+              "text": "调整图形尺寸 必须包含 选择图形（include：必经子步骤）"
+            },
+            {
+              "value": "extend",
+              "text": "调整图形尺寸 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+            },
+            {
+              "value": "none",
+              "text": "两者之间不需要 include/extend 关系"
+            }
+          ],
+          "observed": [
+            "extend",
+            "include"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "yes_no_include",
+          "target": {
+            "base": "调整图形尺寸",
+            "included": "选择图形"
+          },
+          "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q4",
+          "type": "yes_no_include",
+          "target": {
+            "base": "等比例缩放",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no",
+        "q3": "yes",
+        "q4": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|移动图形",
+          "用户|assoc|等比例缩放",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "等比例缩放|extend|调整图形尺寸"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": true
+    }
+  ],
+  "final": {
+    "final_usecase_puml": "out_gemini\\final_usecase.puml",
+    "nodes": [
+      "创建图形",
+      "删除图形",
+      "用户",
+      "移动图形",
+      "等比例缩放",
+      "调整图形尺寸",
+      "选择图形"
+    ],
+    "edges": [
+      "用户|assoc|创建图形",
+      "用户|assoc|删除图形",
+      "用户|assoc|移动图形",
+      "用户|assoc|等比例缩放",
+      "用户|assoc|调整图形尺寸",
+      "用户|assoc|选择图形",
+      "等比例缩放|extend|调整图形尺寸"
+    ]
+  }
+}

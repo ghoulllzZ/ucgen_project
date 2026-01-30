@@ -1,0 +1,65 @@
+@startuml
+
+actor 用户 as User
+
+'
+' 核心用例定义（依据约束 keep_usecases 和 forbid_usecases 过滤后保留）
+'
+
+usecase "启动图形编辑器" as startEditor
+usecase "创建图形" as createShape
+usecase "选择图形" as selectShape
+usecase "删除图形" as deleteShape
+usecase "调整图形尺寸" as resizeShape
+usecase "移动图形" as moveShape
+usecase "创建图层" as createLayer
+usecase "管理图层" as manageLayer
+usecase "拖动控制点调整尺寸" as dragResize
+usecase "支持扩展图形类型" as extendShapeType
+
+'
+' include 关系：强制性依赖（根据 must_include 约束）
+'
+
+' 删除图形 必须包含 选择图形
+User --> selectShape : includes >
+deleteShape .> selectShape : <<include>>
+
+' 调整图形尺寸 必须包含 选择图形
+User --> selectShape : includes >
+resizeShape .> selectShape : <<include>>
+
+' 移动图形 必须包含 选择图形
+User --> selectShape : includes >
+moveShape .> selectShape : <<include>>
+
+' 拖动控制点调整尺寸 是 调整图形尺寸 的一种方式（被禁止反向包含，但正向允许）
+' 根据约束：不能有 (dragResize -> resizeShape) 的 include，因为 forbid_include 包含此条
+' 因此不添加 dragResize -> resizeShape 的 include
+
+' 创建图形 功能由用户触发
+User --> createShape
+
+' 选择图形 包括点击选择、框选、取消等子行为（但这些子用例被 forbid_usecases 禁止，故不建模）
+
+' 创建图层 和 管理图层 由用户操作
+User --> createLayer
+User --> manageLayer
+
+' 启动图形编辑器 是独立起点
+User --> startEditor
+
+'
+' extend 关系：条件性扩展（当前无必须的 extend，且 forbid_extend 限制了多个可能扩展）
+'
+' 根据约束，extend 列表为空，且多个潜在 extend 被明确禁止，因此不添加任何 extend
+
+'
+' 其他约束处理说明：
+' - 所有被 forbid_usecases 列出的用例均不出现
+' - 所有被 forbid_include 禁止的 include 均不建立
+' - 尽管存在不确定性边（confidence=0.2），但因不在 must_include 中且在 forbid_include 中，故排除
+' - “支持扩展图形类型” 存在，但不能被“创建图形”包含（forbid_include），也不能反过来 extend
+'
+
+@enduml

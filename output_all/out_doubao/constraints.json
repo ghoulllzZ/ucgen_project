@@ -1,0 +1,63 @@
+{
+  "must_include": [
+    {
+      "base": "移动图形",
+      "included": "选择图形"
+    }
+  ],
+  "forbid_include": [
+    {
+      "base": "调整图形尺寸",
+      "included": "选择图形"
+    },
+    {
+      "base": "移动图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "等比例缩放",
+      "included": "调整图形尺寸"
+    },
+    {
+      "base": "删除图形",
+      "included": "选择图形"
+    }
+  ],
+  "extend": [],
+  "forbid_extend": [
+    {
+      "base": "选择图形",
+      "extension": "调整图形尺寸"
+    },
+    {
+      "base": "选择图形",
+      "extension": "移动图形"
+    },
+    {
+      "base": "选择图形",
+      "extension": "删除图形"
+    }
+  ],
+  "keep_actors": [
+    "Editor"
+  ],
+  "forbid_actors": [
+    "User",
+    "GraphicEditorUser",
+    "GraphicDesigner",
+    "EditorOperator"
+  ],
+  "keep_usecases": [
+    "启动图形编辑器",
+    "切换图层",
+    "创建自定义图形"
+  ],
+  "forbid_usecases": [
+    "等比例缩放",
+    "初始启动软件",
+    "创建直线",
+    "创建椭圆",
+    "创建矩形",
+    "扩展图形类型"
+  ]
+}

@@ -1,0 +1,168 @@
+=== 输出诊断汇总 ===
+candidates=3 nodes=20 edges=44 conflicts=31
+
+=================
+1) 相同部分（共识/已通过验证）
+=================
+[Stage2 共识节点]
+ - 用户 (actor) | freq=3 | sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 创建图形 (usecase) | freq=3 | sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 创建新图层 (usecase) | freq=3 | sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 移动图形 (usecase) | freq=3 | sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 调整图形尺寸 (usecase) | freq=3 | sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 选择图形 (usecase) | freq=3 | sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 删除图形 (usecase) | freq=2 | sources=it1_qwen_2,it1_qwen_3
+ - 启动图形编辑器 (usecase) | freq=2 | sources=it1_qwen_2,it1_qwen_4
+
+[Stage2 共识关系]
+ - 用户 -[assoc]-> 创建图形 | freq=3 | sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 用户 -[assoc]-> 创建新图层 | freq=3 | sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 用户 -[assoc]-> 移动图形 | freq=3 | sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 用户 -[assoc]-> 调整图形尺寸 | freq=3 | sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 用户 -[assoc]-> 选择图形 | freq=3 | sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 用户 -[assoc]-> 删除图形 | freq=2 | sources=it1_qwen_2,it1_qwen_3
+ - 用户 -[assoc]-> 启动图形编辑器 | freq=2 | sources=it1_qwen_2,it1_qwen_4
+ - 选择图形 -[extend]-> 选择图形 | freq=3 | sources=it1_qwen_4
+ - 移动图形 -[include]-> 选择图形 | freq=2 | sources=it1_qwen_2,it1_qwen_4
+
+[Stage3 验证通过（accept）]
+ - actors=1 usecases=7 relations=26
+ - 用户 -[assoc]-> 切换图层 | conf=0.3333333333333333 freq=1 sources=it1_qwen_2
+ - 用户 -[assoc]-> 切换当前图层 | conf=0.3333333333333333 freq=1 sources=it1_qwen_4
+ - 用户 -[assoc]-> 创建图形 | conf=1.0 freq=3 sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 用户 -[assoc]-> 创建新图层 | conf=1.0 freq=3 sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 用户 -[assoc]-> 初始化编辑器 | conf=0.3333333333333333 freq=1 sources=it1_qwen_3
+ - 用户 -[assoc]-> 删除图形 | conf=0.6666666666666666 freq=2 sources=it1_qwen_2,it1_qwen_3
+ - 用户 -[assoc]-> 删除所选图形 | conf=0.3333333333333333 freq=1 sources=it1_qwen_4
+ - 用户 -[assoc]-> 启动图形编辑器 | conf=0.6666666666666666 freq=2 sources=it1_qwen_2,it1_qwen_4
+ - 用户 -[assoc]-> 移动图形 | conf=1.0 freq=3 sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 用户 -[assoc]-> 管理图层 | conf=0.3333333333333333 freq=1 sources=it1_qwen_3
+ - 用户 -[assoc]-> 调整图形尺寸 | conf=1.0 freq=3 sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 用户 -[assoc]-> 选择图形 | conf=1.0 freq=3 sources=it1_qwen_2,it1_qwen_3,it1_qwen_4
+ - 选择图形 -[extend]-> 选择图形 | conf=1.0 freq=3 sources=it1_qwen_4
+ - 创建图形 -[generalize]-> 支持扩展图形类型"asEXT1 | conf=0.3333333333333333 freq=1 sources=it1_qwen_3
+ - 创建新图层 -[generalize]-> 限制图层数量≤16"asEXT3 | conf=0.3333333333333333 freq=1 sources=it1_qwen_3
+ - 移动图形 -[generalize]-> 保持状态跨编辑器移动"asEXT2 | conf=0.3333333333333333 freq=1 sources=it1_qwen_3
+ - 切换图层 -[include]-> 显示初始界面 | conf=0.3333333333333333 freq=1 sources=it1_qwen_2
+ - 切换当前图层 -[include]-> 选择创建的图形类型 | conf=0.3333333333333333 freq=1 sources=it1_qwen_4
+ - 创建新图层 -[include]-> 管理图层"asUC8 | conf=0.3333333333333333 freq=1 sources=it1_qwen_3
+ - 初始化编辑器 -[include]-> 创建图形 | conf=0.3333333333333333 freq=1 sources=it1_qwen_3
+ - 删除图形 -[include]-> 选择图形 | conf=0.3333333333333333 freq=1 sources=it1_qwen_2
+ - 删除所选图形 -[include]-> 选择图形 | conf=0.3333333333333333 freq=1 sources=it1_qwen_4
+ - 移动图形 -[include]-> 选择图形 | conf=0.6666666666666666 freq=2 sources=it1_qwen_2,it1_qwen_4
+ - 管理图层 -[include]-> 创建图形 | conf=0.3333333333333333 freq=1 sources=it1_qwen_3
+ - 调整图形尺寸 -[include]-> 选择图形 | conf=0.3333333333333333 freq=1 sources=it1_qwen_2
+ - 选择图形 -[include]-> 删除图形 | conf=0.3333333333333333 freq=1 sources=it1_qwen_3
+
+==================
+2) 不同部分（候选之间的明确冲突）
+==================
+（无：当前冲突主要表现为“不确定/缺条件”，见第 3 部分）
+
+========================
+3) 模糊部分（待确认/置信度不足/缺触发条件）
+========================
+[Stage2 待确认节点（status=unknown）]
+ - 切换图层 (usecase) | freq=1 | sources=it1_qwen_2
+ - 切换当前图层 (usecase) | freq=1 | sources=it1_qwen_4
+ - 初始化编辑器 (usecase) | freq=1 | sources=it1_qwen_3
+ - 删除所选图形 (usecase) | freq=1 | sources=it1_qwen_4
+ - 动态绘制图形 (usecase) | freq=1 | sources=it1_qwen_4
+ - 扩展支持的新图形类型 (usecase) | freq=1 | sources=it1_qwen_4
+ - 拖动控制点调整尺寸 (usecase) | freq=1 | sources=it1_qwen_4
+ - 显示初始界面 (usecase) | freq=1 | sources=it1_qwen_2
+ - 更新图形提示 (usecase) | freq=1 | sources=it1_qwen_2
+ - 点击放大缩小按钮 (usecase) | freq=1 | sources=it1_qwen_4
+ - 管理图层 (usecase) | freq=1 | sources=it1_qwen_3
+ - 选择创建的图形类型 (usecase) | freq=1 | sources=it1_qwen_4
+
+[Stage2 待确认关系（status=unknown）]
+ - 用户 -[assoc]-> 切换图层 | freq=1 | sources=it1_qwen_2
+ - 用户 -[assoc]-> 切换当前图层 | freq=1 | sources=it1_qwen_4
+ - 用户 -[assoc]-> 初始化编辑器 | freq=1 | sources=it1_qwen_3
+ - 用户 -[assoc]-> 删除所选图形 | freq=1 | sources=it1_qwen_4
+ - 用户 -[assoc]-> 管理图层 | freq=1 | sources=it1_qwen_3
+ - 创建图形 -[extend]-> EXT3 | freq=1 | sources=it1_qwen_2
+ - 创建新图层 -[extend]-> EXT8 | freq=1 | sources=it1_qwen_2
+ - 创建新图层 -[extend]-> 创建新图层 | freq=1 | sources=it1_qwen_4 | hint: has_justif=True has_cond=False has_extpt=False
+ - 选择创建的图形类型 -[extend]-> 扩展支持的新图形类型 | freq=1 | sources=it1_qwen_4
+ - 创建图形 -[generalize]-> 支持扩展图形类型"asEXT1 | freq=1 | sources=it1_qwen_3 | hint: has_justif=True has_cond=False has_extpt=True
+ - 创建新图层 -[generalize]-> 限制图层数量≤16"asEXT3 | freq=1 | sources=it1_qwen_3 | hint: has_justif=True has_cond=False has_extpt=True
+ - 移动图形 -[generalize]-> 保持状态跨编辑器移动"asEXT2 | freq=1 | sources=it1_qwen_3 | hint: has_justif=True has_cond=True has_extpt=False
+ - 切换图层 -[include]-> 显示初始界面 | freq=1 | sources=it1_qwen_2 | hint: has_justif=True has_cond=False has_extpt=False
+ - 切换图层 -[include]-> 更新图形提示 | freq=1 | sources=it1_qwen_2
+ - 切换当前图层 -[include]-> 选择创建的图形类型 | freq=1 | sources=it1_qwen_4 | hint: has_justif=True has_cond=False has_extpt=False
+ - 创建图形 -[include]-> 动态绘制图形 | freq=1 | sources=it1_qwen_4
+ - 创建图形 -[include]-> 选择创建的图形类型 | freq=1 | sources=it1_qwen_4
+ - 创建图形 -[include]-> 选择图形 | freq=1 | sources=it1_qwen_3
+ - 创建新图层 -[include]-> 更新图形提示 | freq=1 | sources=it1_qwen_2
+ - 创建新图层 -[include]-> 管理图层"asUC8 | freq=1 | sources=it1_qwen_3 | hint: has_justif=True has_cond=False has_extpt=False
+ - 初始化编辑器 -[include]-> 创建图形 | freq=1 | sources=it1_qwen_3 | hint: has_justif=True has_cond=False has_extpt=False
+ - 删除图形 -[include]-> 选择图形 | freq=1 | sources=it1_qwen_2 | hint: has_justif=True has_cond=False has_extpt=False
+ - 删除所选图形 -[include]-> 选择图形 | freq=1 | sources=it1_qwen_4 | hint: has_justif=True has_cond=False has_extpt=False
+ - 启动图形编辑器 -[include]-> 创建图形 | freq=1 | sources=it1_qwen_4 | hint: has_justif=True has_cond=False has_extpt=False
+ - 启动图形编辑器 -[include]-> 显示初始界面 | freq=1 | sources=it1_qwen_2
+ - 显示初始界面 -[include]-> 更新图形提示 | freq=1 | sources=it1_qwen_2
+ - 管理图层 -[include]-> 创建图形 | freq=1 | sources=it1_qwen_3 | hint: has_justif=True has_cond=False has_extpt=False
+ - 调整图形尺寸 -[include]-> 使用放大缩小按钮"asINC1 | freq=1 | sources=it1_qwen_3 | hint: has_justif=True has_cond=False has_extpt=False
+ - 调整图形尺寸 -[include]-> 拖动控制点调整尺寸 | freq=1 | sources=it1_qwen_4
+ - 调整图形尺寸 -[include]-> 点击放大缩小按钮 | freq=1 | sources=it1_qwen_4
+ - 调整图形尺寸 -[include]-> 选择图形 | freq=1 | sources=it1_qwen_2 | hint: has_justif=True has_cond=False has_extpt=False
+ - 选择图形 -[include]-> 删除图形 | freq=1 | sources=it1_qwen_3 | hint: has_justif=True has_cond=False has_extpt=False
+ - 选择图形 -[include]-> 删除图形"asUC4 | freq=1 | sources=it1_qwen_3 | hint: has_justif=True has_cond=False has_extpt=False
+ - 选择图形 -[include]-> 移动图形"asUC6 | freq=1 | sources=it1_qwen_3
+ - 选择图形 -[include]-> 调整图形尺寸"asUC5 | freq=1 | sources=it1_qwen_3
+
+[Stage3 判定为 unknown 的关系]
+ - usecases(unknown)=12 relations(unknown)=18
+ - 创建图形 -[extend]-> EXT3 | reasons=extend 缺少触发条件/扩展点 | conf=0.3333333333333333 freq=1
+ - 创建新图层 -[extend]-> EXT8 | reasons=extend 缺少触发条件/扩展点 | conf=0.3333333333333333 freq=1
+ - 创建新图层 -[extend]-> 创建新图层 | reasons=extend 缺少触发条件/扩展点 | conf=0.3333333333333333 freq=1
+ - 选择创建的图形类型 -[extend]-> 扩展支持的新图形类型 | reasons=extend 缺少触发条件/扩展点 | conf=0.3333333333333333 freq=1
+ - 切换图层 -[include]-> 更新图形提示 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 创建图形 -[include]-> 动态绘制图形 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 创建图形 -[include]-> 选择创建的图形类型 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 创建图形 -[include]-> 选择图形 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 创建新图层 -[include]-> 更新图形提示 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 启动图形编辑器 -[include]-> 创建图形 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 启动图形编辑器 -[include]-> 显示初始界面 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 显示初始界面 -[include]-> 更新图形提示 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 调整图形尺寸 -[include]-> 使用放大缩小按钮"asINC1 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 调整图形尺寸 -[include]-> 拖动控制点调整尺寸 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 调整图形尺寸 -[include]-> 点击放大缩小按钮 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 选择图形 -[include]-> 删除图形"asUC4 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 选择图形 -[include]-> 移动图形"asUC6 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+ - 选择图形 -[include]-> 调整图形尺寸"asUC5 | reasons=无法确定 include 必要性，需确认 | conf=0.3333333333333333 freq=1
+
+[conflicts.json 中的“不确定/缺条件”】【列表】]
+ - [edge_presence_uncertain] 启动图形编辑器 -> 显示初始界面 | conf=0.3333333333333333 sources=it1_qwen_2
+ - [edge_presence_uncertain] 删除图形 -> 选择图形 | conf=0.3333333333333333 sources=it1_qwen_2
+ - [edge_presence_uncertain] 调整图形尺寸 -> 选择图形 | conf=0.3333333333333333 sources=it1_qwen_2
+ - [edge_presence_uncertain] 创建新图层 -> EXT8 | conf=0.3333333333333333 sources=it1_qwen_2
+ - [edge_presence_uncertain] 切换图层 -> 显示初始界面 | conf=0.3333333333333333 sources=it1_qwen_2
+ - [edge_presence_uncertain] 显示初始界面 -> 更新图形提示 | conf=0.3333333333333333 sources=it1_qwen_2
+ - [edge_presence_uncertain] 创建新图层 -> 更新图形提示 | conf=0.3333333333333333 sources=it1_qwen_2
+ - [edge_presence_uncertain] 切换图层 -> 更新图形提示 | conf=0.3333333333333333 sources=it1_qwen_2
+ - [edge_presence_uncertain] 创建图形 -> EXT3 | conf=0.3333333333333333 sources=it1_qwen_2
+ - [edge_presence_uncertain] 初始化编辑器 -> 创建图形 | conf=0.3333333333333333 sources=it1_qwen_3
+ - [edge_presence_uncertain] 创建图形 -> 选择图形 | conf=0.3333333333333333 sources=it1_qwen_3
+ - [edge_presence_uncertain] 选择图形 -> 删除图形"asUC4 | conf=0.3333333333333333 sources=it1_qwen_3
+ - [edge_presence_uncertain] 选择图形 -> 调整图形尺寸"asUC5 | conf=0.3333333333333333 sources=it1_qwen_3
+ - [edge_presence_uncertain] 选择图形 -> 移动图形"asUC6 | conf=0.3333333333333333 sources=it1_qwen_3
+ - [edge_presence_uncertain] 选择图形 -> 删除图形 | conf=0.3333333333333333 sources=it1_qwen_3
+ - [edge_presence_uncertain] 调整图形尺寸 -> 使用放大缩小按钮"asINC1 | conf=0.3333333333333333 sources=it1_qwen_3
+ - [edge_presence_uncertain] 创建新图层 -> 管理图层"asUC8 | conf=0.3333333333333333 sources=it1_qwen_3
+ - [edge_presence_uncertain] 管理图层 -> 创建图形 | conf=0.3333333333333333 sources=it1_qwen_3
+ - [edge_presence_uncertain] 启动图形编辑器 -> 创建图形 | conf=0.3333333333333333 sources=it1_qwen_4
+ - [edge_presence_uncertain] 创建图形 -> 选择创建的图形类型 | conf=0.3333333333333333 sources=it1_qwen_4
+ - [edge_presence_uncertain] 创建图形 -> 动态绘制图形 | conf=0.3333333333333333 sources=it1_qwen_4
+ - [edge_presence_uncertain] 删除所选图形 -> 选择图形 | conf=0.3333333333333333 sources=it1_qwen_4
+ - [edge_presence_uncertain] 调整图形尺寸 -> 拖动控制点调整尺寸 | conf=0.3333333333333333 sources=it1_qwen_4
+ - [edge_presence_uncertain] 调整图形尺寸 -> 点击放大缩小按钮 | conf=0.3333333333333333 sources=it1_qwen_4
+ - [edge_presence_uncertain] 创建新图层 -> 创建新图层 | conf=0.3333333333333333 sources=it1_qwen_4
+ - [edge_presence_uncertain] 切换当前图层 -> 选择创建的图形类型 | conf=0.3333333333333333 sources=it1_qwen_4
+ - [edge_presence_uncertain] 选择创建的图形类型 -> 扩展支持的新图形类型 | conf=0.3333333333333333 sources=it1_qwen_4
+ - [extend_missing_condition] 创建新图层 -> EXT8 | msg=extend 缺少触发条件/扩展点
+ - [extend_missing_condition] 创建图形 -> EXT3 | msg=extend 缺少触发条件/扩展点
+ - [extend_missing_condition] 创建新图层 -> 创建新图层 | msg=extend 缺少触发条件/扩展点
+ - [extend_missing_condition] 选择创建的图形类型 -> 扩展支持的新图形类型 | msg=extend 缺少触发条件/扩展点

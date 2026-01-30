@@ -1,0 +1,32 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "ScaleProportionally",
+    "b": "SelectShape",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it5_deepseek_6"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "AdjustShapeSize",
+    "b": "ScaleProportionally",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it5_deepseek_6"
+      ]
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "AdjustShapeSize",
+    "b": "ScaleProportionally",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  }
+]

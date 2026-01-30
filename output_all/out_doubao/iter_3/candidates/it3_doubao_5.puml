@@ -1,0 +1,25 @@
+left to right direction
+
+actor Editor
+
+usecase "启动图形编辑器" as UC1
+usecase "创建自定义图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "切换图层" as UC8
+
+' 必须包含：移动图形功能执行前必须先选择图形
+UC6 --> UC3 : include
+
+Editor --> UC1
+Editor --> UC2
+Editor --> UC3
+Editor --> UC4
+Editor --> UC5
+Editor --> UC6
+Editor --> UC7
+Editor --> UC8
+@enduml

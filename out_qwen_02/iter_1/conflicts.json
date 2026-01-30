@@ -1,0 +1,517 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "启动图形编辑器",
+    "b": "创建图层",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "启动图形编辑器",
+    "b": "初始化图形选择状态\"",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建图形",
+    "b": "创建图层",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "删除图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "调整图形尺寸",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "移动图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建图层",
+    "b": "初始化图形选择状态\"",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "管理图层",
+    "b": "初始化图形选择状态\"",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建图层",
+    "b": "检查图层数量上限\"",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "拖动控制点调整尺寸",
+    "b": "调整图形尺寸",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "点击按钮调整尺寸",
+    "b": "调整图形尺寸",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "拖动图形移动",
+    "b": "移动图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "点击选择图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "框选多个图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "点击空白取消选择",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "绘制直线",
+    "b": "创建图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "绘制椭圆",
+    "b": "创建图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "绘制矩形",
+    "b": "创建图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建图形",
+    "b": "扩展图形类型\"",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "启动图形编辑器",
+    "b": "创建图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "选择图形",
+    "b": "删除图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "选择图形",
+    "b": "调整图形尺寸",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "使用放大缩小按钮调整尺寸",
+    "b": "调整图形尺寸",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "选择图形",
+    "b": "移动图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建新图层",
+    "b": "创建图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "切换当前图层",
+    "b": "创建图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建新图层",
+    "b": "重置图形创建状态为矩形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "切换当前图层",
+    "b": "重置图形创建状态为矩形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "扩展支持的图形类型",
+    "b": "创建图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(创建图形)",
+    "b": "(选择直线、椭圆或矩形)",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(创建图形)",
+    "b": "(在编辑区域绘制图形)",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(选择图形)",
+    "b": "(单击选择单个图形)",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(选择图形)",
+    "b": "(多选叠加图形)",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(选择图形)",
+    "b": "(框选区域内图形)",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(选择图形)",
+    "b": "(取消选择所有图形)",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(删除所选图形)",
+    "b": "(选择图形)",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(调整图形尺寸)",
+    "b": "拖动控制点调整尺寸",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(调整图形尺寸)",
+    "b": "(点击放大按钮)",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(调整图形尺寸)",
+    "b": "(点击缩小按钮)",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(移动图形)",
+    "b": "(选择图形)",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "(创建新图层)",
+    "b": "(检查图层数量是否超过16)",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "创建图形",
+    "b": "创建图层",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "创建图形",
+    "b": "扩展图形类型\"",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "选择图形",
+    "b": "移动图形",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "创建新图层",
+    "b": "创建图形",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "切换当前图层",
+    "b": "创建图形",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "扩展支持的图形类型",
+    "b": "创建图形",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "(调整图形尺寸)",
+    "b": "(点击放大按钮)",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "(调整图形尺寸)",
+    "b": "(点击缩小按钮)",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  }
+]

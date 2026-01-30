@@ -1,0 +1,46 @@
+@startuml
+actor 管理员
+
+usecase "编号零件" as usecase1
+usecase "命名零件类型" as usecase2
+usecase "记录零件价格" as usecase3
+usecase "查询组件价格" as usecase4
+
+管理员 --> usecase1
+管理员 --> usecase2
+管理员 --> usecase3
+管理员 --> usecase4
+
+' 查询组件价格 需要基于已存在的零件编号信息才能定位组件构成
+usecase4 ..> usecase1 : <<extend>>
+note on link
+  扩展点：当组件包含零件时
+  条件：零件已编号
+end note
+
+' 查询组件价格 需要基于零件类型名称以识别组件组成元素
+usecase4 ..> usecase2 : <<extend>>
+note on link
+  扩展点：当组件包含按类型命名的零件时
+  条件：零件类型已命名
+end note
+
+' 查询组件价格 依赖零件价格进行成本累加计算
+usecase4 ..> usecase3 : <<extend>>
+note on link
+  扩展点：当计算组件总价格时
+  条件：零件价格已记录
+end note
+
+' 命名零件类型 和 编号零件 之间无强制依赖，但可协同使用
+' 根据约束禁止 include 关系，且关系不确定性高，故不建立直接关联
+
+' 记录零件价格 和 编号零件 之间关系不明确（冲突摘要中存在未知include和低置信度）
+' 但根据约束禁止 include，且不确定性高，故采用 extend 表示条件性依赖
+usecase3 ..> usecase1 : <<extend>>
+note on link
+  扩展点：当为特定编号的零件记录价格时
+  条件：零件已编号
+end note
+
+@enduml

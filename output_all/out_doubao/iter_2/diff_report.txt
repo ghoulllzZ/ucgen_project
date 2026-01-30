@@ -1,0 +1,98 @@
+=== 输出诊断汇总 ===
+candidates=4 nodes=13 edges=28 conflicts=0
+
+=================
+1) 相同部分（共识/已通过验证）
+=================
+[Stage2 共识节点]
+ - 切换图层 (usecase) | freq=4 | sources=it2_doubao_1,it2_doubao_2,it2_doubao_4,it2_doubao_5
+ - 创建图层 (usecase) | freq=4 | sources=it2_doubao_1,it2_doubao_2,it2_doubao_4,it2_doubao_5
+ - 创建自定义图形 (usecase) | freq=4 | sources=it2_doubao_1,it2_doubao_2,it2_doubao_4,it2_doubao_5
+ - 删除图形 (usecase) | freq=4 | sources=it2_doubao_1,it2_doubao_2,it2_doubao_4,it2_doubao_5
+ - 启动图形编辑器 (usecase) | freq=4 | sources=it2_doubao_1,it2_doubao_2,it2_doubao_4,it2_doubao_5
+ - 移动图形 (usecase) | freq=4 | sources=it2_doubao_1,it2_doubao_2,it2_doubao_4,it2_doubao_5
+ - 调整图形尺寸 (usecase) | freq=4 | sources=it2_doubao_1,it2_doubao_2,it2_doubao_4,it2_doubao_5
+ - 选择图形 (usecase) | freq=4 | sources=it2_doubao_1,it2_doubao_2,it2_doubao_4,it2_doubao_5
+
+[Stage2 共识关系]
+
+[Stage3 验证通过（accept）]
+ - actors=0 usecases=9 relations=28
+ - EditorOperator -[assoc]-> 切换图层 | conf=0.5 freq=2 sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 创建图层 | conf=0.5 freq=2 sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 创建图形 | conf=0.25 freq=1 sources=it2_doubao_4
+ - EditorOperator -[assoc]-> 创建自定义图形 | conf=0.5 freq=2 sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 删除图形 | conf=0.5 freq=2 sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 启动图形编辑器 | conf=0.5 freq=2 sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 扩展图形类型 | conf=0.25 freq=1 sources=it2_doubao_5
+ - EditorOperator -[assoc]-> 移动图形 | conf=0.5 freq=2 sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 调整图形尺寸 | conf=0.5 freq=2 sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 选择图形 | conf=0.5 freq=2 sources=it2_doubao_4,it2_doubao_5
+ - GraphicDesigner -[assoc]-> 切换图层 | conf=0.25 freq=1 sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 创建图层 | conf=0.25 freq=1 sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 创建自定义图形 | conf=0.25 freq=1 sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 删除图形 | conf=0.25 freq=1 sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 启动图形编辑器 | conf=0.25 freq=1 sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 移动图形 | conf=0.25 freq=1 sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 调整图形尺寸 | conf=0.25 freq=1 sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 选择图形 | conf=0.25 freq=1 sources=it2_doubao_2
+ - GraphicEditorUser -[assoc]-> 切换图层 | conf=0.25 freq=1 sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 创建图层 | conf=0.25 freq=1 sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 创建自定义图形 | conf=0.25 freq=1 sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 删除图形 | conf=0.25 freq=1 sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 启动图形编辑器 | conf=0.25 freq=1 sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 移动图形 | conf=0.25 freq=1 sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 调整图形尺寸 | conf=0.25 freq=1 sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 选择图形 | conf=0.25 freq=1 sources=it2_doubao_1
+ - 创建图形 -[generalize]-> 创建自定义图形 | conf=0.25 freq=1 sources=it2_doubao_4
+ - 创建自定义图形 -[generalize]-> UCExtendShapeType | conf=0.25 freq=1 sources=it2_doubao_2
+
+==================
+2) 不同部分（候选之间的明确冲突）
+==================
+（无：当前冲突主要表现为“不确定/缺条件”，见第 3 部分）
+
+========================
+3) 模糊部分（待确认/置信度不足/缺触发条件）
+========================
+[Stage2 待确认节点（status=unknown）]
+ - EditorOperator (actor) | freq=2 | sources=it2_doubao_4,it2_doubao_5
+ - GraphicDesigner (actor) | freq=1 | sources=it2_doubao_2
+ - GraphicEditorUser (actor) | freq=1 | sources=it2_doubao_1
+ - 创建图形 (usecase) | freq=1 | sources=it2_doubao_4
+ - 扩展图形类型 (usecase) | freq=1 | sources=it2_doubao_5
+
+[Stage2 待确认关系（status=unknown）]
+ - EditorOperator -[assoc]-> 切换图层 | freq=2 | sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 创建图层 | freq=2 | sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 创建自定义图形 | freq=2 | sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 删除图形 | freq=2 | sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 启动图形编辑器 | freq=2 | sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 移动图形 | freq=2 | sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 调整图形尺寸 | freq=2 | sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 选择图形 | freq=2 | sources=it2_doubao_4,it2_doubao_5
+ - EditorOperator -[assoc]-> 创建图形 | freq=1 | sources=it2_doubao_4
+ - EditorOperator -[assoc]-> 扩展图形类型 | freq=1 | sources=it2_doubao_5
+ - GraphicDesigner -[assoc]-> 切换图层 | freq=1 | sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 创建图层 | freq=1 | sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 创建自定义图形 | freq=1 | sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 删除图形 | freq=1 | sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 启动图形编辑器 | freq=1 | sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 移动图形 | freq=1 | sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 调整图形尺寸 | freq=1 | sources=it2_doubao_2
+ - GraphicDesigner -[assoc]-> 选择图形 | freq=1 | sources=it2_doubao_2
+ - GraphicEditorUser -[assoc]-> 切换图层 | freq=1 | sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 创建图层 | freq=1 | sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 创建自定义图形 | freq=1 | sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 删除图形 | freq=1 | sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 启动图形编辑器 | freq=1 | sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 移动图形 | freq=1 | sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 调整图形尺寸 | freq=1 | sources=it2_doubao_1
+ - GraphicEditorUser -[assoc]-> 选择图形 | freq=1 | sources=it2_doubao_1
+ - 创建图形 -[generalize]-> 创建自定义图形 | freq=1 | sources=it2_doubao_4 | hint: has_justif=True has_cond=False has_extpt=False
+ - 创建自定义图形 -[generalize]-> UCExtendShapeType | freq=1 | sources=it2_doubao_2 | hint: has_justif=True has_cond=False has_extpt=False
+
+[Stage3 判定为 unknown 的关系]
+ - usecases(unknown)=1 relations(unknown)=0
+
+[conflicts.json 中的“不确定/缺条件”】【列表】]

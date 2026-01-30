@@ -1,0 +1,98 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "等比例缩放",
+      "included": "选择图形"
+    },
+    "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q2",
+    "type": "yes_no_include",
+    "target": {
+      "base": "调整图形尺寸",
+      "included": "等比例缩放"
+    },
+    "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【等比例缩放】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q3",
+    "type": "yes_no_include",
+    "target": {
+      "base": "等比例缩放",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q4",
+    "type": "extend_condition",
+    "target": {
+      "extension": "调整图形尺寸",
+      "base": "等比例缩放"
+    },
+    "prompt": "如果【调整图形尺寸】是对【等比例缩放】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q5",
+    "type": "extend_condition",
+    "target": {
+      "extension": "等比例缩放",
+      "base": "调整图形尺寸"
+    },
+    "prompt": "如果【等比例缩放】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "按住Shift时"
+  },
+  {
+    "id": "q6",
+    "type": "actor_yes_no",
+    "target": {
+      "actor": "User"
+    },
+    "prompt": "参与者【User】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q7",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "选择活动图层"
+    },
+    "prompt": "用例【选择活动图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q8",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "图层导航"
+    },
+    "prompt": "用例【图层导航】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q9",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "浏览图层"
+    },
+    "prompt": "用例【浏览图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q10",
+    "type": "extend_condition",
+    "target": {
+      "extension": "调整图形尺寸",
+      "base": "等比例缩放"
+    },
+    "prompt": "如果【调整图形尺寸】是对【等比例缩放】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  }
+]

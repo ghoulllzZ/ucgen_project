@@ -1,0 +1,25 @@
+@startuml
+actor User
+
+usecase "启动软件" as UC_StartSoftware
+usecase "创建图形" as UC_CreateShape
+usecase "选择图形" as UC_SelectShape
+usecase "删除图形" as UC_DeleteShape
+usecase "改变图形尺寸" as UC_ChangeShapeSize
+usecase "移动图形" as UC_MoveShape
+usecase "创建图层" as UC_CreateLayer
+usecase "管理图层" as UC_ManageLayer
+
+' 创建图形功能需要包括选择图形
+UC_DeleteShape .u.> UC_SelectShape : include
+
+User --> UC_StartSoftware
+User --> UC_CreateShape
+User --> UC_SelectShape
+User --> UC_DeleteShape
+User --> UC_ChangeShapeSize
+User --> UC_MoveShape
+User --> UC_CreateLayer
+User --> UC_ManageLayer
+
+@enduml

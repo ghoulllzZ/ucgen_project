@@ -1,0 +1,741 @@
+{
+  "args": {
+    "req": "examples\\req_primary_graph_editor.txt",
+    "out": "out_doubao",
+    "max_iters": 4,
+    "backend": "doubao",
+    "temperature": 0.9,
+    "n_samples": 6,
+    "models": [],
+    "seed": 7,
+    "interactive": false,
+    "jaccard_threshold": 0.98,
+    "render": "auto"
+  },
+  "constraints": {
+    "must_include": [
+      {
+        "base": "移动图形",
+        "included": "选择图形"
+      }
+    ],
+    "forbid_include": [
+      {
+        "base": "调整图形尺寸",
+        "included": "选择图形"
+      },
+      {
+        "base": "移动图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "等比例缩放",
+        "included": "调整图形尺寸"
+      },
+      {
+        "base": "删除图形",
+        "included": "选择图形"
+      }
+    ],
+    "extend": [],
+    "forbid_extend": [
+      {
+        "base": "选择图形",
+        "extension": "调整图形尺寸"
+      },
+      {
+        "base": "选择图形",
+        "extension": "移动图形"
+      },
+      {
+        "base": "选择图形",
+        "extension": "删除图形"
+      }
+    ],
+    "keep_actors": [
+      "Editor"
+    ],
+    "forbid_actors": [
+      "User",
+      "GraphicEditorUser",
+      "GraphicDesigner",
+      "EditorOperator"
+    ],
+    "keep_usecases": [
+      "启动图形编辑器",
+      "切换图层",
+      "创建自定义图形"
+    ],
+    "forbid_usecases": [
+      "等比例缩放",
+      "初始启动软件",
+      "创建直线",
+      "创建椭圆",
+      "创建矩形",
+      "扩展图形类型"
+    ]
+  },
+  "iterations": [
+    {
+      "iter_index": 1,
+      "candidates": [
+        {
+          "candidate_id": "it1_doubao_1",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 1057,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\nusecase \"创建自定义图形\" as UC9\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 当需要支持新的图形种类时，扩展创建图形功能\nUC2 <|-- UC9\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_doubao_2",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 1074,
+          "plantuml": "@startuml left to right direction\nactor 用户\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\nusecase \"创建自定义图形\" as UC9\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 扩展创建图形功能以支持自定义图形类型\nUC2 <|-- UC9 : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_doubao_3",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 1091,
+          "plantuml": "@startuml left to right direction\nactor 用户 as User\n\nusecase 启动图形编辑器 as UC1\nusecase 创建图形 as UC2\nusecase 选择图形 as UC3\nusecase 删除图形 as UC4\nusecase 调整图形尺寸 as UC5\nusecase 移动图形 as UC6\nusecase 创建图层 as UC7\nusecase 切换图层 as UC8\nusecase 创建自定义图形 as UC9\n\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n' 可扩展新的图形类型以支持自定义图形创建\nUC2 <|-- UC9\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_doubao_4",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 1108,
+          "plantuml": "@startuml\nleft to right direction\nactor User as U\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\nusecase \"创建自定义图形\" as UC9\n\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\nU --> UC7\nU --> UC8\n\n' 移动图形必须先选择目标图形\nUC6 include UC3\n\n' 当需要扩展图形种类时，可扩展创建自定义图形功能\nUC2 <|-- UC9\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_doubao_5",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 1125,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\nusecase \"扩展创建新图形类型\" as UC9\n\n' 用户可执行所有核心功能\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 删除图形需先选择图形，但约束禁止使用include关系\n' 调整图形尺寸需先选择图形，但约束禁止使用include关系\n' 移动图形需先选择图形，但约束禁止使用include关系\n\n' 根据约束，图形编辑器可扩展创建的图形种类\nUC2 <|.. UC9 : 当需要支持新图形种类时扩展\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 29): UC2 <|.. UC9 : 当需要支持新图形种类时扩展"
+        },
+        {
+          "candidate_id": "it1_doubao_6",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 1142,
+          "plantuml": "left to right direction\nactor User as U\n\nusecase \"初始启动软件\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\nusecase \"创建直线\" as UC21\nusecase \"创建椭圆\" as UC22\nusecase \"创建矩形\" as UC23\n\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\nU --> UC7\nU --> UC8\n\n' 选择直线时扩展创建图形功能，符合图形种类可扩展约束\nUC21 --|> UC2 : extend\n' 选择椭圆时扩展创建图形功能，符合图形种类可扩展约束\nUC22 --|> UC2 : extend\n' 选择矩形时扩展创建图形功能，符合图形种类可扩展约束\nUC23 --|> UC2 : extend\n\n' 移动图形必须包含选择图形，遵循must_include约束\nUC6 .> UC3 : include\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 5,
+        "nodes": 16,
+        "edges": 24,
+        "conflicts": 0
+      },
+      "conflicts": [
+        {
+          "conflict_type": "actor_uncertain",
+          "a": "User",
+          "b": "",
+          "details": {
+            "freq": 0.4,
+            "sources": [
+              "it1_doubao_4",
+              "it1_doubao_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "启动图形编辑器",
+          "b": "",
+          "details": {
+            "freq": 0.8,
+            "sources": [
+              "it1_doubao_1",
+              "it1_doubao_2",
+              "it1_doubao_3",
+              "it1_doubao_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "切换图层",
+          "b": "",
+          "details": {
+            "freq": 0.6,
+            "sources": [
+              "it1_doubao_1",
+              "it1_doubao_3",
+              "it1_doubao_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "创建自定义图形",
+          "b": "",
+          "details": {
+            "freq": 0.8,
+            "sources": [
+              "it1_doubao_1",
+              "it1_doubao_2",
+              "it1_doubao_3",
+              "it1_doubao_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "初始启动软件",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_doubao_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "创建直线",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_doubao_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "创建椭圆",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_doubao_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "创建矩形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_doubao_6"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "actor_yes_no",
+          "target": {
+            "actor": "User"
+          },
+          "prompt": "参与者【User】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "启动图形编辑器"
+          },
+          "prompt": "用例【启动图形编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q3",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "切换图层"
+          },
+          "prompt": "用例【切换图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q4",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "创建自定义图形"
+          },
+          "prompt": "用例【创建自定义图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q5",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "初始启动软件"
+          },
+          "prompt": "用例【初始启动软件】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q6",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "创建直线"
+          },
+          "prompt": "用例【创建直线】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q7",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "创建椭圆"
+          },
+          "prompt": "用例【创建椭圆】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q8",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "创建矩形"
+          },
+          "prompt": "用例【创建矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "yes",
+        "q3": "yes",
+        "q4": "yes",
+        "q5": "no",
+        "q6": "no",
+        "q7": "no",
+        "q8": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "User|assoc|切换图层",
+          "User|assoc|创建图层",
+          "User|assoc|创建图形",
+          "User|assoc|初始启动软件",
+          "User|assoc|删除图形",
+          "User|assoc|启动图形编辑器",
+          "User|assoc|移动图形",
+          "User|assoc|管理图层",
+          "User|assoc|调整图形尺寸",
+          "User|assoc|选择图形",
+          "创建图形|generalize|创建自定义图形",
+          "创建椭圆|generalize|创建图形",
+          "创建直线|generalize|创建图形",
+          "创建矩形|generalize|创建图形",
+          "用户|assoc|切换图层",
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|启动图形编辑器",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "移动图形|assoc|选择图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 2,
+      "candidates": [
+        {
+          "candidate_id": "it2_doubao_1",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 2057,
+          "plantuml": "@startuml\nactor \"Graphic Editor User\" as EditorUser\n\nusecase \"启动图形编辑器\" as UC_Start\nusecase \"创建自定义图形\" as UC_CreateCustom\nusecase \"选择图形\" as UC_Select\nusecase \"删除图形\" as UC_Delete\nusecase \"调整图形尺寸\" as UC_Resize\nusecase \"移动图形\" as UC_Move\nusecase \"创建图层\" as UC_CreateLayer\nusecase \"切换图层\" as UC_SwitchLayer\n\nEditorUser --> UC_Start\nEditorUser --> UC_CreateCustom\nEditorUser --> UC_Select\nEditorUser --> UC_Delete\nEditorUser --> UC_Resize\nEditorUser --> UC_Move\nEditorUser --> UC_CreateLayer\nEditorUser --> UC_SwitchLayer\n\n' 图形种类可扩展，符合约束要求\nnote right of UC_CreateCustom: 支持扩展新增图形类型\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_doubao_2",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 2074,
+          "plantuml": "@startuml\nactor GraphicDesigner as GD\n\nusecase \"启动图形编辑器\" as UC_Start\nusecase \"创建自定义图形\" as UC_CreateShape\nusecase \"选择图形\" as UC_SelectShape\nusecase \"删除图形\" as UC_DeleteShape\nusecase \"调整图形尺寸\" as UC_ResizeShape\nusecase \"移动图形\" as UC_MoveShape\nusecase \"创建图层\" as UC_CreateLayer\nusecase \"切换图层\" as UC_SwitchLayer\n\n' 扩展创建图形种类以支持新增图形类型\nUC_CreateShape <|-- UC_ExtendShapeType : extend (新增图形种类时触发)\n\nGD --> UC_Start\nGD --> UC_CreateShape\nGD --> UC_SelectShape\nGD --> UC_DeleteShape\nGD --> UC_ResizeShape\nGD --> UC_MoveShape\nGD --> UC_CreateLayer\nGD --> UC_SwitchLayer\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_doubao_3",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 2091,
+          "plantuml": "@startuml\nactor EditorUser\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"创建自定义图形\" as UC3 #lightblue\nusecase \"选择图形\" as UC4\nusecase \"删除图形\" as UC5\nusecase \"调整图形尺寸\" as UC6\nusecase \"移动图形\" as UC7\nusecase \"创建图层\" as UC8\nusecase \"切换图层\" as UC9 #lightblue\n\n' 当需要创建自定义类型图形时，扩展基础创建图形功能\nUC2 <|-- UC3\n\nEditorUser --> UC1\nEditorUser --> UC2\nEditorUser --> UC3\nEditorUser --> UC4\nEditorUser --> UC5\nEditorUser --> UC6\nEditorUser --> UC7\nEditorUser --> UC8\nEditorUser --> UC9\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 6): usecase \"创建自定义图形\" as UC3 #lightblue"
+        },
+        {
+          "candidate_id": "it2_doubao_4",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 2108,
+          "plantuml": "@startuml left to right direction\nactor EditorOperator as E\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"创建自定义图形\" as UC3\nusecase \"选择图形\" as UC4\nusecase \"删除图形\" as UC5\nusecase \"改变图形尺寸\" as UC6\nusecase \"移动图形\" as UC7\nusecase \"创建图层\" as UC8\nusecase \"切换图层\" as UC9\n\nE --> UC1\nE --> UC2\nE --> UC3\nE --> UC4\nE --> UC5\nE --> UC6\nE --> UC7\nE --> UC8\nE --> UC9\n\n' 当需要扩展自定义图形种类时，通过创建自定义图形功能扩展创建图形的支持类型\nUC2 <|-- UC3 : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_doubao_5",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 2125,
+          "plantuml": "actor EditorOperator as E\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建自定义图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\nusecase \"扩展图形类型\" as UC9\n\nE --> UC1\nE --> UC2\nE --> UC3\nE --> UC4\nE --> UC5\nE --> UC6\nE --> UC7\nE --> UC8\nE --> UC9\n\n' 移动图形执行过程中必须先选择目标图形，属于强制性依赖\nUC6 includes UC3\n\n' 新增图形种类时，扩展图形类型功能对创建自定义图形功能进行扩展\nUC9 extends UC2\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_doubao_6",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 2142,
+          "plantuml": "@startuml\nactor \"编辑器操作者\" as EditorOp\nusecase \"启动图形编辑器\" as UC_Start\nusecase \"创建图形\" as UC_CreateGraph\nusecase \"选择图形\" as UC_SelectGraph\nusecase \"删除图形\" as UC_DeleteGraph\nusecase \"调整图形尺寸\" as UC_ResizeGraph\nusecase \"移动图形\" as UC_MoveGraph\nusecase \"创建图层\" as UC_CreateLayer\nusecase \"切换图层\" as UC_SwitchLayer\nusecase \"创建自定义图形\" as UC_CustomGraph\n\n' 扩展创建图形功能以支持自定义图形类型\nUC_CreateGraph <|.. UC_CustomGraph : extend \"扩展点:自定义图形类型\"\n\nEditorOp --> UC_Start\nEditorOp --> UC_CreateGraph\nEditorOp --> UC_SelectGraph\nEditorOp --> UC_DeleteGraph\nEditorOp --> UC_ResizeGraph\nEditorOp --> UC_MoveGraph\nEditorOp --> UC_CreateLayer\nEditorOp --> UC_SwitchLayer\nEditorOp --> UC_CustomGraph\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 14): UC_CreateGraph <|.. UC_CustomGraph : extend \"扩展点:自定义图形类型\""
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 4,
+        "nodes": 13,
+        "edges": 28,
+        "conflicts": 0
+      },
+      "conflicts": [
+        {
+          "conflict_type": "actor_uncertain",
+          "a": "GraphicEditorUser",
+          "b": "",
+          "details": {
+            "freq": 0.25,
+            "sources": [
+              "it2_doubao_1"
+            ]
+          }
+        },
+        {
+          "conflict_type": "actor_uncertain",
+          "a": "GraphicDesigner",
+          "b": "",
+          "details": {
+            "freq": 0.25,
+            "sources": [
+              "it2_doubao_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "actor_uncertain",
+          "a": "EditorOperator",
+          "b": "",
+          "details": {
+            "freq": 0.5,
+            "sources": [
+              "it2_doubao_4",
+              "it2_doubao_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "扩展图形类型",
+          "b": "",
+          "details": {
+            "freq": 0.25,
+            "sources": [
+              "it2_doubao_5"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "actor_yes_no",
+          "target": {
+            "actor": "GraphicEditorUser"
+          },
+          "prompt": "参与者【GraphicEditorUser】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "actor_yes_no",
+          "target": {
+            "actor": "GraphicDesigner"
+          },
+          "prompt": "参与者【GraphicDesigner】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q3",
+          "type": "actor_yes_no",
+          "target": {
+            "actor": "EditorOperator"
+          },
+          "prompt": "参与者【EditorOperator】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q4",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "扩展图形类型"
+          },
+          "prompt": "用例【扩展图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no",
+        "q3": "no",
+        "q4": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "EditorOperator|assoc|切换图层",
+          "EditorOperator|assoc|创建图层",
+          "EditorOperator|assoc|创建图形",
+          "EditorOperator|assoc|创建自定义图形",
+          "EditorOperator|assoc|删除图形",
+          "EditorOperator|assoc|启动图形编辑器",
+          "EditorOperator|assoc|扩展图形类型",
+          "EditorOperator|assoc|移动图形",
+          "EditorOperator|assoc|调整图形尺寸",
+          "EditorOperator|assoc|选择图形",
+          "GraphicDesigner|assoc|切换图层",
+          "GraphicDesigner|assoc|创建图层",
+          "GraphicDesigner|assoc|创建自定义图形",
+          "GraphicDesigner|assoc|删除图形",
+          "GraphicDesigner|assoc|启动图形编辑器",
+          "GraphicDesigner|assoc|移动图形",
+          "GraphicDesigner|assoc|调整图形尺寸",
+          "GraphicDesigner|assoc|选择图形",
+          "GraphicEditorUser|assoc|切换图层",
+          "GraphicEditorUser|assoc|创建图层",
+          "GraphicEditorUser|assoc|创建自定义图形",
+          "GraphicEditorUser|assoc|删除图形",
+          "GraphicEditorUser|assoc|启动图形编辑器",
+          "GraphicEditorUser|assoc|移动图形",
+          "GraphicEditorUser|assoc|调整图形尺寸",
+          "GraphicEditorUser|assoc|选择图形",
+          "创建图形|generalize|创建自定义图形",
+          "创建自定义图形|generalize|UCExtendShapeType"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 3,
+      "candidates": [
+        {
+          "candidate_id": "it3_doubao_1",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 3057,
+          "plantuml": "@startuml\nleft to right direction\nactor Editor\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\nusecase \"创建自定义图形\" as UC9\n\nEditor --> UC1\nEditor --> UC2\nEditor --> UC3\nEditor --> UC4\nEditor --> UC5\nEditor --> UC6\nEditor --> UC7\nEditor --> UC8\nEditor --> UC9\n\n' 删除图形操作需先完成选择图形\n' 调整图形尺寸操作需先完成选择图形\n' 移动图形操作需先完成选择图形\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_doubao_2",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 3074,
+          "plantuml": "left to right direction\nactor Editor\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\nusecase \"创建自定义图形\" as UC9\n\nEditor --> UC1\nEditor --> UC2\nEditor --> UC3\nEditor --> UC4\nEditor --> UC5\nEditor --> UC6\nEditor --> UC7\nEditor --> UC8\nEditor --> UC9\n\n' 可根据需求扩展自定义图形类型，创建图形可扩展为创建自定义图形\nUC2 <|-- UC9\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_doubao_3",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 3091,
+          "plantuml": "@startuml\nactor Editor\n\nusecase \"启动图形编辑器\" as UC_Start\nusecase \"创建图形\" as UC_CreateShape\nusecase \"选择图形\" as UC_SelectShape\nusecase \"删除图形\" as UC_DeleteShape\nusecase \"调整图形尺寸\" as UC_ResizeShape\nusecase \"移动图形\" as UC_MoveShape\nusecase \"创建图层\" as UC_CreateLayer\nusecase \"切换图层\" as UC_SwitchLayer\nusecase \"创建自定义图形\" as UC_CustomShape\n\nEditor --> UC_Start\nEditor --> UC_CreateShape\nEditor --> UC_SelectShape\nEditor --> UC_DeleteShape\nEditor --> UC_ResizeShape\nEditor --> UC_MoveShape\nEditor --> UC_CreateLayer\nEditor --> UC_SwitchLayer\nEditor --> UC_CustomShape\n\n' 当需要使用自定义图形类型时，扩展创建图形功能\nUC_CreateShape <|-- UC_CustomShape\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_doubao_4",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 3108,
+          "plantuml": "left to right direction\nactor Editor\n\nusecase \"启动图形编辑器\" as UC_Start\nusecase \"创建图形\" as UC_CreateShape\nusecase \"选择图形\" as UC_SelectShape\nusecase \"删除图形\" as UC_DeleteShape\nusecase \"调整图形尺寸\" as UC_ResizeShape\nusecase \"移动图形\" as UC_MoveShape\nusecase \"创建图层\" as UC_CreateLayer\nusecase \"切换图层\" as UC_SwitchLayer\nusecase \"创建自定义图形\" as UC_CreateCustomShape\n\nEditor --> UC_Start\nEditor --> UC_CreateShape\nEditor --> UC_SelectShape\nEditor --> UC_DeleteShape\nEditor --> UC_ResizeShape\nEditor --> UC_MoveShape\nEditor --> UC_CreateLayer\nEditor --> UC_SwitchLayer\nEditor --> UC_CreateCustomShape\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_doubao_5",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 3125,
+          "plantuml": "left to right direction\n\nactor Editor\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建自定义图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\n\n' 必须包含：移动图形功能执行前必须先选择图形\nUC6 --> UC3 : include\n\nEditor --> UC1\nEditor --> UC2\nEditor --> UC3\nEditor --> UC4\nEditor --> UC5\nEditor --> UC6\nEditor --> UC7\nEditor --> UC8\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_doubao_6",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 3142,
+          "plantuml": "@startuml\nactor Editor\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\nusecase \"创建自定义图形\" as UC9\n\nEditor --> UC1\nEditor --> UC2\nEditor --> UC3\nEditor --> UC4\nEditor --> UC5\nEditor --> UC6\nEditor --> UC7\nEditor --> UC8\nEditor --> UC9\n\n' 当需要创建扩展类型的图形时，创建图形可扩展为创建自定义图形\nUC2 <|-- UC9\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 10,
+        "edges": 11,
+        "conflicts": 0
+      },
+      "conflicts": [
+        {
+          "conflict_type": "actor_uncertain",
+          "a": "Editor",
+          "b": "",
+          "details": {
+            "freq": 1.0,
+            "sources": [
+              "it3_doubao_1",
+              "it3_doubao_2",
+              "it3_doubao_3",
+              "it3_doubao_4",
+              "it3_doubao_5",
+              "it3_doubao_6"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "actor_yes_no",
+          "target": {
+            "actor": "Editor"
+          },
+          "prompt": "参与者【Editor】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        }
+      ],
+      "answers": {
+        "q1": "yes"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "Editor|assoc|切换图层",
+          "Editor|assoc|创建图层",
+          "Editor|assoc|创建图形",
+          "Editor|assoc|创建自定义图形",
+          "Editor|assoc|删除图形",
+          "Editor|assoc|启动图形编辑器",
+          "Editor|assoc|移动图形",
+          "Editor|assoc|调整图形尺寸",
+          "Editor|assoc|选择图形",
+          "创建图形|generalize|创建自定义图形",
+          "移动图形|assoc|选择图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 4,
+      "candidates": [
+        {
+          "candidate_id": "it4_doubao_1",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 4057,
+          "plantuml": "@startuml\nleft to right direction\nactor Editor\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\nusecase \"创建自定义图形\" as UC9\n\n' 扩展创建图形的种类，支持自定义图形创建\nUC2 <|-- UC9\n\nEditor --> UC1\nEditor --> UC2\nEditor --> UC3\nEditor --> UC4\nEditor --> UC5\nEditor --> UC6\nEditor --> UC7\nEditor --> UC8\nEditor --> UC9\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_doubao_2",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 4074,
+          "plantuml": "@startuml\nleft to right direction\nactor Editor\n\nusecase \"启动图形编辑器\" as UC_Start\nusecase \"创建图形\" as UC_CreateShape\nusecase \"选择图形\" as UC_SelectShape\nusecase \"删除图形\" as UC_DeleteShape\nusecase \"改变图形尺寸\" as UC_ResizeShape\nusecase \"移动图形\" as UC_MoveShape\nusecase \"创建图层\" as UC_CreateLayer\nusecase \"切换图层\" as UC_SwitchLayer\nusecase \"创建自定义图形\" as UC_CustomShape\n\nEditor --> UC_Start\nEditor --> UC_CreateShape\nEditor --> UC_SelectShape\nEditor --> UC_DeleteShape\nEditor --> UC_ResizeShape\nEditor --> UC_MoveShape\nEditor --> UC_CreateLayer\nEditor --> UC_SwitchLayer\nEditor --> UC_CustomShape\n\n' 当需要创建预设类型外的自定义图形时，扩展标准创建图形功能\nUC_CreateShape <|.. UC_CustomShape\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 26): UC_CreateShape <|.. UC_CustomShape"
+        },
+        {
+          "candidate_id": "it4_doubao_3",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 4091,
+          "plantuml": "left to right direction\nactor Editor\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8 #gold\nusecase \"创建自定义图形\" as UC9 #gold\n\n' 移动图形执行必须包含选择图形，遵循must_include约束\nUC6 --> UC3 : include\n\n' 删除图形需先选择图形，因forbid_include禁止include关系故仅注释说明\nEditor --> UC3\nEditor --> UC4\nEditor --> UC5\nEditor --> UC6\nEditor --> UC2\nEditor --> UC1\nEditor --> UC7\nEditor --> UC8\nEditor --> UC9\n\n' 启动图形编辑器需初始化创建第一个图层\nUC1 --> UC7 : include\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 11): usecase \"切换图层\" as UC8 #gold"
+        },
+        {
+          "candidate_id": "it4_doubao_4",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 4108,
+          "plantuml": "left to right direction\nactor Editor as E\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\nusecase \"创建自定义图形\" as UC9\n\n' 当需要创建直线、椭圆、矩形之外的图形类型时，扩展创建图形功能\nUC9 --> UC2 : extends\n\nE --> UC1\nE --> UC2\nE --> UC3\nE --> UC4\nE --> UC5\nE --> UC6\nE --> UC7\nE --> UC8\nE --> UC9\n\n' 删除图形需先选择图形（按约束禁止使用include，仅作说明）\n' 改变图形尺寸需先选择图形（按约束禁止使用include，仅作说明）\n' 移动图形需先选择图形（按约束禁止使用include，仅作说明）\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_doubao_5",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 4125,
+          "plantuml": "@startuml\nleft to right direction\nactor Editor\n\nusecase \"启动图形编辑器\" as UC1 #mustkeep\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8 #mustkeep\nusecase \"创建自定义图形\" as UC9 #mustkeep\n\nEditor --> UC1\nEditor --> UC2\nEditor --> UC3\nEditor --> UC4\nEditor --> UC5\nEditor --> UC6\nEditor --> UC7\nEditor --> UC8\nEditor --> UC9\n\n' 当用户需要使用预设图形类型之外的自定义图形时，扩展基础创建图形功能\nUC9 --|> UC2 : extend\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 5): usecase \"启动图形编辑器\" as UC1 #mustkeep"
+        },
+        {
+          "candidate_id": "it4_doubao_6",
+          "model": "doubao",
+          "temperature": 0.9,
+          "seed": 4142,
+          "plantuml": "@startuml\nactor Editor\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\nusecase \"创建自定义图形\" as UC9\n\nEditor --> UC1\nEditor --> UC2\nEditor --> UC3\nEditor --> UC4\nEditor --> UC5\nEditor --> UC6\nEditor --> UC7\nEditor --> UC8\nEditor --> UC9\n\n' 当需要添加新的自定义图形类型时，扩展创建图形功能\nUC2 <|-- UC9\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 3,
+        "nodes": 10,
+        "edges": 11,
+        "conflicts": 0
+      },
+      "conflicts": [],
+      "questions": [],
+      "answers": {},
+      "rule_report": {
+        "kept_edges": [
+          "Editor|assoc|切换图层",
+          "Editor|assoc|创建图层",
+          "Editor|assoc|创建图形",
+          "Editor|assoc|创建自定义图形",
+          "Editor|assoc|删除图形",
+          "Editor|assoc|启动图形编辑器",
+          "Editor|assoc|移动图形",
+          "Editor|assoc|调整图形尺寸",
+          "Editor|assoc|选择图形",
+          "创建图形|generalize|创建自定义图形",
+          "创建自定义图形|assoc|创建图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": true
+    }
+  ],
+  "final": {
+    "final_usecase_puml": "out_doubao\\final_usecase.puml",
+    "nodes": [
+      "Editor",
+      "切换图层",
+      "创建图层",
+      "创建图形",
+      "创建自定义图形",
+      "删除图形",
+      "启动图形编辑器",
+      "移动图形",
+      "调整图形尺寸",
+      "选择图形"
+    ],
+    "edges": [
+      "Editor|assoc|切换图层",
+      "Editor|assoc|创建图层",
+      "Editor|assoc|创建图形",
+      "Editor|assoc|创建自定义图形",
+      "Editor|assoc|删除图形",
+      "Editor|assoc|启动图形编辑器",
+      "Editor|assoc|移动图形",
+      "Editor|assoc|调整图形尺寸",
+      "Editor|assoc|选择图形",
+      "创建图形|generalize|创建自定义图形",
+      "创建自定义图形|assoc|创建图形"
+    ]
+  }
+}

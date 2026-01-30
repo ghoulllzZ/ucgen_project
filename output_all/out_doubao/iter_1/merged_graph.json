@@ -1,0 +1,1128 @@
+{
+  "stats": {
+    "total_candidates": 5,
+    "nodes": 16,
+    "edges": 24,
+    "conflicts": 0
+  },
+  "nodes": {
+    "用户": {
+      "name": "用户",
+      "node_type": "actor",
+      "freq": 3,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3"
+      ],
+      "status": "common"
+    },
+    "创建图层": {
+      "name": "创建图层",
+      "node_type": "usecase",
+      "freq": 5,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3",
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "common"
+    },
+    "删除图形": {
+      "name": "删除图形",
+      "node_type": "usecase",
+      "freq": 5,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3",
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "common"
+    },
+    "启动图形编辑器": {
+      "name": "启动图形编辑器",
+      "node_type": "usecase",
+      "freq": 4,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3",
+        "it1_doubao_4"
+      ],
+      "status": "common"
+    },
+    "切换图层": {
+      "name": "切换图层",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_3",
+        "it1_doubao_4"
+      ],
+      "status": "common"
+    },
+    "创建图形": {
+      "name": "创建图形",
+      "node_type": "usecase",
+      "freq": 5,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3",
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "common"
+    },
+    "选择图形": {
+      "name": "选择图形",
+      "node_type": "usecase",
+      "freq": 5,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3",
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "common"
+    },
+    "创建自定义图形": {
+      "name": "创建自定义图形",
+      "node_type": "usecase",
+      "freq": 4,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3",
+        "it1_doubao_4"
+      ],
+      "status": "common"
+    },
+    "调整图形尺寸": {
+      "name": "调整图形尺寸",
+      "node_type": "usecase",
+      "freq": 5,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3",
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "common"
+    },
+    "移动图形": {
+      "name": "移动图形",
+      "node_type": "usecase",
+      "freq": 5,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3",
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "common"
+    },
+    "管理图层": {
+      "name": "管理图层",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it1_doubao_2",
+        "it1_doubao_6"
+      ],
+      "status": "unknown"
+    },
+    "User": {
+      "name": "User",
+      "node_type": "actor",
+      "freq": 2,
+      "sources": [
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "unknown"
+    },
+    "初始启动软件": {
+      "name": "初始启动软件",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_6"
+      ],
+      "status": "unknown"
+    },
+    "创建直线": {
+      "name": "创建直线",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_6"
+      ],
+      "status": "unknown"
+    },
+    "创建椭圆": {
+      "name": "创建椭圆",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_6"
+      ],
+      "status": "unknown"
+    },
+    "创建矩形": {
+      "name": "创建矩形",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_6"
+      ],
+      "status": "unknown"
+    }
+  },
+  "edges": {
+    "用户|assoc|启动图形编辑器": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "启动图形编辑器",
+      "freq": 3,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_1",
+          "line_no": 15,
+          "raw": "用户 --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_1",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_2",
+          "line_no": 14,
+          "raw": "用户 --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_2",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_3",
+          "line_no": 14,
+          "raw": "User --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_3",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "用户|assoc|创建图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "freq": 3,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_1",
+          "line_no": 16,
+          "raw": "用户 --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_1",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_2",
+          "line_no": 15,
+          "raw": "用户 --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_2",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_3",
+          "line_no": 15,
+          "raw": "User --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_3",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "用户|assoc|选择图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 3,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_1",
+          "line_no": 17,
+          "raw": "用户 --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_1",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_2",
+          "line_no": 16,
+          "raw": "用户 --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_2",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_3",
+          "line_no": 16,
+          "raw": "User --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_3",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "用户|assoc|删除图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "freq": 3,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_1",
+          "line_no": 18,
+          "raw": "用户 --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_1",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_2",
+          "line_no": 17,
+          "raw": "用户 --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_2",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_3",
+          "line_no": 17,
+          "raw": "User --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_3",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "用户|assoc|调整图形尺寸": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 3,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_1",
+          "line_no": 19,
+          "raw": "用户 --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_1",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_2",
+          "line_no": 18,
+          "raw": "用户 --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_2",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_3",
+          "line_no": 18,
+          "raw": "User --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_3",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "用户|assoc|移动图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "freq": 3,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_1",
+          "line_no": 20,
+          "raw": "用户 --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_1",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_2",
+          "line_no": 19,
+          "raw": "用户 --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_2",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_3",
+          "line_no": 19,
+          "raw": "User --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_3",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "用户|assoc|创建图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "freq": 3,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_1",
+          "line_no": 21,
+          "raw": "用户 --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_1",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_2",
+          "line_no": 20,
+          "raw": "用户 --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_2",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_3",
+          "line_no": 20,
+          "raw": "User --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_3",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "用户|assoc|切换图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "切换图层",
+      "freq": 2,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_1",
+          "line_no": 22,
+          "raw": "用户 --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_1",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_3",
+          "line_no": 21,
+          "raw": "User --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_3",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "创建图形|generalize|创建自定义图形": {
+      "src": "创建图形",
+      "kind": "generalize",
+      "dst": "创建自定义图形",
+      "freq": 4,
+      "sources": [
+        "it1_doubao_1",
+        "it1_doubao_2",
+        "it1_doubao_3",
+        "it1_doubao_4"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_1",
+          "line_no": 25,
+          "raw": "UC2 <|-- UC9",
+          "label": "",
+          "justification": "当需要支持新的图形种类时，扩展创建图形功能",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_1",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_2",
+          "line_no": 24,
+          "raw": "UC2 <|-- UC9 : extend",
+          "label": "extend",
+          "justification": "扩展创建图形功能以支持自定义图形类型",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_2",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_3",
+          "line_no": 24,
+          "raw": "UC2 <|-- UC9",
+          "label": "",
+          "justification": "可扩展新的图形类型以支持自定义图形创建",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_3",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_4",
+          "line_no": 28,
+          "raw": "UC2 <|-- UC9",
+          "label": "",
+          "justification": "当需要扩展图形种类时，可扩展创建自定义图形功能",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_4",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "用户|assoc|管理图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "管理图层",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_2",
+          "line_no": 21,
+          "raw": "用户 --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_2",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "User|assoc|启动图形编辑器": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "启动图形编辑器",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_4",
+          "line_no": 15,
+          "raw": "U --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_4",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "User|assoc|创建图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "freq": 2,
+      "sources": [
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_4",
+          "line_no": 16,
+          "raw": "U --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 17,
+          "raw": "U --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "User|assoc|选择图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 2,
+      "sources": [
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_4",
+          "line_no": 17,
+          "raw": "U --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 18,
+          "raw": "U --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "User|assoc|删除图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "freq": 2,
+      "sources": [
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_4",
+          "line_no": 18,
+          "raw": "U --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 19,
+          "raw": "U --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "User|assoc|调整图形尺寸": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 2,
+      "sources": [
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_4",
+          "line_no": 19,
+          "raw": "U --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 20,
+          "raw": "U --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "User|assoc|移动图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "freq": 2,
+      "sources": [
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_4",
+          "line_no": 20,
+          "raw": "U --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 21,
+          "raw": "U --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "User|assoc|创建图层": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "freq": 2,
+      "sources": [
+        "it1_doubao_4",
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_4",
+          "line_no": 21,
+          "raw": "U --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 22,
+          "raw": "U --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "User|assoc|切换图层": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "切换图层",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_4",
+          "line_no": 22,
+          "raw": "U --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_4",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "User|assoc|初始启动软件": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "初始启动软件",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 16,
+          "raw": "U --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "User|assoc|管理图层": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "管理图层",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 23,
+          "raw": "U --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "创建直线|generalize|创建图形": {
+      "src": "创建直线",
+      "kind": "generalize",
+      "dst": "创建图形",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 26,
+          "raw": "UC21 --|> UC2 : extend",
+          "label": "extend",
+          "justification": "选择直线时扩展创建图形功能，符合图形种类可扩展约束",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "创建椭圆|generalize|创建图形": {
+      "src": "创建椭圆",
+      "kind": "generalize",
+      "dst": "创建图形",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 28,
+          "raw": "UC22 --|> UC2 : extend",
+          "label": "extend",
+          "justification": "选择椭圆时扩展创建图形功能，符合图形种类可扩展约束",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "创建矩形|generalize|创建图形": {
+      "src": "创建矩形",
+      "kind": "generalize",
+      "dst": "创建图形",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 30,
+          "raw": "UC23 --|> UC2 : extend",
+          "label": "extend",
+          "justification": "选择矩形时扩展创建图形功能，符合图形种类可扩展约束",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "移动图形|assoc|选择图形": {
+      "src": "移动图形",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 1,
+      "sources": [
+        "it1_doubao_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_doubao_6",
+          "line_no": 33,
+          "raw": "UC6 .> UC3 : include",
+          "label": "include",
+          "justification": "移动图形必须包含选择图形，遵循must_include约束",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_doubao_6",
+            "model": "doubao"
+          }
+        }
+      ]
+    }
+  }
+}

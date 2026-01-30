@@ -1,0 +1,19 @@
+@startuml
+actor 管理员
+
+usecase "编号零件" as usecase1
+usecase "命名零件类型" as usecase2
+usecase "记录零件价格" as usecase3
+usecase "查询组件价格" as usecase4
+
+管理员 --> usecase1
+管理员 --> usecase2
+管理员 --> usecase3
+管理员 --> usecase4
+
+' 查询组件价格 需要使用组件结构信息，但根据约束不能包含编号零件
+' 查询组件价格 需要知道类型信息，但根据约束不能包含命名零件类型
+' 查询组件价格 需要计算价格，但根据约束不能包含记录零件价格
+' 记录零件价格 必须基于已有零件，但根据约束不能包含编号零件
+
+@enduml

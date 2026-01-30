@@ -1,0 +1,42 @@
+{
+  "must_include": [
+    {
+      "base": "删除图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "调整图形尺寸",
+      "included": "选择图形"
+    },
+    {
+      "base": "移动图形",
+      "included": "选择图形"
+    }
+  ],
+  "forbid_include": [
+    {
+      "base": "选择图形",
+      "included": "创建图形"
+    },
+    {
+      "base": "创建图层",
+      "included": "管理图层"
+    }
+  ],
+  "extend": [],
+  "forbid_extend": [],
+  "keep_actors": [],
+  "forbid_actors": [
+    "User"
+  ],
+  "keep_usecases": [],
+  "forbid_usecases": [
+    "缩小图形",
+    "动态绘制图形",
+    "更新当前图层状态",
+    "放大图形",
+    "启动图形编辑器",
+    "启动软件",
+    "调整尺寸"
+  ]
+}

@@ -1,0 +1,62 @@
+@startuml
+left to right direction
+actor 用户
+
+'
+' 基础用例：创建、选择、删除、图层管理等
+'
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layer
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+
+'
+' 用户与基础用例的关联
+'
+用户 --> create_shape
+用户 --> select_shape
+用户 --> delete_shape
+用户 --> create_layer
+用户 --> manage_layer
+
+'
+' 扩展关系：改变图形尺寸 扩展 选择图形（在控制点显示后）
+'
+' 扩展条件：当图形被选中并显示控制点（EP1），且用户拖动控制点或点击放大/缩小按钮
+select_shape ..> resize_shape : <<extend>>\n[EP1: 图形已被选中并显示控制点]
+note on link
+  扩展条件：
+  - 用户拖动控制点
+  - 或点击“放大”/“缩小”按钮
+end note
+
+'
+' 扩展关系：移动图形 扩展 选择图形（在图形被选中后）
+'
+' 扩展条件：当图形被选中（EP2），且用户在图形内部按下并拖动
+select_shape ..> move_shape : <<extend>>\n[EP2: 图形已被选中]
+note on link
+  扩展条件：
+  - 用户在已选中图形内部按下鼠标并拖动
+end note
+
+'
+' 包含关系：删除图形 需要 先选择图形（必须先选中才能删）
+'
+' 因果依赖：删除操作只能作用于已选中的图形
+select_shape .> delete_shape : <<include>>
+note on link
+  必须先选中图形才能执行删除
+end note
+
+'
+' 创建图形 与 创建图层 的独立性
+' 管理图层 和 创建图层 是独立操作
+'
+用户 --> create_layer
+用户 --> manage_layer
+
+@enduml

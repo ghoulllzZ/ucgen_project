@@ -1,0 +1,1306 @@
+{
+  "stats": {
+    "total_candidates": 5,
+    "nodes": 26,
+    "edges": 31,
+    "conflicts": 3
+  },
+  "nodes": {
+    "用户": {
+      "name": "用户",
+      "node_type": "actor",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common"
+    },
+    "调整图形尺寸": {
+      "name": "调整图形尺寸",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common"
+    },
+    "移动图形": {
+      "name": "移动图形",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common"
+    },
+    "删除图形": {
+      "name": "删除图形",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common"
+    },
+    "选择图形": {
+      "name": "选择图形",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common"
+    },
+    "等比例缩放": {
+      "name": "等比例缩放",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common"
+    },
+    "创建图形": {
+      "name": "创建图形",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common"
+    },
+    "管理图层": {
+      "name": "管理图层",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_5"
+      ],
+      "status": "unknown"
+    },
+    "创建图层": {
+      "name": "创建图层",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common"
+    },
+    "Editor": {
+      "name": "Editor",
+      "node_type": "actor",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown"
+    },
+    "SelectGraphic": {
+      "name": "SelectGraphic",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown"
+    },
+    "ResizeGraphic": {
+      "name": "ResizeGraphic",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown"
+    },
+    "MoveGraphic": {
+      "name": "MoveGraphic",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown"
+    },
+    "CreateLayer": {
+      "name": "CreateLayer",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it5_deepseek_2",
+        "it5_deepseek_6"
+      ],
+      "status": "unknown"
+    },
+    "CreateGraphic": {
+      "name": "CreateGraphic",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown"
+    },
+    "DeleteGraphic": {
+      "name": "DeleteGraphic",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown"
+    },
+    "SwitchLayerFocus": {
+      "name": "SwitchLayerFocus",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown"
+    },
+    "ScaleProportionally": {
+      "name": "ScaleProportionally",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it5_deepseek_2",
+        "it5_deepseek_6"
+      ],
+      "status": "unknown"
+    },
+    "变更当前图层": {
+      "name": "变更当前图层",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_4"
+      ],
+      "status": "unknown"
+    },
+    "EditorUser": {
+      "name": "EditorUser",
+      "node_type": "actor",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown"
+    },
+    "AdjustShapeSize": {
+      "name": "AdjustShapeSize",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown"
+    },
+    "DeleteShape": {
+      "name": "DeleteShape",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown"
+    },
+    "SelectShape": {
+      "name": "SelectShape",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown"
+    },
+    "CreateShape": {
+      "name": "CreateShape",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown"
+    },
+    "SwitchCurrentLayer": {
+      "name": "SwitchCurrentLayer",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown"
+    },
+    "MoveShape": {
+      "name": "MoveShape",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown"
+    }
+  },
+  "edges": {
+    "用户|assoc|创建图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_1",
+          "line_no": 13,
+          "raw": "\"用户\" --> \"创建图形\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_4",
+          "line_no": 13,
+          "raw": "用户 --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_5",
+          "line_no": 13,
+          "raw": "UserActor --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|选择图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_1",
+          "line_no": 14,
+          "raw": "\"用户\" --> \"选择图形\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_4",
+          "line_no": 14,
+          "raw": "用户 --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_5",
+          "line_no": 14,
+          "raw": "UserActor --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|删除图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_1",
+          "line_no": 15,
+          "raw": "\"用户\" --> \"删除图形\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_4",
+          "line_no": 15,
+          "raw": "用户 --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_5",
+          "line_no": 15,
+          "raw": "UserActor --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|调整图形尺寸": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_1",
+          "line_no": 16,
+          "raw": "\"用户\" --> \"调整图形尺寸\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_4",
+          "line_no": 16,
+          "raw": "用户 --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_5",
+          "line_no": 16,
+          "raw": "UserActor --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|移动图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_1",
+          "line_no": 17,
+          "raw": "\"用户\" --> \"移动图形\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_4",
+          "line_no": 17,
+          "raw": "用户 --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_5",
+          "line_no": 17,
+          "raw": "UserActor --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|创建图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_1",
+          "line_no": 18,
+          "raw": "\"用户\" --> \"创建图层\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_4",
+          "line_no": 18,
+          "raw": "用户 --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_5",
+          "line_no": 18,
+          "raw": "UserActor --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|管理图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "管理图层",
+      "freq": 2,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_1",
+          "line_no": 19,
+          "raw": "\"用户\" --> \"管理图层\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_5",
+          "line_no": 19,
+          "raw": "UserActor --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|等比例缩放": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "等比例缩放",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_1",
+          "line_no": 20,
+          "raw": "\"用户\" --> \"等比例缩放\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_4",
+          "line_no": 20,
+          "raw": "用户 --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_5",
+          "line_no": 20,
+          "raw": "UserActor --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "等比例缩放|assoc|选择图形": {
+      "src": "等比例缩放",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_1",
+          "line_no": 23,
+          "raw": "\"等比例缩放\" ..> \"选择图形\" : includes",
+          "label": "includes",
+          "justification": "等比例缩放执行时必须包含选择图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_4",
+          "line_no": 23,
+          "raw": "UC8 ..> UC2 : include",
+          "label": "include",
+          "justification": "等比例缩放必须在选择图形后进行",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_5",
+          "line_no": 23,
+          "raw": "UC8 ..> UC2 : include",
+          "label": "include",
+          "justification": "等比例缩放必须在选择图形后进行",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "等比例缩放|assoc|调整图形尺寸": {
+      "src": "等比例缩放",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 3,
+      "sources": [
+        "it5_deepseek_1",
+        "it5_deepseek_4",
+        "it5_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_1",
+          "line_no": 26,
+          "raw": "\"等比例缩放\" ..> \"调整图形尺寸\" : extends",
+          "label": "extends",
+          "justification": "当按住Shift时，调整图形尺寸扩展执行等比例缩放",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_4",
+          "line_no": 26,
+          "raw": "UC8 ..> UC4 : extend",
+          "label": "extend",
+          "justification": "按住Shift时触发等比例缩放",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it5_deepseek_5",
+          "line_no": 26,
+          "raw": "UC8 ..> UC4 : extend",
+          "label": "extend",
+          "justification": "按住Shift时触发等比例缩放",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "Editor|assoc|CreateGraphic": {
+      "src": "Editor",
+      "kind": "assoc",
+      "dst": "CreateGraphic",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_2",
+          "line_no": 13,
+          "raw": "editor --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_2",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "Editor|assoc|SelectGraphic": {
+      "src": "Editor",
+      "kind": "assoc",
+      "dst": "SelectGraphic",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_2",
+          "line_no": 14,
+          "raw": "editor --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_2",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "Editor|assoc|DeleteGraphic": {
+      "src": "Editor",
+      "kind": "assoc",
+      "dst": "DeleteGraphic",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_2",
+          "line_no": 15,
+          "raw": "editor --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_2",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "Editor|assoc|ResizeGraphic": {
+      "src": "Editor",
+      "kind": "assoc",
+      "dst": "ResizeGraphic",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_2",
+          "line_no": 16,
+          "raw": "editor --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_2",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "Editor|assoc|ScaleProportionally": {
+      "src": "Editor",
+      "kind": "assoc",
+      "dst": "ScaleProportionally",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_2",
+          "line_no": 17,
+          "raw": "editor --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_2",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "Editor|assoc|MoveGraphic": {
+      "src": "Editor",
+      "kind": "assoc",
+      "dst": "MoveGraphic",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_2",
+          "line_no": 18,
+          "raw": "editor --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_2",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "Editor|assoc|CreateLayer": {
+      "src": "Editor",
+      "kind": "assoc",
+      "dst": "CreateLayer",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_2",
+          "line_no": 19,
+          "raw": "editor --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_2",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "Editor|assoc|SwitchLayerFocus": {
+      "src": "Editor",
+      "kind": "assoc",
+      "dst": "SwitchLayerFocus",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_2",
+          "line_no": 20,
+          "raw": "editor --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_2",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "ScaleProportionally|assoc|SelectGraphic": {
+      "src": "ScaleProportionally",
+      "kind": "assoc",
+      "dst": "SelectGraphic",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_2",
+          "line_no": 23,
+          "raw": "UC5 ..> UC2 : include",
+          "label": "include",
+          "justification": "等比例缩放执行过程中必须包含选择图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_2",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "ResizeGraphic|assoc|ScaleProportionally": {
+      "src": "ResizeGraphic",
+      "kind": "assoc",
+      "dst": "ScaleProportionally",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_2",
+          "line_no": 26,
+          "raw": "UC4 ..> UC5 : extend",
+          "label": "extend",
+          "justification": "当按住Shift键时，调整图形尺寸扩展为等比例缩放",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_2",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|变更当前图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "变更当前图层",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_4",
+          "line_no": 19,
+          "raw": "用户 --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_4",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "EditorUser|assoc|CreateShape": {
+      "src": "EditorUser",
+      "kind": "assoc",
+      "dst": "CreateShape",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_6",
+          "line_no": 13,
+          "raw": "user --> CreateShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "EditorUser|assoc|SelectShape": {
+      "src": "EditorUser",
+      "kind": "assoc",
+      "dst": "SelectShape",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_6",
+          "line_no": 14,
+          "raw": "user --> SelectShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "EditorUser|assoc|DeleteShape": {
+      "src": "EditorUser",
+      "kind": "assoc",
+      "dst": "DeleteShape",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_6",
+          "line_no": 15,
+          "raw": "user --> DeleteShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "EditorUser|assoc|AdjustShapeSize": {
+      "src": "EditorUser",
+      "kind": "assoc",
+      "dst": "AdjustShapeSize",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_6",
+          "line_no": 16,
+          "raw": "user --> AdjustShapeSize",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "EditorUser|assoc|ScaleProportionally": {
+      "src": "EditorUser",
+      "kind": "assoc",
+      "dst": "ScaleProportionally",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_6",
+          "line_no": 17,
+          "raw": "user --> ScaleProportionally",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "EditorUser|assoc|MoveShape": {
+      "src": "EditorUser",
+      "kind": "assoc",
+      "dst": "MoveShape",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_6",
+          "line_no": 18,
+          "raw": "user --> MoveShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "EditorUser|assoc|CreateLayer": {
+      "src": "EditorUser",
+      "kind": "assoc",
+      "dst": "CreateLayer",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_6",
+          "line_no": 19,
+          "raw": "user --> CreateLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "EditorUser|assoc|SwitchCurrentLayer": {
+      "src": "EditorUser",
+      "kind": "assoc",
+      "dst": "SwitchCurrentLayer",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_6",
+          "line_no": 20,
+          "raw": "user --> SwitchCurrentLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "ScaleProportionally|include|SelectShape": {
+      "src": "ScaleProportionally",
+      "kind": "include",
+      "dst": "SelectShape",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_6",
+          "line_no": 23,
+          "raw": "ScaleProportionally ..> SelectShape : <<include>>",
+          "label": "<<include>>",
+          "justification": "ScaleProportionally must include SelectShape",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "AdjustShapeSize|extend|ScaleProportionally": {
+      "src": "AdjustShapeSize",
+      "kind": "extend",
+      "dst": "ScaleProportionally",
+      "freq": 1,
+      "sources": [
+        "it5_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it5_deepseek_6",
+          "line_no": 26,
+          "raw": "AdjustShapeSize ..> ScaleProportionally : <<extend>>",
+          "label": "<<extend>>",
+          "justification": "AdjustShapeSize extends to ScaleProportionally when Shift key is pressed",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it5_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    }
+  }
+}

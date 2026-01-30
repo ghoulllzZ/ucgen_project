@@ -1,0 +1,259 @@
+[
+  {
+    "conflict_type": "edge_kind_mismatch",
+    "a": "删除图形",
+    "b": "选择图形",
+    "details": {
+      "kinds": [
+        "extend",
+        "include"
+      ],
+      "support": {
+        "include": 3,
+        "extend": 1
+      }
+    }
+  },
+  {
+    "conflict_type": "edge_kind_mismatch",
+    "a": "调整图形尺寸",
+    "b": "选择图形",
+    "details": {
+      "kinds": [
+        "extend",
+        "include"
+      ],
+      "support": {
+        "include": 2,
+        "extend": 1
+      }
+    }
+  },
+  {
+    "conflict_type": "edge_kind_mismatch",
+    "a": "移动图形",
+    "b": "选择图形",
+    "details": {
+      "kinds": [
+        "extend",
+        "include"
+      ],
+      "support": {
+        "include": 2,
+        "extend": 1
+      }
+    }
+  },
+  {
+    "conflict_type": "edge_kind_mismatch",
+    "a": "创建图形",
+    "b": "选择图形",
+    "details": {
+      "kinds": [
+        "extend",
+        "include"
+      ],
+      "support": {
+        "include": 1,
+        "extend": 1
+      }
+    }
+  },
+  {
+    "conflict_type": "edge_kind_mismatch",
+    "a": "创建图层",
+    "b": "管理图层",
+    "details": {
+      "kinds": [
+        "extend",
+        "include"
+      ],
+      "support": {
+        "include": 2,
+        "extend": 1
+      }
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "调整图形尺寸",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.75,
+      "bucket": "fuzzy",
+      "freq": 3,
+      "total": 4,
+      "sources": [
+        "it2_qwen_3",
+        "it2_qwen_4",
+        "it2_qwen_5"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "移动图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.75,
+      "bucket": "fuzzy",
+      "freq": 3,
+      "total": 4,
+      "sources": [
+        "it2_qwen_3",
+        "it2_qwen_4",
+        "it2_qwen_5"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.5,
+      "bucket": "fuzzy",
+      "freq": 2,
+      "total": 4,
+      "sources": [
+        "it2_qwen_4",
+        "it2_qwen_5"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建图层",
+    "b": "管理图层",
+    "details": {
+      "confidence": 0.75,
+      "bucket": "fuzzy",
+      "freq": 3,
+      "total": 4,
+      "sources": [
+        "it2_qwen_4",
+        "it2_qwen_5"
+      ]
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "选择图形",
+    "b": "extendsingle",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "选择图形",
+    "b": "extendmulti",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "创建图层",
+    "b": "limitlayercount",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "调整图形尺寸",
+    "b": "clickzoomin",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "调整图形尺寸",
+    "b": "clickzoomout",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "调整图形尺寸",
+    "b": "dragcontrolpoint",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "创建图形",
+    "b": "选择图形",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "删除图形",
+    "b": "选择图形",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "调整图形尺寸",
+    "b": "选择图形",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "移动图形",
+    "b": "选择图形",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "创建图层",
+    "b": "管理图层",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "创建新图层",
+    "b": "限制图层数量≤16",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "切换当前图层",
+    "b": "重置图形工具状态",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "创建新图层",
+    "b": "提示新图层编号",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "切换当前图层",
+    "b": "提示当前层编号",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  }
+]

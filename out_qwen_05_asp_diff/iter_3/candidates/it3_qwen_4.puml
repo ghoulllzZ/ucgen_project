@@ -1,0 +1,45 @@
+@startuml
+actor 用户 as User
+
+'
+' 用例定义
+'
+usecase "启动图形编辑器" as usecase_start
+usecase "创建图形" as usecase_create_shape
+usecase "选择图形" as usecase_select_shape
+usecase "删除图形" as usecase_delete_shape
+usecase "调整图形尺寸" as usecase_resize_shape
+usecase "移动图形" as usecase_move_shape
+usecase "创建图层" as usecase_create_layer
+usecase "管理图层" as usecase_manage_layer
+
+'
+' 关联关系：Actor -> UseCase
+'
+User --> usecase_start
+User --> usecase_create_shape
+User --> usecase_select_shape
+User --> usecase_delete_shape
+User --> usecase_resize_shape
+User --> usecase_move_shape
+User --> usecase_create_layer
+User --> usecase_manage_layer
+
+'
+' include 关系（强制包含）
+'
+' 启动时必须初始化界面
+usecase_start ..> usecase_create_layer : <<include>>
+' 创建图层时需要初始化新图层状态
+usecase_create_layer ..> usecase_manage_layer : <<include>>
+' 管理图层包含切换图层和重置工具状态
+usecase_manage_layer ..> usecase_create_shape : <<include>>
+
+'
+' extend 关系（条件扩展）—— 根据约束，实际不能使用被 forbid 的 extend
+' 因此以下 extend 均不可添加：
+' - 选择图形 --extend--> 删除/调整/移动/创建 图形 （被 forbid_extend 明确禁止）
+' - 创建图层 --extend--> 限制图层数量 （被 forbid_usecases 和 forbid_extend 禁止）
+' 故不生成任何 extend 边
+
+@enduml

@@ -1,0 +1,50 @@
+@startuml
+actor 用户
+
+'
+' Use Cases
+'
+usecase "启动图形编辑器" as startEditor
+usecase "创建图形" as createShape
+usecase "选择图形" as selectShape
+usecase "删除图形" as deleteShape
+usecase "调整图形尺寸" as resizeShape
+usecase "移动图形" as moveShape
+usecase "创建图层" as createLayer
+usecase "管理图层" as manageLayer
+
+'
+' Include relationships (with constraints enforced)
+'
+' 启动时初始化界面状态
+startEditor ..> createLayer : <<include>>
+' 创建图层时需初始化新图层状态（如默认选中矩形）
+createLayer ..> manageLayer : <<include>>
+' 管理图层包括切换图层和重置工具状态
+manageLayer ..> createShape : <<include>>
+
+'
+' Extend relationships with explicit conditions (per constraint: must not use forbidden extends, and must add condition if used)
+'
+' Note: All forbidden extends and includes are respected — no forbidden edges are drawn.
+
+'
+' Actor associations
+'
+用户 --> startEditor
+用户 --> createShape
+用户 --> selectShape
+用户 --> deleteShape
+用户 --> resizeShape
+用户 --> moveShape
+用户 --> createLayer
+用户 --> manageLayer
+
+'
+' Additional constraints:
+' - "创建图形" 包含动态预览，但该用例被禁止，故不建模
+' - 所有被 forbid_usecases 列出的用例（如“拖动控制点调整尺寸”、“限制图层数量≤16”等）均不得出现
+' - include/extend 冲突已通过约束解决：例如尽管有建议，但根据 forbid_include，不能从 deleteShape include selectShape
+'
+
+@enduml

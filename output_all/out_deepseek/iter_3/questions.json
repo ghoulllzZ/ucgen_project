@@ -1,0 +1,11 @@
+[
+  {
+    "id": "q1",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "图层管理"
+    },
+    "prompt": "用例【图层管理】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  }
+]

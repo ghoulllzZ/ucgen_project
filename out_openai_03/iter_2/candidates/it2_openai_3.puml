@@ -1,0 +1,26 @@
+@startuml
+actor User
+
+usecase "软件初始启动" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "改变图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "管理图层" as UC8
+usecase "等比例缩放" as UC9
+
+User -> UC1
+User -> UC2
+User -> UC3
+User -> UC4
+User -> UC5
+User -> UC6
+User -> UC7
+User -> UC8
+
+' 调整图形尺寸必须包含选择图形
+UC5 .down.> UC3 : <<include>>
+
+@enduml

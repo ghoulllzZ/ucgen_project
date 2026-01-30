@@ -1,0 +1,205 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "ScaleProportionally",
+      "included": "SelectShape"
+    },
+    "prompt": "用例【ScaleProportionally】执行过程中是否【必须】包含用例【SelectShape】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "yes_no_include",
+    "target": {
+      "base": "AdjustShapeSize",
+      "included": "ScaleProportionally"
+    },
+    "prompt": "用例【AdjustShapeSize】执行过程中是否【必须】包含用例【ScaleProportionally】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q3",
+    "type": "extend_condition",
+    "target": {
+      "extension": "AdjustShapeSize",
+      "base": "ScaleProportionally"
+    },
+    "prompt": "如果【AdjustShapeSize】是对【ScaleProportionally】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q4",
+    "type": "actor_yes_no",
+    "target": {
+      "actor": "Editor"
+    },
+    "prompt": "参与者【Editor】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q5",
+    "type": "actor_yes_no",
+    "target": {
+      "actor": "EditorUser"
+    },
+    "prompt": "参与者【EditorUser】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q6",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "SelectGraphic"
+    },
+    "prompt": "用例【SelectGraphic】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q7",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "ResizeGraphic"
+    },
+    "prompt": "用例【ResizeGraphic】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q8",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "MoveGraphic"
+    },
+    "prompt": "用例【MoveGraphic】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q9",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "CreateLayer"
+    },
+    "prompt": "用例【CreateLayer】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q10",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "CreateGraphic"
+    },
+    "prompt": "用例【CreateGraphic】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q11",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "DeleteGraphic"
+    },
+    "prompt": "用例【DeleteGraphic】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q12",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "SwitchLayerFocus"
+    },
+    "prompt": "用例【SwitchLayerFocus】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q13",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "ScaleProportionally"
+    },
+    "prompt": "用例【ScaleProportionally】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q14",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "变更当前图层"
+    },
+    "prompt": "用例【变更当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q15",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "AdjustShapeSize"
+    },
+    "prompt": "用例【AdjustShapeSize】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q16",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "DeleteShape"
+    },
+    "prompt": "用例【DeleteShape】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q17",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "SelectShape"
+    },
+    "prompt": "用例【SelectShape】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q18",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "CreateShape"
+    },
+    "prompt": "用例【CreateShape】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q19",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "SwitchCurrentLayer"
+    },
+    "prompt": "用例【SwitchCurrentLayer】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q20",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "MoveShape"
+    },
+    "prompt": "用例【MoveShape】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q21",
+    "type": "yes_no_include",
+    "target": {
+      "base": "ScaleProportionally",
+      "included": "SelectShape"
+    },
+    "prompt": "是否确认：用例【ScaleProportionally】执行时必须包含【SelectShape】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q22",
+    "type": "extend_condition",
+    "target": {
+      "extension": "AdjustShapeSize",
+      "base": "ScaleProportionally"
+    },
+    "prompt": "如果【AdjustShapeSize】是对【ScaleProportionally】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  }
+]

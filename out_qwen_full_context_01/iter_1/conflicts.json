@@ -1,0 +1,29 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "选择图形",
+    "b": "删除图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_qwen_6"
+      ]
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "选择图形",
+    "b": "调整图形尺寸",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "选择图形",
+    "b": "移动图形",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  }
+]

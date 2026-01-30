@@ -1,0 +1,23 @@
+@startuml
+actor "仓库管理员" as admin
+
+usecase "编号零件" as UC1
+usecase "命名零件类型" as UC2
+usecase "记录零件价格" as UC3
+usecase "构建组件结构" as UC4
+usecase "查询组件价格" as UC5
+
+admin --> UC1 : 管理零件信息
+admin --> UC2 : 管理零件信息
+admin --> UC3 : 管理零件信息
+admin --> UC4 : 组装组件
+admin --> UC5 : 获取价格信息
+
+' 查询组件价格必须包含构建组件结构，因为只有存在结构才能计算组件总价
+UC5 ..> UC4 : include
+' 构建组件结构必须包含记录零件价格，因为组件价格依赖零件价格
+UC4 ..> UC3 : include
+' 编号零件与命名零件类型是记录零件基本信息的必要组成部分
+UC1 ..> UC2 : include
+
+@enduml

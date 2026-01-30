@@ -1,0 +1,57 @@
+@startuml
+actor 用户
+
+'
+usecase "启动图形编辑器" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建新图层" as UC7
+usecase "管理图层" as UC8
+
+'
+用户 --> UC1
+用户 --> UC2
+用户 --> UC3
+用户 --> UC4
+用户 --> UC5
+用户 --> UC6
+用户 --> UC7
+用户 --> UC8
+
+'
+' 删除图形必须先选择图形 '
+UC4 .> UC3 : include
+
+'
+' 调整图形尺寸必须先选择图形 '
+UC5 .> UC3 : include
+
+'
+' 移动图形必须先选择图形 '
+UC6 .> UC3 : include
+
+'
+' 创建新图层最多16个，超过则不能再创建（扩展点：图层数量>16） '
+UC7 ..> UC7 : extend
+note on link
+  扩展条件：图层数量超过16时无法创建
+end note
+
+'
+' 管理图层在切换到最后一个图层后继续切换则回到第一个图层 '
+UC8 ..> UC8 : extend
+note on link
+  扩展条件：当前为最后一个图层时点击“下一页”
+end note
+
+'
+' 图形编辑器可在创建的图形种类上扩展 '
+UC2 ..> UC2 : extend
+note on link
+  扩展点：支持未来新增图形类型
+end note
+
+@enduml

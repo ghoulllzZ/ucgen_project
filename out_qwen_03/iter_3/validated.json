@@ -1,0 +1,404 @@
+{
+  "actors": [
+    {
+      "name": "管理员",
+      "decision": "accept",
+      "reasons": [
+        "constraints.keep_actors"
+      ],
+      "evidence": {
+        "freq": 4,
+        "sources": [
+          "it3_qwen_2",
+          "it3_qwen_3",
+          "it3_qwen_5",
+          "it3_qwen_6"
+        ]
+      }
+    }
+  ],
+  "usecases": [
+    {
+      "name": "编号零件",
+      "decision": "accept",
+      "reasons": [
+        "constraints.keep_usecases"
+      ],
+      "evidence": {
+        "freq": 4,
+        "sources": [
+          "it3_qwen_2",
+          "it3_qwen_3",
+          "it3_qwen_5",
+          "it3_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "命名零件类型",
+      "decision": "accept",
+      "reasons": [
+        "constraints.keep_usecases"
+      ],
+      "evidence": {
+        "freq": 4,
+        "sources": [
+          "it3_qwen_2",
+          "it3_qwen_3",
+          "it3_qwen_5",
+          "it3_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "查询组件价格",
+      "decision": "accept",
+      "reasons": [
+        "constraints.keep_usecases"
+      ],
+      "evidence": {
+        "freq": 4,
+        "sources": [
+          "it3_qwen_2",
+          "it3_qwen_3",
+          "it3_qwen_5",
+          "it3_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "记录零件价格",
+      "decision": "accept",
+      "reasons": [
+        "constraints.keep_usecases"
+      ],
+      "evidence": {
+        "freq": 4,
+        "sources": [
+          "it3_qwen_2",
+          "it3_qwen_3",
+          "it3_qwen_5",
+          "it3_qwen_6"
+        ]
+      },
+      "parent": null
+    }
+  ],
+  "relations": [
+    {
+      "src": "管理员",
+      "kind": "assoc",
+      "dst": "编号零件",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 4,
+        "confidence": 1.0,
+        "sources": [
+          "it3_qwen_2",
+          "it3_qwen_3",
+          "it3_qwen_5",
+          "it3_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it3_qwen_2",
+            "line_no": 9,
+            "raw": "管理员 --> usecase1",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it3_qwen_3",
+            "line_no": 9,
+            "raw": "管理员 --> usecase1",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "管理员",
+      "kind": "assoc",
+      "dst": "命名零件类型",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 4,
+        "confidence": 1.0,
+        "sources": [
+          "it3_qwen_2",
+          "it3_qwen_3",
+          "it3_qwen_5",
+          "it3_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it3_qwen_2",
+            "line_no": 10,
+            "raw": "管理员 --> usecase2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it3_qwen_3",
+            "line_no": 10,
+            "raw": "管理员 --> usecase2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "管理员",
+      "kind": "assoc",
+      "dst": "记录零件价格",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 4,
+        "confidence": 1.0,
+        "sources": [
+          "it3_qwen_2",
+          "it3_qwen_3",
+          "it3_qwen_5",
+          "it3_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it3_qwen_2",
+            "line_no": 11,
+            "raw": "管理员 --> usecase3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it3_qwen_3",
+            "line_no": 11,
+            "raw": "管理员 --> usecase3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "管理员",
+      "kind": "assoc",
+      "dst": "查询组件价格",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 4,
+        "confidence": 1.0,
+        "sources": [
+          "it3_qwen_2",
+          "it3_qwen_3",
+          "it3_qwen_5",
+          "it3_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it3_qwen_2",
+            "line_no": 12,
+            "raw": "管理员 --> usecase4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_2",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it3_qwen_3",
+            "line_no": 12,
+            "raw": "管理员 --> usecase4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_3",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "查询组件价格",
+      "kind": "extend",
+      "dst": "编号零件",
+      "decision": "unknown",
+      "reasons": [
+        "extend 缺少触发条件/扩展点"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.25,
+        "sources": [
+          "it3_qwen_2"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it3_qwen_2",
+            "line_no": 15,
+            "raw": "usecase4 ..> usecase1 : <<extend>>",
+            "label": "<<extend>>",
+            "justification": "查询组件价格 需要基于已存在的零件编号信息才能定位组件构成",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_2",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "查询组件价格",
+      "kind": "extend",
+      "dst": "命名零件类型",
+      "decision": "unknown",
+      "reasons": [
+        "extend 缺少触发条件/扩展点"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.25,
+        "sources": [
+          "it3_qwen_2"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it3_qwen_2",
+            "line_no": 22,
+            "raw": "usecase4 ..> usecase2 : <<extend>>",
+            "label": "<<extend>>",
+            "justification": "查询组件价格 需要基于零件类型名称以识别组件组成元素",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_2",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "查询组件价格",
+      "kind": "extend",
+      "dst": "记录零件价格",
+      "decision": "unknown",
+      "reasons": [
+        "extend 缺少触发条件/扩展点"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.25,
+        "sources": [
+          "it3_qwen_2"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it3_qwen_2",
+            "line_no": 29,
+            "raw": "usecase4 ..> usecase3 : <<extend>>",
+            "label": "<<extend>>",
+            "justification": "查询组件价格 依赖零件价格进行成本累加计算",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_2",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "记录零件价格",
+      "kind": "extend",
+      "dst": "编号零件",
+      "decision": "unknown",
+      "reasons": [
+        "extend 缺少触发条件/扩展点"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.25,
+        "sources": [
+          "it3_qwen_2"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it3_qwen_2",
+            "line_no": 40,
+            "raw": "usecase3 ..> usecase1 : <<extend>>",
+            "label": "<<extend>>",
+            "justification": "命名零件类型 和 编号零件 之间无强制依赖，但可协同使用 根据约束禁止 include 关系，且关系不确定性高，故不建立直接关联 记录零件价格 和 编号零件 之间关系不明确（冲突摘要中存在未知include和低置信度） 但根据约束禁止 include，且不确定性高，故采用 extend 表示条件性依赖",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it3_qwen_2",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

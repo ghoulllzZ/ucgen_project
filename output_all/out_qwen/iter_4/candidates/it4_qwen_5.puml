@@ -1,0 +1,43 @@
+@startuml
+actor 用户 as User
+
+'
+' Use Cases
+'
+usecase "启动图形编辑器" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建新图层" as UC7
+usecase "管理图层" as UC8
+
+'
+' Associations
+'
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+
+'
+' Include relationships with causal comments
+'
+' 删除图形前必须先选择图形
+UC4 .> UC3 : <<include>>
+' 调整图形尺寸前必须先选择图形
+UC5 .> UC3 : <<include>>
+' 移动图形前必须先选择图形
+UC6 .> UC3 : <<include>>
+
+'
+' Extend relationships (none required per constraints, but if needed would be conditional)
+' No extend relations allowed per forbid_extend and missing conditions in conflicts
+' All forbidden includes and extends are respected — no invalid dependencies added
+
+@enduml

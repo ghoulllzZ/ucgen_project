@@ -1,0 +1,69 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "删除图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.8,
+      "bucket": "fuzzy",
+      "freq": 4,
+      "total": 5,
+      "sources": [
+        "it3_qwen_2",
+        "it3_qwen_3",
+        "it3_qwen_4",
+        "it3_qwen_6"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "调整图形尺寸",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.8,
+      "bucket": "fuzzy",
+      "freq": 4,
+      "total": 5,
+      "sources": [
+        "it3_qwen_2",
+        "it3_qwen_3",
+        "it3_qwen_4",
+        "it3_qwen_6"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "移动图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.8,
+      "bucket": "fuzzy",
+      "freq": 4,
+      "total": 5,
+      "sources": [
+        "it3_qwen_2",
+        "it3_qwen_3",
+        "it3_qwen_4",
+        "it3_qwen_6"
+      ]
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "创建图层",
+    "b": "切换图层",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "切换图层",
+    "b": "创建图形",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  }
+]

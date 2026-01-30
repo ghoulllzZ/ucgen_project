@@ -1,0 +1,26 @@
+@startuml
+actor User
+
+usecase "创建图形" as CreateGraphic
+usecase "选择图形" as SelectGraphic
+usecase "删除图形" as DeleteGraphic
+usecase "改变图形尺寸" as ChangeGraphicSize
+usecase "移动图形" as MoveGraphic
+usecase "创建图层" as CreateLayer
+usecase "管理图层" as ManageLayer
+
+User -> CreateGraphic
+User -> SelectGraphic
+User -> DeleteGraphic
+User -> ChangeGraphicSize
+User -> MoveGraphic
+User -> CreateLayer
+User -> ManageLayer
+
+' 删除图形需先选择图形
+DeleteGraphic .up.> SelectGraphic : include
+' 创建图层将状态设置为创建“矩形”
+CreateLayer .up.> CreateGraphic : include
+' 在特定情况下扩展图形的创建功能
+CreateGraphic .down.> SelectGraphic : extend (在选择图形时)
+@enduml

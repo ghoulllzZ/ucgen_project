@@ -1,0 +1,699 @@
+{
+  "actors": [
+    {
+      "name": "用户",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该参与者"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ]
+      }
+    }
+  ],
+  "usecases": [
+    {
+      "name": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "管理图层",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建新图层",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "启动图形编辑器",
+      "decision": "accept",
+      "reasons": [
+        "constraints.keep_usecases"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ]
+      },
+      "parent": null
+    }
+  ],
+  "relations": [
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "启动图形编辑器",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 1.0,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 21,
+            "raw": "User --> UC1 : 启动软件",
+            "label": "启动软件",
+            "justification": "Actor associations",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it4_qwen_5",
+            "line_no": 19,
+            "raw": "User --> UC1",
+            "label": "",
+            "justification": "Associations",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 1.0,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 22,
+            "raw": "User --> UC2 : 创建直线、椭圆、矩形等",
+            "label": "创建直线、椭圆、矩形等",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it4_qwen_5",
+            "line_no": 20,
+            "raw": "User --> UC2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 1.0,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 23,
+            "raw": "User --> UC3 : 选择单个或多个图形",
+            "label": "选择单个或多个图形",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it4_qwen_5",
+            "line_no": 21,
+            "raw": "User --> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 1.0,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 24,
+            "raw": "User --> UC4 : 删除已选图形",
+            "label": "删除已选图形",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it4_qwen_5",
+            "line_no": 22,
+            "raw": "User --> UC4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 1.0,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 25,
+            "raw": "User --> UC5 : 调整图形大小",
+            "label": "调整图形大小",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it4_qwen_5",
+            "line_no": 23,
+            "raw": "User --> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 1.0,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 26,
+            "raw": "User --> UC6 : 拖动移动图形",
+            "label": "拖动移动图形",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it4_qwen_5",
+            "line_no": 24,
+            "raw": "User --> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建新图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 1.0,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 27,
+            "raw": "User --> UC7 : 点击“新页”创建图层",
+            "label": "点击“新页”创建图层",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it4_qwen_5",
+            "line_no": 25,
+            "raw": "User --> UC7",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "管理图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 1.0,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 28,
+            "raw": "User --> UC8 : 点击“下一页”切换图层",
+            "label": "点击“下一页”切换图层",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it4_qwen_5",
+            "line_no": 26,
+            "raw": "User --> UC8",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "删除图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "constraints.must_include"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 1.0,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 35,
+            "raw": "UC4 .> UC3 : <<include>>",
+            "label": "<<include>>",
+            "justification": "Include relationships (mandatory dependencies) 删除图形必须先选择图形 '",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it4_qwen_5",
+            "line_no": 32,
+            "raw": "UC4 .> UC3 : <<include>>",
+            "label": "<<include>>",
+            "justification": "Include relationships with causal comments 删除图形前必须先选择图形",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "调整图形尺寸",
+      "kind": "include",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "constraints.must_include"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 1.0,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 38,
+            "raw": "UC5 .> UC3 : <<include>>",
+            "label": "<<include>>",
+            "justification": "调整图形尺寸必须先选择图形 '",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it4_qwen_5",
+            "line_no": 34,
+            "raw": "UC5 .> UC3 : <<include>>",
+            "label": "<<include>>",
+            "justification": "调整图形尺寸前必须先选择图形",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "移动图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "constraints.must_include"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 1.0,
+        "sources": [
+          "it4_qwen_1",
+          "it4_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 41,
+            "raw": "UC6 .> UC3 : <<include>>",
+            "label": "<<include>>",
+            "justification": "移动图形必须先选择图形 '",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it4_qwen_5",
+            "line_no": 36,
+            "raw": "UC6 .> UC3 : <<include>>",
+            "label": "<<include>>",
+            "justification": "移动图形前必须先选择图形",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "创建新图层",
+      "kind": "extend",
+      "dst": "启动图形编辑器",
+      "decision": "reject",
+      "reasons": [
+        "constraints.forbid_extend"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.5,
+        "sources": [
+          "it4_qwen_1"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 48,
+            "raw": "UC7 ..> UC1 : <<extend>>\\n<<condition: 当前图层总数 < 16>>",
+            "label": "<<extend>>\\n<<condition: 当前图层总数 < 16>>",
+            "justification": "Extend relationships (conditional extensions with conditions) 创建新图层仅在图层数少于16时才可执行 '",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "管理图层",
+      "kind": "extend",
+      "dst": "创建新图层",
+      "decision": "reject",
+      "reasons": [
+        "constraints.forbid_extend"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.5,
+        "sources": [
+          "it4_qwen_1"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it4_qwen_1",
+            "line_no": 52,
+            "raw": "UC8 ..> UC7 : <<extend>>",
+            "label": "<<extend>>",
+            "justification": "管理图层（切换）可在任何图层存在时触发，循环切换 '",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it4_qwen_1",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

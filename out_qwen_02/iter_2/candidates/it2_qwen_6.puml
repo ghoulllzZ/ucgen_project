@@ -1,0 +1,41 @@
+@startuml
+actor 用户 as User
+
+'
+' Top-level use cases
+'
+usecase "启动图形编辑器" as StartEditor
+usecase "创建图形" as CreateShape
+usecase "选择图形" as SelectShape
+usecase "删除图形" as DeleteShape
+usecase "调整图形尺寸" as ResizeShape
+usecase "移动图形" as MoveShape
+usecase "创建图层" as CreateLayer
+usecase "管理图层" as ManageLayers
+usecase "拖动控制点调整尺寸" as DragResize
+
+'
+' Associations between actors and use cases
+'
+User --> StartEditor
+User --> CreateShape
+User --> SelectShape
+User --> DeleteShape
+User --> ResizeShape
+User --> MoveShape
+User --> CreateLayer
+User --> ManageLayers
+
+'
+' Include relationships with causal comments
+'
+' 删除图形前必须先选择图形
+DeleteShape .> SelectShape : include
+' 调整尺寸前必须先选择图形
+ResizeShape .> SelectShape : include
+' 移动图形前必须先选择图形
+MoveShape .> SelectShape : include
+' 拖动控制点是调整尺寸的一种方式
+ResizeShape .> DragResize : include
+
+@enduml

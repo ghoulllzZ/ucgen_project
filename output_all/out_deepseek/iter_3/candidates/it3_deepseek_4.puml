@@ -1,0 +1,27 @@
+@startuml
+actor "用户" as User
+
+usecase "创建图形" as CreateShape
+usecase "选择图形" as SelectShape
+usecase "删除图形" as DeleteShape
+usecase "调整图形尺寸" as ResizeShape
+usecase "等比例缩放" as UniformScale
+usecase "移动图形" as MoveShape
+usecase "创建图层" as CreateLayer
+usecase "管理图层" as ManageLayer
+
+User --> CreateShape
+User --> SelectShape
+User --> DeleteShape
+User --> ResizeShape
+User --> UniformScale
+User --> MoveShape
+User --> CreateLayer
+User --> ManageLayer
+
+' 等比例缩放必须先选择图形
+UniformScale .> SelectShape : include
+
+' 当按住Shift时，调整图形尺寸可扩展为等比例缩放
+UniformScale <. ResizeShape : extend
+@enduml

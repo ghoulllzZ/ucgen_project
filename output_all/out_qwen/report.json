@@ -1,0 +1,2127 @@
+{
+  "args": {
+    "req": "examples\\req_primary_graph_editor.txt",
+    "out": "out_qwen",
+    "max_iters": 5,
+    "backend": "qwen",
+    "temperature": 0.9,
+    "n_samples": 6,
+    "models": [],
+    "seed": 7,
+    "interactive": false,
+    "jaccard_threshold": 0.98,
+    "render": "auto"
+  },
+  "constraints": {
+    "must_include": [
+      {
+        "base": "删除图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "调整图形尺寸",
+        "included": "选择图形"
+      },
+      {
+        "base": "删除所选图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "移动图形",
+        "included": "选择图形"
+      }
+    ],
+    "forbid_include": [
+      {
+        "base": "启动图形编辑器",
+        "included": "显示初始界面"
+      },
+      {
+        "base": "创建新图层",
+        "included": "EXT8"
+      },
+      {
+        "base": "切换图层",
+        "included": "显示初始界面"
+      },
+      {
+        "base": "显示初始界面",
+        "included": "更新图形提示"
+      },
+      {
+        "base": "创建新图层",
+        "included": "更新图形提示"
+      },
+      {
+        "base": "切换图层",
+        "included": "更新图形提示"
+      },
+      {
+        "base": "创建图形",
+        "included": "EXT3"
+      },
+      {
+        "base": "初始化编辑器",
+        "included": "创建图形"
+      },
+      {
+        "base": "创建图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "选择图形",
+        "included": "删除图形\"asUC4"
+      },
+      {
+        "base": "选择图形",
+        "included": "调整图形尺寸\"asUC5"
+      },
+      {
+        "base": "选择图形",
+        "included": "移动图形\"asUC6"
+      },
+      {
+        "base": "选择图形",
+        "included": "删除图形"
+      },
+      {
+        "base": "调整图形尺寸",
+        "included": "使用放大缩小按钮\"asINC1"
+      },
+      {
+        "base": "创建新图层",
+        "included": "管理图层\"asUC8"
+      },
+      {
+        "base": "管理图层",
+        "included": "创建图形"
+      },
+      {
+        "base": "启动图形编辑器",
+        "included": "创建图形"
+      },
+      {
+        "base": "创建图形",
+        "included": "选择创建的图形类型"
+      },
+      {
+        "base": "创建图形",
+        "included": "动态绘制图形"
+      },
+      {
+        "base": "调整图形尺寸",
+        "included": "拖动控制点调整尺寸"
+      },
+      {
+        "base": "调整图形尺寸",
+        "included": "点击放大缩小按钮"
+      },
+      {
+        "base": "创建新图层",
+        "included": "创建新图层"
+      },
+      {
+        "base": "切换当前图层",
+        "included": "选择创建的图形类型"
+      },
+      {
+        "base": "选择创建的图形类型",
+        "included": "扩展支持的新图形类型"
+      },
+      {
+        "base": "创建新图层",
+        "included": "启动图形编辑器"
+      },
+      {
+        "base": "管理图层",
+        "included": "创建新图层"
+      }
+    ],
+    "extend": [],
+    "forbid_extend": [
+      {
+        "base": "EXT8",
+        "extension": "创建新图层"
+      },
+      {
+        "base": "EXT3",
+        "extension": "创建图形"
+      },
+      {
+        "base": "创建新图层",
+        "extension": "创建新图层"
+      },
+      {
+        "base": "扩展支持的新图形类型",
+        "extension": "选择创建的图形类型"
+      },
+      {
+        "base": "启动图形编辑器",
+        "extension": "创建新图层"
+      },
+      {
+        "base": "创建新图层",
+        "extension": "管理图层"
+      }
+    ],
+    "keep_actors": [],
+    "forbid_actors": [],
+    "keep_usecases": [
+      "启动图形编辑器"
+    ],
+    "forbid_usecases": [
+      "切换图层",
+      "显示初始界面",
+      "更新图形提示",
+      "初始化编辑器",
+      "点击放大缩小按钮",
+      "切换当前图层",
+      "选择创建的图形类型",
+      "拖动控制点调整尺寸",
+      "扩展支持的新图形类型",
+      "动态绘制图形",
+      "删除所选图形"
+    ]
+  },
+  "iterations": [
+    {
+      "iter_index": 1,
+      "candidates": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1056,
+          "plantuml": "@startuml\nactor 用户 as User\n\n' 软件初始启动时执行的初始化行为\nusecase \"初始化编辑器\" as UC1\nUser --> UC1 : 启动软件\n\n' 创建图形功能\nusecase \"创建图形\" as UC2\nUser --> UC2 : 选择并绘制图形\n' 创建图形过程中必须进行图形类型选择\n' A 执行过程中必须包含 B：用户必须先选择图形类型才能创建\nUC2 .> \"选择图形类型\" as SelectShapeType : include\n\n' 选择图形功能\nusecase \"选择图形\" as UC3\nUser --> UC3 : 在编辑区点击或框选图形\n' 选择图形支持单选、多选和取消选择\n' 多选是在拖动鼠标形成矩形区域时触发的选择方式\n' extend 表示在特定条件下扩展基本用例\n' 当用户拖动鼠标时，触发展开为区域选择模式\n' 扩展点：在选择图形时，若拖动鼠标，则执行区域选择\nUC3 <.. \"区域选择多个图形\" as SelectMultiple : extend\n' 触发条件：鼠标按下拖动形成虚线矩形区域\nnote on link\n  扩展条件：用户在编辑区按下鼠标并拖动，\n  在起始和终止点构成的矩形区域内选择所有图形\nend note\n\n' 删除图形功能\nusecase \"删除图形\" as UC4\nUser --> UC4 : 点击“删除元素”按钮\n' 删除前必须已选择图形，否则无法删除\n' include 表示删除操作强制依赖于图形已被选择\n' A 执行过程中必须包含 B：删除前必须选择图形\nUC4 .> UC3 : include\n' 因果说明：删除图形必须先选择图形\n\n' 改变图形尺寸功能\nusecase \"改变图形尺寸\" as UC5\nUser --> UC5 : 拖动控制点或点击放大/缩小按钮\n' 尺寸改变可通过两种方式：拖动控制点或使用工具按钮\n' 使用放大按钮直接放大所选图形\n' 使用缩小按钮直接缩小所选图形\nUC5 .> \"拖动控制点调整尺寸\" as ResizeByCorner : include\nUC5 .> \"点击放大/缩小按钮\" as ZoomButton : include\n' 因果说明：改变尺寸必须通过控制点或按钮操作\n\n' 移动图形功能\nusecase \"移动图形\" as UC6\nUser --> UC6 : 在图形内部按下并拖动\n' 移动图形时，图层状态和控制点状态保持不变\n' 基本动作无需扩展，直接关联\n\n' 创建图层功能\nusecase \"创建新图层\" as UC7\nUser --> UC7 : 点击“新页”按钮\n' 创建新图层时有约束：最多16个图层\n' 超过16个则不能创建，作为扩展条件\nUC7 <.. \"图层数已达上限\" as LayerLimit : extend\n' 触发条件：当已有图层数量 ≥ 16 时，禁止创建新图层\nnote on link\n  扩展条件：如果当前图层数量超过16个，\n  则无法创建新图层，提示限制\nend note\n' 创建新图层后自动切换为当前图层，并重置为创建矩形状态\nUC7 .> \"设置为当前图层\" as SetCurrentLayer : include\nUC7 .> \"重置创建状态为矩形\" as ResetToRectangle : include\n\n' 管理图层（切换图层）\nusecase \"切换图层\" as UC8\nUser --> UC8 : 点击“下一页”按钮\n' 切换图层会循环：最后一个切回第一个\n' 切换后重置创建状态为矩形\nUC8 .> \"重置创建状态为矩形\" : include\n' 因果说明：每次图层切换后都需重置图形选择状态\n\n' 图形提示区域更新提示\nusecase \"更新提示信息\" as UC9\n' 所有用例可能影响界面提示\nUC1 .> UC9 : include\nUC7 .> UC9 : include\nUC8 .> UC9 : include\n' 因果说明：初始化、新建图层、切换图层均需更新提示区域\n' 提示内容如“第一页”、“删除元素”等\n\n' 扩展可能性：根据约束（1）图形编辑器可在创建的图形种类上扩展\n' 未来可添加新的图形类型，如三角形、多边形等\n' 当前已支持直线、椭圆、矩形，未来可扩展\n' 使用 extend 表示未来新增图形类型的可扩展性\n\"选择图形类型\" <.. \"选择其他图形类型\" as ExtendShapeTypes : extend\nnote on link\n  扩展条件：系统设计支持未来增加图形类型（如三角形、多边形等）\n  符合约束：可在创建的图形种类上扩展\nend note\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 23): UC3 <.. \"区域选择多个图形\" as SelectMultiple : extend"
+        },
+        {
+          "candidate_id": "it1_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1073,
+          "plantuml": "@startuml\nactor 用户 as User\n\n' 启动时系统自动执行初始化\nusecase \"启动图形编辑器\" as UC1\nusecase \"显示初始界面\" as UC2\nUser --> UC1\nUC1 --> UC2 : <<include>>\n' 初始状态：创建图形选择框默认为矩形，创建第一个图层，提示“第一页”\n\nusecase \"创建图形\" as UC3\nUser --> UC3\n' 用户从选择框选直线、椭圆、矩形，在当前图层拖拽绘制\n\nusecase \"选择图形\" as UC4\nUser --> UC4\n' 单击图形选择，支持多选和框选，空白点击取消选择\n\nusecase \"删除图形\" as UC5\nUser --> UC5\n' 先选择图形，再点击“删除元素”按钮删除所选图形\n\n' 删除图形前必须先选择图形\n' 因果依赖：删除操作的前提是已有被选中的图形\nUC5 --> UC4 : <<include>>\n\nusecase \"改变图形尺寸\" as UC6\nUser --> UC6\n' 通过拖动控制点或点击“放大”“缩小”按钮调整尺寸\n\n' 改变尺寸前必须选择图形\n' 因果依赖：只有被选中的图形才能调整尺寸\nUC6 --> UC4 : <<include>>\n\nusecase \"移动图形\" as UC7\nUser --> UC7\n' 在图形内部按下并拖动以移动位置\n\n' 移动图形前必须选择图形\n' 因果依赖：移动操作作用于已选中的图形\nUC7 --> UC4 : <<include>>\n\nusecase \"创建新图层\" as UC8\nUser --> UC8\n' 点击“新页”按钮创建新图层，最多16个\n\n' 新图层创建后自动成为当前图层，并重置为矩形创建状态\n' 扩展点：当图层数 ≤15 时允许创建；>15 则无法创建\n' 触发条件：用户点击“新页”且图层数未达上限\nUC8_ext_max :: \"图层数已达16\" as EXT8\nUC8 ..> EXT8 : <<extend>>\nnote on link\n  扩展条件：图层数量超过16时禁止创建新图层\nend note\n\nusecase \"切换图层\" as UC9\nUser --> UC9\n' 点击“下一页”切换当前图层，循环切换，提示编号\n\n' 切换后重置创建状态为“矩形”\n' 因果依赖：切换图层后必须重置绘图工具状态\nUC9 --> UC2 : <<include>>\nnote on link\n  包含：切换图层后创建图形选择框恢复为“矩形”\nend note\n\n' 图形提示区域始终显示当前页码\nusecase \"更新图形提示\" as UC10\nUC2 --> UC10 : <<include>>\nUC8 --> UC10 : <<include>>\nUC9 --> UC10 : <<include>>\n' 启动、新建、切换图层时均需更新提示信息\n\n' 可扩展图形类型（约束条件）\n' 当前支持直线、椭圆、矩形，未来可扩展\n' 扩展点：在“创建图形”中可添加新图形类型\n' 触发条件：系统支持新增图形种类\nUC3_ext_shape :: \"扩展图形类型\" as EXT3\nUC3 ..> EXT3 : <<extend>>\nnote on link\n  扩展条件：系统可在创建的图形种类上扩展（如三角形、多边形等）\nend note\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1090,
+          "plantuml": "@startuml\nactor 用户 as User\n\n' 软件初始启动时执行的初始化行为\nusecase \"初始化编辑器\" as UC1\nUser --> UC1 : 启动软件\n\n' 创建图形功能\nusecase \"创建图形\" as UC2\nUser --> UC2 : 选择图形类型并绘制\n' 初始化过程中必须包含默认图层和提示设置\nUC1 --> UC2 : <<include>>\n' 图形种类可在未来扩展（约束条件）\n' 扩展点：当新增图形类型时，可扩展创建图形功能\nUC2 <|-- \"支持扩展图形类型\" as EXT1 : <<extend>>\\n<<扩展点：新增图形类型>>\n\n' 选择图形功能\nusecase \"选择图形\" as UC3\nUser --> UC3 : 点击或框选图形\nUC2 --> UC3 : <<include>> ' 创建后通常需要选择\n' 可多选或取消选择\n' 包含删除、改变尺寸、移动等操作的前提\nUC3 --> \"删除图形\" as UC4 : <<include>>\nUC3 --> \"改变图形尺寸\" as UC5 : <<include>>\nUC3 --> \"移动图形\" as UC6 : <<include>>\n\n' 删除图形功能\nusecase \"删除图形\" as UC4\nUser --> UC4 : 点击“删除元素”按钮\n' 必须先选择图形才能删除\n' 因果依赖：未选择则无法删除\nUC3 --> UC4 : <<include>>\n\n' 改变图形尺寸功能\nusecase \"改变图形尺寸\" as UC5\nUser --> UC5 : 拖动控制点或点击放大/缩小按钮\n' 放大缩小按钮直接触发尺寸变化\n' 包含通过按钮进行缩放操作\nUC5 --> \"使用放大/缩小按钮\" as INC1 : <<include>>\n' 使用控制点拖动是基本方式\n' 按钮操作是对该功能的补充\nINC1 : 提供快捷尺寸调整\n\n' 移动图形功能\nusecase \"移动图形\" as UC6\nUser --> UC6 : 在图形内部拖动\n' 保持图层与控制状态不变\n' 编辑器整体移动时状态持续\n' 延伸场景：在复杂UI环境中移动编辑器\n' 触发条件：用户拖动整个编辑器窗口\nUC6 <|-- \"保持状态跨编辑器移动\" as EXT2 : <<extend>>\\n<<触发条件：编辑器被移动>>\n\n' 创建图层功能\nusecase \"创建新图层\" as UC7\nUser --> UC7 : 点击“新页”按钮\n' 最多创建16个图层，超限则不可创建\n' 扩展点：达到图层上限时阻止创建\nUC7 <|-- \"限制图层数量≤16\" as EXT3 : <<extend>>\\n<<扩展点：图层数≥16>>\n' 新图层创建后自动设为当前图层，并初始化为矩形创建状态\nUC7 --> \"管理图层\" as UC8 : <<include>> ' 创建后常伴随切换或管理\n\n' 管理图层（切换图层）\nusecase \"管理图层\" as UC8\nUser --> UC8 : 点击“下一页”按钮切换图层\n' 切换到下一个图层，最后层回绕至第一层\n' 每次切换后重置为创建矩形状态\n' 初始化图层状态是管理的一部分\nUC8 --> UC2 : <<include>> ' 切换后进入创建矩形状态\n\n' 非功能性需求相关扩展说明\n' 约束：图形种类可扩展\nnote right of EXT1\n  【约束】图形编辑器可在创建的图形种类上扩展。\n  例如：未来可添加多边形、曲线等。\nend note\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1107,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' 初始化系统状态\nusecase \"启动图形编辑器\" as UC1\nUser --> UC1\n\n'\n' 图形创建相关用例\nusecase \"创建图形\" as UC2\nUser --> UC2\n'\n' 初始状态下默认选择矩形\nUC1 ..> UC2 : <<include>>\n' 启动时默认选择矩形图形\n\nusecase \"选择创建的图形类型\" as UC2_1\nUC2 ..> UC2_1 : <<include>>\n' 创建图形前必须选择类型：直线、椭圆、矩形\n\nusecase \"动态绘制图形\" as UC2_2\nUC2 ..> UC2_2 : <<include>>\n' 创建过程中必须动态绘制虚线轮廓\n\n'\n' 选择图形功能\nusecase \"选择图形\" as UC3\nUser --> UC3\n\n' 单击图形内部选择单个图形\n' 多选：叠加图形点击或拖拽框选\n' 点击空白取消选择\nUC3 --> UC3 : <<extend>>\n' 扩展：在叠加区域点击可选择多个图形（扩展点：图形重叠区域点击）\n\nUC3 --> UC3 : <<extend>>\n' 扩展：按下并拖动鼠标形成选择框，选中区域内所有图形（扩展点：拖拽选择）\n\nUC3 --> UC3 : <<extend>>\n' 扩展：点击空白区域取消所有选择（扩展点：点击无图形区域）\n\n'\n' 删除图形\nusecase \"删除所选图形\" as UC4\nUser --> UC4\n'\n' 必须先选择图形才能删除\nUC4 ..> UC3 : <<include>>\n' 删除前必须已完成图形选择\n\n'\n' 改变图形尺寸\nusecase \"改变图形尺寸\" as UC5\nUser --> UC5\n'\n' 通过拖动控制点调整尺寸\nusecase \"拖动控制点调整尺寸\" as UC5_1\nUC5 ..> UC5_1 : <<include>>\n' 改变尺寸的一种方式：拖动控制点\n\nusecase \"点击放大/缩小按钮\" as UC5_2\nUC5 ..> UC5_2 : <<include>>\n' 改变尺寸的另一种方式：使用工具按钮\n\n'\n' 移动图形\nusecase \"移动图形\" as UC6\nUser --> UC6\n'\n' 在图形内部按下并拖动\nUC6 ..> UC3 : <<include>>\n' 移动前需选择图形\n\n'\n' 图层管理功能\nusecase \"创建新图层\" as UC7\nUser --> UC7\n'\n' 最多16个图层\nUC7 --> UC7 : <<extend>>\n' 扩展：当图层数 ≤16 时才可创建（扩展点：图层数未达上限）\n\n'\n' 切换图层\nusecase \"切换当前图层\" as UC8\nUser --> UC8\n'\n' 点击“下一页”切换，循环到最后返回第一层\n' 切换后恢复为创建矩形状态\nUC8 ..> UC2_1 : <<include>>\n' 切换图层后默认恢复为选择矩形状态\n\n'\n' 其他约束说明\n' 【约束】图形编辑器可在创建的图形种类上扩展。\nusecase \"扩展支持的新图形类型\" as EXT_GraphType\nUC2_1 ..> EXT_GraphType : <<extend>>\n' 扩展：未来可添加多边形、曲线等（扩展点：创建图形类型选择）\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1124,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 初始化系统，显示初始界面状态\nusecase \"启动图形编辑器\" as 启动\n'\n' 创建不同类型的图形\nusecase \"创建直线\" as 创建直线\nusecase \"创建椭圆\" as 创建椭圆\nusecase \"创建矩形\" as 创建矩形\n'\n' 选择图形（单选、多选、取消选择）\nusecase \"选择图形\" as 选择图形\n'\n' 删除已选择的图形\nusecase \"删除图形\" as 删除图形\n'\n' 改变图形尺寸（通过控制点拖动或按钮操作）\nusecase \"改变图形尺寸\" as 改变尺寸\nusecase \"使用放大按钮调整尺寸\" as 放大图形\nusecase \"使用缩小按钮调整尺寸\" as 缩小图形\n'\n' 移动图形位置\nusecase \"移动图形\" as 移动图形\n'\n' 图层管理相关功能\nusecase \"创建新图层\" as 创建新图层\nusecase \"切换图层\" as 切换图层\n\n'---------------------------------\n' 关联：用户与用例之间的交互\n'---------------------------------\n用户 --> 启动\n用户 --> 创建直线\n用户 --> 创建椭圆\n用户 --> 创建矩形\n用户 --> 选择图形\n用户 --> 删除图形\n用户 --> 改变尺寸\n用户 --> 放大图形\n用户 --> 缩小图形\n用户 --> 移动图形\n用户 --> 创建新图层\n用户 --> 切换图层\n\n'---------------------------------\n' 包含关系（include）：强制依赖\n'---------------------------------\n\n' 启动时必须初始化默认图层和提示信息\n' 因果说明：启动编辑器时必须自动创建第一个图层并设置提示\n启动 ..> 创建新图层 : <<include>>\n\n' 创建图形前必须选择图形类型，且所有创建操作都基于当前图层\n' 因果说明：创建任何图形都必须在当前图层上进行\n创建直线 ..> 选择图形 : <<include>>\n创建椭圆 ..> 选择图形 : <<include>>\n创建矩形 ..> 选择图形 : <<include>>\n\n' 改变尺寸可以通过拖动控制点或点击按钮实现\n' 因果说明：使用按钮放大是改变尺寸的一种方式\n放大图形 ..> 改变尺寸 : <<include>>\n' 因果说明：使用按钮缩小也是改变尺寸的一种方式\n缩小图形 ..> 改变尺寸 : <<include>>\n\n' 删除图形前必须先选择图形\n' 因果说明：删除操作依赖于已有被选中的图形\n删除图形 ..> 选择图形 : <<include>>\n\n' 移动图形前必须选择图形\n' 因果说明：移动操作只能作用于已选择的图形\n移动图形 ..> 选择图形 : <<include>>\n\n'---------------------------------\n' 扩展关系（extend）：条件性扩展\n'---------------------------------\n\n' 当图层数未达上限时才能创建新图层\n' 触发条件：当图层数小于16时，“创建新图层”才可执行\n创建新图层 <-- 拓展_图层未满 : <<extend>>\\n<<guard>>: 图层数 < 16\nnote on link\n  扩展点：检查图层数量是否超过16\nend note\n\n' 图形创建种类未来可扩展（如多边形等）\n' 触发条件：系统支持未来添加新的图形类型\n创建直线 <-- 拓展_扩展图形类型 : <<extend>>\\n<<stub>>\n创建椭圆 <-- 拓展_扩展图形类型 : <<extend>>\\n<<stub>>\n创建矩形 <-- 拓展_扩展图形类型 : <<extend>>\\n<<stub>>\nnote right of 拓展_扩展图形类型\n  约束(1)：图形编辑器可在创建的图形种类上扩展\n  例如后续可加入多边形、曲线等\nend note\n\n' 切换图层时若已是最后一页则跳转到第一页\n' 触发条件：当前图层为最后一个图层时，“下一页”触发循环切换\n切换图层 <-- 拓展_循环切换图层 : <<extend>>\\n<<guard>>: 当前图层 = 最后一个\nnote on link\n  扩展点：点击“下一页”且当前为末页时跳回首页\nend note\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 6): usecase \"启动图形编辑器\" as 启动"
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1141,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' 初始化系统\nusecase \"启动图形编辑器\" as UC1\n'\n' 图形操作功能\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\n\n'\n' 图层管理功能\nusecase \"创建新图层\" as UC7\nusecase \"切换图层\" as UC8\n\n'\n' 系统初始化行为\nUser --> UC1 : 启动软件\n'\n' 图形创建与操作\nUser --> UC2 : 选择图形类型并绘制\nUser --> UC3 : 点击或框选图形\nUser --> UC4 : 点击“删除元素”按钮\nUser --> UC5 : 拖动控制点或点击放大/缩小\nUser --> UC6 : 在图形内拖动\n\n'\n' 图层管理操作\nUser --> UC7 : 点击“新页”按钮\nUser --> UC8 : 点击“下一页”按钮\n\n'\n' 包含关系（include）：强制依赖\n' 启动时必须初始化默认图层和提示信息\nUC1 ..> UC7 : <<include>>\n' 启动包含创建第一个图层\n\n'\n' 创建图形必须在当前图层上进行\nUC2 ..> UC8 : <<include>>\n' 创建图形前需确保有当前图层（隐式依赖）\n\n'\n' 删除图形前必须先选择图形\nUC4 ..> UC3 : <<include>>\n' 删除依赖于选择状态\n\n'\n' 改变尺寸和移动都要求图形被选中\nUC5 ..> UC3 : <<include>>\n' 调整尺寸前必须选择图形\nUC6 ..> UC3 : <<include>>\n' 移动前必须选择图形\n\n'\n' 扩展关系（extend）：条件触发\n' 当图层数未达上限时才能创建新图层\n(创建新图层, 启动图形编辑器) as extend1\nUC7 ..> UC1 : <<extend>>\nnote on link\n  扩展点: 启动后允许创建新图层\n  条件: 图层数 ≤ 16\nend note\n\n'\n' 切换图层可扩展于创建新图层之后的操作\nUC8 ..> UC7 : <<extend>>\nnote on link\n  扩展点: 新图层创建后可切换\n  条件: 存在多个图层\nend note\n\n'\n' 根据约束（1）：可在创建的图形种类上扩展\n(创建图形, <<extend>>) as ExtendCreate\nUC2 <--|> ExtendCreate\nnote right of ExtendCreate\n  可扩展支持多边形、曲线等新图形类型\nend note\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 80): UC2 <--|> ExtendCreate"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 3,
+        "nodes": 20,
+        "edges": 44,
+        "conflicts": 31
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "启动图形编辑器",
+          "b": "显示初始界面",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "删除图形",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "调整图形尺寸",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建新图层",
+          "b": "EXT8",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "切换图层",
+          "b": "显示初始界面",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "显示初始界面",
+          "b": "更新图形提示",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建新图层",
+          "b": "更新图形提示",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "切换图层",
+          "b": "更新图形提示",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图形",
+          "b": "EXT3",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "初始化编辑器",
+          "b": "创建图形",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图形",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "删除图形\"asUC4",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "调整图形尺寸\"asUC5",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "移动图形\"asUC6",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "删除图形",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "调整图形尺寸",
+          "b": "使用放大缩小按钮\"asINC1",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建新图层",
+          "b": "管理图层\"asUC8",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "管理图层",
+          "b": "创建图形",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "启动图形编辑器",
+          "b": "创建图形",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图形",
+          "b": "选择创建的图形类型",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图形",
+          "b": "动态绘制图形",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "删除所选图形",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "调整图形尺寸",
+          "b": "拖动控制点调整尺寸",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "调整图形尺寸",
+          "b": "点击放大缩小按钮",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建新图层",
+          "b": "创建新图层",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "切换当前图层",
+          "b": "选择创建的图形类型",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择创建的图形类型",
+          "b": "扩展支持的新图形类型",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建新图层",
+          "b": "EXT8",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建图形",
+          "b": "EXT3",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建新图层",
+          "b": "创建新图层",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "选择创建的图形类型",
+          "b": "扩展支持的新图形类型",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "切换图层",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "显示初始界面",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "更新图形提示",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "启动图形编辑器",
+          "b": "",
+          "details": {
+            "freq": 0.6666666666666666,
+            "sources": [
+              "it1_qwen_2",
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "初始化编辑器",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "点击放大缩小按钮",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "切换当前图层",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "选择创建的图形类型",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "拖动控制点调整尺寸",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "扩展支持的新图形类型",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "动态绘制图形",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "删除所选图形",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "启动图形编辑器",
+          "b": "显示初始界面",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建新图层",
+          "b": "EXT8",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "显示初始界面",
+          "b": "更新图形提示",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "创建新图层",
+          "b": "更新图形提示",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "切换图层",
+          "b": "更新图形提示",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建图形",
+          "b": "EXT3",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "创建图形",
+          "b": "选择图形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "选择图形",
+          "b": "删除图形\"asUC4",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "选择图形",
+          "b": "调整图形尺寸\"asUC5",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "选择图形",
+          "b": "移动图形\"asUC6",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "调整图形尺寸",
+          "b": "使用放大缩小按钮\"asINC1",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "启动图形编辑器",
+          "b": "创建图形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "创建图形",
+          "b": "选择创建的图形类型",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "创建图形",
+          "b": "动态绘制图形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "调整图形尺寸",
+          "b": "拖动控制点调整尺寸",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "调整图形尺寸",
+          "b": "点击放大缩小按钮",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建新图层",
+          "b": "创建新图层",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "选择创建的图形类型",
+          "b": "扩展支持的新图形类型",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "启动图形编辑器",
+            "included": "显示初始界面"
+          },
+          "prompt": "用例【启动图形编辑器】执行过程中是否【必须】包含用例【显示初始界面】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "删除图形",
+            "included": "选择图形"
+          },
+          "prompt": "用例【删除图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q3",
+          "type": "yes_no_include",
+          "target": {
+            "base": "调整图形尺寸",
+            "included": "选择图形"
+          },
+          "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q4",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建新图层",
+            "included": "EXT8"
+          },
+          "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【EXT8】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q5",
+          "type": "yes_no_include",
+          "target": {
+            "base": "切换图层",
+            "included": "显示初始界面"
+          },
+          "prompt": "用例【切换图层】执行过程中是否【必须】包含用例【显示初始界面】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q6",
+          "type": "yes_no_include",
+          "target": {
+            "base": "显示初始界面",
+            "included": "更新图形提示"
+          },
+          "prompt": "用例【显示初始界面】执行过程中是否【必须】包含用例【更新图形提示】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q7",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建新图层",
+            "included": "更新图形提示"
+          },
+          "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【更新图形提示】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q8",
+          "type": "yes_no_include",
+          "target": {
+            "base": "切换图层",
+            "included": "更新图形提示"
+          },
+          "prompt": "用例【切换图层】执行过程中是否【必须】包含用例【更新图形提示】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q9",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "EXT3"
+          },
+          "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【EXT3】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q10",
+          "type": "yes_no_include",
+          "target": {
+            "base": "初始化编辑器",
+            "included": "创建图形"
+          },
+          "prompt": "用例【初始化编辑器】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q11",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "选择图形"
+          },
+          "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q12",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "删除图形\"asUC4"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【删除图形\"asUC4】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q13",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "调整图形尺寸\"asUC5"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【调整图形尺寸\"asUC5】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q14",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "移动图形\"asUC6"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【移动图形\"asUC6】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q15",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "删除图形"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【删除图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q16",
+          "type": "yes_no_include",
+          "target": {
+            "base": "调整图形尺寸",
+            "included": "使用放大缩小按钮\"asINC1"
+          },
+          "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【使用放大缩小按钮\"asINC1】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q17",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建新图层",
+            "included": "管理图层\"asUC8"
+          },
+          "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【管理图层\"asUC8】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q18",
+          "type": "yes_no_include",
+          "target": {
+            "base": "管理图层",
+            "included": "创建图形"
+          },
+          "prompt": "用例【管理图层】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q19",
+          "type": "yes_no_include",
+          "target": {
+            "base": "启动图形编辑器",
+            "included": "创建图形"
+          },
+          "prompt": "用例【启动图形编辑器】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q20",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "选择创建的图形类型"
+          },
+          "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【选择创建的图形类型】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q21",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "动态绘制图形"
+          },
+          "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【动态绘制图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q22",
+          "type": "yes_no_include",
+          "target": {
+            "base": "删除所选图形",
+            "included": "选择图形"
+          },
+          "prompt": "用例【删除所选图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q23",
+          "type": "yes_no_include",
+          "target": {
+            "base": "调整图形尺寸",
+            "included": "拖动控制点调整尺寸"
+          },
+          "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【拖动控制点调整尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q24",
+          "type": "yes_no_include",
+          "target": {
+            "base": "调整图形尺寸",
+            "included": "点击放大缩小按钮"
+          },
+          "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【点击放大缩小按钮】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q25",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建新图层",
+            "included": "创建新图层"
+          },
+          "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【创建新图层】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q26",
+          "type": "yes_no_include",
+          "target": {
+            "base": "切换当前图层",
+            "included": "选择创建的图形类型"
+          },
+          "prompt": "用例【切换当前图层】执行过程中是否【必须】包含用例【选择创建的图形类型】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q27",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择创建的图形类型",
+            "included": "扩展支持的新图形类型"
+          },
+          "prompt": "用例【选择创建的图形类型】执行过程中是否【必须】包含用例【扩展支持的新图形类型】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q28",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建新图层",
+            "base": "EXT8"
+          },
+          "prompt": "如果【创建新图层】是对【EXT8】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q29",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建图形",
+            "base": "EXT3"
+          },
+          "prompt": "如果【创建图形】是对【EXT3】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q30",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建新图层",
+            "base": "创建新图层"
+          },
+          "prompt": "如果【创建新图层】是对【创建新图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q31",
+          "type": "extend_condition",
+          "target": {
+            "extension": "选择创建的图形类型",
+            "base": "扩展支持的新图形类型"
+          },
+          "prompt": "如果【选择创建的图形类型】是对【扩展支持的新图形类型】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q32",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "切换图层"
+          },
+          "prompt": "用例【切换图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q33",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "显示初始界面"
+          },
+          "prompt": "用例【显示初始界面】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q34",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "更新图形提示"
+          },
+          "prompt": "用例【更新图形提示】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q35",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "启动图形编辑器"
+          },
+          "prompt": "用例【启动图形编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q36",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "初始化编辑器"
+          },
+          "prompt": "用例【初始化编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q37",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "点击放大缩小按钮"
+          },
+          "prompt": "用例【点击放大缩小按钮】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q38",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "切换当前图层"
+          },
+          "prompt": "用例【切换当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q39",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "选择创建的图形类型"
+          },
+          "prompt": "用例【选择创建的图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q40",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "拖动控制点调整尺寸"
+          },
+          "prompt": "用例【拖动控制点调整尺寸】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q41",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "扩展支持的新图形类型"
+          },
+          "prompt": "用例【扩展支持的新图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q42",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "动态绘制图形"
+          },
+          "prompt": "用例【动态绘制图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q43",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "删除所选图形"
+          },
+          "prompt": "用例【删除所选图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q44",
+          "type": "yes_no_include",
+          "target": {
+            "base": "启动图形编辑器",
+            "included": "显示初始界面"
+          },
+          "prompt": "是否确认：用例【启动图形编辑器】执行时必须包含【显示初始界面】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q45",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建新图层",
+            "base": "EXT8"
+          },
+          "prompt": "如果【创建新图层】是对【EXT8】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q46",
+          "type": "yes_no_include",
+          "target": {
+            "base": "显示初始界面",
+            "included": "更新图形提示"
+          },
+          "prompt": "是否确认：用例【显示初始界面】执行时必须包含【更新图形提示】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q47",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建新图层",
+            "included": "更新图形提示"
+          },
+          "prompt": "是否确认：用例【创建新图层】执行时必须包含【更新图形提示】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q48",
+          "type": "yes_no_include",
+          "target": {
+            "base": "切换图层",
+            "included": "更新图形提示"
+          },
+          "prompt": "是否确认：用例【切换图层】执行时必须包含【更新图形提示】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q49",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建图形",
+            "base": "EXT3"
+          },
+          "prompt": "如果【创建图形】是对【EXT3】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q50",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "选择图形"
+          },
+          "prompt": "是否确认：用例【创建图形】执行时必须包含【选择图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q51",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "删除图形\"asUC4"
+          },
+          "prompt": "是否确认：用例【选择图形】执行时必须包含【删除图形\"asUC4】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q52",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "调整图形尺寸\"asUC5"
+          },
+          "prompt": "是否确认：用例【选择图形】执行时必须包含【调整图形尺寸\"asUC5】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q53",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "移动图形\"asUC6"
+          },
+          "prompt": "是否确认：用例【选择图形】执行时必须包含【移动图形\"asUC6】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q54",
+          "type": "yes_no_include",
+          "target": {
+            "base": "调整图形尺寸",
+            "included": "使用放大缩小按钮\"asINC1"
+          },
+          "prompt": "是否确认：用例【调整图形尺寸】执行时必须包含【使用放大缩小按钮\"asINC1】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q55",
+          "type": "yes_no_include",
+          "target": {
+            "base": "启动图形编辑器",
+            "included": "创建图形"
+          },
+          "prompt": "是否确认：用例【启动图形编辑器】执行时必须包含【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q56",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "选择创建的图形类型"
+          },
+          "prompt": "是否确认：用例【创建图形】执行时必须包含【选择创建的图形类型】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q57",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "动态绘制图形"
+          },
+          "prompt": "是否确认：用例【创建图形】执行时必须包含【动态绘制图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q58",
+          "type": "yes_no_include",
+          "target": {
+            "base": "调整图形尺寸",
+            "included": "拖动控制点调整尺寸"
+          },
+          "prompt": "是否确认：用例【调整图形尺寸】执行时必须包含【拖动控制点调整尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q59",
+          "type": "yes_no_include",
+          "target": {
+            "base": "调整图形尺寸",
+            "included": "点击放大缩小按钮"
+          },
+          "prompt": "是否确认：用例【调整图形尺寸】执行时必须包含【点击放大缩小按钮】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q60",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建新图层",
+            "base": "创建新图层"
+          },
+          "prompt": "如果【创建新图层】是对【创建新图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q61",
+          "type": "extend_condition",
+          "target": {
+            "extension": "选择创建的图形类型",
+            "base": "扩展支持的新图形类型"
+          },
+          "prompt": "如果【选择创建的图形类型】是对【扩展支持的新图形类型】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "yes",
+        "q3": "yes",
+        "q4": "no",
+        "q5": "no",
+        "q6": "no",
+        "q7": "no",
+        "q8": "no",
+        "q9": "no",
+        "q10": "no",
+        "q11": "no",
+        "q12": "no",
+        "q13": "no",
+        "q14": "no",
+        "q15": "no",
+        "q16": "no",
+        "q17": "no",
+        "q18": "no",
+        "q19": "no",
+        "q20": "no",
+        "q21": "no",
+        "q22": "yes",
+        "q23": "no",
+        "q24": "no",
+        "q25": "no",
+        "q26": "no",
+        "q27": "no",
+        "q28": "NONE",
+        "q29": "NONE",
+        "q30": "NONE",
+        "q31": "NONE",
+        "q32": "no",
+        "q33": "no",
+        "q34": "no",
+        "q35": "yes",
+        "q36": "no",
+        "q37": "no",
+        "q38": "no",
+        "q39": "no",
+        "q40": "no",
+        "q41": "no",
+        "q42": "no",
+        "q43": "no",
+        "q44": "no",
+        "q45": "NONE",
+        "q46": "no",
+        "q47": "no",
+        "q48": "no",
+        "q49": "NONE",
+        "q50": "no",
+        "q51": "no",
+        "q52": "no",
+        "q53": "no",
+        "q54": "no",
+        "q55": "no",
+        "q56": "no",
+        "q57": "no",
+        "q58": "no",
+        "q59": "no",
+        "q60": "NONE",
+        "q61": "NONE"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "切换图层|include|显示初始界面",
+          "切换当前图层|include|选择创建的图形类型",
+          "创建图形|generalize|支持扩展图形类型\"asEXT1",
+          "创建新图层|generalize|限制图层数量≤16\"asEXT3",
+          "创建新图层|include|管理图层\"asUC8",
+          "初始化编辑器|include|创建图形",
+          "删除图形|include|选择图形",
+          "删除所选图形|include|选择图形",
+          "用户|assoc|切换图层",
+          "用户|assoc|切换当前图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|创建新图层",
+          "用户|assoc|初始化编辑器",
+          "用户|assoc|删除图形",
+          "用户|assoc|删除所选图形",
+          "用户|assoc|启动图形编辑器",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "移动图形|generalize|保持状态跨编辑器移动\"asEXT2",
+          "移动图形|include|选择图形",
+          "管理图层|include|创建图形",
+          "调整图形尺寸|include|选择图形",
+          "选择图形|extend|选择图形",
+          "选择图形|include|删除图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 2,
+      "candidates": [
+        {
+          "candidate_id": "it2_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2056,
+          "plantuml": "@startuml\nactor 用户\n\n'\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"创建图形\" as 创建图形\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\nusecase \"创建新图层\" as 创建新图层\nusecase \"管理图层\" as 管理图层\n\n'\n用户 --> 启动图形编辑器\n用户 --> 创建图形\n用户 --> 选择图形\n用户 --> 删除图形\n用户 --> 调整图形尺寸\n用户 --> 移动图形\n用户 --> 创建新图层\n用户 --> 管理图层\n\n'\n' 删除图形必须先选择图形（强制依赖）\n删除图形 ..> 选择图形 : <<include>>\n' 调整图形尺寸前必须先选择图形\n调整图形尺寸 ..> 选择图形 : <<include>>\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 5): usecase \"启动图形编辑器\" as 启动图形编辑器"
+        },
+        {
+          "candidate_id": "it2_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2073,
+          "plantuml": "@startuml\nactor 用户 as User\n\n' Use cases (excluding forbidden ones per constraints)\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n' Associations between actor and use cases\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n' Include relationships with causal comments\n' 删除图形必须先选择图形\nUC4 ..> UC3 : <<include>>\n' 调整图形尺寸前必须选择图形\nUC5 ..> UC3 : <<include>>\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2090,
+          "plantuml": "@startuml\nactor 用户\n\n' 必须包含的用例\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n' 根据约束保留和禁止的用例处理：以下用例被明确禁止，不应出现\n' 被禁用的用例（根据 forbid_usecases）：切换图层, 显示初始界面, 更新图形提示, 初始化编辑器, 点击放大缩小按钮, 切换当前图层, 选择创建的图形类型, 拖动控制点调整尺寸, 扩展支持的新图形类型, 动态绘制图形, 删除所选图形\n\n' 参与者与用例关联\n用户 --> UC1 : 启动软件\n用户 --> UC2 : 创建新图形\n用户 --> UC3 : 选择一个或多个图形\n用户 --> UC4 : 删除已选图形\n用户 --> UC5 : 改变图形大小\n用户 --> UC6 : 拖动移动图形\n用户 --> UC7 : 添加新图层\n用户 --> UC8 : 在多个图层间切换\n\n' include 关系（强制性依赖），依据 must_include 和约束判断\n' 删除图形 前必须先 选择图形\nUC4 .> UC3 : <<include>>\n' 注释：删除图形前必须先选择图形\n' 调整图形尺寸 前必须先 选择图形\nUC5 .> UC3 : <<include>>\n' 注释：调整尺寸前必须先选择图形\n\n' extend 关系：根据需求分析，无显式扩展条件，且约束中 extend 为空，forbid_extend 存在，故不添加任何 extend\n\n' 其他约束处理：\n' - 禁止的 include 已忽略（如 启动图形编辑器 -> 显示初始界面 等）\n' - 禁止的 usecase 不得出现在图中\n' - 保持 \"启动图形编辑器\" 作为独立顶层用例\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2107,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' 主要用例\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n' 强制性 include 关系（must_include 约束）\n'\n\n' 删除图形必须先选择图形\nUC4 .> UC3 : <<include>>\n\n' 调整图形尺寸必须先选择图形\nUC5 .> UC3 : <<include>>\n\n'\n' 用例之间的关联：用户触发的主用例\n'\nUser --> UC1 : 启动软件\nUser --> UC2 : 选择并绘制图形\nUser --> UC3 : 点击或框选图形\nUser --> UC4 : 点击“删除元素”按钮\nUser --> UC5 : 拖动控制点或点击放大/缩小\nUser --> UC6 : 在图形内拖动\nUser --> UC7 : 点击“新页”按钮\nUser --> UC8 : 点击“下一页”按钮\n\n'\n' extend 关系说明（根据需求，无明确扩展用例，且约束中 forbid_extend 存在，故不添加非法 extend）\n'\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2124,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' Use Cases (only allowed ones based on constraints)\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n' Associations between actors and use cases\n'\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n'\n' Include relationships with causal comments\n'\n' 删除图形必须先选择图形\nUC4 .> UC3 : <<include>>\n' 调整图形尺寸前必须选择图形\nUC5 .> UC3 : <<include>>\n' 移动图形需要先选择图形（隐含逻辑，虽未在must_include中但符合需求）\nUC6 .> UC3 : <<include>>\n' 创建新图层后自动设置为当前图层并初始化状态（根据需求7，需包含选择图形类型）\n' 但“选择创建的图形类型”被禁止作为独立用例，因此不显式建模\n' 管理图层包括切换图层和提示编号更新，但“切换图层”被禁，故仅保留管理行为本身\n\n'\n' Extend relationships: none required by must_include or valid extensions\n' According to constraints, all proposed extends are either forbidden or not confirmed\n'\n\n'\n' Notes:\n' - Forbidden use cases like \"切换图层\", \"显示初始界面\", etc. are excluded.\n' - Include from 删除图形 to 选择图形 is enforced by constraint.\n' - No extend used due to lack of valid triggering conditions and forbidden extension targets.\n' - Actor only: 用户\n'\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2141,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' 主要用例\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n' include 关系（强制包含）\n'\n' 删除图形必须先选择图形\nUC4 ..> UC3 : <<include>>\n' 调整图形尺寸必须先选择图形\nUC5 ..> UC3 : <<include>>\n\n'\n' actor 与 use case 关联\n'\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n'\n' extend 关系（扩展，有条件触发）\n'\n' 约束中未指定明确的 extend，且 forbid_extend 限制了部分扩展，因此不添加非法 extend\n' 根据需求文本和约束，无合法的 extend 关系需要建模\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 5,
+        "nodes": 9,
+        "edges": 11,
+        "conflicts": 1
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "移动图形",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it2_qwen_5"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "移动图形",
+            "included": "选择图形"
+          },
+          "prompt": "用例【移动图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        }
+      ],
+      "answers": {
+        "q1": "yes"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "删除图形|include|选择图形",
+          "用户|assoc|创建图形",
+          "用户|assoc|创建新图层",
+          "用户|assoc|删除图形",
+          "用户|assoc|启动图形编辑器",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "移动图形|include|选择图形",
+          "调整图形尺寸|include|选择图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 3,
+      "candidates": [
+        {
+          "candidate_id": "it3_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3056,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' Use Cases\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n' Actor associations\n'\nUser --> UC1 : 启动软件\nUser --> UC2 : 创建图形\nUser --> UC3 : 选择/取消选择图形\nUser --> UC4 : 删除已选图形\nUser --> UC5 : 调整尺寸\nUser --> UC6 : 拖动移动图形\nUser --> UC7 : 创建新图层\nUser --> UC8 : 切换图层\n\n'\n' Include relationships (mandatory dependencies)\n'\n' 删除图形必须先选择图形\nUC4 .> UC3 : <<include>>\n\n' 调整图形尺寸必须先选择图形\nUC5 .> UC3 : <<include>>\n\n' 移动图形必须先选择图形\nUC6 .> UC3 : <<include>>\n\n'\n' Extend relationships (conditional extensions)\n'\n' 当图层数量未超过16时，才可创建新图层\n' extend: 创建新图层 只在 图层数 < 16 时发生\nUC7 ..> UC1 : <<extend>>\nnote on link\n  扩展条件：图层数量不超过16个\nend note\n\n' 管理图层（切换）发生在存在多个图层时\n' extend: 管理图层 在 存在多个图层 时触发\nUC8 ..> UC7 : <<extend>>\nnote on link\n  扩展条件：至少有两个图层\nend note\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3073,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户 as User\n\n'\n' 启动与初始化功能\n'\nusecase \"启动图形编辑器\" as UC1\nUser --> UC1\n\n'\n' 创建图形功能分解（根据约束，不使用被禁用的子用例）\n'\nusecase \"创建图形\" as UC2\nUser --> UC2\n' 创建图形前必须选择图形类型，但“选择创建的图形类型”被禁用，故合并到创建图形中理解\n\n'\n' 选择图形是多个操作的前提\n'\nusecase \"选择图形\" as UC3\nUser --> UC3\n\n'\n' 删除图形依赖于先选择图形\n'\nusecase \"删除图形\" as UC4\nUser --> UC4\n' 删除图形必须先选择图形\nUC4 .> UC3 : include\n\n'\n' 调整图形尺寸功能\n'\nusecase \"调整图形尺寸\" as UC5\nUser --> UC5\n' 调整尺寸前必须选择图形\nUC5 .> UC3 : include\n\n'\n' 移动图形功能\n'\nusecase \"移动图形\" as UC6\nUser --> UC6\n' 移动图形前必须选择图形\nUC6 .> UC3 : include\n\n'\n' 创建新图层功能\n'\nusecase \"创建新图层\" as UC7\nUser --> UC7\n' 图层数量超过16则无法创建 —— 扩展点控制\n' EXT1: 图层数量未超限时才可创建新图层\nnote right of UC7\n  扩展点：是否已达最大图层数(16)\n  若达到，则不可执行\nend note\n\n'\n' 管理图层（即切换图层）功能\n'\nusecase \"管理图层\" as UC8\nUser --> UC8\n' 切换图层后重置为创建矩形状态，但不包含显示初始界面等被禁用用例\n' 管理图层时，将目标图层设为当前，并提示编号\n' 不允许 include 显示初始界面 或 更新图形提示\n\n'\n' 用例间关系约束处理说明：\n' 根据约束，“管理图层”不能 include “创建图形”，已避免\n' “创建新图层”不允许 include “EXT8”，已忽略该扩展\n' 多个被禁用的用例如“切换图层”、“更新图形提示”等均未出现\n\n'\n' extend 关系（按需添加，必须注明条件）\n'\n' 无明确允许的 extend 关系，且约束中 forbid_extend 存在多项，故不添加非法 extend\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 56):   扩展点：是否已达最大图层数(16)"
+        },
+        {
+          "candidate_id": "it3_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3090,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' Use Cases\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n' Actor Associations\n'\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n'\n' Include Relationships (with causal comments)\n'\n' 删除图形必须先选择图形\nUC4 .> UC3 : <<include>>\n\n' 调整图形尺寸必须先选择图形\nUC5 .> UC3 : <<include>>\n\n' 移动图形必须先选择图形\nUC6 .> UC3 : <<include>>\n\n'\n' Extend Relationships (with conditions)\n'\n' 创建图形时，当用户拖动鼠标可动态预览虚线框图形（扩展点：拖动过程中）\n' 否则仅在释放时绘制\nUC2 <.. UC3 : <<extend>>\\n<<condition: 拖动鼠标中显示虚线预览>>\n\n' 创建新图层时，当图层数未超过16个才允许创建\nUC7 <.. UC8 : <<extend>>\\n<<condition: 图层数 ≤ 16>>\n\n' 管理图层时，切换图层后提示区域更新编号，并重置为矩形创建状态\nUC8 <.. UC7 : <<extend>>\\n<<condition: 切换后更新提示和状态>>\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 45): UC2 <.. UC3 : <<extend>>\\n<<condition: 拖动鼠标中显示虚线预览>>"
+        },
+        {
+          "candidate_id": "it3_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3107,
+          "plantuml": "@startuml\nactor 用户\n\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n'\n' 删除图形必须先选择图形 '\nUC4 .> UC3 : include\n\n'\n' 调整图形尺寸必须先选择图形 '\nUC5 .> UC3 : include\n\n'\n' 移动图形必须先选择图形 '\nUC6 .> UC3 : include\n\n'\n' 创建新图层最多16个，超过则不能再创建（扩展点：图层数量>16） '\nUC7 ..> UC7 : extend\nnote on link\n  扩展条件：图层数量超过16时无法创建\nend note\n\n'\n' 管理图层在切换到最后一个图层后继续切换则回到第一个图层 '\nUC8 ..> UC8 : extend\nnote on link\n  扩展条件：当前为最后一个图层时点击“下一页”\nend note\n\n'\n' 图形编辑器可在创建的图形种类上扩展 '\nUC2 ..> UC2 : extend\nnote on link\n  扩展点：支持未来新增图形类型\nend note\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3124,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户 as User\n\n'\n' Use Cases\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n' Associations\n'\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n'\n' Include relationships (with causal comments)\n'\n' 删除图形必须先选择图形\nUC4 .> UC3 : <<include>>\n\n' 调整图形尺寸必须先选择图形\nUC5 .> UC3 : <<include>>\n\n' 移动图形必须先选择图形\nUC6 .> UC3 : <<include>>\n\n'\n' Extend relationships (none required per constraints, but constraint says extend is empty)\n'\n' No extends defined per constraints\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3141,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 启动与初始化相关用例\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n' 包含关系 (include)\n'\n\n' 删除图形前必须先选择图形\nUC4 ..> UC3 : <<include>>\n\n' 调整图形尺寸前必须先选择图形\nUC5 ..> UC3 : <<include>>\n\n' 移动图形前必须先选择图形\nUC6 ..> UC3 : <<include>>\n\n'\n' 扩展关系 (extend) - 根据需求和约束，暂无合法的 extend 关系\n'\n\n'\n' 参与者关联\n'\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n'\n' 约束说明：\n' - 用例“切换图层”被禁止，使用“管理图层”代替其行为\n' - “管理图层”不包含“显示初始界面”或“更新图形提示”\n' - 图形创建类型选择、动态绘制等子步骤被禁止作为独立用例\n' - 支持未来扩展图形类型（约束条件(1)），但不得建模为当前 use case\n'\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 4,
+        "nodes": 9,
+        "edges": 19,
+        "conflicts": 4
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建新图层",
+          "b": "启动图形编辑器",
+          "details": {
+            "confidence": 0.25,
+            "sources": [
+              "it3_qwen_1"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "管理图层",
+          "b": "创建新图层",
+          "details": {
+            "confidence": 0.25,
+            "sources": [
+              "it3_qwen_1"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建新图层",
+          "b": "启动图形编辑器",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "管理图层",
+          "b": "创建新图层",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建新图层",
+          "b": "启动图形编辑器",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "管理图层",
+          "b": "创建新图层",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建新图层",
+            "included": "启动图形编辑器"
+          },
+          "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【启动图形编辑器】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "管理图层",
+            "included": "创建新图层"
+          },
+          "prompt": "用例【管理图层】执行过程中是否【必须】包含用例【创建新图层】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q3",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建新图层",
+            "base": "启动图形编辑器"
+          },
+          "prompt": "如果【创建新图层】是对【启动图形编辑器】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q4",
+          "type": "extend_condition",
+          "target": {
+            "extension": "管理图层",
+            "base": "创建新图层"
+          },
+          "prompt": "如果【管理图层】是对【创建新图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q5",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建新图层",
+            "base": "启动图形编辑器"
+          },
+          "prompt": "如果【创建新图层】是对【启动图形编辑器】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q6",
+          "type": "extend_condition",
+          "target": {
+            "extension": "管理图层",
+            "base": "创建新图层"
+          },
+          "prompt": "如果【管理图层】是对【创建新图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no",
+        "q3": "NONE",
+        "q4": "NONE",
+        "q5": "NONE",
+        "q6": "NONE"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "创建图形|assoc|创建图形",
+          "创建新图层|assoc|创建新图层",
+          "删除图形|assoc|选择图形",
+          "删除图形|include|选择图形",
+          "用户|assoc|创建图形",
+          "用户|assoc|创建新图层",
+          "用户|assoc|删除图形",
+          "用户|assoc|启动图形编辑器",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "移动图形|assoc|选择图形",
+          "移动图形|include|选择图形",
+          "管理图层|assoc|管理图层",
+          "调整图形尺寸|assoc|选择图形",
+          "调整图形尺寸|include|选择图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 4,
+      "candidates": [
+        {
+          "candidate_id": "it4_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4056,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' Use Cases (filtered by constraints)\n'\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n' Actor associations\n'\n\nUser --> UC1 : 启动软件\nUser --> UC2 : 创建直线、椭圆、矩形等\nUser --> UC3 : 选择单个或多个图形\nUser --> UC4 : 删除已选图形\nUser --> UC5 : 调整图形大小\nUser --> UC6 : 拖动移动图形\nUser --> UC7 : 点击“新页”创建图层\nUser --> UC8 : 点击“下一页”切换图层\n\n'\n' Include relationships (mandatory dependencies)\n'\n\n' 删除图形必须先选择图形 '\nUC4 .> UC3 : <<include>>\n\n' 调整图形尺寸必须先选择图形 '\nUC5 .> UC3 : <<include>>\n\n' 移动图形必须先选择图形 '\nUC6 .> UC3 : <<include>>\n\n'\n' Extend relationships (conditional extensions with conditions)\n'\n\n' 创建新图层仅在图层数少于16时才可执行 '\nUC7 ..> UC1 : <<extend>>\\n<<condition: 当前图层总数 < 16>>\nnote on link: 扩展点: 启动后任意时刻点击“新页”按钮\\n条件: 图层数未超过16\n\n' 管理图层（切换）可在任何图层存在时触发，循环切换 '\nUC8 ..> UC7 : <<extend>>\nnote on link: 扩展点: 存在多个图层时点击“下一页”\\n条件: 至少有一个图层存在\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4073,
+          "plantuml": "@startuml\nactor 用户 as 用户\n\n' 必须包含的关系：删除图形前必须选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"选择图形\" as 选择图形\n用户 --> 删除图形\n用户 --> 选择图形\n选择图形 .> 删除图形 : include\n\n' 调整图形尺寸前必须选择图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\n用户 --> 调整图形尺寸\n选择图形 .> 调整图形尺寸 : include\n\n' 移动图形前必须选择图形\nusecase \"移动图形\" as 移动图形\n用户 --> 移动图形\n选择图形 .> 移动图形 : include\n\n' 启动图形编辑器是保留用例，且不能包含其他用例（如初始化编辑器、显示初始界面等被禁止）\nusecase \"启动图形编辑器\" as 启动图形编辑器\n用户 --> 启动图形编辑器\n\n' 创建新图层由用户触发，但不能 include 或 extend 被禁用的用例\nusecase \"创建新图层\" as 创建新图层\n用户 --> 创建新图层\n\n' 管理图层包括切换图层，但“切换图层”用例被禁止直接存在，应合并到管理图层中\nusecase \"管理图层\" as 管理图层\n用户 --> 管理图层\n\n' 创建图形功能独立存在，不强制 include 被禁止的用例（如动态绘制图形、选择类型等被禁）\nusecase \"创建图形\" as 创建图形\n用户 --> 创建图形\n\n' 扩展约束：图形编辑器可在创建的图形种类上扩展\n' 使用 extend 表示新图形类型的扩展能力，需注明条件\nusecase \"扩展支持的新图形类型\" as 扩展支持的新图形类型\n' 当用户需要新增图形类型时，扩展选择创建的图形类型\n' 注：虽然“选择创建的图形类型”被 forbid，但其功能应归入“创建图形”\n' 因此改为：创建图形 可被 扩展支持的新图形类型 在“新增图形类型时”扩展\n' 但根据约束，“扩展支持的新图形类型”本身是被 forbid 的用例，不可出现\n\n' 根据约束：以下用例被明确禁止，不得出现在图中：\n' - 切换图层, 显示初始界面, 更新图形提示, 初始化编辑器, 点击放大缩小按钮\n' - 切换当前图层, 选择创建的图形类型, 拖动控制点调整尺寸, 扩展支持的新图形类型\n' - 动态绘制图形, 删除所选图形\n\n' 因此所有逻辑必须映射到允许存在的用例上\n\n' 正确建模如下：\n\n' 创建图形：用户选择并绘制图形\n' 不得 include “动态绘制图形”或“选择创建的图形类型”\n\n' 调整图形尺寸 包含两种方式？但“点击放大缩小按钮”和“拖动控制点”均被 forbid 作为独立用例\n' 所以只能保留“调整图形尺寸”作为整体用例，并 include “选择图形”\n\n' 管理图层：用于切换图层，包含循环切换逻辑，但不得 include “显示初始界面”或“更新图形提示”\n\n' 创建新图层：当图层数 ≤16 时可创建\n' 若图层数超过16，则无法创建 —— 这是一个扩展条件\n\n' 添加 extend：当图层数量超过16时，创建新图层失败\nusecase \"无法创建新图层（已达上限）\" as EXT1\n' 当图层数 >= 16 时，创建新图层 扩展出此情况\n' 注释说明触发条件\n' 创建新图层 在“图层数 ≥ 16”时扩展出“无法创建新图层（已达上限）”\n创建新图层 ..> EXT1 : extend\n' 触发条件：图层数量达到或超过16个\nnote right of 创建新图层 <<extend>> \n扩展点: 创建新图层\n条件: 图层数 ≥ 16\nend note\n\n' 类似地，创建图形依赖于当前图层存在，但无相关信息表明需扩展\n\n' 最终用例集合（仅保留允许的）：\n' 允许的用例：启动图形编辑器、创建图形、选择图形、删除图形、调整图形尺寸、移动图形、创建新图层、管理图层\n\n' 建立关联\n\n用户 --> 创建图形 : <<include>>\n用户 --> 选择图形 : <<include>>\n用户 --> 删除图形 : <<include>>\n用户 --> 调整图形尺寸 : <<include>>\n用户 --> 移动图形 : <<include>>\n用户 --> 创建新图层 : <<include>>\n用户 --> 管理图层 : <<include>>\n\n' 根据需求7，创建新图层后自动成为当前图层，提示编号，设置为矩形状态 —— 属于内部行为，无需额外用例\n\n' 需求8：管理图层用于切换图层，将选定图层设为当前层，提示编号，重置为矩形创建状态 —— 已由“管理图层”覆盖\n\n' 无其他合法 extend 或 include（被约束严格限制）\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 2): actor 用户 as 用户"
+        },
+        {
+          "candidate_id": "it4_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4090,
+          "plantuml": "@startuml\nactor 用户\n\n'\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"创建图形\" as 创建图形\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\nusecase \"创建新图层\" as 创建新图层\nusecase \"管理图层\" as 管理图层\n\n'\n用户 --> 启动图形编辑器\n用户 --> 创建图形\n用户 --> 选择图形\n用户 --> 删除图形\n用户 --> 调整图形尺寸\n用户 --> 移动图形\n用户 --> 创建新图层\n用户 --> 管理图层\n\n'\n' 删除图形前必须先选择图形\n(删除图形) .> (选择图形) : include\n\n'\n' 调整图形尺寸前必须先选择图形\n(调整图形尺寸) .> (选择图形) : include\n\n'\n' 移动图形前必须先选择图形\n(移动图形) .> (选择图形) : include\n\n'\n' 创建新图层时，若图层数未超16个，则可成功创建\n(创建新图层) ..> (启动图形编辑器) : extend\nnote on link\n  扩展点：图层数量 ≤ 16\nend note\n\n'\n' 管理图层包含切换当前图层的操作\n(管理图层) ..> (创建新图层) : extend\nnote on link\n  扩展点：点击“下一页”按钮切换图层\nend note\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 5): usecase \"启动图形编辑器\" as 启动图形编辑器"
+        },
+        {
+          "candidate_id": "it4_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4107,
+          "plantuml": "@startuml\nactor 用户\n\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 删除图形必须先选择图形\nUC4 .> UC3 : <<include>>\n' 调整图形尺寸必须先选择图形\nUC5 .> UC3 : <<include>>\n' 移动图形必须先选择图形\nUC6 .> UC3 : <<include>>\n\n' 创建新图层时，若图层数超过16则无法创建（扩展关系，带条件）\n' 扩展点：创建新图层时检查数量限制\nUC7 <.. \"图层数 ≤ 16\" as EXT1 : <<extend>>\nnote on link\n  当图层数量超过16时，\n  禁止执行“创建新图层”\nend note\n\n' 切换图层时提示编号并重置为矩形创建状态（但“更新图形提示”被禁用）\n' 根据约束，“切换图层”被禁止作为独立用例，已合并到“管理图层”中\n\n' 图形工具支持未来扩展新图形类型（满足约束(1)）\n' “选择创建的图形类型”被禁用，直接在“创建图形”中体现可扩展性\nUC2 <.. \"扩展支持的新图形类型\" as EXT2 : <<extend>>\nnote on link\n  在“创建图形”中可扩展支持\n  新的图形类型（如多边形等）\nend note\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 32): UC7 <.. \"图层数 ≤ 16\" as EXT1 : <<extend>>"
+        },
+        {
+          "candidate_id": "it4_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4124,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' Use Cases\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n' Associations\n'\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n'\n' Include relationships with causal comments\n'\n' 删除图形前必须先选择图形\nUC4 .> UC3 : <<include>>\n' 调整图形尺寸前必须先选择图形\nUC5 .> UC3 : <<include>>\n' 移动图形前必须先选择图形\nUC6 .> UC3 : <<include>>\n\n'\n' Extend relationships (none required per constraints, but if needed would be conditional)\n' No extend relations allowed per forbid_extend and missing conditions in conflicts\n' All forbidden includes and extends are respected — no invalid dependencies added\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4141,
+          "plantuml": "@startuml\nactor 用户 as 用户\n\n'\n' 基础用例\n'\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"创建图形\" as 创建图形\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\nusecase \"创建新图层\" as 创建新图层\nusecase \"管理图层\" as 管理图层\n\n'\n' 强制包含关系 (include)\n'\n' 删除图形必须先选择图形\n启动图形编辑器 --> 选择图形 : <<include>>\n创建图形 --> 选择图形 : <<include>>\n管理图层 --> 选择图形 : <<include>>\n创建新图层 --> 选择图形 : <<include>>\n移动图形 --> 选择图形 : <<include>>\n调整图形尺寸 --> 选择图形 : <<include>>\n删除图形 --> 选择图形 : <<include>>\n\n' 调整图形尺寸必须先选择图形（已满足）\n' 移动图形必须先选择图形（已满足）\n\n'\n' 扩展关系 (extend) —— 根据约束，无合法的 extend 存在，且多数被 forbid\n' 按照约束：所有提议的 extend 均被禁止或缺少条件，故不添加任何 extend\n\n'\n' 参与者关联\n'\n用户 --> 启动图形编辑器\n用户 --> 创建图形\n用户 --> 选择图形\n用户 --> 删除图形\n用户 --> 调整图形尺寸\n用户 --> 移动图形\n用户 --> 创建新图层\n用户 --> 管理图层\n\n'\n' 约束处理说明：\n' - 已移除所有 forbid_usecases 中列出的用例（如“切换图层”、“更新图形提示”等）\n' - “管理图层”代替“切换图层”，因“切换图层”被禁止\n' - “创建新图层”和“管理图层”独立存在，不相互 include/extend，避免违反 forbid 规则\n' - 未引入任何被禁止的 include 或 extend 关系\n' - 遵循 must_include 列表，确保每个指定包含均存在\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 2): actor 用户 as 用户"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 2,
+        "nodes": 9,
+        "edges": 13,
+        "conflicts": 4
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建新图层",
+          "b": "启动图形编辑器",
+          "details": {
+            "confidence": 0.5,
+            "sources": [
+              "it4_qwen_1"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "管理图层",
+          "b": "创建新图层",
+          "details": {
+            "confidence": 0.5,
+            "sources": [
+              "it4_qwen_1"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建新图层",
+          "b": "启动图形编辑器",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "管理图层",
+          "b": "创建新图层",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建新图层",
+            "included": "启动图形编辑器"
+          },
+          "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【启动图形编辑器】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "管理图层",
+            "included": "创建新图层"
+          },
+          "prompt": "用例【管理图层】执行过程中是否【必须】包含用例【创建新图层】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q3",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建新图层",
+            "base": "启动图形编辑器"
+          },
+          "prompt": "如果【创建新图层】是对【启动图形编辑器】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q4",
+          "type": "extend_condition",
+          "target": {
+            "extension": "管理图层",
+            "base": "创建新图层"
+          },
+          "prompt": "如果【管理图层】是对【创建新图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no",
+        "q3": "NONE",
+        "q4": "NONE"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "删除图形|include|选择图形",
+          "用户|assoc|创建图形",
+          "用户|assoc|创建新图层",
+          "用户|assoc|删除图形",
+          "用户|assoc|启动图形编辑器",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "移动图形|include|选择图形",
+          "调整图形尺寸|include|选择图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 5,
+      "candidates": [
+        {
+          "candidate_id": "it5_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 5056,
+          "plantuml": "@startuml\nactor 用户 as 用户\n\n'\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"创建图形\" as 创建图形\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\nusecase \"创建新图层\" as 创建新图层\nusecase \"管理图层\" as 管理图层\n\n'\n用户 --> 启动图形编辑器\n用户 --> 创建图形\n用户 --> 选择图形\n用户 --> 删除图形\n用户 --> 调整图形尺寸\n用户 --> 移动图形\n用户 --> 创建新图层\n用户 --> 管理图层\n\n'\n' 删除图形必须先选择图形（强制依赖）\n(删除图形) .> (选择图形) : include\n\n'\n' 调整图形尺寸前必须先选择图形（强制依赖）\n(调整图形尺寸) .> (选择图形) : include\n\n'\n' 移动图形前必须先选择图形（强制依赖）\n(移动图形) .> (选择图形) : include\n\n'\n' 创建新图层后，图层编号提示更新并在工具区重置为矩形创建状态\n(创建新图层) ..> (启动图形编辑器) : extend\nnote right of (创建新图层) .. (启动图形编辑器)\n扩展点: 图层创建完成且未超16页限制时\n条件: 新图层被成功创建并设为当前图层\nend note\n\n'\n' 管理图层操作中切换图层会触发图层状态重置为创建矩形\n(管理图层) ..> (启动图形编辑器) : extend\nnote right of (管理图层) .. (启动图形编辑器)\n扩展点: 成功切换当前图层后\n条件: 当前图层发生变化，无论是否循环切换\nend note\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 2): actor 用户 as 用户"
+        },
+        {
+          "candidate_id": "it5_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 5073,
+          "plantuml": "@startuml\nactor 用户\n\n'\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"创建图形\" as 创建图形\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\nusecase \"创建新图层\" as 创建新图层\nusecase \"管理图层\" as 管理图层\n\n'\n用户 --> 启动图形编辑器\n用户 --> 创建图形\n用户 --> 选择图形\n用户 --> 删除图形\n用户 --> 调整图形尺寸\n用户 --> 移动图形\n用户 --> 创建新图层\n用户 --> 管理图层\n\n'\n' 删除图形必须先选择图形（强制依赖）\n(删除图形) .> (选择图形) : <<include>>\n\n'\n' 调整图形尺寸前必须选择图形\n(调整图形尺寸) .> (选择图形) : <<include>>\n\n'\n' 移动图形前必须选择图形\n(移动图形) .> (选择图形) : <<include>>\n\n'\n' 创建新图层时，若图层数未达16个，则可创建；超过16个则不可创建（扩展限制）\n(创建新图层) ..> (管理图层) : <<extend>>\\n<<条件: 图层数量 ≤ 16>>\n\n'\n' 管理图层可用于切换当前图层，触发点为点击“下一页”按钮\n(管理图层) ..> (创建图形) : <<extend>>\\n<<扩展点: 切换后重置为创建矩形状态>>\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 5): usecase \"启动图形编辑器\" as 启动图形编辑器"
+        },
+        {
+          "candidate_id": "it5_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 5090,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 启动图形编辑器用例（保持用例，根据约束）\nusecase \"启动图形编辑器\" as UC1\n'\n' 创建图形功能\nusecase \"创建图形\" as UC2\n用户 --> UC2 : 创建图形\nUC2 .> UC1 : include\n' 创建图形必须在编辑器启动后执行\n\n'\n' 选择图形功能\nusecase \"选择图形\" as UC3\n用户 --> UC3 : 选择图形\n'\n' 删除图形：必须先选择图形\nusecase \"删除图形\" as UC4\n' 选择图形是删除的前提\n' 删除图形依赖于先选择图形\nUC4 .> UC3 : include\n用户 --> UC4 : 删除图形\n\n'\n' 调整图形尺寸：必须先选择图形\nusecase \"调整图形尺寸\" as UC5\n' 调整尺寸前必须选择图形\nUC5 .> UC3 : include\n用户 --> UC5 : 调整图形尺寸\n\n'\n' 移动图形：必须先选择图形\nusecase \"移动图形\" as UC6\n' 移动图形前必须选择图形\nUC6 .> UC3 : include\n用户 --> UC6 : 移动图形\n\n'\n' 创建新图层\nusecase \"创建新图层\" as UC7\n用户 --> UC7 : 创建新图层\n'\n' 管理图层（包含切换图层）\nusecase \"管理图层\" as UC8\n用户 --> UC8 : 管理图层\n\n'\n' 用例间关系补充说明（根据需求与约束）\n\n' 创建新图层最多16个，超过则不能创建\n' 扩展点：图层数量未达上限时可创建\n' extend 关系需注明条件\nUC7 <.. UC8 : extend\n' <<extend>> from 管理图层 to 创建新图层\\nwhen 图层数量 < 16\n\n' 切换图层属于管理图层的一部分\nUC8 <.. UC7 : extend\n' <<extend>> from 创建新图层 to 管理图层\\nwhen 新图层被创建后可切换\n\n' 启动图形编辑器初始化第一个图层和界面状态\nUC1 .> UC7 : include\n' 启动时自动创建第一个图层\n\n' 创建图形时可选择类型，但“选择创建的图形类型”被禁止作为独立用例\n' 故合并到创建图形中，不单独建模\n\n' 图形提示区域提示“第一页”等信息，但“更新图形提示”被禁止作为用例\n' 相关行为作为其他用例的副作用，不单独建模\n\n' “切换图层”被禁止作为独立用例，已并入“管理图层”\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 55): UC7 <.. UC8 : extend"
+        },
+        {
+          "candidate_id": "it5_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 5107,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' Use Cases\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n' Associations\n'\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n'\n' Include relationships (with causal comments)\n'\n' 删除图形必须先选择图形\nUC4 ..> UC3 : <<include>>\n' 调整图形尺寸必须先选择图形\nUC5 ..> UC3 : <<include>>\n' 移动图形必须先选择图形\nUC6 ..> UC3 : <<include>>\n\n'\n' Extend relationships (with conditions in comments)\n'\n' 创建新图层在图层数量未超过16个时才可执行，否则无法创建（扩展点：图层数量检查）\n' Note: extend forbidden by constraint, so not added\n'\n' 管理图层中的“下一页”操作可触发图层切换（但切换本身不是独立用例）\n' Note: \"切换图层\" is forbidden, so no such use case exists\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it5_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 5124,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 启动图形编辑器 是主用例，根据约束必须保留\n'\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\nusecase \"管理图层\" as UC8\n\n'\n' 强制包含关系：根据约束 must_include\n'\n' 删除图形 必须包含 选择图形（先选后删）\nUC4 <.. UC3 : include\n' 调整图形尺寸 必须包含 选择图形（先选后调尺寸）\nUC5 <.. UC3 : include\n' 移动图形 必须包含 选择图形（先选后移动）\nUC6 <.. UC3 : include\n\n'\n' 用户与用例的关联\n'\n用户 --> UC1 : 启动软件\n用户 --> UC2 : 创建直线、椭圆、矩形等\n用户 --> UC3 : 点击或框选图形\n用户 --> UC4 : 点击“删除元素”按钮\n用户 --> UC5 : 拖动控制点或使用按钮\n用户 --> UC6 : 拖动已选图形\n用户 --> UC7 : 点击“新页”按钮\n用户 --> UC8 : 点击“下一页”按钮切换图层\n\n'\n' 其他用例间的必要依赖（根据需求推导，且不违反 forbid 规则）\n'\n' 创建新图层时，若图层数 ≤16，则可创建；否则不能 —— 不需要 include\n' 管理图层 包含 切换当前图层 的语义，但 “切换当前图层” 被禁止作为独立用例\n' 因此 UC8 本身代表图层切换行为，无需进一步分解\n\n'\n' extend 关系：根据需求和约束判断是否允许\n'\n' 无允许的 extend 关系（约束中 forbid_extend 多，且未提供合法 extend）\n' 所有潜在 extend 均被禁止或未明确定义条件，故不添加非法 extend\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 20): UC4 <.. UC3 : include"
+        },
+        {
+          "candidate_id": "it5_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 5141,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"创建图形\" as 创建图形\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\nusecase \"创建新图层\" as 创建新图层\nusecase \"管理图层\" as 管理图层\n\n'\nUser --> 启动图形编辑器\nUser --> 创建图形\nUser --> 选择图形\nUser --> 删除图形\nUser --> 调整图形尺寸\nUser --> 移动图形\nUser --> 创建新图层\nUser --> 管理图层\n\n'\n' 删除图形必须先选择图形（强制依赖）\n(删除图形) .> (选择图形) : include\n' 调整图形尺寸必须先选择图形\n(调整图形尺寸) .> (选择图形) : include\n' 移动图形必须先选择图形\n(移动图形) .> (选择图形) : include\n\n'\n' 创建图形后可被选择，但选择不是创建的必需步骤，此处无include\n' 根据约束，禁止将“选择图形” include 到 “删除图形”等操作中，已通过独立 usecase 处理\n\n'\n' 约束要求禁止某些 include 关系，例如：\n' - 禁止“启动图形编辑器” include “显示初始界面”等，已忽略这些无效 usecase\n' - 所有 forbid_usecases 已排除，如“切换当前图层”、“拖动控制点调整尺寸”等不单独建模\n\n'\n' extend关系：根据需求和约束，extend列表为空，且部分被禁止\n' 例如：EXT8、EXT3等均为禁止或未明确定义条件，故不生成任何extend\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 5): usecase \"启动图形编辑器\" as 启动图形编辑器"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 1,
+        "nodes": 9,
+        "edges": 11,
+        "conflicts": 0
+      },
+      "conflicts": [],
+      "questions": [],
+      "answers": {},
+      "rule_report": {
+        "kept_edges": [
+          "删除图形|include|选择图形",
+          "用户|assoc|创建图形",
+          "用户|assoc|创建新图层",
+          "用户|assoc|删除图形",
+          "用户|assoc|启动图形编辑器",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "移动图形|include|选择图形",
+          "调整图形尺寸|include|选择图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": true
+    }
+  ],
+  "final": {
+    "final_usecase_puml": "out_qwen\\final_usecase.puml",
+    "nodes": [
+      "创建图形",
+      "创建新图层",
+      "删除图形",
+      "启动图形编辑器",
+      "用户",
+      "移动图形",
+      "管理图层",
+      "调整图形尺寸",
+      "选择图形"
+    ],
+    "edges": [
+      "删除图形|include|选择图形",
+      "用户|assoc|创建图形",
+      "用户|assoc|创建新图层",
+      "用户|assoc|删除图形",
+      "用户|assoc|启动图形编辑器",
+      "用户|assoc|移动图形",
+      "用户|assoc|管理图层",
+      "用户|assoc|调整图形尺寸",
+      "用户|assoc|选择图形",
+      "移动图形|include|选择图形",
+      "调整图形尺寸|include|选择图形"
+    ]
+  }
+}

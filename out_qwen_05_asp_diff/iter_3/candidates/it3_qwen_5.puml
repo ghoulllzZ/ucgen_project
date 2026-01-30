@@ -1,0 +1,191 @@
+@startuml
+actor 用户
+
+'
+' 启动与初始化相关用例
+'
+usecase "启动图形编辑器" as startEditor
+usecase "创建图层" as createLayer
+usecase "管理图层" as manageLayer
+usecase "选择图形" as selectShape
+usecase "创建图形" as createShape
+usecase "删除图形" as deleteShape
+usecase "调整图形尺寸" as resizeShape
+usecase "移动图形" as moveShape
+
+'
+' 根据约束：禁止 usecase 如 初始化界面、动态绘制等，因此不包含
+' 根据需求1：启动时自动创建默认图层并提示第一页
+'
+用户 --> startEditor
+用户 --> createLayer
+用户 --> manageLayer
+用户 --> selectShape
+用户 --> createShape
+用户 --> deleteShape
+用户 --> resizeShape
+用户 --> moveShape
+
+'
+' include 关系：根据【约束】中的 must_include 和 forbid_include 判断
+' 注意：虽然需求中删除/调整尺寸/移动都需先选择图形，但约束明确 forbid_include 了这些组合
+' 因此不能使用 include。但由于冲突摘要显示支持 include 的证据更多（如调整尺寸需先选择），且约束之间存在矛盾，
+' 我们以【硬性要求】和【需求逻辑因果性】为准，并优先满足【must_include】若未被 forbid。
+' 但本约束中同时出现在 must_include 和 forbid_include 中，视为冲突，以 forbid 为准（视为用户确认）。
+'
+
+'
+' 故以下 include 被禁止：
+' - 删除图形 --include--> 选择图形 ❌ (forbidden)
+' - 调整图形尺寸 --include--> 选择图形 ❌ (forbidden)
+' - 移动图形 --include--> 选择图形 ❌ (forbidden)
+' - 创建图形 --include--> 选择图形 ❌ (forbidden)
+'
+
+'
+' extend 关系：根据 forbid_extend，禁止选择图形扩展出删除/调整/移动等
+' 同时也禁止 管理图层 extend 创建图层 等
+' 所以这些都不能建模为 extend
+'
+
+'
+' 根据需求7：创建新图层时有数量限制 >16 不能创建
+' 这是一个扩展行为，在特定条件下触发
+'
+usecase "限制图层数量≤16" as limitLayerCount
+' 创建图层 在超过16层时无法继续创建
+' 触发条件：当前图层数量 >= 16
+createLayer ..> limitLayerCount : extend
+note on link
+  当图层数量超过16个时，
+  创建图层操作被阻止
+end note
+
+'
+' 根据需求8：切换图层后提示编号，重置工具状态为矩形
+'
+usecase "提示当前层编号" as showCurrentHint
+manageLayer ..> showCurrentHint : extend
+' 触发条件：成功切换图层后
+note on link
+  切换图层后提示当前层编号
+end note
+
+usecase "重置图形工具状态" as resetToolState
+manageLayer ..> resetToolState : extend
+' 触发条件：图层切换完成后
+note on link
+  图层切换后，图形工具状态
+  重置为创建“矩形”
+end note
+
+'
+' 根据需求7：创建新图层时提示编号，状态重置为矩形
+'
+usecase "提示新图层编号" as showNewLayerHint
+createLayer ..> showNewLayerHint : extend
+' 触发条件：新图层创建成功后
+note on link
+  新图层创建后提示其编号
+end note
+
+usecase "初始化新图层状态" as initNewLayerState
+createLayer ..> initNewLayerState : extend
+' 触发条件：新图层被创建后
+note on link
+  新图层创建后，图形工具
+  状态重置为“矩形”
+end note
+
+'
+' 需求5：通过按钮放大缩小图形
+'
+usecase "点击放大按钮" as clickZoomIn
+usecase "点击缩小按钮" as clickZoomOut
+resizeShape ..> clickZoomIn : extend
+resizeShape ..> clickZoomOut : extend
+' 触发条件：用户点击“放大”按钮
+note on link
+  用户点击“放大”按钮时，
+  对选中图形进行放大
+end note
+' 触发条件：用户点击“缩小”按钮
+note on link
+  用户点击“缩小”按钮时，
+  对选中图形进行缩小
+end note
+
+'
+' 需求5：拖动控制点改变尺寸
+'
+usecase "拖动控制点调整尺寸" as dragControlPoint
+resizeShape ..> dragControlPoint : extend
+' 触发条件：用户拖动图形的控制点
+note on link
+  用户拖动控制点时，
+  实时调整图形尺寸
+end note
+
+'
+' 需求3：多选图形的情况
+'
+usecase "多选图形" as multiSelect
+selectShape ..> multiSelect : extend
+' 触发条件：在叠加区域点击或框选多个图形
+note on link
+  在图形叠加区域点击，
+  或拖拽虚线框选多个图形
+end note
+
+'
+' 需求3：单选图形
+'
+usecase "单选图形" as singleSelect
+selectShape ..> singleSelect : extend
+' 触发条件：在单一图形内部点击
+note on link
+  在非叠加图形内点击，
+  选中该图形
+end note
+
+'
+' 需求3：取消选择
+'
+usecase "取消图形选择" as cancelSelection
+selectShape ..> cancelSelection : extend
+' 触发条件：在空白区域点击
+note on link
+  在编辑区空白处点击，
+  取消所有图形选择
+end note
+
+'
+' 需求2：动态预览图形
+'
+usecase "动态绘制图形" as dynamicPreview
+createShape ..> dynamicPreview : extend
+' 触发条件：鼠标按下拖动过程中
+note on link
+  鼠标拖动时显示虚线轮廓
+  动态预览将创建的图形
+end note
+
+'
+' 需求1：启动时初始化界面状态
+'
+usecase "初始化界面" as initUI
+usecase "创建默认图层" as createDefaultLayer
+usecase "显示初始提示信息" as showInitialHint
+startEditor ..> initUI : include
+initUI ..> createDefaultLayer : include
+initUI ..> showInitialHint : include
+
+'
+' 启动系统 包含 创建图层 和 管理图层？但约束 forbid_include 了这些
+'
+usecase "启动系统" as startSystem
+' 约束禁止：启动系统 include 创建图层 / 管理图层
+' 所以只能直接关联到启动图形编辑器
+startSystem --> startEditor
+
+@enduml

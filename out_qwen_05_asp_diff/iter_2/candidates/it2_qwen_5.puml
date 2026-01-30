@@ -1,0 +1,68 @@
+@startuml
+actor 用户
+
+'
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layers
+usecase "启动系统" as start_system
+
+'
+用户 --> create_shape
+用户 --> select_shape
+用户 --> delete_shape
+用户 --> resize_shape
+用户 --> move_shape
+用户 --> create_layer
+用户 --> manage_layers
+用户 --> start_system
+
+'
+' 启动系统必须包含初始状态设置（如默认图层、提示信息、工具默认选型）'
+start_system ..> create_layer : <<include>>
+start_system ..> manage_layers : <<include>>
+
+'
+' 创建图形依赖于从工具栏选择类型并动态绘制，但“动态绘制”被禁止作为独立用例'
+create_shape ..> select_shape : <<extend>>
+' 扩展条件：当用户在编辑区域拖动鼠标时，开始创建图形过程'
+
+'
+' 选择图形包括单选、多选和取消选择，但这些被禁止作为独立用例，因此合并为统一选择行为'
+' 扩展条件：当点击空白区域时，取消所有选择状态（隐含在选择中）'
+
+'
+' 删除图形的前提是已有选中的图形'
+delete_shape <-- select_shape : <<extend>>
+' 扩展条件：当用户已选择一个或多个图形后，点击“删除元素”按钮触发删除'
+
+'
+' 改变图形尺寸可通过拖动控制点或使用放大缩小按钮，但后者被禁止作为独立用例'
+resize_shape <-- select_shape : <<extend>>
+' 扩展条件：当用户选中图形后，拖动其控制点或使用放大/缩小按钮触发尺寸改变'
+
+'
+' 移动图形必须基于已选择的图形'
+move_shape <-- select_shape : <<extend>>
+' 扩展条件：当用户在所选图形内部按下并拖动时，触发移动操作'
+
+'
+' 创建图层会自动切换为当前图层，并重置工具状态'
+create_layer ..> manage_layers : <<include>>
+' 创建新图层时必须包含切换到该图层的操作'
+
+'
+' 管理图层包含图层切换与循环逻辑，且每次切换后重置工具状态'
+manage_layers ..> create_shape : <<include>>
+' 切换图层后，系统强制重置图形工具至“创建矩形”状态'
+
+'
+' 图层数量限制为16是创建图层的前提判断，但不能作为独立用例'
+create_layer <-- manage_layers : <<extend>>
+' 扩展条件：当图层数量小于16时，“新页”按钮才允许创建图层；否则禁用'
+
+@enduml

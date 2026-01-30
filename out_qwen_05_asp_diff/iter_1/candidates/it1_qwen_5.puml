@@ -1,0 +1,84 @@
+@startuml
+actor 用户 as User
+
+'
+' 启动与初始化相关用例
+'
+usecase "启动图形编辑器" as UC1
+usecase "初始化编辑环境" as UC2
+User --> UC1
+UC1 ..> UC2 : <<include>>
+' 启动时必须初始化环境：创建默认图层、设置选择框为矩形、提示为“第一页”
+
+'
+' 图形操作相关用例
+'
+usecase "创建图形" as UC3
+usecase "选择图形" as UC4
+usecase "删除图形" as UC5
+usecase "改变图形尺寸" as UC6
+usecase "移动图形" as UC7
+
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+
+UC3 ..> UC4 : <<extend>>
+' 选择图形可在创建图形后发生，但非强制；属于后续可扩展操作
+
+'
+' 图层管理相关用例
+'
+usecase "创建新图层" as UC8
+usecase "切换图层" as UC9
+usecase "管理图层状态" as UC10
+
+User --> UC8
+User --> UC9
+User --> UC10
+
+UC8 ..> UC2 : <<extend>>
+' 新建图层时若超过16个则禁止，但初始图层创建属于初始化的一部分
+UC9 ..> UC10 : <<include>>
+' 切换图层后必须更新图层操作状态（如重置为创建矩形）
+UC8 ..> UC10 : <<include>>
+' 新建图层后也必须重置操作状态
+
+'
+' 包含与扩展关系说明
+'
+UC4 ..> UC5 : <<include>>
+' 删除图形前必须先选择图形
+UC4 ..> UC6 : <<include>>
+' 改变尺寸前必须选择图形并控制其控制点
+UC4 ..> UC7 : <<include>>
+' 移动图形前必须选择图形
+
+'
+' 扩展点：特定条件下触发的行为
+'
+UC3 <--.. UC8 : <<extend>>
+' 当点击“新页”按钮时，扩展出创建新图层的行为
+note on link
+  触发条件：用户点击“新页”按钮且图层数未超16个
+end note
+
+UC9 <--.. UC9 : <<extend>>
+' 当前为最后一页时，点击“下一页”会跳转至第一页
+note on link
+  扩展点：当前图层为最后一个图层时自动循环到第一个
+end note
+
+'
+' 约束体现：图形种类可扩展
+'
+usecase "扩展图形类型" as UC11
+UC3 <--.. UC11 : <<extend>>
+' 允许未来在创建图形时支持更多图形类型
+note on link
+  扩展点：通过工具区域新增图形选项进行扩展
+end note
+
+@enduml

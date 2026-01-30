@@ -1,0 +1,122 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "查询组件价格",
+      "included": "编号零件"
+    },
+    "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【编号零件】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "yes_no_include",
+    "target": {
+      "base": "查询组件价格",
+      "included": "命名零件类型"
+    },
+    "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【命名零件类型】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q3",
+    "type": "yes_no_include",
+    "target": {
+      "base": "查询组件价格",
+      "included": "记录零件价格"
+    },
+    "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【记录零件价格】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q4",
+    "type": "yes_no_include",
+    "target": {
+      "base": "记录零件价格",
+      "included": "编号零件"
+    },
+    "prompt": "用例【记录零件价格】执行过程中是否【必须】包含用例【编号零件】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q5",
+    "type": "extend_condition",
+    "target": {
+      "extension": "查询组件价格",
+      "base": "编号零件"
+    },
+    "prompt": "如果【查询组件价格】是对【编号零件】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q6",
+    "type": "extend_condition",
+    "target": {
+      "extension": "查询组件价格",
+      "base": "命名零件类型"
+    },
+    "prompt": "如果【查询组件价格】是对【命名零件类型】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q7",
+    "type": "extend_condition",
+    "target": {
+      "extension": "查询组件价格",
+      "base": "记录零件价格"
+    },
+    "prompt": "如果【查询组件价格】是对【记录零件价格】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q8",
+    "type": "extend_condition",
+    "target": {
+      "extension": "记录零件价格",
+      "base": "编号零件"
+    },
+    "prompt": "如果【记录零件价格】是对【编号零件】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q9",
+    "type": "extend_condition",
+    "target": {
+      "extension": "查询组件价格",
+      "base": "编号零件"
+    },
+    "prompt": "如果【查询组件价格】是对【编号零件】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q10",
+    "type": "extend_condition",
+    "target": {
+      "extension": "查询组件价格",
+      "base": "命名零件类型"
+    },
+    "prompt": "如果【查询组件价格】是对【命名零件类型】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q11",
+    "type": "extend_condition",
+    "target": {
+      "extension": "查询组件价格",
+      "base": "记录零件价格"
+    },
+    "prompt": "如果【查询组件价格】是对【记录零件价格】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q12",
+    "type": "extend_condition",
+    "target": {
+      "extension": "记录零件价格",
+      "base": "编号零件"
+    },
+    "prompt": "如果【记录零件价格】是对【编号零件】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  }
+]

@@ -1,0 +1,49 @@
+@startuml
+actor 用户
+
+'
+usecase "启动图形编辑器" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建新图层" as UC7
+usecase "管理图层" as UC8
+
+用户 --> UC1
+用户 --> UC2
+用户 --> UC3
+用户 --> UC4
+用户 --> UC5
+用户 --> UC6
+用户 --> UC7
+用户 --> UC8
+
+' 删除图形必须先选择图形
+UC4 .> UC3 : <<include>>
+' 调整图形尺寸必须先选择图形
+UC5 .> UC3 : <<include>>
+' 移动图形必须先选择图形
+UC6 .> UC3 : <<include>>
+
+' 创建新图层时，若图层数超过16则无法创建（扩展关系，带条件）
+' 扩展点：创建新图层时检查数量限制
+UC7 <.. "图层数 ≤ 16" as EXT1 : <<extend>>
+note on link
+  当图层数量超过16时，
+  禁止执行“创建新图层”
+end note
+
+' 切换图层时提示编号并重置为矩形创建状态（但“更新图形提示”被禁用）
+' 根据约束，“切换图层”被禁止作为独立用例，已合并到“管理图层”中
+
+' 图形工具支持未来扩展新图形类型（满足约束(1)）
+' “选择创建的图形类型”被禁用，直接在“创建图形”中体现可扩展性
+UC2 <.. "扩展支持的新图形类型" as EXT2 : <<extend>>
+note on link
+  在“创建图形”中可扩展支持
+  新的图形类型（如多边形等）
+end note
+
+@enduml

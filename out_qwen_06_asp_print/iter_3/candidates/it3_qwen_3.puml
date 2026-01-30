@@ -1,0 +1,63 @@
+@startuml
+actor 用户 as User
+
+' 系统核心用例
+usecase "启动图形编辑器" as startEditor
+usecase "创建图形" as createShape
+usecase "选择图形" as selectShape
+usecase "删除图形" as deleteShape
+usecase "调整图形尺寸" as resizeShape
+usecase "移动图形" as moveShape
+usecase "创建新图层" as createLayer
+usecase "切换图层" as switchLayer
+
+' 用例之间的关系
+
+' 启动时初始化环境，必须包含创建第一个图层和设置提示，但根据约束不能 include 创建新图层或选择图形
+' 因此将这些视为内部行为，不显式 include 被禁止的用例
+
+' 创建图形依赖于先选择图形类型？但需求中是用户从选择框选形后绘制，而“选择图形”是指编辑区选择已有图形
+' 所以创建图形和选择图形是独立行为。根据约束禁止 include
+
+' 选择图形功能本身包含单选、多选、取消选择等子行为，但这些已被 forbid，所以统一为一个用例
+' 根据约束 must_include：选择图形 包含 自身 —— 可能表示其复合性，但 PlantUML 不支持 self-include，故忽略无效约束
+
+' 删除图形的前提是已选择图形
+' 注释说明因果：删除图形前必须已选择图形
+' 删除图形依赖于选择图形的结果
+deleteShape .> selectShape : <<include>>
+' 因果说明：删除操作必须基于已选择的图形
+
+' 调整图形尺寸的前提是图形已被选择
+' 因果说明：改变尺寸必须先选择图形
+resizeShape .> selectShape : <<include>>
+' 移动图形也必须先选择图形
+moveShape .> selectShape : <<include>>
+
+' 创建新图层时会自动设置为当前图层，并重置创建状态为矩形，提示编号
+' 但这些细节用例被禁止，因此只保留主用例
+' 切换图层会改变当前图层，并提示编号，重置创建状态
+' 根据约束，禁止 创建图形 include 选择图形，也禁止 相互 include 切换与创建图层
+
+' 切换图层可以扩展出“循环切换至首页”的行为，但该用例被 forbid，不能单独建模
+' 所以切换图层自身包含该逻辑，无需 extend
+
+' 图形工具区域点击“放大”或“缩小”按钮用于调整尺寸
+' 需求中属于调整图形尺寸的方式之一
+' 但“点击放大按钮”等被 forbid 作为独立用例
+' 所以将其视为 resizeShape 的内部实现，不建模为独立用例
+
+' 根据需求，创建图层超过16个则不能再创建，但“限制最多16个图层”被 forbid
+' 所以无法建模为 extend 或 guard condition
+
+' 关联参与者
+User --> startEditor
+User --> createShape
+User --> selectShape
+User --> deleteShape
+User --> resizeShape
+User --> moveShape
+User --> createLayer
+User --> switchLayer
+
+@enduml

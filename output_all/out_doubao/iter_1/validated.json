@@ -1,0 +1,1229 @@
+{
+  "actors": [
+    {
+      "name": "用户",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该参与者"
+      ],
+      "evidence": {
+        "freq": 3,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3"
+        ]
+      }
+    },
+    {
+      "name": "User",
+      "decision": "unknown",
+      "reasons": [
+        "需求文本未明确出现该参与者，需确认"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ]
+      }
+    }
+  ],
+  "usecases": [
+    {
+      "name": "创建图层",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3",
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3",
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "启动图形编辑器",
+      "decision": "unknown",
+      "reasons": [
+        "需求文本未找到直接依据，需确认/补充"
+      ],
+      "evidence": {
+        "freq": 4,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3",
+          "it1_doubao_4"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "切换图层",
+      "decision": "unknown",
+      "reasons": [
+        "需求文本未找到直接依据，需确认/补充"
+      ],
+      "evidence": {
+        "freq": 3,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_3",
+          "it1_doubao_4"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3",
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3",
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建自定义图形",
+      "decision": "unknown",
+      "reasons": [
+        "需求文本未找到直接依据，需确认/补充"
+      ],
+      "evidence": {
+        "freq": 4,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3",
+          "it1_doubao_4"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3",
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3",
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "管理图层",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it1_doubao_2",
+          "it1_doubao_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "初始启动软件",
+      "decision": "unknown",
+      "reasons": [
+        "需求文本未找到直接依据，需确认/补充"
+      ],
+      "evidence": {
+        "freq": 1,
+        "sources": [
+          "it1_doubao_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建直线",
+      "decision": "unknown",
+      "reasons": [
+        "需求文本未找到直接依据，需确认/补充"
+      ],
+      "evidence": {
+        "freq": 1,
+        "sources": [
+          "it1_doubao_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建椭圆",
+      "decision": "unknown",
+      "reasons": [
+        "需求文本未找到直接依据，需确认/补充"
+      ],
+      "evidence": {
+        "freq": 1,
+        "sources": [
+          "it1_doubao_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建矩形",
+      "decision": "unknown",
+      "reasons": [
+        "需求文本未找到直接依据，需确认/补充"
+      ],
+      "evidence": {
+        "freq": 1,
+        "sources": [
+          "it1_doubao_6"
+        ]
+      },
+      "parent": null
+    }
+  ],
+  "relations": [
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "启动图形编辑器",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 3,
+        "confidence": 0.6,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_1",
+            "line_no": 15,
+            "raw": "用户 --> UC1",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_1",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_2",
+            "line_no": 14,
+            "raw": "用户 --> UC1",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_2",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 3,
+        "confidence": 0.6,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_1",
+            "line_no": 16,
+            "raw": "用户 --> UC2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_1",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_2",
+            "line_no": 15,
+            "raw": "用户 --> UC2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_2",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 3,
+        "confidence": 0.6,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_1",
+            "line_no": 17,
+            "raw": "用户 --> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_1",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_2",
+            "line_no": 16,
+            "raw": "用户 --> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_2",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 3,
+        "confidence": 0.6,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_1",
+            "line_no": 18,
+            "raw": "用户 --> UC4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_1",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_2",
+            "line_no": 17,
+            "raw": "用户 --> UC4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_2",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 3,
+        "confidence": 0.6,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_1",
+            "line_no": 19,
+            "raw": "用户 --> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_1",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_2",
+            "line_no": 18,
+            "raw": "用户 --> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_2",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 3,
+        "confidence": 0.6,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_1",
+            "line_no": 20,
+            "raw": "用户 --> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_1",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_2",
+            "line_no": 19,
+            "raw": "用户 --> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_2",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 3,
+        "confidence": 0.6,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_1",
+            "line_no": 21,
+            "raw": "用户 --> UC7",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_1",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_2",
+            "line_no": 20,
+            "raw": "用户 --> UC7",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_2",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "切换图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 0.4,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_3"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_1",
+            "line_no": 22,
+            "raw": "用户 --> UC8",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_1",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_3",
+            "line_no": 21,
+            "raw": "User --> UC8",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_3",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "创建图形",
+      "kind": "generalize",
+      "dst": "创建自定义图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 4,
+        "confidence": 0.8,
+        "sources": [
+          "it1_doubao_1",
+          "it1_doubao_2",
+          "it1_doubao_3",
+          "it1_doubao_4"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_1",
+            "line_no": 25,
+            "raw": "UC2 <|-- UC9",
+            "label": "",
+            "justification": "当需要支持新的图形种类时，扩展创建图形功能",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_1",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_2",
+            "line_no": 24,
+            "raw": "UC2 <|-- UC9 : extend",
+            "label": "extend",
+            "justification": "扩展创建图形功能以支持自定义图形类型",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_2",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "管理图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it1_doubao_2"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_2",
+            "line_no": 21,
+            "raw": "用户 --> UC8",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_2",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "启动图形编辑器",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it1_doubao_4"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_4",
+            "line_no": 15,
+            "raw": "U --> UC1",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_4",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 0.4,
+        "sources": [
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_4",
+            "line_no": 16,
+            "raw": "U --> UC2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_4",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 17,
+            "raw": "U --> UC2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 0.4,
+        "sources": [
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_4",
+            "line_no": 17,
+            "raw": "U --> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_4",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 18,
+            "raw": "U --> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 0.4,
+        "sources": [
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_4",
+            "line_no": 18,
+            "raw": "U --> UC4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_4",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 19,
+            "raw": "U --> UC4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 0.4,
+        "sources": [
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_4",
+            "line_no": 19,
+            "raw": "U --> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_4",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 20,
+            "raw": "U --> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 0.4,
+        "sources": [
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_4",
+            "line_no": 20,
+            "raw": "U --> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_4",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 21,
+            "raw": "U --> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 0.4,
+        "sources": [
+          "it1_doubao_4",
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_4",
+            "line_no": 21,
+            "raw": "U --> UC7",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_4",
+              "model": "doubao"
+            }
+          },
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 22,
+            "raw": "U --> UC7",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "切换图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it1_doubao_4"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_4",
+            "line_no": 22,
+            "raw": "U --> UC8",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_4",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "初始启动软件",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 16,
+            "raw": "U --> UC1",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "管理图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 23,
+            "raw": "U --> UC8",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "创建直线",
+      "kind": "generalize",
+      "dst": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 26,
+            "raw": "UC21 --|> UC2 : extend",
+            "label": "extend",
+            "justification": "选择直线时扩展创建图形功能，符合图形种类可扩展约束",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "创建椭圆",
+      "kind": "generalize",
+      "dst": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 28,
+            "raw": "UC22 --|> UC2 : extend",
+            "label": "extend",
+            "justification": "选择椭圆时扩展创建图形功能，符合图形种类可扩展约束",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "创建矩形",
+      "kind": "generalize",
+      "dst": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 30,
+            "raw": "UC23 --|> UC2 : extend",
+            "label": "extend",
+            "justification": "选择矩形时扩展创建图形功能，符合图形种类可扩展约束",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "移动图形",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it1_doubao_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it1_doubao_6",
+            "line_no": 33,
+            "raw": "UC6 .> UC3 : include",
+            "label": "include",
+            "justification": "移动图形必须包含选择图形，遵循must_include约束",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it1_doubao_6",
+              "model": "doubao"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,479 @@
+{
+  "args": {
+    "req": "examples\\req_primary_graph_editor.txt",
+    "out": "out_openai",
+    "max_iters": 5,
+    "backend": "openai",
+    "temperature": 0.9,
+    "n_samples": 6,
+    "models": [],
+    "seed": 7,
+    "interactive": false,
+    "jaccard_threshold": 0.98,
+    "render": "auto"
+  },
+  "constraints": {
+    "must_include": [
+      {
+        "base": "删除图形",
+        "included": "选择图形"
+      }
+    ],
+    "forbid_include": [
+      {
+        "base": "创建图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "创建图层",
+        "included": "管理图层"
+      },
+      {
+        "base": "创建图形",
+        "included": "启动软件"
+      },
+      {
+        "base": "创建图层",
+        "included": "启动软件"
+      },
+      {
+        "base": "管理图层",
+        "included": "启动软件"
+      }
+    ],
+    "extend": [],
+    "forbid_extend": [],
+    "keep_actors": [
+      "User"
+    ],
+    "forbid_actors": [],
+    "keep_usecases": [
+      "启动软件"
+    ],
+    "forbid_usecases": [
+      "启动图形编辑器"
+    ]
+  },
+  "iterations": [
+    {
+      "iter_index": 1,
+      "candidates": [
+        {
+          "candidate_id": "it1_openai_1",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 1078,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"启动软件\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\n\n用户 -> UC1\n用户 -> UC2\n用户 -> UC3\n用户 -> UC4\n用户 -> UC5\n用户 -> UC6\n用户 -> UC7\n用户 -> UC8\n\n' 创建图形功能必须包含启动软件\nUC2 .include. UC1\n\n' 选择图形功能必须包含创建图形\nUC3 .include. UC2\n\n' 删除图形功能必须包含选择图形\nUC4 .include. UC3\n\n' 改变图形尺寸功能必须包含选择图形\nUC5 .include. UC3\n\n' 移动图形功能必须包含选择图形\nUC6 .include. UC3\n\n' 创建图层功能必须包含启动软件\nUC7 .include. UC1\n\n' 管理图层功能必须包含创建图层\nUC8 .include. UC7\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_openai_2",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 1095,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"软件初始启动\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\n\n用户 -> UC1\n用户 -> UC2\n用户 -> UC3\n用户 -> UC4\n用户 -> UC5\n用户 -> UC6\n用户 -> UC7\n用户 -> UC8\n\n' 创建图形功能必须包含选择图形\nUC2 --> UC3 : <<include>>\n\n' 创建图层功能必须包含管理图层\nUC7 --> UC8 : <<include>>\n\n' 当图层数量超过16个时，创建图层会扩展失败\n' （未特别定义扩展条件的场景预留）\nUC7 <|-- UC8 : <<extend>>\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_openai_3",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 1112,
+          "plantuml": "@startuml\nactor User\n\nusecase \"启动软件\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\n\nUser -> UC1\nUser -> UC2\nUser -> UC3\nUser -> UC4\nUser -> UC5\nUser -> UC6\nUser -> UC7\nUser -> UC8\n\n' 创建图形功能包含启动软件\nUC2 ..> UC1 : <<include>>\n\n' 删除图形前必须选择图形\nUC4 ..> UC3 : <<include>>\n\n' 在特定条件下可以扩展修改图形尺寸\nUC5 --|> UC2 : <<extend>> (当图形已被创建时)\n\n' 在特定条件下可以扩展移动图形\nUC6 --|> UC3 : <<extend>> (当图形被选择时)\n\n' 创建图层功能包含管理图层功能\nUC7 ..> UC8 : <<include>>\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_openai_4",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 1129,
+          "plantuml": "@startuml\nactor User\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\n\nUser -> UC1\nUser -> UC2\nUser -> UC3\nUser -> UC4\nUser -> UC5\nUser -> UC6\nUser -> UC7\nUser -> UC8\n\n' 创建图形功能必须包含选择图形功能\nUC2 --> UC3 : include\n\n' 选择图形功能必须包含删除图形功能\nUC3 --> UC4 : include\n\n' 改变图形尺寸功能可以在特定条件下扩展选择图形功能\n' 当用户选择图形时\nUC5 .> UC3 : extend\n\n' 移动图形功能可以在特定条件下扩展选择图形功能\n' 当用户选择图形时\nUC6 .> UC3 : extend\n\n' 创建图层功能必须包含管理图层功能\nUC7 --> UC8 : include\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_openai_5",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 1146,
+          "plantuml": "@startuml\nactor User\n\nusecase \"启动软件\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\n\nUser -> UC1\nUser -> UC2\nUser -> UC3\nUser -> UC4\nUser -> UC5\nUser -> UC6\nUser -> UC7\nUser -> UC8\n\n' 创建图形功能必须包含选择图形功能\nUC2 ..> UC3 : include\n' 删除图形功能必须包含选择图形功能\nUC4 ..> UC3 : include\n' 改变图形尺寸功能可能扩展图形的移动功能\nUC5 -|> UC6 : extend (在选择图形的情况下)\n' 创建图层功能可能扩展图形管理\nUC7 -|> UC8 : extend (在图层切换情况下)\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 27): UC5 -|> UC6 : extend (在选择图形的情况下)"
+        },
+        {
+          "candidate_id": "it1_openai_6",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 1163,
+          "plantuml": "@startuml\nactor User\n\nusecase \"启动软件\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\n\nUser -> UC1\nUser -> UC2\nUser -> UC3\nUser -> UC4\nUser -> UC5\nUser -> UC6\nUser -> UC7\nUser -> UC8\n\n' UC2 必须包含选择图形的动作\nUC2 ..> UC3 : <<include>>\n\n' UC4 需要选择图形之后才能执行删除\nUC4 ..> UC3 : <<include>>\n\n' UC5 在用户选择图形的情况下对改变尺寸进行扩展\n' 触发条件: 用户选择了一个图形\nUC5 -|> UC3 : <<extend>>\n\n' UC6 在选择图形的情况下对移动图形进行扩展\n' 触发条件: 用户选择了一个图形\nUC6 -|> UC3 : <<extend>>\n\n' UC7 需要创建新图层\nUC7 ..> UC1 : <<include>>\n\n' UC8 在管理图层的过程中需要查看当前图层\nUC8 ..> UC1 : <<include>>\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 5,
+        "nodes": 12,
+        "edges": 32,
+        "conflicts": 6
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图形",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.4,
+            "sources": [
+              "it1_openai_2",
+              "it1_openai_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图层",
+          "b": "管理图层",
+          "details": {
+            "confidence": 0.4,
+            "sources": [
+              "it1_openai_2",
+              "it1_openai_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图形",
+          "b": "启动软件",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_openai_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "删除图形",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.4,
+            "sources": [
+              "it1_openai_3",
+              "it1_openai_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图层",
+          "b": "启动软件",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_openai_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "管理图层",
+          "b": "启动软件",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_openai_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "actor_uncertain",
+          "a": "User",
+          "b": "",
+          "details": {
+            "freq": 0.6,
+            "sources": [
+              "it1_openai_3",
+              "it1_openai_4",
+              "it1_openai_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "启动软件",
+          "b": "",
+          "details": {
+            "freq": 0.6,
+            "sources": [
+              "it1_openai_1",
+              "it1_openai_3",
+              "it1_openai_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "启动图形编辑器",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_openai_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "创建图形",
+          "b": "启动软件",
+          "details": {
+            "kind": "include"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "选择图形"
+          },
+          "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图层",
+            "included": "管理图层"
+          },
+          "prompt": "用例【创建图层】执行过程中是否【必须】包含用例【管理图层】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q3",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "启动软件"
+          },
+          "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【启动软件】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q4",
+          "type": "yes_no_include",
+          "target": {
+            "base": "删除图形",
+            "included": "选择图形"
+          },
+          "prompt": "用例【删除图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q5",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图层",
+            "included": "启动软件"
+          },
+          "prompt": "用例【创建图层】执行过程中是否【必须】包含用例【启动软件】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q6",
+          "type": "yes_no_include",
+          "target": {
+            "base": "管理图层",
+            "included": "启动软件"
+          },
+          "prompt": "用例【管理图层】执行过程中是否【必须】包含用例【启动软件】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q7",
+          "type": "actor_yes_no",
+          "target": {
+            "actor": "User"
+          },
+          "prompt": "参与者【User】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q8",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "启动软件"
+          },
+          "prompt": "用例【启动软件】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q9",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "启动图形编辑器"
+          },
+          "prompt": "用例【启动图形编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q10",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "启动软件"
+          },
+          "prompt": "是否确认：用例【创建图形】执行时必须包含【启动软件】？（是=include，否=不建立 include）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no",
+        "q3": "no",
+        "q4": "yes",
+        "q5": "no",
+        "q6": "no",
+        "q7": "yes",
+        "q8": "yes",
+        "q9": "no",
+        "q10": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "User|assoc|创建图层",
+          "User|assoc|创建图形",
+          "User|assoc|删除图形",
+          "User|assoc|启动图形编辑器",
+          "User|assoc|启动软件",
+          "User|assoc|移动图形",
+          "User|assoc|管理图层",
+          "User|assoc|调整图形尺寸",
+          "User|assoc|选择图形",
+          "创建图层|assoc|管理图层",
+          "创建图层|generalize|管理图层",
+          "创建图层|include|启动软件",
+          "创建图层|include|管理图层",
+          "创建图形|assoc|选择图形",
+          "创建图形|include|选择图形",
+          "删除图形|include|选择图形",
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|启动软件",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|软件初始启动",
+          "用户|assoc|选择图形",
+          "移动图形|assoc|选择图形",
+          "移动图形|generalize|选择图形",
+          "管理图层|include|启动软件",
+          "调整图形尺寸|assoc|选择图形",
+          "调整图形尺寸|generalize|创建图形",
+          "选择图形|assoc|删除图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 2,
+      "candidates": [
+        {
+          "candidate_id": "it2_openai_1",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 2078,
+          "plantuml": "@startuml\nactor User\n\nusecase \"启动软件\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\n\n' 删除图形功能必须依赖选择图形功能\nUC4 .include. UC3\n\n' 创建图形功能不能包含选择图形\n' UC2 .include. UC3\n\n' 创建图层功能不能包含管理图层\n' UC7 .include. UC8\n\n' 创建图形功能不能包含启动软件\n' UC2 .include. UC1\n\n' 创建图层功能不能包含启动软件\n' UC7 .include. UC1\n\n' 管理图层功能不能包含启动软件\n' UC8 .include. UC1\n\nUser -> UC1\nUser -> UC2\nUser -> UC3\nUser -> UC4\nUser -> UC5\nUser -> UC6\nUser -> UC7\nUser -> UC8\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_openai_2",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 2095,
+          "plantuml": "@startuml\nactor User\n\nusecase \"启动软件\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\n\n' 用户启动软件以使用图形编辑器\nUser -> UC1\n\n' 创建图形功能必须先选择图形\n' 删除图形需要选择图形\nUC4 ..> UC3 : include\n\n' 创建图层与管理图层之间不直接关联\n' 但用户可以在创建图层后使用图形工具\nUser -> UC2\nUser -> UC3\nUser -> UC5\nUser -> UC6\nUser -> UC7\nUser -> UC8\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_openai_3",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 2112,
+          "plantuml": "@startuml\nactor User\n\nusecase \"启动软件\" as UC_StartSoftware\nusecase \"创建图形\" as UC_CreateShape\nusecase \"选择图形\" as UC_SelectShape\nusecase \"删除图形\" as UC_DeleteShape\nusecase \"改变图形尺寸\" as UC_ChangeShapeSize\nusecase \"移动图形\" as UC_MoveShape\nusecase \"创建图层\" as UC_CreateLayer\nusecase \"管理图层\" as UC_ManageLayer\n\n' 创建图形功能需要包括选择图形\nUC_DeleteShape .u.> UC_SelectShape : include\n\nUser --> UC_StartSoftware\nUser --> UC_CreateShape\nUser --> UC_SelectShape\nUser --> UC_DeleteShape\nUser --> UC_ChangeShapeSize\nUser --> UC_MoveShape\nUser --> UC_CreateLayer\nUser --> UC_ManageLayer\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_openai_4",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 2129,
+          "plantuml": "@startuml\nactor User\n\nusecase \"启动软件\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"改变图形尺寸\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\n\n' 删除图形先需选择图形\nUC4 .include> UC3\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_openai_5",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 2146,
+          "plantuml": "@startuml\nactor User\n\nusecase \"启动软件\" as StartSoftware\nusecase \"创建图形\" as CreateShape\nusecase \"选择图形\" as SelectShape\nusecase \"删除图形\" as DeleteShape\nusecase \"改变图形尺寸\" as ResizeShape\nusecase \"移动图形\" as MoveShape\nusecase \"创建图层\" as CreateLayer\nusecase \"管理图层\" as ManageLayer\n\n' 删除图形功能必须包含选择图形\nCreateShape --> SelectShape : include\n' 创建图层和管理图层之间没有直接关系\n' 创建图形与启动软件之间没有直接关系\n\nUser --> StartSoftware\nUser --> CreateShape\nUser --> SelectShape\nUser --> DeleteShape\nUser --> ResizeShape\nUser --> MoveShape\nUser --> CreateLayer\nUser --> ManageLayer\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_openai_6",
+          "model": "openai",
+          "temperature": 0.9,
+          "seed": 2163,
+          "plantuml": "@startuml\nactor User\n\nusecase \"启动软件\" as StartSoftware\nusecase \"创建图形\" as CreateShape\nusecase \"选择图形\" as SelectShape\nusecase \"删除图形\" as DeleteShape\nusecase \"改变图形尺寸\" as ChangeShapeSize\nusecase \"移动图形\" as MoveShape\nusecase \"创建图层\" as CreateLayer\nusecase \"管理图层\" as ManageLayer\n\n' 创建图形必须先选择一个图形\nDeleteShape --> SelectShape : include\n\nUser --> StartSoftware\nUser --> CreateShape\nUser --> SelectShape\nUser --> DeleteShape\nUser --> ChangeShapeSize\nUser --> MoveShape\nUser --> CreateLayer\nUser --> ManageLayer\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 9,
+        "edges": 10,
+        "conflicts": 0
+      },
+      "conflicts": [],
+      "questions": [],
+      "answers": {},
+      "rule_report": {
+        "kept_edges": [
+          "User|assoc|创建图层",
+          "User|assoc|创建图形",
+          "User|assoc|删除图形",
+          "User|assoc|启动软件",
+          "User|assoc|移动图形",
+          "User|assoc|管理图层",
+          "User|assoc|调整图形尺寸",
+          "User|assoc|选择图形",
+          "创建图形|assoc|选择图形",
+          "删除图形|assoc|选择图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": true
+    }
+  ],
+  "final": {
+    "final_usecase_puml": "out_openai\\final_usecase.puml",
+    "nodes": [
+      "User",
+      "创建图层",
+      "创建图形",
+      "删除图形",
+      "启动软件",
+      "移动图形",
+      "管理图层",
+      "调整图形尺寸",
+      "选择图形"
+    ],
+    "edges": [
+      "User|assoc|创建图层",
+      "User|assoc|创建图形",
+      "User|assoc|删除图形",
+      "User|assoc|启动软件",
+      "User|assoc|移动图形",
+      "User|assoc|管理图层",
+      "User|assoc|调整图形尺寸",
+      "User|assoc|选择图形",
+      "创建图形|assoc|选择图形",
+      "删除图形|assoc|选择图形"
+    ]
+  }
+}

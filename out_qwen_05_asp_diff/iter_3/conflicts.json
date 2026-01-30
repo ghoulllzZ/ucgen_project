@@ -1,0 +1,47 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "启动图形编辑器",
+    "b": "创建图层",
+    "details": {
+      "confidence": 0.3333333333333333,
+      "bucket": "fuzzy",
+      "freq": 2,
+      "total": 6,
+      "sources": [
+        "it3_qwen_3",
+        "it3_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建图层",
+    "b": "管理图层",
+    "details": {
+      "confidence": 0.3333333333333333,
+      "bucket": "fuzzy",
+      "freq": 2,
+      "total": 6,
+      "sources": [
+        "it3_qwen_3",
+        "it3_qwen_4"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "管理图层",
+    "b": "创建图形",
+    "details": {
+      "confidence": 0.3333333333333333,
+      "bucket": "fuzzy",
+      "freq": 2,
+      "total": 6,
+      "sources": [
+        "it3_qwen_3",
+        "it3_qwen_4"
+      ]
+    }
+  }
+]

@@ -1,0 +1,24 @@
+@startuml
+actor GraphicDesigner as GD
+
+usecase "启动图形编辑器" as UC_Start
+usecase "创建自定义图形" as UC_CreateShape
+usecase "选择图形" as UC_SelectShape
+usecase "删除图形" as UC_DeleteShape
+usecase "调整图形尺寸" as UC_ResizeShape
+usecase "移动图形" as UC_MoveShape
+usecase "创建图层" as UC_CreateLayer
+usecase "切换图层" as UC_SwitchLayer
+
+' 扩展创建图形种类以支持新增图形类型
+UC_CreateShape <|-- UC_ExtendShapeType : extend (新增图形种类时触发)
+
+GD --> UC_Start
+GD --> UC_CreateShape
+GD --> UC_SelectShape
+GD --> UC_DeleteShape
+GD --> UC_ResizeShape
+GD --> UC_MoveShape
+GD --> UC_CreateLayer
+GD --> UC_SwitchLayer
+@enduml

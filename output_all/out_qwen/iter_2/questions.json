@@ -1,0 +1,12 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "移动图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【移动图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  }
+]

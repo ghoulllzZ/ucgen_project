@@ -1,0 +1,25 @@
+@startuml
+actor "编辑器操作者" as EditorOp
+usecase "启动图形编辑器" as UC_Start
+usecase "创建图形" as UC_CreateGraph
+usecase "选择图形" as UC_SelectGraph
+usecase "删除图形" as UC_DeleteGraph
+usecase "调整图形尺寸" as UC_ResizeGraph
+usecase "移动图形" as UC_MoveGraph
+usecase "创建图层" as UC_CreateLayer
+usecase "切换图层" as UC_SwitchLayer
+usecase "创建自定义图形" as UC_CustomGraph
+
+' 扩展创建图形功能以支持自定义图形类型
+UC_CreateGraph <|.. UC_CustomGraph : extend "扩展点:自定义图形类型"
+
+EditorOp --> UC_Start
+EditorOp --> UC_CreateGraph
+EditorOp --> UC_SelectGraph
+EditorOp --> UC_DeleteGraph
+EditorOp --> UC_ResizeGraph
+EditorOp --> UC_MoveGraph
+EditorOp --> UC_CreateLayer
+EditorOp --> UC_SwitchLayer
+EditorOp --> UC_CustomGraph
+@enduml

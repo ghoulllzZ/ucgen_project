@@ -1,0 +1,61 @@
+@startuml
+actor 用户
+
+'
+' 启动图形编辑器用例，初始设置环境
+'
+usecase "启动图形编辑器" as usecase1
+usecase "创建图层" as usecase2
+usecase "创建图形" as usecase3
+usecase "选择图形" as usecase4
+usecase "删除图形" as usecase5
+usecase "调整图形尺寸" as usecase6
+usecase "移动图形" as usecase7
+usecase "切换图层" as usecase8
+
+'
+' 基础功能关联
+'
+用户 --> usecase1 : 启动软件
+用户 --> usecase2 : 点击“新页”按钮
+用户 --> usecase3 : 选择图形类型并绘制
+用户 --> usecase4 : 在编辑区点击或拖拽选择
+用户 --> usecase5 : 点击“删除元素”按钮
+用户 --> usecase6 : 拖动控制点或使用放大/缩小按钮
+用户 --> usecase7 : 拖动已选图形
+用户 --> usecase8 : 点击“下一页”按钮
+
+'
+' 包含关系（include）
+'
+' 启动时必须创建第一个图层
+usecase1 ..> usecase2 : <<include>>
+' 创建图形前必须选择图形类型（隐含在流程中）
+usecase3 ..> usecase4 : <<include>>
+' 调整尺寸前必须先选择图形
+usecase6 ..> usecase4 : <<include>>
+' 删除图形前必须选择图形
+usecase5 ..> usecase4 : <<include>>
+' 移动图形前必须选择图形
+usecase7 ..> usecase4 : <<include>>
+
+'
+' 扩展关系（extend）
+'
+' 当图层数未达16个时，才能创建新图层
+usecase2 ..> usecase8 : <<extend>>
+' 触发条件：图层数量 ≤ 16
+note on link
+  扩展点: 创建新图层前检查数量
+  条件: 图层数 ≤ 16
+end note
+
+' 切换图层后重置当前绘图状态为矩形
+usecase8 ..> usecase3 : <<extend>>
+' 触发条件：图层切换完成后自动重置绘图选择
+note on link
+  扩展点: 切换完成后的初始化
+  条件: 自动将创建图形选择设为“矩形”
+end note
+
+@enduml

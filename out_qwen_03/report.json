@@ -1,0 +1,1020 @@
+{
+  "args": {
+    "req": "examples\\req_warehouse.txt",
+    "out": "out_qwen_03",
+    "max_iters": 5,
+    "backend": "qwen",
+    "temperature": 0.9,
+    "n_samples": 6,
+    "models": [],
+    "seed": 7,
+    "interactive": false,
+    "jaccard_threshold": 0.98,
+    "render": "auto"
+  },
+  "constraints": {
+    "must_include": [],
+    "forbid_include": [
+      {
+        "base": "查询组件价格",
+        "included": "记录零件价格"
+      },
+      {
+        "base": "查询组件价格",
+        "included": "编号零件"
+      },
+      {
+        "base": "查询组件价格",
+        "included": "命名零件类型"
+      },
+      {
+        "base": "命名零件类型",
+        "included": "编号零件"
+      },
+      {
+        "base": "记录零件价格",
+        "included": "编号零件"
+      }
+    ],
+    "extend": [],
+    "forbid_extend": [
+      {
+        "base": "编号零件",
+        "extension": "查询组件价格"
+      },
+      {
+        "base": "命名零件类型",
+        "extension": "查询组件价格"
+      },
+      {
+        "base": "记录零件价格",
+        "extension": "查询组件价格"
+      },
+      {
+        "base": "编号零件",
+        "extension": "记录零件价格"
+      }
+    ],
+    "keep_actors": [
+      "管理员"
+    ],
+    "forbid_actors": [
+      "仓库管理员"
+    ],
+    "keep_usecases": [
+      "查询组件价格",
+      "命名零件类型",
+      "编号零件",
+      "记录零件价格"
+    ],
+    "forbid_usecases": [
+      "构建组件",
+      "定义组件构成",
+      "构建组件结构",
+      "构建组件层次结构"
+    ]
+  },
+  "iterations": [
+    {
+      "iter_index": 1,
+      "candidates": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1015,
+          "plantuml": "@startuml\nactor \"管理员\" as admin\n\nusecase \"编号零件\" as UC1\nusecase \"命名零件类型\" as UC2\nusecase \"记录零件价格\" as UC3\nusecase \"构建组件\" as UC4\nusecase \"查询组件价格\" as UC5\n\nadmin --> UC1 : 管理零件信息\nadmin --> UC2 : 管理零件信息\nadmin --> UC3 : 管理零件价格\nadmin --> UC4 : 定义组件结构\nadmin --> UC5 : 获取组件总价格\n\n' 编号零件是记录零件价格的前提，必须先有编号\nUC3 .> UC1 : include\n\n' 命名零件类型是记录零件价格的前提，必须先有名称\nUC3 .> UC2 : include\n\n' 构建组件依赖于已存在的零件或组件，必须包含零件定义（含编号和命名）\nUC4 .> UC1 : include\nUC4 .> UC2 : include\n\n' 查询组件价格时必须已构建组件结构，否则无法计算\nUC5 .> UC4 : include\n\n' 查询组件价格时，需要获取所有子零件和子组件的价格数据，因此依赖记录价格\nUC5 .> UC3 : include\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1032,
+          "plantuml": "@startuml\nactor \"管理员\" as admin\n\nusecase \"编号零件\" as UC1\nusecase \"命名零件类型\" as UC2\nusecase \"记录零件价格\" as UC3\nusecase \"定义组件构成\" as UC4\nusecase \"查询组件价格\" as UC5\n\nadmin --> UC1 : 管理零件信息\nadmin --> UC2 : 管理零件信息\nadmin --> UC3 : 管理零件信息\nadmin --> UC4 : 构建组件结构\nadmin --> UC5 : 获取价格信息\n\n' 查询组件价格必须基于组件的构成定义\nUC5 ..> UC4 : include\n' 查询组件价格依赖于零件价格记录\nUC5 ..> UC3 : include\n' 定义组件构成需要先有零件编号\nUC4 ..> UC1 : include\n' 命名零件类型与编号对应，需同步管理\nUC2 ..> UC1 : include\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1049,
+          "plantuml": "@startuml\nactor \"仓库管理员\" as admin\n\nusecase \"编号零件\" as UC1\nusecase \"命名零件类型\" as UC2\nusecase \"记录零件价格\" as UC3\nusecase \"构建组件结构\" as UC4\nusecase \"查询组件价格\" as UC5\n\nadmin --> UC1 : 管理零件信息\nadmin --> UC2 : 管理零件信息\nadmin --> UC3 : 管理零件信息\nadmin --> UC4 : 组装组件\nadmin --> UC5 : 获取价格信息\n\n' 查询组件价格必须包含构建组件结构，因为只有存在结构才能计算组件总价\nUC5 ..> UC4 : include\n' 构建组件结构必须包含记录零件价格，因为组件价格依赖零件价格\nUC4 ..> UC3 : include\n' 编号零件与命名零件类型是记录零件基本信息的必要组成部分\nUC1 ..> UC2 : include\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1066,
+          "plantuml": "@startuml\nactor \"管理员\" as admin\n\nusecase \"编号零件\" as UC1\nusecase \"命名零件类型\" as UC2\nusecase \"记录零件价格\" as UC3\nusecase \"构建组件\" as UC4\nusecase \"查询组件价格\" as UC5\n\nadmin --> UC1 : 管理零件信息\nadmin --> UC2 : 管理零件信息\nadmin --> UC3 : 管理零件价格\nadmin --> UC4 : 定义组件结构\nadmin --> UC5 : 获取组件总价\n\n' 构建组件时必须包含已有零件或组件\nUC4 .> UC1 : include\nUC4 .> UC2 : include\nUC4 .> UC3 : include\n\n' 查询组件价格必须递归包含其所有子组件和零件的价格\nUC5 .> UC4 : include\nUC5 .> UC3 : include\n\n' 编号零件是命名零件类型的前提\nUC2 .> UC1 : include\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1083,
+          "plantuml": "@startuml\nactor \"管理员\" as admin\n\nusecase \"编号零件\" as UC1\nusecase \"命名零件类型\" as UC2\nusecase \"记录零件价格\" as UC3\nusecase \"构建组件层次结构\" as UC4\nusecase \"查询组件价格\" as UC5\n\nadmin --> UC1 : 管理零件信息\nadmin --> UC2 : 管理零件信息\nadmin --> UC3 : 管理零件信息\nadmin --> UC4 : 组装组件\nadmin --> UC5 : 获取价格信息\n\n' 查询组件价格必须包含计算其构成零件或子组件的价格\nUC5 ..> UC3 : include\n' 构建组件层次结构必须包含对零件或组件的引用（隐含对编号、命名、定价的依赖）\nUC4 ..> UC1 : include\nUC4 ..> UC2 : include\nUC4 ..> UC3 : include\n\n' 组件价格查询依赖于其内部零件与子组件的价格记录（通过包含关系间接实现）\n' 零件和组件构成更高层组件时，需已存在基础零件信息\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1100,
+          "plantuml": "@startuml\nactor \"仓库管理员\" as admin\n\nusecase \"编号零件\" as UC1\nusecase \"命名零件类型\" as UC2\nusecase \"记录零件价格\" as UC3\nusecase \"构建组件结构\" as UC4\nusecase \"查询组件价格\" as UC5\n\nadmin --> UC1 : 管理零件信息\nadmin --> UC2 : 管理零件信息\nadmin --> UC3 : 管理零件信息\nadmin --> UC4 : 构建组件\nadmin --> UC5 : 获取价格\n\n' 编号零件是记录零件价格的前提，必须先有编号\nUC3 .> UC1 : include\n\n' 命名零件类型与编号零件通常同时进行，视为包含\nUC2 .> UC1 : include\n\n' 构建组件结构依赖于零件已存在，需先编号和定价\nUC4 .> UC1 : include\nUC4 .> UC3 : include\n\n' 查询组件价格时，若组件由零件或其他组件构成，必须递归计算其总和\nUC5 .> UC4 : include\n' 查询组件价格需要所有子零件或子组件的价格信息\nUC5 .> UC3 : include\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 10,
+        "edges": 29,
+        "conflicts": 0
+      },
+      "conflicts": [
+        {
+          "conflict_type": "actor_uncertain",
+          "a": "管理员",
+          "b": "",
+          "details": {
+            "freq": 0.6666666666666666,
+            "sources": [
+              "it1_qwen_1",
+              "it1_qwen_2",
+              "it1_qwen_4",
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "actor_uncertain",
+          "a": "仓库管理员",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3",
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "查询组件价格",
+          "b": "",
+          "details": {
+            "freq": 1.0,
+            "sources": [
+              "it1_qwen_1",
+              "it1_qwen_2",
+              "it1_qwen_3",
+              "it1_qwen_4",
+              "it1_qwen_5",
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "命名零件类型",
+          "b": "",
+          "details": {
+            "freq": 1.0,
+            "sources": [
+              "it1_qwen_1",
+              "it1_qwen_2",
+              "it1_qwen_3",
+              "it1_qwen_4",
+              "it1_qwen_5",
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "编号零件",
+          "b": "",
+          "details": {
+            "freq": 1.0,
+            "sources": [
+              "it1_qwen_1",
+              "it1_qwen_2",
+              "it1_qwen_3",
+              "it1_qwen_4",
+              "it1_qwen_5",
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "构建组件",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_1",
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "记录零件价格",
+          "b": "",
+          "details": {
+            "freq": 1.0,
+            "sources": [
+              "it1_qwen_1",
+              "it1_qwen_2",
+              "it1_qwen_3",
+              "it1_qwen_4",
+              "it1_qwen_5",
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "定义组件构成",
+          "b": "",
+          "details": {
+            "freq": 0.16666666666666666,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "构建组件结构",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it1_qwen_3",
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "构建组件层次结构",
+          "b": "",
+          "details": {
+            "freq": 0.16666666666666666,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "actor_yes_no",
+          "target": {
+            "actor": "管理员"
+          },
+          "prompt": "参与者【管理员】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q2",
+          "type": "actor_yes_no",
+          "target": {
+            "actor": "仓库管理员"
+          },
+          "prompt": "参与者【仓库管理员】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q3",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "查询组件价格"
+          },
+          "prompt": "用例【查询组件价格】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q4",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "命名零件类型"
+          },
+          "prompt": "用例【命名零件类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q5",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "编号零件"
+          },
+          "prompt": "用例【编号零件】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q6",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "构建组件"
+          },
+          "prompt": "用例【构建组件】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q7",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "记录零件价格"
+          },
+          "prompt": "用例【记录零件价格】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q8",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "定义组件构成"
+          },
+          "prompt": "用例【定义组件构成】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q9",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "构建组件结构"
+          },
+          "prompt": "用例【构建组件结构】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q10",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "构建组件层次结构"
+          },
+          "prompt": "用例【构建组件层次结构】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "yes",
+        "q2": "no",
+        "q3": "yes",
+        "q4": "yes",
+        "q5": "yes",
+        "q6": "no",
+        "q7": "yes",
+        "q8": "no",
+        "q9": "no",
+        "q10": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "仓库管理员|assoc|命名零件类型",
+          "仓库管理员|assoc|构建组件结构",
+          "仓库管理员|assoc|查询组件价格",
+          "仓库管理员|assoc|编号零件",
+          "仓库管理员|assoc|记录零件价格",
+          "命名零件类型|assoc|编号零件",
+          "定义组件构成|assoc|编号零件",
+          "构建组件|assoc|命名零件类型",
+          "构建组件|assoc|编号零件",
+          "构建组件|assoc|记录零件价格",
+          "构建组件层次结构|assoc|命名零件类型",
+          "构建组件层次结构|assoc|编号零件",
+          "构建组件层次结构|assoc|记录零件价格",
+          "构建组件结构|assoc|编号零件",
+          "构建组件结构|assoc|记录零件价格",
+          "查询组件价格|assoc|定义组件构成",
+          "查询组件价格|assoc|构建组件",
+          "查询组件价格|assoc|构建组件结构",
+          "查询组件价格|assoc|记录零件价格",
+          "管理员|assoc|命名零件类型",
+          "管理员|assoc|定义组件构成",
+          "管理员|assoc|构建组件",
+          "管理员|assoc|构建组件层次结构",
+          "管理员|assoc|查询组件价格",
+          "管理员|assoc|编号零件",
+          "管理员|assoc|记录零件价格",
+          "编号零件|assoc|命名零件类型",
+          "记录零件价格|assoc|命名零件类型",
+          "记录零件价格|assoc|编号零件"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 2,
+      "candidates": [
+        {
+          "candidate_id": "it2_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2015,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1 : 编号零件\n管理员 --> usecase2 : 命名零件类型\n管理员 --> usecase3 : 记录零件价格\n管理员 --> usecase4 : 查询组件价格\n\n' 查询组件价格需要计算所有子组件和零件的总价格，因此必须包含记录零件价格作为基础数据支持\nusecase4 ..> usecase3 : <<include>>\n\n' 查询组件价格依赖于零件的编号信息来识别组件构成中的零件\nusecase4 ..> usecase1 : <<include>>\n\n' 查询组件价格需要知道零件的类型名称以便展示和计算\nusecase4 ..> usecase2 : <<include>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2032,
+          "plantuml": "@startuml\nactor \"管理员\" as admin\n\nusecase \"编号零件\" as uc1\nusecase \"命名零件类型\" as uc2\nusecase \"记录零件价格\" as uc3\nusecase \"查询组件价格\" as uc4\n\nadmin --> uc1 : 编号零件\nadmin --> uc2 : 命名零件类型\nadmin --> uc3 : 记录零件价格\nadmin --> uc4 : 查询组件价格\n\n' 查询组件价格需要基于已记录的零件价格进行计算\nuc4 ..> uc3 : <<include>>\n\n' 编号零件是命名零件类型的前置步骤，必须先有编号才能命名\nuc2 ..> uc1 : <<include>>\n\n' 记录零件价格依赖于零件已编号（数据关联基础）\nuc3 ..> uc1 : <<include>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2049,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1 : 编号零件\n管理员 --> usecase2 : 命名零件类型\n管理员 --> usecase3 : 记录零件价格\n管理员 --> usecase4 : 查询组件价格\n\n' 查询组件价格必须包含计算由零件和组件构成的总价\nusecase4 ..> usecase3 : include\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2066,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1 : 编号零件\n管理员 --> usecase2 : 命名零件类型\n管理员 --> usecase3 : 记录零件价格\n管理员 --> usecase4 : 查询组件价格\n\n' 查询组件价格必须包含记录零件价格，因为组件价格依赖于零件价格的记录\nusecase4 ..> usecase3 : include\n' 查询组件价格必须包含编号零件，因为组件由已编号零件构成\nusecase4 ..> usecase1 : include\n' 查询组件价格必须包含命名零件类型，因为需通过类型识别零件\nusecase4 ..> usecase2 : include\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2083,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1 : 编号零件\n管理员 --> usecase2 : 命名零件类型\n管理员 --> usecase3 : 记录零件价格\n管理员 --> usecase4 : 查询组件价格\n\n' 查询组件价格必须包含计算由零件和组件构成的组件总价格\nusecase4 ..> usecase3 : <<include>>\n\n' 记录零件价格是查询组件价格的基础，必须存在零件价格才能正确查询组件价格\nusecase4 ..> usecase1 : <<include>>\nusecase4 ..> usecase2 : <<include>>\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2100,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1 : 编号零件\n管理员 --> usecase2 : 命名零件类型\n管理员 --> usecase3 : 记录零件价格\n管理员 --> usecase4 : 查询组件价格\n\n' 查询组件价格需要基于零件的编号、命名和价格信息进行计算\nusecase4 ..> usecase1 : include\nusecase4 ..> usecase2 : include\nusecase4 ..> usecase3 : include\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 5,
+        "edges": 12,
+        "conflicts": 5
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "查询组件价格",
+          "b": "记录零件价格",
+          "details": {
+            "confidence": 0.5,
+            "sources": [
+              "it2_qwen_1",
+              "it2_qwen_2",
+              "it2_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "查询组件价格",
+          "b": "编号零件",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it2_qwen_1",
+              "it2_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "查询组件价格",
+          "b": "命名零件类型",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it2_qwen_1",
+              "it2_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "命名零件类型",
+          "b": "编号零件",
+          "details": {
+            "confidence": 0.16666666666666666,
+            "sources": [
+              "it2_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "记录零件价格",
+          "b": "编号零件",
+          "details": {
+            "confidence": 0.16666666666666666,
+            "sources": [
+              "it2_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "记录零件价格",
+          "b": "编号零件",
+          "details": {
+            "kind": "include"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "查询组件价格",
+            "included": "记录零件价格"
+          },
+          "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【记录零件价格】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "查询组件价格",
+            "included": "编号零件"
+          },
+          "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【编号零件】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q3",
+          "type": "yes_no_include",
+          "target": {
+            "base": "查询组件价格",
+            "included": "命名零件类型"
+          },
+          "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【命名零件类型】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q4",
+          "type": "yes_no_include",
+          "target": {
+            "base": "命名零件类型",
+            "included": "编号零件"
+          },
+          "prompt": "用例【命名零件类型】执行过程中是否【必须】包含用例【编号零件】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q5",
+          "type": "yes_no_include",
+          "target": {
+            "base": "记录零件价格",
+            "included": "编号零件"
+          },
+          "prompt": "用例【记录零件价格】执行过程中是否【必须】包含用例【编号零件】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q6",
+          "type": "yes_no_include",
+          "target": {
+            "base": "记录零件价格",
+            "included": "编号零件"
+          },
+          "prompt": "是否确认：用例【记录零件价格】执行时必须包含【编号零件】？（是=include，否=不建立 include）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no",
+        "q3": "no",
+        "q4": "no",
+        "q5": "no",
+        "q6": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "命名零件类型|include|编号零件",
+          "查询组件价格|assoc|命名零件类型",
+          "查询组件价格|assoc|编号零件",
+          "查询组件价格|assoc|记录零件价格",
+          "查询组件价格|include|命名零件类型",
+          "查询组件价格|include|编号零件",
+          "查询组件价格|include|记录零件价格",
+          "管理员|assoc|命名零件类型",
+          "管理员|assoc|查询组件价格",
+          "管理员|assoc|编号零件",
+          "管理员|assoc|记录零件价格"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 3,
+      "candidates": [
+        {
+          "candidate_id": "it3_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3015,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as 编号零件\nusecase \"命名零件类型\" as 命名零件类型\nusecase \"记录零件价格\" as 记录零件价格\nusecase \"查询组件价格\" as 查询组件价格\n\n管理员 --> 编号零件\n管理员 --> 命名零件类型\n管理员 --> 记录零件价格\n管理员 --> 查询组件价格\n\n' 查询组件价格 依赖内部计算逻辑，不强制包含记录零件价格（根据约束禁止include）\n' 查询组件价格 不包含编号零件（根据约束禁止include）\n' 查询组件价格 不包含命名零件类型（根据约束禁止include）\n' 命名零件类型 不包含编号零件（根据约束禁止include）\n' 记录零件价格 不包含编号零件（根据约束禁止include）\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 4): usecase \"编号零件\" as 编号零件"
+        },
+        {
+          "candidate_id": "it3_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3032,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1\n管理员 --> usecase2\n管理员 --> usecase3\n管理员 --> usecase4\n\n' 查询组件价格 需要基于已存在的零件编号信息才能定位组件构成\nusecase4 ..> usecase1 : <<extend>>\nnote on link\n  扩展点：当组件包含零件时\n  条件：零件已编号\nend note\n\n' 查询组件价格 需要基于零件类型名称以识别组件组成元素\nusecase4 ..> usecase2 : <<extend>>\nnote on link\n  扩展点：当组件包含按类型命名的零件时\n  条件：零件类型已命名\nend note\n\n' 查询组件价格 依赖零件价格进行成本累加计算\nusecase4 ..> usecase3 : <<extend>>\nnote on link\n  扩展点：当计算组件总价格时\n  条件：零件价格已记录\nend note\n\n' 命名零件类型 和 编号零件 之间无强制依赖，但可协同使用\n' 根据约束禁止 include 关系，且关系不确定性高，故不建立直接关联\n\n' 记录零件价格 和 编号零件 之间关系不明确（冲突摘要中存在未知include和低置信度）\n' 但根据约束禁止 include，且不确定性高，故采用 extend 表示条件性依赖\nusecase3 ..> usecase1 : <<extend>>\nnote on link\n  扩展点：当为特定编号的零件记录价格时\n  条件：零件已编号\nend note\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3049,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1\n管理员 --> usecase2\n管理员 --> usecase3\n管理员 --> usecase4\n\n' 查询组件价格需要基于已编号的零件信息，但由于约束禁止直接包含，故不添加include关系\n' 查询组件价格需要基于已命名的零件类型，但由于约束禁止直接包含，故不添加include关系\n' 查询组件价格需要零件价格数据来计算总和，但根据约束不得包含“记录零件价格”\n' 命名零件类型与编号零件之间可能存在顺序依赖，但约束禁止include且因果置信度低，故不添加\n' 记录零件价格通常在编号后进行，但约束禁止include且关系不明确，故不添加\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3066,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as 编号零件\nusecase \"命名零件类型\" as 命名零件类型\nusecase \"记录零件价格\" as 记录零件价格\nusecase \"查询组件价格\" as 查询组件价格\n\n管理员 --> 编号零件\n管理员 --> 命名零件类型\n管理员 --> 记录零件价格\n管理员 --> 查询组件价格\n\n' 查询组件价格 依赖于内部计算逻辑，但根据约束不得直接包含编号、命名或记录价格\n' 因约束禁止 include 关系：查询组件价格 --|> 记录零件价格\n' 因约束禁止 include 关系：查询组件价格 --|> 编号零件\n' 因约束禁止 include 关系：查询组件价格 --|> 命名零件类型\n' 因约束禁止 include 关系：命名零件类型 --|> 编号零件\n' 因约束禁止 include 关系：记录零件价格 --|> 编号零件\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 4): usecase \"编号零件\" as 编号零件"
+        },
+        {
+          "candidate_id": "it3_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3083,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1\n管理员 --> usecase2\n管理员 --> usecase3\n管理员 --> usecase4\n\n' 查询组件价格 需要内部使用零件的编号、名称和价格信息来递归计算总价，但根据约束不能 include 这些用例\n' 因此不添加 include 关系以遵守 forbid_include 约束\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3100,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1\n管理员 --> usecase2\n管理员 --> usecase3\n管理员 --> usecase4\n\n' 查询组件价格依赖于组件中包含的零件已有编号，但根据约束禁止 include 编号零件\n' 查询组件价格需要知道零件价格信息，但根据约束禁止直接 include 记录零件价格\n' 查询组件价格需要知道零件类型名称，但根据约束禁止 include 命名零件类型\n' 因此，这些强制性依赖被排除，尽管存在不确定性，仍以约束为准\n\n' 命名零件类型通常应在编号后进行，但约束禁止 include 编号零件\n' 记录零件价格时通常需要先有零件编号，但约束禁止 include 编号零件，且关系性质不明确（conflict: relation_unknown）\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 4,
+        "nodes": 5,
+        "edges": 8,
+        "conflicts": 8
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "查询组件价格",
+          "b": "编号零件",
+          "details": {
+            "confidence": 0.25,
+            "sources": [
+              "it3_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "查询组件价格",
+          "b": "命名零件类型",
+          "details": {
+            "confidence": 0.25,
+            "sources": [
+              "it3_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "查询组件价格",
+          "b": "记录零件价格",
+          "details": {
+            "confidence": 0.25,
+            "sources": [
+              "it3_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "记录零件价格",
+          "b": "编号零件",
+          "details": {
+            "confidence": 0.25,
+            "sources": [
+              "it3_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "查询组件价格",
+          "b": "编号零件",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "查询组件价格",
+          "b": "命名零件类型",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "查询组件价格",
+          "b": "记录零件价格",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "记录零件价格",
+          "b": "编号零件",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "查询组件价格",
+          "b": "编号零件",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "查询组件价格",
+          "b": "命名零件类型",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "查询组件价格",
+          "b": "记录零件价格",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "记录零件价格",
+          "b": "编号零件",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "查询组件价格",
+            "included": "编号零件"
+          },
+          "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【编号零件】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "查询组件价格",
+            "included": "命名零件类型"
+          },
+          "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【命名零件类型】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q3",
+          "type": "yes_no_include",
+          "target": {
+            "base": "查询组件价格",
+            "included": "记录零件价格"
+          },
+          "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【记录零件价格】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q4",
+          "type": "yes_no_include",
+          "target": {
+            "base": "记录零件价格",
+            "included": "编号零件"
+          },
+          "prompt": "用例【记录零件价格】执行过程中是否【必须】包含用例【编号零件】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q5",
+          "type": "extend_condition",
+          "target": {
+            "extension": "查询组件价格",
+            "base": "编号零件"
+          },
+          "prompt": "如果【查询组件价格】是对【编号零件】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q6",
+          "type": "extend_condition",
+          "target": {
+            "extension": "查询组件价格",
+            "base": "命名零件类型"
+          },
+          "prompt": "如果【查询组件价格】是对【命名零件类型】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q7",
+          "type": "extend_condition",
+          "target": {
+            "extension": "查询组件价格",
+            "base": "记录零件价格"
+          },
+          "prompt": "如果【查询组件价格】是对【记录零件价格】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q8",
+          "type": "extend_condition",
+          "target": {
+            "extension": "记录零件价格",
+            "base": "编号零件"
+          },
+          "prompt": "如果【记录零件价格】是对【编号零件】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q9",
+          "type": "extend_condition",
+          "target": {
+            "extension": "查询组件价格",
+            "base": "编号零件"
+          },
+          "prompt": "如果【查询组件价格】是对【编号零件】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q10",
+          "type": "extend_condition",
+          "target": {
+            "extension": "查询组件价格",
+            "base": "命名零件类型"
+          },
+          "prompt": "如果【查询组件价格】是对【命名零件类型】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q11",
+          "type": "extend_condition",
+          "target": {
+            "extension": "查询组件价格",
+            "base": "记录零件价格"
+          },
+          "prompt": "如果【查询组件价格】是对【记录零件价格】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q12",
+          "type": "extend_condition",
+          "target": {
+            "extension": "记录零件价格",
+            "base": "编号零件"
+          },
+          "prompt": "如果【记录零件价格】是对【编号零件】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no",
+        "q3": "no",
+        "q4": "no",
+        "q5": "NONE",
+        "q6": "NONE",
+        "q7": "NONE",
+        "q8": "NONE",
+        "q9": "NONE",
+        "q10": "NONE",
+        "q11": "NONE",
+        "q12": "NONE"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "管理员|assoc|命名零件类型",
+          "管理员|assoc|查询组件价格",
+          "管理员|assoc|编号零件",
+          "管理员|assoc|记录零件价格"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 4,
+      "candidates": [
+        {
+          "candidate_id": "it4_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4015,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as 编号零件\nusecase \"命名零件类型\" as 命名零件类型\nusecase \"记录零件价格\" as 记录零件价格\nusecase \"查询组件价格\" as 查询组件价格\n\n管理员 --> 编号零件\n管理员 --> 命名零件类型\n管理员 --> 记录零件价格\n管理员 --> 查询组件价格\n\n' 查询组件价格 需要使用编号零件的信息，但根据约束不能 include 或 extend\n' 查询组件价格 需要使用命名零件类型的信息，但根据约束不能 include 或 extend\n' 查询组件价格 需要使用记录零件价格的信息，但根据约束不能 include 或 extend\n' 记录零件价格 需要编号后的零件，但根据约束禁止 include 编号零件\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 4): usecase \"编号零件\" as 编号零件"
+        },
+        {
+          "candidate_id": "it4_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4032,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1\n管理员 --> usecase2\n管理员 --> usecase3\n管理员 --> usecase4\n\n' 查询组件价格 需要基于已编号的零件，但根据约束不能 include 或 extend 编号零件\n' 查询组件价格 需要基于已命名的零件类型，但根据约束不能 include 或 extend 命名零件类型\n' 查询组件价格 需要零件价格信息来计算组件总价，但根据约束不能 include 或 extend 记录零件价格\n' 记录零件价格 必须针对已有编号的零件，但根据约束不能 include 编号零件\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4049,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1\n管理员 --> usecase2\n管理员 --> usecase3\n管理员 --> usecase4\n\n' 查询组件价格 必须包含计算逻辑，但根据约束不能 include 编号零件、命名零件类型、记录零件价格\n' 记录零件价格 不可被编号零件 extend，且二者无 include 关系（约束禁止）\n' 根据需求，零件构成组件并支持价格查询，但构建组件等用例被禁止，因此结构管理隐含在数据中\n' 查询组件价格依赖零件基础信息，但由于 forbid_include 存在，只能通过扩展点间接关联，然而 extend 又缺少条件\n' 遵循约束：禁止的 include 和 extend 均不生成，即使语义上看似相关\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4066,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1\n管理员 --> usecase2\n管理员 --> usecase3\n管理员 --> usecase4\n\n' 查询组件价格 需要基于零件的编号、类型名和价格信息来计算总价格，但根据约束不能包含编号零件、命名零件类型或记录零件价格\n' 因此，查询组件价格独立执行，不包含其他用例\n' 由于构建组件结构被禁止，组件构成关系视为隐式存在，不建模为用例\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4083,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1\n管理员 --> usecase2\n管理员 --> usecase3\n管理员 --> usecase4\n\n' 查询组件价格依赖于零件的构成关系，但不强制包含编号、命名或价格记录\n' 根据约束，禁止将“记录零件价格”、“编号零件”、“命名零件类型”作为“查询组件价格”的include\n' 因此这些用例之间无include关系\n\n' 无extend关系，因为所有可能的extend均被禁止且缺少触发条件\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4100,
+          "plantuml": "@startuml\nactor 管理员\n\nusecase \"编号零件\" as usecase1\nusecase \"命名零件类型\" as usecase2\nusecase \"记录零件价格\" as usecase3\nusecase \"查询组件价格\" as usecase4\n\n管理员 --> usecase1\n管理员 --> usecase2\n管理员 --> usecase3\n管理员 --> usecase4\n\n' 查询组件价格 需要使用组件结构信息，但根据约束不能包含编号零件\n' 查询组件价格 需要知道类型信息，但根据约束不能包含命名零件类型\n' 查询组件价格 需要计算价格，但根据约束不能包含记录零件价格\n' 记录零件价格 必须基于已有零件，但根据约束不能包含编号零件\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 5,
+        "nodes": 5,
+        "edges": 4,
+        "conflicts": 0
+      },
+      "conflicts": [],
+      "questions": [],
+      "answers": {},
+      "rule_report": {
+        "kept_edges": [
+          "管理员|assoc|命名零件类型",
+          "管理员|assoc|查询组件价格",
+          "管理员|assoc|编号零件",
+          "管理员|assoc|记录零件价格"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": true
+    }
+  ],
+  "final": {
+    "final_usecase_puml": "out_qwen_03\\final_usecase.puml",
+    "nodes": [
+      "命名零件类型",
+      "查询组件价格",
+      "管理员",
+      "编号零件",
+      "记录零件价格"
+    ],
+    "edges": [
+      "管理员|assoc|命名零件类型",
+      "管理员|assoc|查询组件价格",
+      "管理员|assoc|编号零件",
+      "管理员|assoc|记录零件价格"
+    ]
+  }
+}

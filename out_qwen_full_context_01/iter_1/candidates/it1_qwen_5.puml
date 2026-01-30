@@ -1,0 +1,67 @@
+@startuml
+actor 用户
+
+'
+' 用例：创建图形
+usecase "创建图形" as create_shape
+'
+' 用例：选择图形
+usecase "选择图形" as select_shape
+'
+' 用例：删除图形
+usecase "删除图形" as delete_shape
+'
+' 用例：改变图形尺寸（扩展）
+usecase "改变图形尺寸" as resize_shape
+'
+' 用例：移动图形（扩展）
+usecase "移动图形" as move_shape
+'
+' 用例：创建图层
+usecase "创建图层" as create_layer
+'
+' 用例：管理图层
+usecase "管理图层" as manage_layer
+
+'
+' 用户与基本用例的关联
+用户 --> create_shape
+用户 --> select_shape
+用户 --> delete_shape
+用户 --> create_layer
+用户 --> manage_layer
+
+'
+' 扩展关系：改变图形尺寸 在 “选择图形” 的 EP1 上扩展
+' 扩展条件：用户拖动控制点或点击“放大/缩小”按钮
+select_shape ..> resize_shape : extend
+note on link
+  扩展点 EP1: 图形已被选中并显示控制点
+  触发条件：拖动控制点 或 点击“放大/缩小”按钮
+end note
+
+'
+' 扩展关系：移动图形 在 “选择图形” 的 EP2 上扩展
+' 扩展条件：在已选中图形内部按下鼠标并拖动
+select_shape ..> move_shape : extend
+note on link
+  扩展点 EP2: 图形已被选中
+  触发条件：在选中图形内部按下并拖动鼠标
+end note
+
+'
+' 创建图形依赖于当前图层存在，但不直接与其他用例 include/extend
+' 选择图形是删除、改变尺寸、移动的前提
+' 删除图形必须先选择图形（因果依赖）
+' 注释说明：删除操作必须以选择为前提，但行为上不是自动包含，而是条件触发
+' 因此使用 include 表示强制前置条件
+' 
+' 包含关系：删除图形 必须包含 选择图形（至少尝试选择）
+delete_shape o--> select_shape : include
+' 说明：执行删除前必须先进行选择操作（即使无选中也视为选择状态判定）
+
+'
+' 管理图层 和 创建图层 都会重置创建工具和提示信息，但不涉及图形操作的直接依赖
+' 创建图层后可进行图形创建，但无需显式 include
+
+@enduml

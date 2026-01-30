@@ -1,0 +1,18 @@
+@startuml
+actor 管理员
+
+usecase "编号零件" as usecase1
+usecase "命名零件类型" as usecase2
+usecase "记录零件价格" as usecase3
+usecase "查询组件价格" as usecase4
+
+管理员 --> usecase1 : 编号零件
+管理员 --> usecase2 : 命名零件类型
+管理员 --> usecase3 : 记录零件价格
+管理员 --> usecase4 : 查询组件价格
+
+' 查询组件价格需要基于零件的编号、命名和价格信息进行计算
+usecase4 ..> usecase1 : include
+usecase4 ..> usecase2 : include
+usecase4 ..> usecase3 : include
+@enduml

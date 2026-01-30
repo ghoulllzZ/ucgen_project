@@ -1,0 +1,47 @@
+[
+  {
+    "conflict_type": "edge_kind_mismatch",
+    "a": "删除图形",
+    "b": "选择图形",
+    "details": {
+      "kinds": [
+        "extend",
+        "include"
+      ],
+      "support": {
+        "include": 4,
+        "extend": 1
+      }
+    }
+  },
+  {
+    "conflict_type": "edge_kind_mismatch",
+    "a": "调整图形尺寸",
+    "b": "选择图形",
+    "details": {
+      "kinds": [
+        "extend",
+        "include"
+      ],
+      "support": {
+        "include": 4,
+        "extend": 2
+      }
+    }
+  },
+  {
+    "conflict_type": "edge_kind_mismatch",
+    "a": "移动图形",
+    "b": "选择图形",
+    "details": {
+      "kinds": [
+        "extend",
+        "include"
+      ],
+      "support": {
+        "include": 2,
+        "extend": 2
+      }
+    }
+  }
+]

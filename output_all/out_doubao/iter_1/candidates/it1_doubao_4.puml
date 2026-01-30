@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+actor User as U
+
+usecase "启动图形编辑器" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "切换图层" as UC8
+usecase "创建自定义图形" as UC9
+
+U --> UC1
+U --> UC2
+U --> UC3
+U --> UC4
+U --> UC5
+U --> UC6
+U --> UC7
+U --> UC8
+
+' 移动图形必须先选择目标图形
+UC6 include UC3
+
+' 当需要扩展图形种类时，可扩展创建自定义图形功能
+UC2 <|-- UC9
+@enduml

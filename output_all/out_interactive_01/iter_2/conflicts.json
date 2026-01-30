@@ -1,0 +1,17 @@
+[
+  {
+    "conflict_type": "edge_kind_mismatch",
+    "a": "移动图形",
+    "b": "选择图形",
+    "details": {
+      "kinds": [
+        "extend",
+        "include"
+      ],
+      "support": {
+        "include": 3,
+        "extend": 3
+      }
+    }
+  }
+]

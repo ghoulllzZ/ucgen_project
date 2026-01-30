@@ -1,0 +1,28 @@
+@startuml
+actor "EditorUser" as user
+
+usecase "CreateShape"
+usecase "SelectShape"
+usecase "DeleteShape"
+usecase "AdjustShapeSize"
+usecase "ScaleProportionally"
+usecase "MoveShape"
+usecase "CreateLayer"
+usecase "SwitchCurrentLayer"
+
+user --> CreateShape
+user --> SelectShape
+user --> DeleteShape
+user --> AdjustShapeSize
+user --> ScaleProportionally
+user --> MoveShape
+user --> CreateLayer
+user --> SwitchCurrentLayer
+
+' ScaleProportionally must include SelectShape
+ScaleProportionally ..> SelectShape : <<include>>
+
+' AdjustShapeSize extends to ScaleProportionally when Shift key is pressed
+AdjustShapeSize ..> ScaleProportionally : <<extend>>
+
+@enduml

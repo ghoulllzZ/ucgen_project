@@ -1,0 +1,26 @@
+@startuml
+actor User
+
+usecase "创建图形" as UC1
+usecase "选择图形" as UC2
+usecase "删除图形" as UC3
+usecase "改变图形尺寸" as UC4
+usecase "移动图形" as UC5
+usecase "创建图层" as UC6
+usecase "管理图层" as UC7
+
+User -> UC1
+User -> UC2
+User -> UC3
+User -> UC4
+User -> UC5
+User -> UC6
+User -> UC7
+
+' 改变图形尺寸是选择图形后的必需步骤
+UC4 .down.> UC2 : include
+
+' 创建图层是管理图层的前提条件
+UC6 .down.> UC7 : include
+
+@enduml

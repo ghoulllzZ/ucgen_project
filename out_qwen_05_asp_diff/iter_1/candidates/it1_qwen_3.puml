@@ -1,0 +1,107 @@
+@startuml
+actor 用户
+
+'
+' 初始化与启动行为
+'
+usecase "启动图形编辑器" as startEditor
+usecase "创建初始图层" as createInitialLayer
+usecase "显示第一页提示" as showFirstPageHint
+usecase "默认选择矩形工具" as defaultSelectRectangle
+
+用户 --> startEditor
+startEditor --> createInitialLayer : includes
+startEditor --> showFirstPageHint : includes
+startEditor --> defaultSelectRectangle : includes
+
+'
+' 图形创建功能
+'
+usecase "创建图形" as createShape
+usecase "绘制直线、椭圆或矩形" as drawShape
+' A 执行过程中必须包含 B：创建图形时必须实际绘制一种形状
+createShape --> drawShape : includes
+
+用户 --> createShape
+
+'
+' 图形选择功能
+'
+usecase "选择图形" as selectShape
+usecase "单选或取消选择" as singleSelect
+usecase "多选图形" as multiSelect
+usecase "框选多个图形" as boxSelect
+
+' 创建选择行为包含单选/取消、多选和框选
+selectShape --> singleSelect : includes
+selectShape --> multiSelect : includes
+selectShape --> boxSelect : includes
+
+用户 --> selectShape
+
+'
+' 删除图形功能
+'
+usecase "删除所选图形" as deleteSelectedShapes
+' 必须先选择图形才能删除
+deleteSelectedShapes --> selectShape : includes
+
+用户 --> deleteSelectedShapes
+
+'
+' 改变图形尺寸功能
+'
+usecase "改变图形尺寸" as resizeShape
+usecase "拖动控制点调整大小" as dragResize
+usecase "点击放大按钮" as clickZoomIn
+usecase "点击缩小按钮" as clickZoomOut
+
+resizeShape --> dragResize : includes
+resizeShape --> clickZoomIn : includes
+resizeShape --> clickZoomOut : includes
+
+用户 --> resizeShape
+
+'
+' 移动图形功能
+'
+usecase "移动图形" as moveShape
+' 在选择图形内部按下并拖动实现移动
+moveShape --> selectShape : includes
+
+用户 --> moveShape
+
+'
+' 图层管理功能
+'
+usecase "创建新图层" as createNewLayer
+usecase "限制最多16个图层" as limit16Layers
+' 创建新图层时必须检查数量是否超限
+createNewLayer --> limit16Layers : includes
+' 新图层创建后设为当前图层，并重置为矩形工具
+createNewLayer --> defaultSelectRectangle : includes
+
+用户 --> createNewLayer
+
+usecase "切换图层" as switchLayer
+usecase "显示当前图层编号" as displayLayerNumber
+usecase "循环切换至下一页" as cycleToNextPage
+usecase "重置为矩形工具状态" as resetToRectangleState
+
+switchLayer --> displayLayerNumber : includes
+switchLayer --> cycleToNextPage : includes
+switchLayer --> resetToRectangleState : includes
+
+用户 --> switchLayer
+
+'
+' 扩展关系说明（根据需求隐含逻辑）
+'
+' 当图层数达到16时，禁止创建新图层
+' extend: 在尝试创建新图层时，若图层数已达16，则拒绝创建
+note right of createNewLayer
+  可扩展支持更多图形类型
+  满足约束条件(1)
+end note
+
+@enduml

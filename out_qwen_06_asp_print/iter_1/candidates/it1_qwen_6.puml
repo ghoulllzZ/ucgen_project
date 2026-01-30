@@ -1,0 +1,130 @@
+@startuml
+actor 用户 as User
+
+'
+' 1. 软件初始启动功能
+'
+usecase "启动图形编辑器" as usecase_start
+User --> usecase_start
+
+'
+' 2. 创建图形功能
+'
+usecase "创建图形" as usecase_create_shape
+User --> usecase_create_shape
+
+'
+' 3. 选择图形功能
+'
+usecase "选择图形" as usecase_select_shape
+User --> usecase_select_shape
+
+'
+' 4. 删除图形功能
+'
+usecase "删除图形" as usecase_delete_shape
+User --> usecase_delete_shape
+
+'
+' 5. 改变图形尺寸功能
+'
+usecase "改变图形尺寸（拖动控制点）" as usecase_resize_drag
+usecase "放大所选图形" as usecase_zoom_in
+usecase "缩小所选图形" as usecase_zoom_out
+User --> usecase_resize_drag
+User --> usecase_zoom_in
+User --> usecase_zoom_out
+
+'
+' 6. 移动图形功能
+'
+usecase "移动图形" as usecase_move_shape
+User --> usecase_move_shape
+
+'
+' 7. 创建图层功能
+'
+usecase "创建新图层" as usecase_create_layer
+User --> usecase_create_layer
+' 当图层数 ≤16 时才能创建新图层
+note right of usecase_create_layer
+  如果图层数超过16个，
+  则无法创建新图层。
+end note
+
+'
+' 8. 管理图层（切换图层）
+'
+usecase "切换当前图层" as usecase_switch_layer
+User --> usecase_switch_layer
+' 切换后提示编号，且操作状态重置为“矩形”创建状态
+note right of usecase_switch_layer
+  若当前为最后一页，则切换至第一页；
+  切换后图形工具区域显示“矩形”。
+end note
+
+'
+' 关联关系：include
+'
+
+' 启动编辑器时必须初始化第一个图层和默认提示
+' 因果依赖：启动 → 创建第一个图层
+usecase_start ..> usecase_create_layer : <<include>>
+' 注释：启动时自动创建第一个图层
+
+' 创建图形前必须选择图形类型（直线、椭圆、矩形）
+' 因果依赖：创建图形过程中必须包含选择图形类型
+usecase_create_shape ..> usecase_select_shape_type : <<include>>
+usecase "选择图形类型（直线/椭圆/矩形）" as usecase_select_shape_type
+note right of usecase_select_shape_type
+  图形工具区域提供选择框，
+  默认为“矩形”
+end note
+User --> usecase_select_shape_type
+' 约束(1)：可在创建的图形种类上扩展 → 可能未来 extend
+
+'
+' extend 关系：条件性扩展
+'
+
+' 多选图形是“选择图形”的扩展：当拖动鼠标拉出矩形区域时触发多选
+' 触发条件：在编辑区按下并拖动释放形成虚线框
+' 扩展点：normal selection
+usecase "多选多个图形" as usecase_multi_select
+usecase_select_shape ..> usecase_multi_select : <<extend>>
+note on link
+  扩展点：鼠标拖动拉出虚线矩形区域，
+  包含的所有图形被选中
+end note
+
+' 叠加嵌套点击选择多个图形也是选择的扩展
+usecase "选择叠加嵌套中的多个图形" as usecase_select_nested
+usecase_select_shape ..> usecase_select_nested : <<extend>>
+note on link
+  扩展点：在图形叠加区域点击，
+  可选择多个嵌套图形
+end note
+
+' 删除图形前必须先选择图形
+' 因果依赖：删除图形必须包含选择图形
+usecase_delete_shape ..> usecase_select_shape : <<include>>
+' 注释：必须先选择图形才能删除
+
+' 改变尺寸（拖动控制点）需要先选择图形及其控制点
+usecase_resize_drag ..> usecase_select_shape : <<include>>
+' 注释：必须先选择图形以显示控制点
+
+' 放大/缩小按钮操作也作用于已选图形
+usecase_zoom_in ..> usecase_select_shape : <<include>>
+usecase_zoom_out ..> usecase_select_shape : <<include>>
+' 注释：放大缩小操作前提是图形已被选择
+
+' 移动图形前必须选择图形
+usecase_move_shape ..> usecase_select_shape : <<include>>
+' 注释：移动操作必须基于已选择的图形
+
+' 切换图层会重置图形创建状态为“矩形”
+usecase_switch_layer ..> usecase_select_shape_type : <<include>>
+' 注释：切换图层后自动设置创建类型为“矩形”
+
+@enduml

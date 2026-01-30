@@ -1,0 +1,1267 @@
+{
+  "stats": {
+    "total_candidates": 6,
+    "nodes": 13,
+    "edges": 26,
+    "conflicts": 5
+  },
+  "nodes": {
+    "用户": {
+      "name": "用户",
+      "node_type": "actor",
+      "freq": 5,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5"
+      ],
+      "status": "common"
+    },
+    "调整图形尺寸": {
+      "name": "调整图形尺寸",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5",
+        "it4_deepseek_6"
+      ],
+      "status": "common"
+    },
+    "移动图形": {
+      "name": "移动图形",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5",
+        "it4_deepseek_6"
+      ],
+      "status": "common"
+    },
+    "删除图形": {
+      "name": "删除图形",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5",
+        "it4_deepseek_6"
+      ],
+      "status": "common"
+    },
+    "选择图形": {
+      "name": "选择图形",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5",
+        "it4_deepseek_6"
+      ],
+      "status": "common"
+    },
+    "等比例缩放": {
+      "name": "等比例缩放",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5",
+        "it4_deepseek_6"
+      ],
+      "status": "common"
+    },
+    "创建图形": {
+      "name": "创建图形",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5",
+        "it4_deepseek_6"
+      ],
+      "status": "common"
+    },
+    "创建图层": {
+      "name": "创建图层",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_5"
+      ],
+      "status": "unknown"
+    },
+    "选择活动图层": {
+      "name": "选择活动图层",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_1"
+      ],
+      "status": "unknown"
+    },
+    "图层导航": {
+      "name": "图层导航",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it4_deepseek_2",
+        "it4_deepseek_4"
+      ],
+      "status": "unknown"
+    },
+    "浏览图层": {
+      "name": "浏览图层",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it4_deepseek_3",
+        "it4_deepseek_5"
+      ],
+      "status": "unknown"
+    },
+    "创建新图层": {
+      "name": "创建新图层",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_6"
+      ],
+      "status": "unknown"
+    },
+    "User": {
+      "name": "User",
+      "node_type": "actor",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_6"
+      ],
+      "status": "unknown"
+    }
+  },
+  "edges": {
+    "用户|assoc|创建图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "freq": 5,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_1",
+          "line_no": 13,
+          "raw": "用户 --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_2",
+          "line_no": 14,
+          "raw": "User --> CreateGraphic",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_2",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_3",
+          "line_no": 13,
+          "raw": "用户 --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_3",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_4",
+          "line_no": 13,
+          "raw": "用户 --> \"创建图形\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_5",
+          "line_no": 13,
+          "raw": "用户 --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|选择图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 5,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_1",
+          "line_no": 14,
+          "raw": "用户 --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_2",
+          "line_no": 15,
+          "raw": "User --> SelectGraphic",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_2",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_3",
+          "line_no": 14,
+          "raw": "用户 --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_3",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_4",
+          "line_no": 14,
+          "raw": "用户 --> \"选择图形\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_5",
+          "line_no": 14,
+          "raw": "用户 --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|删除图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "freq": 5,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_1",
+          "line_no": 15,
+          "raw": "用户 --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_2",
+          "line_no": 16,
+          "raw": "User --> DeleteGraphic",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_2",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_3",
+          "line_no": 15,
+          "raw": "用户 --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_3",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_4",
+          "line_no": 15,
+          "raw": "用户 --> \"删除图形\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_5",
+          "line_no": 15,
+          "raw": "用户 --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|调整图形尺寸": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 5,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_1",
+          "line_no": 16,
+          "raw": "用户 --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_2",
+          "line_no": 17,
+          "raw": "User --> ResizeGraphic",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_2",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_3",
+          "line_no": 16,
+          "raw": "用户 --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_3",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_4",
+          "line_no": 16,
+          "raw": "用户 --> \"调整图形尺寸\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_5",
+          "line_no": 16,
+          "raw": "用户 --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|移动图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "freq": 5,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_3",
+        "it4_deepseek_4",
+        "it4_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_1",
+          "line_no": 17,
+          "raw": "用户 --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_2",
+          "line_no": 18,
+          "raw": "User --> MoveGraphic",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_2",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_3",
+          "line_no": 17,
+          "raw": "用户 --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_3",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_4",
+          "line_no": 17,
+          "raw": "用户 --> \"移动图形\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_5",
+          "line_no": 17,
+          "raw": "用户 --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|创建图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "freq": 3,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_1",
+          "line_no": 18,
+          "raw": "用户 --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_2",
+          "line_no": 19,
+          "raw": "User --> CreateLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_2",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_5",
+          "line_no": 18,
+          "raw": "用户 --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|选择活动图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "选择活动图层",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_1"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_1",
+          "line_no": 19,
+          "raw": "用户 --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_1",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|等比例缩放": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "等比例缩放",
+      "freq": 4,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_4",
+        "it4_deepseek_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_1",
+          "line_no": 20,
+          "raw": "用户 --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_2",
+          "line_no": 21,
+          "raw": "User --> UniformScaling",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_2",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_4",
+          "line_no": 20,
+          "raw": "用户 --> \"等比例缩放\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_4",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_5",
+          "line_no": 20,
+          "raw": "用户 --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "等比例缩放|assoc|选择图形": {
+      "src": "等比例缩放",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 3,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_2",
+        "it4_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_1",
+          "line_no": 23,
+          "raw": "UC8 ..> UC2 : include",
+          "label": "include",
+          "justification": "等比例缩放必须基于选择图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_2",
+          "line_no": 24,
+          "raw": "UniformScaling ..> SelectGraphic : include",
+          "label": "include",
+          "justification": "等比例缩放必须基于选择图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_2",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_6",
+          "line_no": 21,
+          "raw": "UC5 ..> UC2 : include",
+          "label": "include",
+          "justification": "等比例缩放执行时必须先选择图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "等比例缩放|assoc|调整图形尺寸": {
+      "src": "等比例缩放",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 2,
+      "sources": [
+        "it4_deepseek_1",
+        "it4_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_1",
+          "line_no": 26,
+          "raw": "UC8 ..> UC4 : extend",
+          "label": "extend",
+          "justification": "按住Shift时触发等比例缩放扩展调整图形尺寸",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_1",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_6",
+          "line_no": 24,
+          "raw": "UC5 ..> UC4 : extend",
+          "label": "extend",
+          "justification": "按住Shift时调整图形尺寸扩展为等比例缩放",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|图层导航": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "图层导航",
+      "freq": 2,
+      "sources": [
+        "it4_deepseek_2",
+        "it4_deepseek_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_2",
+          "line_no": 20,
+          "raw": "User --> LayerNavigation",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_2",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_4",
+          "line_no": 19,
+          "raw": "用户 --> \"图层导航\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_4",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "调整图形尺寸|assoc|等比例缩放": {
+      "src": "调整图形尺寸",
+      "kind": "assoc",
+      "dst": "等比例缩放",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_2",
+          "line_no": 27,
+          "raw": "ResizeGraphic ..> UniformScaling : extend",
+          "label": "extend",
+          "justification": "按住Shift时调整图形尺寸扩展为等比例缩放",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_2",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|创建新图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建新图层",
+      "freq": 2,
+      "sources": [
+        "it4_deepseek_3",
+        "it4_deepseek_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_3",
+          "line_no": 18,
+          "raw": "用户 --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_3",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_4",
+          "line_no": 18,
+          "raw": "用户 --> \"创建新图层\"",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_4",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "用户|assoc|浏览图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "浏览图层",
+      "freq": 2,
+      "sources": [
+        "it4_deepseek_3",
+        "it4_deepseek_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_3",
+          "line_no": 19,
+          "raw": "用户 --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_3",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_5",
+          "line_no": 19,
+          "raw": "用户 --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "等比例缩放|include|选择图形": {
+      "src": "等比例缩放",
+      "kind": "include",
+      "dst": "选择图形",
+      "freq": 2,
+      "sources": [
+        "it4_deepseek_3",
+        "it4_deepseek_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_3",
+          "line_no": 22,
+          "raw": "UC8 ..> UC2 : <<include>>",
+          "label": "<<include>>",
+          "justification": "等比例缩放必须包含选择图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_3",
+            "model": "deepseek"
+          }
+        },
+        {
+          "candidate_id": "it4_deepseek_4",
+          "line_no": 23,
+          "raw": "\"等比例缩放\" ..> \"选择图形\" : <<include>>",
+          "label": "<<include>>",
+          "justification": "等比例缩放必须在执行时选择图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_4",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "调整图形尺寸|extend|等比例缩放": {
+      "src": "调整图形尺寸",
+      "kind": "extend",
+      "dst": "等比例缩放",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_3",
+          "line_no": 25,
+          "raw": "UC4 ..> UC8 : <<extend>>",
+          "label": "<<extend>>",
+          "justification": "按住Shift时触发等比例缩放",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_3",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "等比例缩放|extend|调整图形尺寸": {
+      "src": "等比例缩放",
+      "kind": "extend",
+      "dst": "调整图形尺寸",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_4",
+          "line_no": 26,
+          "raw": "\"等比例缩放\" .> \"调整图形尺寸\" : <<extend>>",
+          "label": "<<extend>>",
+          "justification": "当按住Shift时，调整图形尺寸扩展为等比例缩放",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_4",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "调整图形尺寸|assoc|UC8<<extend>>": {
+      "src": "调整图形尺寸",
+      "kind": "assoc",
+      "dst": "UC8<<extend>>",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_5",
+          "line_no": 23,
+          "raw": "UC4 .> UC8 <<extend>>",
+          "label": "",
+          "justification": "当按住Shift时，调整图形尺寸扩展为等比例缩放",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "等比例缩放|assoc|UC2<<include>>": {
+      "src": "等比例缩放",
+      "kind": "assoc",
+      "dst": "UC2<<include>>",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_5",
+          "line_no": 26,
+          "raw": "UC8 .> UC2 <<include>>",
+          "label": "",
+          "justification": "等比例缩放执行前必须选择图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_5",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "User|assoc|创建图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_6",
+          "line_no": 12,
+          "raw": "User --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "User|assoc|选择图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_6",
+          "line_no": 13,
+          "raw": "User --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "User|assoc|删除图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_6",
+          "line_no": 14,
+          "raw": "User --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "User|assoc|调整图形尺寸": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_6",
+          "line_no": 15,
+          "raw": "User --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "User|assoc|等比例缩放": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "等比例缩放",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_6",
+          "line_no": 16,
+          "raw": "User --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "User|assoc|移动图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_6",
+          "line_no": 17,
+          "raw": "User --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    },
+    "User|assoc|创建新图层": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "创建新图层",
+      "freq": 1,
+      "sources": [
+        "it4_deepseek_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it4_deepseek_6",
+          "line_no": 18,
+          "raw": "User --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it4_deepseek_6",
+            "model": "deepseek"
+          }
+        }
+      ]
+    }
+  }
+}

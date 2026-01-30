@@ -1,0 +1,57 @@
+[
+  {
+    "conflict_type": "edge_kind_mismatch",
+    "a": "删除图形",
+    "b": "选择图形",
+    "details": {
+      "kinds": [
+        "extend",
+        "include"
+      ],
+      "support": {
+        "include": 4,
+        "extend": 1
+      }
+    }
+  },
+  {
+    "conflict_type": "edge_kind_mismatch",
+    "a": "调整图形尺寸",
+    "b": "选择图形",
+    "details": {
+      "kinds": [
+        "extend",
+        "include"
+      ],
+      "support": {
+        "include": 3,
+        "extend": 2
+      }
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "移动图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.5,
+      "sources": [
+        "it1_deepseek_2",
+        "it1_deepseek_4",
+        "it1_deepseek_6"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "等比例缩放",
+    "b": "调整图形尺寸",
+    "details": {
+      "confidence": 0.3333333333333333,
+      "sources": [
+        "it1_deepseek_4",
+        "it1_deepseek_6"
+      ]
+    }
+  }
+]

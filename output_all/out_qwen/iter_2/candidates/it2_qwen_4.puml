@@ -1,0 +1,42 @@
+@startuml
+actor 用户 as User
+
+'
+' 主要用例
+'
+usecase "启动图形编辑器" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建新图层" as UC7
+usecase "管理图层" as UC8
+
+'
+' 强制性 include 关系（must_include 约束）
+'
+
+' 删除图形必须先选择图形
+UC4 .> UC3 : <<include>>
+
+' 调整图形尺寸必须先选择图形
+UC5 .> UC3 : <<include>>
+
+'
+' 用例之间的关联：用户触发的主用例
+'
+User --> UC1 : 启动软件
+User --> UC2 : 选择并绘制图形
+User --> UC3 : 点击或框选图形
+User --> UC4 : 点击“删除元素”按钮
+User --> UC5 : 拖动控制点或点击放大/缩小
+User --> UC6 : 在图形内拖动
+User --> UC7 : 点击“新页”按钮
+User --> UC8 : 点击“下一页”按钮
+
+'
+' extend 关系说明（根据需求，无明确扩展用例，且约束中 forbid_extend 存在，故不添加非法 extend）
+'
+
+@enduml

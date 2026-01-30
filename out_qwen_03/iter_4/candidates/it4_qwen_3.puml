@@ -1,0 +1,20 @@
+@startuml
+actor 管理员
+
+usecase "编号零件" as usecase1
+usecase "命名零件类型" as usecase2
+usecase "记录零件价格" as usecase3
+usecase "查询组件价格" as usecase4
+
+管理员 --> usecase1
+管理员 --> usecase2
+管理员 --> usecase3
+管理员 --> usecase4
+
+' 查询组件价格 必须包含计算逻辑，但根据约束不能 include 编号零件、命名零件类型、记录零件价格
+' 记录零件价格 不可被编号零件 extend，且二者无 include 关系（约束禁止）
+' 根据需求，零件构成组件并支持价格查询，但构建组件等用例被禁止，因此结构管理隐含在数据中
+' 查询组件价格依赖零件基础信息，但由于 forbid_include 存在，只能通过扩展点间接关联，然而 extend 又缺少条件
+' 遵循约束：禁止的 include 和 extend 均不生成，即使语义上看似相关
+
+@enduml

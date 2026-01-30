@@ -1,0 +1,54 @@
+@startuml
+actor 用户 as User
+
+'
+' Use Cases (only allowed ones based on constraints)
+'
+usecase "启动图形编辑器" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建新图层" as UC7
+usecase "管理图层" as UC8
+
+'
+' Associations between actors and use cases
+'
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+
+'
+' Include relationships with causal comments
+'
+' 删除图形必须先选择图形
+UC4 .> UC3 : <<include>>
+' 调整图形尺寸前必须选择图形
+UC5 .> UC3 : <<include>>
+' 移动图形需要先选择图形（隐含逻辑，虽未在must_include中但符合需求）
+UC6 .> UC3 : <<include>>
+' 创建新图层后自动设置为当前图层并初始化状态（根据需求7，需包含选择图形类型）
+' 但“选择创建的图形类型”被禁止作为独立用例，因此不显式建模
+' 管理图层包括切换图层和提示编号更新，但“切换图层”被禁，故仅保留管理行为本身
+
+'
+' Extend relationships: none required by must_include or valid extensions
+' According to constraints, all proposed extends are either forbidden or not confirmed
+'
+
+'
+' Notes:
+' - Forbidden use cases like "切换图层", "显示初始界面", etc. are excluded.
+' - Include from 删除图形 to 选择图形 is enforced by constraint.
+' - No extend used due to lack of valid triggering conditions and forbidden extension targets.
+' - Actor only: 用户
+'
+
+@enduml

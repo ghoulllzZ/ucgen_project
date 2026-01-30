@@ -1,0 +1,32 @@
+@startuml
+actor 用户
+
+usecase 启动图形编辑器
+usecase 创建图形
+usecase 选择图形
+usecase 删除图形
+usecase 改变图形尺寸
+usecase 移动图形
+usecase 创建图层
+usecase 管理图层
+
+' 启动图形编辑器是创建图形的前提
+usecase 图形选择框
+usecase 编辑区域
+
+用户 -> 启动图形编辑器
+用户 -> 创建图形
+用户 -> 选择图形
+用户 -> 删除图形
+用户 -> 改变图形尺寸
+用户 -> 移动图形
+用户 -> 创建图层
+用户 -> 管理图层
+
+' 创建图形必然包含图形选择框
+创建图形 .include> 图形选择框
+
+' 创建图形必然包含编辑区域
+创建图形 .include> 编辑区域
+
+@enduml

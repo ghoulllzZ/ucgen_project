@@ -1,0 +1,966 @@
+{
+  "stats": {
+    "total_candidates": 4,
+    "nodes": 13,
+    "edges": 28,
+    "conflicts": 0
+  },
+  "nodes": {
+    "GraphicEditorUser": {
+      "name": "GraphicEditorUser",
+      "node_type": "actor",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_1"
+      ],
+      "status": "unknown"
+    },
+    "创建图层": {
+      "name": "创建图层",
+      "node_type": "usecase",
+      "freq": 4,
+      "sources": [
+        "it2_doubao_1",
+        "it2_doubao_2",
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "common"
+    },
+    "删除图形": {
+      "name": "删除图形",
+      "node_type": "usecase",
+      "freq": 4,
+      "sources": [
+        "it2_doubao_1",
+        "it2_doubao_2",
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "common"
+    },
+    "启动图形编辑器": {
+      "name": "启动图形编辑器",
+      "node_type": "usecase",
+      "freq": 4,
+      "sources": [
+        "it2_doubao_1",
+        "it2_doubao_2",
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "common"
+    },
+    "切换图层": {
+      "name": "切换图层",
+      "node_type": "usecase",
+      "freq": 4,
+      "sources": [
+        "it2_doubao_1",
+        "it2_doubao_2",
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "common"
+    },
+    "选择图形": {
+      "name": "选择图形",
+      "node_type": "usecase",
+      "freq": 4,
+      "sources": [
+        "it2_doubao_1",
+        "it2_doubao_2",
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "common"
+    },
+    "创建自定义图形": {
+      "name": "创建自定义图形",
+      "node_type": "usecase",
+      "freq": 4,
+      "sources": [
+        "it2_doubao_1",
+        "it2_doubao_2",
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "common"
+    },
+    "调整图形尺寸": {
+      "name": "调整图形尺寸",
+      "node_type": "usecase",
+      "freq": 4,
+      "sources": [
+        "it2_doubao_1",
+        "it2_doubao_2",
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "common"
+    },
+    "移动图形": {
+      "name": "移动图形",
+      "node_type": "usecase",
+      "freq": 4,
+      "sources": [
+        "it2_doubao_1",
+        "it2_doubao_2",
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "common"
+    },
+    "GraphicDesigner": {
+      "name": "GraphicDesigner",
+      "node_type": "actor",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_2"
+      ],
+      "status": "unknown"
+    },
+    "EditorOperator": {
+      "name": "EditorOperator",
+      "node_type": "actor",
+      "freq": 2,
+      "sources": [
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "unknown"
+    },
+    "创建图形": {
+      "name": "创建图形",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_4"
+      ],
+      "status": "unknown"
+    },
+    "扩展图形类型": {
+      "name": "扩展图形类型",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_5"
+      ],
+      "status": "unknown"
+    }
+  },
+  "edges": {
+    "GraphicEditorUser|assoc|启动图形编辑器": {
+      "src": "GraphicEditorUser",
+      "kind": "assoc",
+      "dst": "启动图形编辑器",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_1"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_1",
+          "line_no": 13,
+          "raw": "EditorUser --> UC_Start",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_1",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicEditorUser|assoc|创建自定义图形": {
+      "src": "GraphicEditorUser",
+      "kind": "assoc",
+      "dst": "创建自定义图形",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_1"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_1",
+          "line_no": 14,
+          "raw": "EditorUser --> UC_CreateCustom",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_1",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicEditorUser|assoc|选择图形": {
+      "src": "GraphicEditorUser",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_1"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_1",
+          "line_no": 15,
+          "raw": "EditorUser --> UC_Select",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_1",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicEditorUser|assoc|删除图形": {
+      "src": "GraphicEditorUser",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_1"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_1",
+          "line_no": 16,
+          "raw": "EditorUser --> UC_Delete",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_1",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicEditorUser|assoc|调整图形尺寸": {
+      "src": "GraphicEditorUser",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_1"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_1",
+          "line_no": 17,
+          "raw": "EditorUser --> UC_Resize",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_1",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicEditorUser|assoc|移动图形": {
+      "src": "GraphicEditorUser",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_1"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_1",
+          "line_no": 18,
+          "raw": "EditorUser --> UC_Move",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_1",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicEditorUser|assoc|创建图层": {
+      "src": "GraphicEditorUser",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_1"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_1",
+          "line_no": 19,
+          "raw": "EditorUser --> UC_CreateLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_1",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicEditorUser|assoc|切换图层": {
+      "src": "GraphicEditorUser",
+      "kind": "assoc",
+      "dst": "切换图层",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_1"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_1",
+          "line_no": 20,
+          "raw": "EditorUser --> UC_SwitchLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_1",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "创建自定义图形|generalize|UCExtendShapeType": {
+      "src": "创建自定义图形",
+      "kind": "generalize",
+      "dst": "UCExtendShapeType",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_2",
+          "line_no": 14,
+          "raw": "UC_CreateShape <|-- UC_ExtendShapeType : extend (新增图形种类时触发)",
+          "label": "extend (新增图形种类时触发)",
+          "justification": "扩展创建图形种类以支持新增图形类型",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_2",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicDesigner|assoc|启动图形编辑器": {
+      "src": "GraphicDesigner",
+      "kind": "assoc",
+      "dst": "启动图形编辑器",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_2",
+          "line_no": 16,
+          "raw": "GD --> UC_Start",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_2",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicDesigner|assoc|创建自定义图形": {
+      "src": "GraphicDesigner",
+      "kind": "assoc",
+      "dst": "创建自定义图形",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_2",
+          "line_no": 17,
+          "raw": "GD --> UC_CreateShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_2",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicDesigner|assoc|选择图形": {
+      "src": "GraphicDesigner",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_2",
+          "line_no": 18,
+          "raw": "GD --> UC_SelectShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_2",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicDesigner|assoc|删除图形": {
+      "src": "GraphicDesigner",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_2",
+          "line_no": 19,
+          "raw": "GD --> UC_DeleteShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_2",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicDesigner|assoc|调整图形尺寸": {
+      "src": "GraphicDesigner",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_2",
+          "line_no": 20,
+          "raw": "GD --> UC_ResizeShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_2",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicDesigner|assoc|移动图形": {
+      "src": "GraphicDesigner",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_2",
+          "line_no": 21,
+          "raw": "GD --> UC_MoveShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_2",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicDesigner|assoc|创建图层": {
+      "src": "GraphicDesigner",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_2",
+          "line_no": 22,
+          "raw": "GD --> UC_CreateLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_2",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "GraphicDesigner|assoc|切换图层": {
+      "src": "GraphicDesigner",
+      "kind": "assoc",
+      "dst": "切换图层",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_2",
+          "line_no": 23,
+          "raw": "GD --> UC_SwitchLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_2",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "EditorOperator|assoc|启动图形编辑器": {
+      "src": "EditorOperator",
+      "kind": "assoc",
+      "dst": "启动图形编辑器",
+      "freq": 2,
+      "sources": [
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_4",
+          "line_no": 14,
+          "raw": "E --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it2_doubao_5",
+          "line_no": 13,
+          "raw": "E --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_5",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "EditorOperator|assoc|创建图形": {
+      "src": "EditorOperator",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_4",
+          "line_no": 15,
+          "raw": "E --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_4",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "EditorOperator|assoc|创建自定义图形": {
+      "src": "EditorOperator",
+      "kind": "assoc",
+      "dst": "创建自定义图形",
+      "freq": 2,
+      "sources": [
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_4",
+          "line_no": 16,
+          "raw": "E --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it2_doubao_5",
+          "line_no": 14,
+          "raw": "E --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_5",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "EditorOperator|assoc|选择图形": {
+      "src": "EditorOperator",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 2,
+      "sources": [
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_4",
+          "line_no": 17,
+          "raw": "E --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it2_doubao_5",
+          "line_no": 15,
+          "raw": "E --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_5",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "EditorOperator|assoc|删除图形": {
+      "src": "EditorOperator",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "freq": 2,
+      "sources": [
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_4",
+          "line_no": 18,
+          "raw": "E --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it2_doubao_5",
+          "line_no": 16,
+          "raw": "E --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_5",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "EditorOperator|assoc|调整图形尺寸": {
+      "src": "EditorOperator",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 2,
+      "sources": [
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_4",
+          "line_no": 19,
+          "raw": "E --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it2_doubao_5",
+          "line_no": 17,
+          "raw": "E --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_5",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "EditorOperator|assoc|移动图形": {
+      "src": "EditorOperator",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "freq": 2,
+      "sources": [
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_4",
+          "line_no": 20,
+          "raw": "E --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it2_doubao_5",
+          "line_no": 18,
+          "raw": "E --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_5",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "EditorOperator|assoc|创建图层": {
+      "src": "EditorOperator",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "freq": 2,
+      "sources": [
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_4",
+          "line_no": 21,
+          "raw": "E --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it2_doubao_5",
+          "line_no": 19,
+          "raw": "E --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_5",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "EditorOperator|assoc|切换图层": {
+      "src": "EditorOperator",
+      "kind": "assoc",
+      "dst": "切换图层",
+      "freq": 2,
+      "sources": [
+        "it2_doubao_4",
+        "it2_doubao_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_4",
+          "line_no": 22,
+          "raw": "E --> UC9",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_4",
+            "model": "doubao"
+          }
+        },
+        {
+          "candidate_id": "it2_doubao_5",
+          "line_no": 20,
+          "raw": "E --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_5",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "创建图形|generalize|创建自定义图形": {
+      "src": "创建图形",
+      "kind": "generalize",
+      "dst": "创建自定义图形",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_4",
+          "line_no": 25,
+          "raw": "UC2 <|-- UC3 : extend",
+          "label": "extend",
+          "justification": "当需要扩展自定义图形种类时，通过创建自定义图形功能扩展创建图形的支持类型",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_4",
+            "model": "doubao"
+          }
+        }
+      ]
+    },
+    "EditorOperator|assoc|扩展图形类型": {
+      "src": "EditorOperator",
+      "kind": "assoc",
+      "dst": "扩展图形类型",
+      "freq": 1,
+      "sources": [
+        "it2_doubao_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_doubao_5",
+          "line_no": 21,
+          "raw": "E --> UC9",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_doubao_5",
+            "model": "doubao"
+          }
+        }
+      ]
+    }
+  }
+}

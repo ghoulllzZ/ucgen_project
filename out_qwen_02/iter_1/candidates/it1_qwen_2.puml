@@ -1,0 +1,111 @@
+@startuml
+actor 用户 as User
+
+' 软件启动时必须初始化图形选择框、创建第一个图层并提示第一页
+usecase "启动图形编辑器" as UC1
+User --> UC1
+
+' 创建图形是用户通过选择形状并在编辑区绘制来完成的
+usecase "创建图形" as UC2
+User --> UC2
+
+' 选择图形包括单选、多选和取消选择
+usecase "选择图形" as UC3
+User --> UC3
+
+' 删除图形依赖于先选择图形，然后点击删除按钮
+usecase "删除图形" as UC4
+User --> UC4
+
+' 改变图形尺寸可通过拖动控制点或使用放大缩小按钮
+usecase "改变图形尺寸" as UC5
+User --> UC5
+
+' 移动图形是在选择后拖动图形到新位置
+usecase "移动图形" as UC6
+User --> UC6
+
+' 创建新图层会生成新的编辑图层并更新状态
+usecase "创建图层" as UC7
+User --> UC7
+
+' 管理图层包括切换当前图层
+usecase "管理图层" as UC8
+User --> UC8
+
+' 启动时必须创建初始图层和设置默认状态
+' 因果：启动图形编辑器必须包含创建第一个图层和初始化提示
+UC1 ..> UC7 : <<include>>
+' 启动时必须初始化图形工具区域为矩形
+UC1 ..> "初始化图形选择状态" as INIT_SHAPE : <<include>>
+note on link
+  设置创建图形选择框为"矩形"
+end note
+
+' 创建图形前必须确保有当前图层
+' 因果：创建图形依赖于存在当前图层（由启动或创建图层提供）
+UC2 .> UC7 : <<extend>>
+' 扩展点：当无当前图层时，需先创建图层
+note on link
+  触发条件：当前无图层存在
+end note
+
+' 选择图形是删除、改变尺寸、移动的前提
+' 因果：删除图形必须先选择图形
+UC4 .> UC3 : <<include>>
+
+' 因果：改变图形尺寸必须先选择图形
+UC5 .> UC3 : <<include>>
+
+' 因果：移动图形必须先选择图形
+UC6 .> UC3 : <<include>>
+
+' 创建图层时会自动设置当前图层，并提示编号，且设置图形选择状态为矩形
+' 因果：创建图层必须包含初始化该图层的图形选择状态
+UC7 ..> INIT_SHAPE : <<include>>
+
+' 管理图层（如下一页）切换当前图层，并重置图形选择状态为矩形
+' 因果：管理图层操作后必须重置图形选择状态
+UC8 ..> INIT_SHAPE : <<include>>
+
+' 图层数量限制：超过16个不能新建
+' 触发条件：当已有图层数量 >= 16 时，无法创建新图层
+UC7 .> "检查图层数量上限" as CHECK_LAYER_LIMIT : <<extend>>
+note on link
+  触发条件：用户尝试创建第17个图层
+end note
+
+' 改变图形尺寸可通过两种方式：拖动控制点或点击放大/缩小按钮
+usecase "拖动控制点调整尺寸" as UC5a
+usecase "点击按钮调整尺寸" as UC5b
+UC5a --> UC5 : <<include>>
+UC5b --> UC5 : <<include>>
+
+' 移动图形通过在图形内部拖动实现
+usecase "拖动图形移动" as UC6a
+UC6a --> UC6 : <<include>>
+
+' 选择图形可通过点击单个图形、框选多个或点击空白取消
+usecase "点击选择图形" as UC3a
+usecase "框选多个图形" as UC3b
+usecase "点击空白取消选择" as UC3c
+UC3a --> UC3 : <<include>>
+UC3b --> UC3 : <<include>>
+UC3c --> UC3 : <<include>>
+
+' 创建图形支持多种类型：直线、椭圆、矩形
+usecase "绘制直线" as UC2a
+usecase "绘制椭圆" as UC2b
+usecase "绘制矩形" as UC2c
+UC2a --> UC2 : <<include>>
+UC2b --> UC2 : <<include>>
+UC2c --> UC2 : <<include>>
+
+' 约束：图形编辑器可在创建的图形种类上扩展
+' 因此未来可新增图形类型（如多边形），此处预留扩展点
+UC2 .> "扩展图形类型" as EXTEND_SHAPE : <<extend>>
+note on link
+  触发条件：系统支持新增图形类型（如多边形）
+end note
+
+@enduml

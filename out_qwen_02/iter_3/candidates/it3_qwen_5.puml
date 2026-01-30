@@ -1,0 +1,60 @@
+@startuml
+actor 用户
+
+'
+' Use Cases
+'
+
+usecase "启动图形编辑器" as usecase_1
+usecase "创建图形" as usecase_2
+usecase "选择图形" as usecase_3
+usecase "删除图形" as usecase_4
+usecase "调整图形尺寸" as usecase_5
+usecase "移动图形" as usecase_6
+usecase "创建图层" as usecase_7
+usecase "管理图层" as usecase_8
+usecase "拖动控制点调整尺寸" as usecase_9
+
+'
+' Actor Associations
+'
+
+用户 --> usecase_1 : 启动软件
+用户 --> usecase_2 : 选择并绘制图形
+用户 --> usecase_3 : 单击或框选图形
+用户 --> usecase_4 : 点击删除按钮
+用户 --> usecase_5 : 调整尺寸
+用户 --> usecase_6 : 拖动图形
+用户 --> usecase_7 : 点击“新页”按钮
+用户 --> usecase_8 : 点击“下一页”按钮
+用户 --> usecase_9 : 拖动控制点
+
+'
+' Include Relationships (<<include>>)
+'
+
+' 删除图形 必须包含 选择图形（先选后删）
+usecase_4 <.. usecase_3 : <<include>>
+' 调整图形尺寸 必须包含 选择图形（必须先选中图形）
+usecase_5 <.. usecase_3 : <<include>>
+' 移动图形 必须包含 选择图形（必须先选中图形）
+usecase_6 <.. usecase_3 : <<include>>
+
+'
+' Extend Relationships (<<extend>> with conditions)
+'
+
+' 拖动控制点调整尺寸 在选中图形且拖动控制点时扩展 调整图形尺寸
+usecase_9 <.. usecase_5 : <<extend>>\n<<条件: 用户拖动图形的控制点>>
+
+'
+' Additional structural constraints from JSON
+'
+
+' 明确禁止将 "拖动控制点调整尺寸" 包含进 "调整图形尺寸"
+' 因此不使用 include，而用 extend 表达条件性行为
+
+' 根据约束，保持 "拖动控制点调整尺寸" 和 "启动图形编辑器" 存在
+' 其他被 forbid_usecases 列出的用例不得出现
+
+@enduml

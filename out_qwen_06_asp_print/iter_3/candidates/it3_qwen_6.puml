@@ -1,0 +1,72 @@
+@startuml
+actor 用户 as User
+
+'
+' 主要用例
+'
+
+usecase "启动图形编辑器" as usecase_启动图形编辑器
+usecase "创建图形" as usecase_创建图形
+usecase "选择图形" as usecase_选择图形
+usecase "删除图形" as usecase_删除图形
+usecase "调整图形尺寸" as usecase_调整图形尺寸
+usecase "移动图形" as usecase_移动图形
+usecase "创建新图层" as usecase_创建新图层
+usecase "切换图层" as usecase_切换图层
+
+'
+' 包含关系（include）
+'
+
+' 选择图形功能是删除、调整尺寸、移动等操作的前提
+User --> usecase_启动图形编辑器
+User --> usecase_创建图形
+User --> usecase_选择图形
+User --> usecase_删除图形
+User --> usecase_调整图形尺寸
+User --> usecase_移动图形
+User --> usecase_创建新图层
+User --> usecase_切换图层
+
+' 删除图形前必须先选择图形
+' 因果依赖：删除操作必须基于已选择的图形
+usecase_删除图形 ..> usecase_选择图形 : <<include>>
+
+' 调整图形尺寸前必须先选择图形
+' 因果依赖：尺寸调整只能作用于已选择的图形
+usecase_调整图形尺寸 ..> usecase_选择图形 : <<include>>
+
+' 移动图形前必须先选择图形
+' 因果依赖：移动操作仅对已选择的图形有效
+usecase_移动图形 ..> usecase_选择图形 : <<include>>
+
+' 创建图形后自动进入矩形创建状态，但不强制包含选择
+' 根据约束，不能 include “选择图形” 到 “创建图形”
+' 同理，不能 include “创建图形” 到 “切换图层”
+
+' 创建新图层时会初始化一个默认图层环境
+' 但根据约束，启动时不能 include 创建新图层
+' 所以启动与创建图层为独立用例
+
+'
+' 扩展关系（extend）
+'
+
+' 无扩展关系，根据约束 extend 列表为空，且部分潜在扩展被禁止
+' 例如：切换图层不能 extend 创建新图层
+
+'
+' 约束执行说明
+'
+
+' 已排除所有 forbid_usecases 中的用例，例如：
+' - 不使用 "点击删除按钮"、"提示新图层编号" 等细粒度动作
+' - 保留高层用例如“切换图层”、“启动图形编辑器”
+
+' 禁止的关系已规避：
+' - 启动不 include 创建新图层 或 选择图形
+' - 创建图形不 include 切换图层、选择图形
+' - 调整尺寸不 include 创建图形
+' - 切换图层不 extend 创建新图层
+
+@enduml

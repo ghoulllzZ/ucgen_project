@@ -1,0 +1,46 @@
+@startuml
+left to right direction
+actor 用户
+
+' 创建图形操作始终作用于当前图层
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layer
+
+' 基础关联：用户与各项功能
+用户 --> create_shape
+用户 --> select_shape
+用户 --> delete_shape
+用户 --> create_layer
+用户 --> manage_layer
+
+' 扩展关系：改变图形尺寸在特定扩展点上触发
+' 扩展点 EP1：图形已被选中并显示控制点，且用户拖动控制点或点击放大/缩小按钮
+select_shape ..> resize_shape : extend
+note on link
+  扩展条件：用户拖动控制点或点击“放大/缩小”按钮
+  触发扩展点 EP1：“图形已被选中并显示控制点”
+end note
+
+' 扩展关系：移动图形在特定扩展点上触发
+' 扩展点 EP2：图形已被选中，且用户在图形内部按下并拖动
+select_shape ..> move_shape : extend
+note on link
+  扩展条件：用户在已选中图形内部按下鼠标并拖动
+  触发扩展点 EP2：“图形已被选中”
+end note
+
+' 删除图形依赖于先选择图形，但根据约束不得使用 include
+' 约束明确禁止：选择图形 --include--> 删除图形
+' 因此仅通过用户直接触发，并隐含顺序逻辑
+用户 --> delete_shape
+
+' 创建图层和管理图层为独立用例，用户直接触发
+用户 --> create_layer
+用户 --> manage_layer
+
+@enduml

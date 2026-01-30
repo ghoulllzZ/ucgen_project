@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+actor 用户 as User
+
+' 用例定义
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layer
+
+' 基本关联：用户与用例之间的关系
+User --> create_shape
+User --> select_shape
+User --> delete_shape
+User --> resize_shape
+User --> move_shape
+User --> create_layer
+User --> manage_layer
+
+' 包含关系（include）说明
+' 选择图形是删除图形的前提，但根据约束 forbid_include，不能从选择图形 include 删除图形
+' 因此不添加选择图形 -> 删除图形 的 include
+
+' 扩展关系（extend）说明
+
+' 改变图形尺寸在“图形已被选中并显示控制点”时扩展选择图形
+' 注：触发条件为用户拖动控制点或点击放大/缩小按钮，扩展点为 EP1
+' 满足 extend 条件，且未被禁止
+select_shape ..> resize_shape : <<extend>>\n{EP1: 图形已被选中并显示控制点}
+' 扩展因果说明：当图形被选中并显示控制点后，用户可通过拖动控制点或点击按钮触发尺寸调整
+
+' 移动图形在“图形已被选中”时扩展选择图形
+' 注：扩展点为 EP2，触发条件为在已选图形内部按下并拖动鼠标
+' 满足 extend 条件，且未被禁止（注意：约束中禁止的是反过来的 extend）
+select_shape ..> move_shape : <<extend>>\n{EP2: 图形已被选中}
+' 扩展因果说明：当图形被选中后，用户可在其内部按下鼠标拖动以触发移动操作
+
+' 其他用例之间无强制包含或扩展关系
+
+@enduml

@@ -1,0 +1,1599 @@
+{
+  "args": {
+    "req": "examples\\req_primary_graph_editor.txt",
+    "out": "out_deepseek",
+    "max_iters": 5,
+    "backend": "deepseek",
+    "temperature": 0.9,
+    "n_samples": 6,
+    "models": [],
+    "seed": 7,
+    "interactive": false,
+    "jaccard_threshold": 0.98,
+    "render": "auto"
+  },
+  "constraints": {
+    "must_include": [
+      {
+        "base": "等比例缩放",
+        "included": "选择图形"
+      }
+    ],
+    "forbid_include": [
+      {
+        "base": "调整图形尺寸",
+        "included": "选择图形"
+      },
+      {
+        "base": "移动图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "删除图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "等比例缩放",
+        "included": "调整图形尺寸"
+      },
+      {
+        "base": "添加新图形类型",
+        "included": "创建图形"
+      },
+      {
+        "base": "调整图形尺寸",
+        "included": "等比例缩放"
+      },
+      {
+        "base": "ScaleProportionally",
+        "included": "SelectShape"
+      },
+      {
+        "base": "AdjustShapeSize",
+        "included": "ScaleProportionally"
+      }
+    ],
+    "extend": [
+      {
+        "base": "调整图形尺寸",
+        "extension": "等比例缩放",
+        "condition": "按住Shift时",
+        "extension_point": ""
+      }
+    ],
+    "forbid_extend": [
+      {
+        "base": "选择图形",
+        "extension": "调整图形尺寸"
+      },
+      {
+        "base": "选择图形",
+        "extension": "移动图形"
+      },
+      {
+        "base": "选择图形",
+        "extension": "删除图形"
+      },
+      {
+        "base": "创建图形",
+        "extension": "添加新图形类型"
+      },
+      {
+        "base": "等比例缩放",
+        "extension": "调整图形尺寸"
+      },
+      {
+        "base": "ScaleProportionally",
+        "extension": "AdjustShapeSize"
+      }
+    ],
+    "keep_actors": [],
+    "forbid_actors": [
+      "User",
+      "Editor",
+      "EditorUser"
+    ],
+    "keep_usecases": [
+      "等比例缩放"
+    ],
+    "forbid_usecases": [
+      "切换图层",
+      "设置当前图层",
+      "检查图层限制",
+      "选择图形类型",
+      "启动图形编辑器",
+      "添加新图形类型",
+      "启动编辑器",
+      "更改当前图层",
+      "图层管理",
+      "选择活动图层",
+      "图层导航",
+      "浏览图层",
+      "SelectGraphic",
+      "ResizeGraphic",
+      "MoveGraphic",
+      "CreateLayer",
+      "CreateGraphic",
+      "DeleteGraphic",
+      "SwitchLayerFocus",
+      "ScaleProportionally",
+      "变更当前图层",
+      "AdjustShapeSize",
+      "DeleteShape",
+      "SelectShape",
+      "CreateShape",
+      "SwitchCurrentLayer",
+      "MoveShape"
+    ]
+  },
+  "iterations": [
+    {
+      "iter_index": 1,
+      "candidates": [
+        {
+          "candidate_id": "it1_deepseek_1",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 1023,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建图层\" as UC6\nusecase \"切换图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 等比例缩放需要先选择图形\nUC8 --> UC2 : <<include>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_deepseek_2",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 1040,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户 as User\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形类型\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"等比例缩放\" as UC6\nusecase \"移动图形\" as UC7\nusecase \"创建图层\" as UC8\nusecase \"检查图层限制\" as UC9\nusecase \"切换图层\" as UC10\nusecase \"设置当前图层\" as UC11\n\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\nUser --> UC9\nUser --> UC10\nUser --> UC11\n\n' 因果：创建图形必须先选择图形类型\nUC1 ..> UC2 : include\n\n' 因果：创建图层前必须检查是否超过16个图层\nUC8 ..> UC9 : include\n\n' 因果：切换图层必须设置当前图层\nUC10 ..> UC11 : include\n\n' 触发条件：当用户点击放大或缩小按钮时\nUC6 ..> UC5 : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_deepseek_3",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 1057,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建图层\" as UC6\nusecase \"管理图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_deepseek_4",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 1074,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"启动图形编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"等比例缩放\" as UC6\nusecase \"移动图形\" as UC7\nusecase \"创建图层\" as UC8\nusecase \"管理图层\" as UC9\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n用户 --> UC9\n\n' 当用户点击放大/缩小按钮时，等比例缩放扩展调整图形尺寸\nUC6 ..> UC5 : <<extend>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_deepseek_5",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 1091,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"启动编辑器\" as UC1\nusecase \"创建图形\" as UC2\nusecase \"选择图形\" as UC3\nusecase \"删除图形\" as UC4\nusecase \"调整图形尺寸\" as UC5\nusecase \"等比例缩放\" as UC6\nusecase \"移动图形\" as UC7\nusecase \"创建图层\" as UC8\nusecase \"管理图层\" as UC9\nusecase \"添加新图形类型\" as UC10\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n用户 --> UC9\n用户 --> UC10\n\n' 当图形编辑器需要扩展图形种类时\nUC10 .> UC2 : <<extend>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_deepseek_6",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 1108,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"等比例缩放\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"切换图层\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 16,
+        "edges": 22,
+        "conflicts": 5
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "等比例缩放",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.16666666666666666,
+            "sources": [
+              "it1_deepseek_1"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "等比例缩放",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.16666666666666666,
+            "sources": [
+              "it1_deepseek_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "添加新图形类型",
+          "b": "创建图形",
+          "details": {
+            "confidence": 0.16666666666666666,
+            "sources": [
+              "it1_deepseek_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "等比例缩放",
+          "b": "调整图形尺寸",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "添加新图形类型",
+          "b": "创建图形",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "切换图层",
+          "b": "",
+          "details": {
+            "freq": 0.5,
+            "sources": [
+              "it1_deepseek_1",
+              "it1_deepseek_2",
+              "it1_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "设置当前图层",
+          "b": "",
+          "details": {
+            "freq": 0.16666666666666666,
+            "sources": [
+              "it1_deepseek_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "检查图层限制",
+          "b": "",
+          "details": {
+            "freq": 0.16666666666666666,
+            "sources": [
+              "it1_deepseek_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "选择图形类型",
+          "b": "",
+          "details": {
+            "freq": 0.16666666666666666,
+            "sources": [
+              "it1_deepseek_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "启动图形编辑器",
+          "b": "",
+          "details": {
+            "freq": 0.16666666666666666,
+            "sources": [
+              "it1_deepseek_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "添加新图形类型",
+          "b": "",
+          "details": {
+            "freq": 0.16666666666666666,
+            "sources": [
+              "it1_deepseek_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "启动编辑器",
+          "b": "",
+          "details": {
+            "freq": 0.16666666666666666,
+            "sources": [
+              "it1_deepseek_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "等比例缩放",
+          "b": "调整图形尺寸",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "添加新图形类型",
+          "b": "创建图形",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "等比例缩放",
+            "included": "选择图形"
+          },
+          "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "等比例缩放",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q3",
+          "type": "yes_no_include",
+          "target": {
+            "base": "添加新图形类型",
+            "included": "创建图形"
+          },
+          "prompt": "用例【添加新图形类型】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q4",
+          "type": "extend_condition",
+          "target": {
+            "extension": "等比例缩放",
+            "base": "调整图形尺寸"
+          },
+          "prompt": "如果【等比例缩放】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "按住Shift时"
+        },
+        {
+          "id": "q5",
+          "type": "extend_condition",
+          "target": {
+            "extension": "添加新图形类型",
+            "base": "创建图形"
+          },
+          "prompt": "如果【添加新图形类型】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q6",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "切换图层"
+          },
+          "prompt": "用例【切换图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q7",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "设置当前图层"
+          },
+          "prompt": "用例【设置当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q8",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "检查图层限制"
+          },
+          "prompt": "用例【检查图层限制】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q9",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "选择图形类型"
+          },
+          "prompt": "用例【选择图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q10",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "启动图形编辑器"
+          },
+          "prompt": "用例【启动图形编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q11",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "添加新图形类型"
+          },
+          "prompt": "用例【添加新图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q12",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "启动编辑器"
+          },
+          "prompt": "用例【启动编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q13",
+          "type": "extend_condition",
+          "target": {
+            "extension": "等比例缩放",
+            "base": "调整图形尺寸"
+          },
+          "prompt": "如果【等比例缩放】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "按住Shift时"
+        },
+        {
+          "id": "q14",
+          "type": "extend_condition",
+          "target": {
+            "extension": "添加新图形类型",
+            "base": "创建图形"
+          },
+          "prompt": "如果【添加新图形类型】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        }
+      ],
+      "answers": {
+        "q1": "yes",
+        "q2": "no",
+        "q3": "no",
+        "q4": "按住Shift时",
+        "q5": "NONE",
+        "q6": "no",
+        "q7": "no",
+        "q8": "no",
+        "q9": "no",
+        "q10": "no",
+        "q11": "no",
+        "q12": "no",
+        "q13": "按住Shift时",
+        "q14": "NONE"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "切换图层|assoc|设置当前图层",
+          "创建图层|assoc|检查图层限制",
+          "创建图形|assoc|选择图形类型",
+          "用户|assoc|切换图层",
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|启动图形编辑器",
+          "用户|assoc|启动编辑器",
+          "用户|assoc|检查图层限制",
+          "用户|assoc|添加新图形类型",
+          "用户|assoc|移动图形",
+          "用户|assoc|等比例缩放",
+          "用户|assoc|管理图层",
+          "用户|assoc|设置当前图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "用户|assoc|选择图形类型",
+          "等比例缩放|assoc|调整图形尺寸",
+          "等比例缩放|include|选择图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 2,
+      "candidates": [
+        {
+          "candidate_id": "it2_deepseek_1",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 2023,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建图层\" as UC6\nusecase \"管理图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 等比例缩放必须在选择图形后进行\nUC8 ..> UC2 : include\n\n' 当按住Shift时，调整图形尺寸扩展为等比例缩放\nUC4 ..> UC8 : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_deepseek_2",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 2040,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建图层\" as UC6\nusecase \"选择图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 等比例缩放必须包含选择图形\nUC8 ..> UC2 : include\n\n' 当按住Shift时，调整图形尺寸扩展为等比例缩放\nUC4 <.. UC8 : extend\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 26): UC4 <.. UC8 : extend"
+        },
+        {
+          "candidate_id": "it2_deepseek_3",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 2057,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建图层\" as UC6\nusecase \"更改当前图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 等比例缩放必须在选择图形后进行\nUC8 ..> UC2 : include\n' 按住Shift时，调整图形尺寸扩展为等比例缩放\nUC8 ..> UC4 : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_deepseek_4",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 2074,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建新图层\" as UC6\nusecase \"管理图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 等比例缩放必须包含选择图形\nUC8 --> UC2 : include\n\n' 调整图形尺寸在按住Shift时扩展等比例缩放\nUC4 --> UC8 : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_deepseek_5",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 2091,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"等比例缩放\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建图层\" as UC7\nusecase \"管理图层\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 等比例缩放必须包含选择图形作为强制性依赖\nUC5 ..> UC2 : include\n\n' 当按住Shift时，调整图形尺寸可扩展为等比例缩放\nUC4 ..> UC5 : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_deepseek_6",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 2108,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as CreateGraphic\nusecase \"选择图形\" as SelectGraphic\nusecase \"删除图形\" as DeleteGraphic\nusecase \"调整图形尺寸\" as ResizeGraphic\nusecase \"移动图形\" as MoveGraphic\nusecase \"创建图层\" as CreateLayer\nusecase \"管理图层\" as ManageLayer\nusecase \"等比例缩放\" as UniformScaling\n\n用户 --> CreateGraphic\n用户 --> SelectGraphic\n用户 --> DeleteGraphic\n用户 --> ResizeGraphic\n用户 --> MoveGraphic\n用户 --> CreateLayer\n用户 --> ManageLayer\n用户 --> UniformScaling\n\n' 等比例缩放执行时必须先选择图形\nUniformScaling .> SelectGraphic : include\n\n' 按住Shift时调整图形尺寸扩展为等比例缩放\nResizeGraphic .> UniformScaling : extend\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 5,
+        "nodes": 11,
+        "edges": 13,
+        "conflicts": 0
+      },
+      "conflicts": [
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "更改当前图层",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it2_deepseek_3"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "更改当前图层"
+          },
+          "prompt": "用例【更改当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|创建新图层",
+          "用户|assoc|删除图形",
+          "用户|assoc|更改当前图层",
+          "用户|assoc|移动图形",
+          "用户|assoc|等比例缩放",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "等比例缩放|assoc|调整图形尺寸",
+          "等比例缩放|assoc|选择图形",
+          "调整图形尺寸|assoc|等比例缩放"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 3,
+      "candidates": [
+        {
+          "candidate_id": "it3_deepseek_1",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 3023,
+          "plantuml": "@startuml\nactor \"用户\" as User\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建图层\" as UC6\nusecase \"图层管理\" as UC7\nusecase \"等比例缩放\" as UC8\n\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n' 因果说明: 必须选择图形才能进行等比例缩放\nUC8 --> UC2 : includes\n\n' 触发条件: 按住Shift时\nUC8 --> UC4 : extends\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_deepseek_2",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 3040,
+          "plantuml": "@startuml\nleft to right direction\nactor User\n\nusecase \"Create Graphic\" as UC1\nusecase \"Select Graphic\" as UC2\nusecase \"Delete Graphic\" as UC3\nusecase \"Adjust Graphic Size\" as UC4\nusecase \"Move Graphic\" as UC5\nusecase \"Create Layer\" as UC6\nusecase \"Manage Layer\" as UC7\nusecase \"Scale Proportionally\" as UC8\n\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n' 等比例缩放必须先选择图形\nUC8 ..> UC2 : include\n' 按住Shift时，调整图形尺寸可扩展为等比例缩放\nUC4 <.. UC8 : extend\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 26): UC4 <.. UC8 : extend"
+        },
+        {
+          "candidate_id": "it3_deepseek_3",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 3057,
+          "plantuml": "@startuml\nactor User\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建新图层\" as UC6\nusecase \"选择下一个图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\nUser --> UC8\n\n' 等比例缩放必须在选择图形的基础上执行\nUC8 ..> UC2 : include\n\n' 当按住Shift键时，调整图形尺寸可扩展为等比例缩放\nUC4 <.. UC8 : extend\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 26): UC4 <.. UC8 : extend"
+        },
+        {
+          "candidate_id": "it3_deepseek_4",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 3074,
+          "plantuml": "@startuml\nactor \"用户\" as User\n\nusecase \"创建图形\" as CreateShape\nusecase \"选择图形\" as SelectShape\nusecase \"删除图形\" as DeleteShape\nusecase \"调整图形尺寸\" as ResizeShape\nusecase \"等比例缩放\" as UniformScale\nusecase \"移动图形\" as MoveShape\nusecase \"创建图层\" as CreateLayer\nusecase \"管理图层\" as ManageLayer\n\nUser --> CreateShape\nUser --> SelectShape\nUser --> DeleteShape\nUser --> ResizeShape\nUser --> UniformScale\nUser --> MoveShape\nUser --> CreateLayer\nUser --> ManageLayer\n\n' 等比例缩放必须先选择图形\nUniformScale .> SelectShape : include\n\n' 当按住Shift时，调整图形尺寸可扩展为等比例缩放\nUniformScale <. ResizeShape : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_deepseek_5",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 3091,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\"\nusecase \"选择图形\"\nusecase \"删除图形\"\nusecase \"调整图形尺寸\"\nusecase \"移动图形\"\nusecase \"创建图层\"\nusecase \"管理图层\"\nusecase \"等比例缩放\"\n\n用户 --> \"创建图形\"\n用户 --> \"选择图形\"\n用户 --> \"删除图形\"\n用户 --> \"调整图形尺寸\"\n用户 --> \"移动图形\"\n用户 --> \"创建图层\"\n用户 --> \"管理图层\"\n用户 --> \"等比例缩放\"\n\n' 等比例缩放必须包含选择图形\n\"等比例缩放\" --> \"选择图形\" : include\n\n' 按住Shift时，调整图形尺寸扩展为等比例缩放\n\"调整图形尺寸\" <.. \"等比例缩放\" : extends\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 26): \"调整图形尺寸\" <.. \"等比例缩放\" : extends"
+        },
+        {
+          "candidate_id": "it3_deepseek_6",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 3108,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建图层\" as UC6\nusecase \"管理图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 等比例缩放必须包含选择图形\nUC8 ..> UC2 : include\n\n' 调整图形尺寸时可扩展为等比例缩放，当按住Shift时\nUC4 ..> UC8 : extend\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 3,
+        "nodes": 10,
+        "edges": 12,
+        "conflicts": 0
+      },
+      "conflicts": [
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "图层管理",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it3_deepseek_1"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "图层管理"
+          },
+          "prompt": "用例【图层管理】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|图层管理",
+          "用户|assoc|移动图形",
+          "用户|assoc|等比例缩放",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "等比例缩放|assoc|调整图形尺寸",
+          "等比例缩放|assoc|选择图形",
+          "调整图形尺寸|assoc|等比例缩放"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 4,
+      "candidates": [
+        {
+          "candidate_id": "it4_deepseek_1",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 4023,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建图层\" as UC6\nusecase \"选择活动图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 等比例缩放必须基于选择图形\nUC8 ..> UC2 : include\n\n' 按住Shift时触发等比例缩放扩展调整图形尺寸\nUC8 ..> UC4 : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_deepseek_2",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 4040,
+          "plantuml": "@startuml\nleft to right direction\nactor \"用户\" as User\n\nusecase \"创建图形\" as CreateGraphic\nusecase \"选择图形\" as SelectGraphic\nusecase \"删除图形\" as DeleteGraphic\nusecase \"调整图形尺寸\" as ResizeGraphic\nusecase \"移动图形\" as MoveGraphic\nusecase \"创建图层\" as CreateLayer\nusecase \"图层导航\" as LayerNavigation\nusecase \"等比例缩放\" as UniformScaling\n\nUser --> CreateGraphic\nUser --> SelectGraphic\nUser --> DeleteGraphic\nUser --> ResizeGraphic\nUser --> MoveGraphic\nUser --> CreateLayer\nUser --> LayerNavigation\nUser --> UniformScaling\n\n' 等比例缩放必须基于选择图形\nUniformScaling ..> SelectGraphic : include\n\n' 按住Shift时调整图形尺寸扩展为等比例缩放\nResizeGraphic ..> UniformScaling : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_deepseek_3",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 4057,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建新图层\" as UC6\nusecase \"浏览图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n\n' 等比例缩放必须包含选择图形\nUC8 ..> UC2 : <<include>>\n\n' 按住Shift时触发等比例缩放\nUC4 ..> UC8 : <<extend>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_deepseek_4",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 4074,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\"\nusecase \"选择图形\"\nusecase \"删除图形\"\nusecase \"调整图形尺寸\"\nusecase \"移动图形\"\nusecase \"创建新图层\"\nusecase \"图层导航\"\nusecase \"等比例缩放\"\n\n用户 --> \"创建图形\"\n用户 --> \"选择图形\"\n用户 --> \"删除图形\"\n用户 --> \"调整图形尺寸\"\n用户 --> \"移动图形\"\n用户 --> \"创建新图层\"\n用户 --> \"图层导航\"\n用户 --> \"等比例缩放\"\n\n' 等比例缩放必须在执行时选择图形\n\"等比例缩放\" ..> \"选择图形\" : <<include>>\n\n' 当按住Shift时，调整图形尺寸扩展为等比例缩放\n\"等比例缩放\" .> \"调整图形尺寸\" : <<extend>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_deepseek_5",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 4091,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建图层\" as UC6\nusecase \"浏览图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 当按住Shift时，调整图形尺寸扩展为等比例缩放\nUC4 .> UC8 <<extend>>\n\n' 等比例缩放执行前必须选择图形\nUC8 .> UC2 <<include>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_deepseek_6",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 4108,
+          "plantuml": "@startuml\nactor User\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"等比例缩放\" as UC5\nusecase \"移动图形\" as UC6\nusecase \"创建新图层\" as UC7\n\nUser --> UC1\nUser --> UC2\nUser --> UC3\nUser --> UC4\nUser --> UC5\nUser --> UC6\nUser --> UC7\n\n' 等比例缩放执行时必须先选择图形\nUC5 ..> UC2 : include\n\n' 按住Shift时调整图形尺寸扩展为等比例缩放\nUC5 ..> UC4 : extend\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 13,
+        "edges": 26,
+        "conflicts": 5
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "等比例缩放",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it4_deepseek_3",
+              "it4_deepseek_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "调整图形尺寸",
+          "b": "等比例缩放",
+          "details": {
+            "confidence": 0.16666666666666666,
+            "sources": [
+              "it4_deepseek_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "等比例缩放",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.16666666666666666,
+            "sources": [
+              "it4_deepseek_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "调整图形尺寸",
+          "b": "等比例缩放",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "等比例缩放",
+          "b": "调整图形尺寸",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "actor_uncertain",
+          "a": "User",
+          "b": "",
+          "details": {
+            "freq": 0.16666666666666666,
+            "sources": [
+              "it4_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "选择活动图层",
+          "b": "",
+          "details": {
+            "freq": 0.16666666666666666,
+            "sources": [
+              "it4_deepseek_1"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "图层导航",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it4_deepseek_2",
+              "it4_deepseek_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "浏览图层",
+          "b": "",
+          "details": {
+            "freq": 0.3333333333333333,
+            "sources": [
+              "it4_deepseek_3",
+              "it4_deepseek_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "调整图形尺寸",
+          "b": "等比例缩放",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "等比例缩放",
+            "included": "选择图形"
+          },
+          "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "调整图形尺寸",
+            "included": "等比例缩放"
+          },
+          "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【等比例缩放】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q3",
+          "type": "yes_no_include",
+          "target": {
+            "base": "等比例缩放",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q4",
+          "type": "extend_condition",
+          "target": {
+            "extension": "调整图形尺寸",
+            "base": "等比例缩放"
+          },
+          "prompt": "如果【调整图形尺寸】是对【等比例缩放】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q5",
+          "type": "extend_condition",
+          "target": {
+            "extension": "等比例缩放",
+            "base": "调整图形尺寸"
+          },
+          "prompt": "如果【等比例缩放】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "按住Shift时"
+        },
+        {
+          "id": "q6",
+          "type": "actor_yes_no",
+          "target": {
+            "actor": "User"
+          },
+          "prompt": "参与者【User】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q7",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "选择活动图层"
+          },
+          "prompt": "用例【选择活动图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q8",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "图层导航"
+          },
+          "prompt": "用例【图层导航】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q9",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "浏览图层"
+          },
+          "prompt": "用例【浏览图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q10",
+          "type": "extend_condition",
+          "target": {
+            "extension": "调整图形尺寸",
+            "base": "等比例缩放"
+          },
+          "prompt": "如果【调整图形尺寸】是对【等比例缩放】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        }
+      ],
+      "answers": {
+        "q1": "yes",
+        "q2": "no",
+        "q3": "no",
+        "q4": "NONE",
+        "q5": "按住Shift时",
+        "q6": "no",
+        "q7": "no",
+        "q8": "no",
+        "q9": "no",
+        "q10": "NONE"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "User|assoc|创建图形",
+          "User|assoc|创建新图层",
+          "User|assoc|删除图形",
+          "User|assoc|移动图形",
+          "User|assoc|等比例缩放",
+          "User|assoc|调整图形尺寸",
+          "User|assoc|选择图形",
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|创建新图层",
+          "用户|assoc|删除图形",
+          "用户|assoc|图层导航",
+          "用户|assoc|浏览图层",
+          "用户|assoc|移动图形",
+          "用户|assoc|等比例缩放",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "用户|assoc|选择活动图层",
+          "等比例缩放|assoc|UC2<<include>>",
+          "等比例缩放|assoc|调整图形尺寸",
+          "等比例缩放|assoc|选择图形",
+          "等比例缩放|extend|调整图形尺寸",
+          "等比例缩放|include|选择图形",
+          "调整图形尺寸|assoc|UC8<<extend>>",
+          "调整图形尺寸|assoc|等比例缩放"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 5,
+      "candidates": [
+        {
+          "candidate_id": "it5_deepseek_1",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 5023,
+          "plantuml": "@startuml\nactor \"用户\"\n\nusecase \"创建图形\"\nusecase \"选择图形\"\nusecase \"删除图形\"\nusecase \"调整图形尺寸\"\nusecase \"移动图形\"\nusecase \"创建图层\"\nusecase \"管理图层\"\nusecase \"等比例缩放\"\n\n\"用户\" --> \"创建图形\"\n\"用户\" --> \"选择图形\"\n\"用户\" --> \"删除图形\"\n\"用户\" --> \"调整图形尺寸\"\n\"用户\" --> \"移动图形\"\n\"用户\" --> \"创建图层\"\n\"用户\" --> \"管理图层\"\n\"用户\" --> \"等比例缩放\"\n\n' 等比例缩放执行时必须包含选择图形\n\"等比例缩放\" ..> \"选择图形\" : includes\n\n' 当按住Shift时，调整图形尺寸扩展执行等比例缩放\n\"等比例缩放\" ..> \"调整图形尺寸\" : extends\n@enduml\n"
+        },
+        {
+          "candidate_id": "it5_deepseek_2",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 5040,
+          "plantuml": "@startuml\nactor \"Editor\" as editor\n\nusecase \"CreateGraphic\" as UC1\nusecase \"SelectGraphic\" as UC2\nusecase \"DeleteGraphic\" as UC3\nusecase \"ResizeGraphic\" as UC4\nusecase \"ScaleProportionally\" as UC5\nusecase \"MoveGraphic\" as UC6\nusecase \"CreateLayer\" as UC7\nusecase \"SwitchLayerFocus\" as UC8\n\neditor --> UC1\neditor --> UC2\neditor --> UC3\neditor --> UC4\neditor --> UC5\neditor --> UC6\neditor --> UC7\neditor --> UC8\n\n' 等比例缩放执行过程中必须包含选择图形\nUC5 ..> UC2 : include\n\n' 当按住Shift键时，调整图形尺寸扩展为等比例缩放\nUC4 ..> UC5 : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it5_deepseek_3",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 5057,
+          "plantuml": "@startuml\n\nactor 编辑者\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建新图层\" as UC6\nusecase \"切换到下一个图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n编辑者 --> UC1\n编辑者 --> UC2\n编辑者 --> UC3\n编辑者 --> UC4\n编辑者 --> UC5\n编辑者 --> UC6\n编辑者 --> UC7\n编辑者 --> UC8\n\n' 等比例缩放必须先选择图形\nUC8 ..> UC2 : <<include>>\n\n' 按住Shift时调整尺寸触发等比例缩放\nUC4 <.. UC8 : <<extend>>\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 27): UC4 <.. UC8 : <<extend>>"
+        },
+        {
+          "candidate_id": "it5_deepseek_4",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 5074,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建图层\" as UC6\nusecase \"变更当前图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\n用户 --> UC1\n用户 --> UC2\n用户 --> UC3\n用户 --> UC4\n用户 --> UC5\n用户 --> UC6\n用户 --> UC7\n用户 --> UC8\n\n' 等比例缩放必须在选择图形后进行\nUC8 ..> UC2 : include\n\n' 按住Shift时触发等比例缩放\nUC8 ..> UC4 : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it5_deepseek_5",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 5091,
+          "plantuml": "@startuml\nactor \"用户\" as UserActor\n\nusecase \"创建图形\" as UC1\nusecase \"选择图形\" as UC2\nusecase \"删除图形\" as UC3\nusecase \"调整图形尺寸\" as UC4\nusecase \"移动图形\" as UC5\nusecase \"创建图层\" as UC6\nusecase \"管理图层\" as UC7\nusecase \"等比例缩放\" as UC8\n\nUserActor --> UC1\nUserActor --> UC2\nUserActor --> UC3\nUserActor --> UC4\nUserActor --> UC5\nUserActor --> UC6\nUserActor --> UC7\nUserActor --> UC8\n\n' 等比例缩放必须在选择图形后进行\nUC8 ..> UC2 : include\n\n' 按住Shift时触发等比例缩放\nUC8 ..> UC4 : extend\n@enduml\n"
+        },
+        {
+          "candidate_id": "it5_deepseek_6",
+          "model": "deepseek",
+          "temperature": 0.9,
+          "seed": 5108,
+          "plantuml": "@startuml\nactor \"EditorUser\" as user\n\nusecase \"CreateShape\"\nusecase \"SelectShape\"\nusecase \"DeleteShape\"\nusecase \"AdjustShapeSize\"\nusecase \"ScaleProportionally\"\nusecase \"MoveShape\"\nusecase \"CreateLayer\"\nusecase \"SwitchCurrentLayer\"\n\nuser --> CreateShape\nuser --> SelectShape\nuser --> DeleteShape\nuser --> AdjustShapeSize\nuser --> ScaleProportionally\nuser --> MoveShape\nuser --> CreateLayer\nuser --> SwitchCurrentLayer\n\n' ScaleProportionally must include SelectShape\nScaleProportionally ..> SelectShape : <<include>>\n\n' AdjustShapeSize extends to ScaleProportionally when Shift key is pressed\nAdjustShapeSize ..> ScaleProportionally : <<extend>>\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 5,
+        "nodes": 26,
+        "edges": 31,
+        "conflicts": 3
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "ScaleProportionally",
+          "b": "SelectShape",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it5_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "AdjustShapeSize",
+          "b": "ScaleProportionally",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it5_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "AdjustShapeSize",
+          "b": "ScaleProportionally",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "actor_uncertain",
+          "a": "Editor",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "actor_uncertain",
+          "a": "EditorUser",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "SelectGraphic",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "ResizeGraphic",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "MoveGraphic",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "CreateLayer",
+          "b": "",
+          "details": {
+            "freq": 0.4,
+            "sources": [
+              "it5_deepseek_2",
+              "it5_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "CreateGraphic",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "DeleteGraphic",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "SwitchLayerFocus",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "ScaleProportionally",
+          "b": "",
+          "details": {
+            "freq": 0.4,
+            "sources": [
+              "it5_deepseek_2",
+              "it5_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "变更当前图层",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "AdjustShapeSize",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "DeleteShape",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "SelectShape",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "CreateShape",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "SwitchCurrentLayer",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "MoveShape",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it5_deepseek_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "ScaleProportionally",
+          "b": "SelectShape",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "AdjustShapeSize",
+          "b": "ScaleProportionally",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "ScaleProportionally",
+            "included": "SelectShape"
+          },
+          "prompt": "用例【ScaleProportionally】执行过程中是否【必须】包含用例【SelectShape】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "AdjustShapeSize",
+            "included": "ScaleProportionally"
+          },
+          "prompt": "用例【AdjustShapeSize】执行过程中是否【必须】包含用例【ScaleProportionally】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q3",
+          "type": "extend_condition",
+          "target": {
+            "extension": "AdjustShapeSize",
+            "base": "ScaleProportionally"
+          },
+          "prompt": "如果【AdjustShapeSize】是对【ScaleProportionally】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q4",
+          "type": "actor_yes_no",
+          "target": {
+            "actor": "Editor"
+          },
+          "prompt": "参与者【Editor】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q5",
+          "type": "actor_yes_no",
+          "target": {
+            "actor": "EditorUser"
+          },
+          "prompt": "参与者【EditorUser】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q6",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "SelectGraphic"
+          },
+          "prompt": "用例【SelectGraphic】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q7",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "ResizeGraphic"
+          },
+          "prompt": "用例【ResizeGraphic】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q8",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "MoveGraphic"
+          },
+          "prompt": "用例【MoveGraphic】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q9",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "CreateLayer"
+          },
+          "prompt": "用例【CreateLayer】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q10",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "CreateGraphic"
+          },
+          "prompt": "用例【CreateGraphic】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q11",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "DeleteGraphic"
+          },
+          "prompt": "用例【DeleteGraphic】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q12",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "SwitchLayerFocus"
+          },
+          "prompt": "用例【SwitchLayerFocus】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q13",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "ScaleProportionally"
+          },
+          "prompt": "用例【ScaleProportionally】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q14",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "变更当前图层"
+          },
+          "prompt": "用例【变更当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q15",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "AdjustShapeSize"
+          },
+          "prompt": "用例【AdjustShapeSize】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q16",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "DeleteShape"
+          },
+          "prompt": "用例【DeleteShape】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q17",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "SelectShape"
+          },
+          "prompt": "用例【SelectShape】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q18",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "CreateShape"
+          },
+          "prompt": "用例【CreateShape】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q19",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "SwitchCurrentLayer"
+          },
+          "prompt": "用例【SwitchCurrentLayer】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q20",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "MoveShape"
+          },
+          "prompt": "用例【MoveShape】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q21",
+          "type": "yes_no_include",
+          "target": {
+            "base": "ScaleProportionally",
+            "included": "SelectShape"
+          },
+          "prompt": "是否确认：用例【ScaleProportionally】执行时必须包含【SelectShape】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q22",
+          "type": "extend_condition",
+          "target": {
+            "extension": "AdjustShapeSize",
+            "base": "ScaleProportionally"
+          },
+          "prompt": "如果【AdjustShapeSize】是对【ScaleProportionally】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no",
+        "q3": "NONE",
+        "q4": "no",
+        "q5": "no",
+        "q6": "no",
+        "q7": "no",
+        "q8": "no",
+        "q9": "no",
+        "q10": "no",
+        "q11": "no",
+        "q12": "no",
+        "q13": "no",
+        "q14": "no",
+        "q15": "no",
+        "q16": "no",
+        "q17": "no",
+        "q18": "no",
+        "q19": "no",
+        "q20": "no",
+        "q21": "no",
+        "q22": "NONE"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "EditorUser|assoc|AdjustShapeSize",
+          "EditorUser|assoc|CreateLayer",
+          "EditorUser|assoc|CreateShape",
+          "EditorUser|assoc|DeleteShape",
+          "EditorUser|assoc|MoveShape",
+          "EditorUser|assoc|ScaleProportionally",
+          "EditorUser|assoc|SelectShape",
+          "EditorUser|assoc|SwitchCurrentLayer",
+          "Editor|assoc|CreateGraphic",
+          "Editor|assoc|CreateLayer",
+          "Editor|assoc|DeleteGraphic",
+          "Editor|assoc|MoveGraphic",
+          "Editor|assoc|ResizeGraphic",
+          "Editor|assoc|ScaleProportionally",
+          "Editor|assoc|SelectGraphic",
+          "Editor|assoc|SwitchLayerFocus",
+          "ResizeGraphic|assoc|ScaleProportionally",
+          "ScaleProportionally|assoc|SelectGraphic",
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|变更当前图层",
+          "用户|assoc|移动图形",
+          "用户|assoc|等比例缩放",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "等比例缩放|assoc|调整图形尺寸",
+          "等比例缩放|assoc|选择图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    }
+  ],
+  "final": {
+    "final_usecase_puml": "out_deepseek\\final_usecase.puml",
+    "nodes": [
+      "创建图层",
+      "创建图形",
+      "删除图形",
+      "用户",
+      "移动图形",
+      "等比例缩放",
+      "管理图层",
+      "调整图形尺寸",
+      "选择图形"
+    ],
+    "edges": [
+      "用户|assoc|创建图层",
+      "用户|assoc|创建图形",
+      "用户|assoc|删除图形",
+      "用户|assoc|移动图形",
+      "用户|assoc|等比例缩放",
+      "用户|assoc|管理图层",
+      "用户|assoc|调整图形尺寸",
+      "用户|assoc|选择图形",
+      "等比例缩放|assoc|调整图形尺寸",
+      "等比例缩放|assoc|选择图形"
+    ]
+  }
+}

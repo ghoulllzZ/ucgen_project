@@ -1,0 +1,27 @@
+@startuml
+actor "Editor" as editor
+
+usecase "CreateGraphic" as UC1
+usecase "SelectGraphic" as UC2
+usecase "DeleteGraphic" as UC3
+usecase "ResizeGraphic" as UC4
+usecase "ScaleProportionally" as UC5
+usecase "MoveGraphic" as UC6
+usecase "CreateLayer" as UC7
+usecase "SwitchLayerFocus" as UC8
+
+editor --> UC1
+editor --> UC2
+editor --> UC3
+editor --> UC4
+editor --> UC5
+editor --> UC6
+editor --> UC7
+editor --> UC8
+
+' 等比例缩放执行过程中必须包含选择图形
+UC5 ..> UC2 : include
+
+' 当按住Shift键时，调整图形尺寸扩展为等比例缩放
+UC4 ..> UC5 : extend
+@enduml

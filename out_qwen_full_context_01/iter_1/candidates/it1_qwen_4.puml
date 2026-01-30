@@ -1,0 +1,42 @@
+@startuml
+left to right direction
+
+actor 用户 as User
+
+usecase "创建图形" as UC_CreateShape
+usecase "选择图形" as UC_SelectShape
+usecase "删除图形" as UC_DeleteShape
+usecase "改变图形尺寸" as UC_ResizeShape
+usecase "移动图形" as UC_MoveShape
+usecase "创建图层" as UC_CreateLayer
+usecase "管理图层" as UC_ManageLayers
+
+User --> UC_CreateShape
+User --> UC_SelectShape
+User --> UC_DeleteShape
+User --> UC_CreateLayer
+User --> UC_ManageLayers
+
+' 改变图形尺寸是在选择图形后，当图形已被选中并显示控制点时发生的扩展
+UC_SelectShape ..> UC_ResizeShape : <<extend>>\n<font size=10><i>扩展点 EP1: 图形已被选中并显示控制点</i></font>
+note on link
+  触发条件：用户拖动控制点或点击“放大/缩小”按钮
+end note
+
+' 移动图形是在选择图形后，当图形已被选中时发生的扩展
+UC_SelectShape ..> UC_MoveShape : <<extend>>\n<font size=10><i>扩展点 EP2: 图形已被选中</i></font>
+note on link
+  触发条件：用户在已选中图形内部按下并拖动鼠标
+end note
+
+' 删除图形依赖于先选择图形（必须包含选择动作）
+' 注意：虽然逻辑上删除前需选择，但根据需求，用户可取消选择，且删除操作独立触发
+' 因此不使用include，而是通过业务规则约束——此处不强制include
+
+' 创建图形、选择图形、删除图形、改变图形尺寸、移动图形均作用于当前图层
+' 这些是系统行为的自然组成部分，无需额外关联
+
+' 所有图形操作都基于当前图层，而图层由创建和管理图层功能决定
+' 管理图层包括切换图层，影响后续所有操作的作用目标
+
+@enduml

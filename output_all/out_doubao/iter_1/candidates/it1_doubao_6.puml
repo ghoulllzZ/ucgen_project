@@ -1,0 +1,34 @@
+left to right direction
+actor User as U
+
+usecase "初始启动软件" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "管理图层" as UC8
+usecase "创建直线" as UC21
+usecase "创建椭圆" as UC22
+usecase "创建矩形" as UC23
+
+U --> UC1
+U --> UC2
+U --> UC3
+U --> UC4
+U --> UC5
+U --> UC6
+U --> UC7
+U --> UC8
+
+' 选择直线时扩展创建图形功能，符合图形种类可扩展约束
+UC21 --|> UC2 : extend
+' 选择椭圆时扩展创建图形功能，符合图形种类可扩展约束
+UC22 --|> UC2 : extend
+' 选择矩形时扩展创建图形功能，符合图形种类可扩展约束
+UC23 --|> UC2 : extend
+
+' 移动图形必须包含选择图形，遵循must_include约束
+UC6 .> UC3 : include
+@enduml

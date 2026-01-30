@@ -1,0 +1,101 @@
+@startuml
+actor 用户 as User
+
+'
+' 启动与初始化相关用例
+'
+usecase "启动图形编辑器" as UC1
+usecase "初始化编辑环境" as UC2
+User --> UC1
+UC1 ..> UC2 : include
+' 初始化包括创建默认图层、设置默认选择等
+
+'
+' 图形创建相关用例
+'
+usecase "创建图形" as UC3
+usecase "选择图形类型" as UC4
+usecase "动态绘制图形" as UC5
+User --> UC3
+UC3 ..> UC4 : include
+' 创建图形必须先选择类型（直线/椭圆/矩形）
+UC3 ..> UC5 : include
+' 创建过程中必须执行动态绘制
+
+'
+' 图形选择相关用例
+'
+usecase "选择图形" as UC6
+usecase "单选图形" as UC7
+usecase "多选图形" as UC8
+usecase "取消选择" as UC9
+User --> UC6
+UC6 ..> UC7 : include
+' 选择操作包含单选情形
+UC6 ..> UC8 : include
+' 支持通过框选或叠加点击实现多选
+UC6 ..> UC9 : include
+' 点击空白区域取消所有选择
+
+'
+' 图形删除功能
+'
+usecase "删除所选图形" as UC10
+User --> UC10
+' 先选择，再删除，依赖选择状态
+
+'
+' 尺寸调整功能
+'
+usecase "改变图形尺寸" as UC11
+usecase "拖动控制点调整尺寸" as UC12
+usecase "使用放大按钮" as UC13
+usecase "使用缩小按钮" as UC14
+User --> UC11
+UC11 ..> UC12 : include
+' 拖动控制点是改变尺寸的一种方式
+UC11 ..> UC13 : include
+' 点击“放大”按钮直接放大选中图形
+UC11 ..> UC14 : include
+' 点击“缩小”按钮直接缩小选中图形
+
+'
+' 移动图形功能
+'
+usecase "移动图形" as UC15
+User --> UC15
+' 在图形内部按下并拖动以移动位置
+
+'
+' 图层管理功能
+'
+usecase "创建新图层" as UC16
+usecase "切换图层" as UC17
+usecase "管理图层" as UC18
+User --> UC16
+User --> UC18
+UC18 ..> UC17 : include
+' 管理图层包含切换图层操作
+UC16 ..> UC2 : include
+' 新建图层时需初始化其状态（如默认创建矩形）
+
+'
+' 系统约束和扩展说明
+'
+note right of UC16
+  如果图层数量超过16个，
+  则不能再创建新图层。
+end note
+
+note right of UC17
+  若当前为最后一页，则
+  切换至第一页。
+  切换后操作状态重置为创建“矩形”。
+end note
+
+note right of UC3
+  支持未来在创建的图形种类上扩展
+  （约束条件：可在创建的图形种类上扩展）
+end note
+
+@enduml

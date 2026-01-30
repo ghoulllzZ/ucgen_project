@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "查询组件价格",
+      "included": "记录零件价格"
+    },
+    "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【记录零件价格】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "yes_no_include",
+    "target": {
+      "base": "查询组件价格",
+      "included": "编号零件"
+    },
+    "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【编号零件】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q3",
+    "type": "yes_no_include",
+    "target": {
+      "base": "查询组件价格",
+      "included": "命名零件类型"
+    },
+    "prompt": "用例【查询组件价格】执行过程中是否【必须】包含用例【命名零件类型】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q4",
+    "type": "yes_no_include",
+    "target": {
+      "base": "命名零件类型",
+      "included": "编号零件"
+    },
+    "prompt": "用例【命名零件类型】执行过程中是否【必须】包含用例【编号零件】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q5",
+    "type": "yes_no_include",
+    "target": {
+      "base": "记录零件价格",
+      "included": "编号零件"
+    },
+    "prompt": "用例【记录零件价格】执行过程中是否【必须】包含用例【编号零件】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q6",
+    "type": "yes_no_include",
+    "target": {
+      "base": "记录零件价格",
+      "included": "编号零件"
+    },
+    "prompt": "是否确认：用例【记录零件价格】执行时必须包含【编号零件】？（是=include，否=不建立 include）",
+    "default": "no"
+  }
+]

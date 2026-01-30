@@ -1,0 +1,599 @@
+{
+  "args": {
+    "req": "examples\\req_primary_graph_editor_full_context.txt",
+    "out": "out_qwen_full_context_01",
+    "max_iters": 5,
+    "backend": "qwen",
+    "temperature": 0.9,
+    "n_samples": 6,
+    "models": [],
+    "seed": 7,
+    "interactive": false,
+    "jaccard_threshold": 0.98,
+    "render": "auto"
+  },
+  "constraints": {
+    "must_include": [],
+    "forbid_include": [
+      {
+        "base": "选择图形",
+        "included": "删除图形"
+      },
+      {
+        "base": "选择图形",
+        "included": "调整图形尺寸"
+      },
+      {
+        "base": "选择图形",
+        "included": "移动图形"
+      }
+    ],
+    "extend": [],
+    "forbid_extend": [
+      {
+        "base": "调整图形尺寸",
+        "extension": "选择图形"
+      },
+      {
+        "base": "移动图形",
+        "extension": "选择图形"
+      }
+    ],
+    "keep_actors": [],
+    "forbid_actors": [],
+    "keep_usecases": [],
+    "forbid_usecases": []
+  },
+  "iterations": [
+    {
+      "iter_index": 1,
+      "candidates": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1099,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户\n\n'\n' 基本用例\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n'\n' 用例关联\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 扩展关系（extend）\n'\n\n' 扩展点 EP1：图形已被选中并显示控制点 → 改变图形尺寸\n' 当用户拖动控制点或点击“放大/缩小”按钮时，可触发改变图形尺寸\nselect_shape ..> resize_shape : <<extend>>\\n[EP1: 图形已被选中\\n并显示控制点]\nnote on link\n  触发条件：\n  - 拖动控制点\n  - 点击“放大”或“缩小”按钮\nend note\n\n' 扩展点 EP2：图形已被选中 → 移动图形\n' 当用户在已选中图形内部按下并拖动鼠标时，可触发移动图形\nselect_shape ..> move_shape : <<extend>>\\n[EP2: 图形已被选中]\nnote on link\n  触发条件：\n  - 在选中图形内部按下鼠标并拖动\nend note\n\n'\n' 包含关系（include）\n'\n' 创建图形必须包含图形类型选择和图层初始化准备（隐含流程）\n' 但根据需求，创建图形本身是独立主路径，无需显式 include 其他基础用例\n\n' 选择图形是删除、移动、缩放的前提，但这些是扩展而非包含\n' 根据约束，仅当存在强制性因果依赖时才使用 include\n\n' 管理图层操作中必然涉及切换当前图层，并重置创建状态\n' 但“重置创建状态”不是独立用例，故不建模为 include\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1116,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 用例：创建图形\n'\nusecase \"创建图形\" as create_shape\n'\n' 用例：选择图形\n'\nusecase \"选择图形\" as select_shape\n'\n' 用例：删除图形\n'\nusecase \"删除图形\" as delete_shape\n'\n' 用例：改变图形尺寸（扩展自“选择图形”）\n'\nusecase \"改变图形尺寸\" as resize_shape\n'\n' 用例：移动图形（扩展自“选择图形”）\n'\nusecase \"移动图形\" as move_shape\n'\n' 用例：创建图层\n'\nusecase \"创建图层\" as create_layer\n'\n' 用例：管理图层\n'\nusecase \"管理图层\" as manage_layer\n\n'\n' 用户与各用例的关联\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 扩展关系说明：\n'\n\n' 扩展点 EP1：图形已被选中并显示控制点，此时可触发“改变图形尺寸”\n' 当用户拖动控制点或点击“放大/缩小”按钮时，执行“改变图形尺寸”\nselect_shape ..> resize_shape : extend\nnote on link\n  扩展点 EP1：图形已被选中并显示控制点\n  触发条件：用户拖动控制点或点击“放大/缩小”按钮\nend note\n\n' 扩展点 EP2：图形已被选中，此时可触发“移动图形”\n' 当用户在已选中图形内部按下并拖动鼠标时，执行“移动图形”\nselect_shape ..> move_shape : extend\nnote on link\n  扩展点 EP2：图形已被选中\n  触发条件：用户在已选中图形内部按下并拖动鼠标\nend note\n\n'\n' 包含关系说明：\n'\n\n' “删除图形”必须先选择图形，因此包含“选择图形”\n' 因果依赖：只有先选中图形，才能删除\ndelete_shape --> select_shape : include\nnote on link\n  必须先执行“选择图形”以确定目标图形\nend note\n\n' “改变图形尺寸”依赖于“选择图形”作为基础用例\n' 但因为是扩展关系，不需要 include；同理“移动图形”也是 extend 而非 include\n\n' “创建图层”操作后会重置图形创建状态为矩形，隐含对创建状态的初始化\n' 但这不是用例间的直接功能包含，不建模为 include\n\n' “管理图层”切换图层后重置创建状态为矩形，类似“创建图层”，但无直接包含关系\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1133,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 基本用例\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n'\n' 关联：用户与基本用例\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 扩展关系（extend）带扩展点和条件说明\n'\n\n' 扩展点 EP1: 图形已被选中并显示控制点，用户拖动控制点或点击放大/缩小按钮\n' 改变图形尺寸 作为 选择图形 的扩展，在控制点拖动或点击缩放按钮时触发\nselect_shape ..> resize_shape : extend\nnote on link\n  扩展点 EP1: 图形已被选中并显示控制点\n  触发条件：用户拖动控制点或点击“放大/缩小”按钮\nend note\n\n' 扩展点 EP2: 图形已被选中，用户在图形内部按下并拖动\n' 移动图形 作为 选择图形 的扩展，在选中后内部拖动时触发\nselect_shape ..> move_shape : extend\nnote on link\n  扩展点 EP2: 图形已被选中\n  触发条件：用户在选中图形内部按下鼠标并拖动\nend note\n\n'\n' 包含关系（include）因果说明\n'\n\n' 创建图形必须包含选择图形类型（隐含在流程中，但属于创建的一部分）\n' 但根据需求，“选择图形类型”是创建的前提操作，不独立成用例，故不单独建模\n\n' 选择图形 是 删除图形 的前提\n' 删除图形 必须在图形被选择之后执行\ndelete_shape .> select_shape : include\n' 因为：删除图形前必须先选择图形\n\n' 管理图层 操作会重置图形创建状态（如选择框重置为矩形），但不影响核心行为结构\n' 根据约束，所有图形操作作用于当前图层，因此创建、选择、删除等均隐式依赖当前图层状态\n' 但“管理图层”本身不直接包含“选择图形”等，仅影响上下文，故无 include\n\n' 创建图层 后自动设为当前图层，并重置创建状态\n' 创建图层 包含了初始化当前图层状态的行为\ncreate_layer .> manage_layer : include\n' 因为：创建新图层后需将其设为当前图层，属于管理图层功能的一部分（切换/设定当前）\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1150,
+          "plantuml": "@startuml\nleft to right direction\n\nactor 用户 as User\n\nusecase \"创建图形\" as UC_CreateShape\nusecase \"选择图形\" as UC_SelectShape\nusecase \"删除图形\" as UC_DeleteShape\nusecase \"改变图形尺寸\" as UC_ResizeShape\nusecase \"移动图形\" as UC_MoveShape\nusecase \"创建图层\" as UC_CreateLayer\nusecase \"管理图层\" as UC_ManageLayers\n\nUser --> UC_CreateShape\nUser --> UC_SelectShape\nUser --> UC_DeleteShape\nUser --> UC_CreateLayer\nUser --> UC_ManageLayers\n\n' 改变图形尺寸是在选择图形后，当图形已被选中并显示控制点时发生的扩展\nUC_SelectShape ..> UC_ResizeShape : <<extend>>\\n<font size=10><i>扩展点 EP1: 图形已被选中并显示控制点</i></font>\nnote on link\n  触发条件：用户拖动控制点或点击“放大/缩小”按钮\nend note\n\n' 移动图形是在选择图形后，当图形已被选中时发生的扩展\nUC_SelectShape ..> UC_MoveShape : <<extend>>\\n<font size=10><i>扩展点 EP2: 图形已被选中</i></font>\nnote on link\n  触发条件：用户在已选中图形内部按下并拖动鼠标\nend note\n\n' 删除图形依赖于先选择图形（必须包含选择动作）\n' 注意：虽然逻辑上删除前需选择，但根据需求，用户可取消选择，且删除操作独立触发\n' 因此不使用include，而是通过业务规则约束——此处不强制include\n\n' 创建图形、选择图形、删除图形、改变图形尺寸、移动图形均作用于当前图层\n' 这些是系统行为的自然组成部分，无需额外关联\n\n' 所有图形操作都基于当前图层，而图层由创建和管理图层功能决定\n' 管理图层包括切换图层，影响后续所有操作的作用目标\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1167,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 用例：创建图形\nusecase \"创建图形\" as create_shape\n'\n' 用例：选择图形\nusecase \"选择图形\" as select_shape\n'\n' 用例：删除图形\nusecase \"删除图形\" as delete_shape\n'\n' 用例：改变图形尺寸（扩展）\nusecase \"改变图形尺寸\" as resize_shape\n'\n' 用例：移动图形（扩展）\nusecase \"移动图形\" as move_shape\n'\n' 用例：创建图层\nusecase \"创建图层\" as create_layer\n'\n' 用例：管理图层\nusecase \"管理图层\" as manage_layer\n\n'\n' 用户与基本用例的关联\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 扩展关系：改变图形尺寸 在 “选择图形” 的 EP1 上扩展\n' 扩展条件：用户拖动控制点或点击“放大/缩小”按钮\nselect_shape ..> resize_shape : extend\nnote on link\n  扩展点 EP1: 图形已被选中并显示控制点\n  触发条件：拖动控制点 或 点击“放大/缩小”按钮\nend note\n\n'\n' 扩展关系：移动图形 在 “选择图形” 的 EP2 上扩展\n' 扩展条件：在已选中图形内部按下鼠标并拖动\nselect_shape ..> move_shape : extend\nnote on link\n  扩展点 EP2: 图形已被选中\n  触发条件：在选中图形内部按下并拖动鼠标\nend note\n\n'\n' 创建图形依赖于当前图层存在，但不直接与其他用例 include/extend\n' 选择图形是删除、改变尺寸、移动的前提\n' 删除图形必须先选择图形（因果依赖）\n' 注释说明：删除操作必须以选择为前提，但行为上不是自动包含，而是条件触发\n' 因此使用 include 表示强制前置条件\n' \n' 包含关系：删除图形 必须包含 选择图形（至少尝试选择）\ndelete_shape o--> select_shape : include\n' 说明：执行删除前必须先进行选择操作（即使无选中也视为选择状态判定）\n\n'\n' 管理图层 和 创建图层 都会重置创建工具和提示信息，但不涉及图形操作的直接依赖\n' 创建图层后可进行图形创建，但无需显式 include\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 60): delete_shape o--> select_shape : include"
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1184,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户 as User\n\n' 用例定义\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n' 基础关联：用户与核心用例\nUser --> create_shape\nUser --> select_shape\nUser --> delete_shape\nUser --> create_layer\nUser --> manage_layer\n\n' 扩展关系说明\n' 扩展点 EP1：图形已被选中并显示控制点，用户拖动控制点或点击放大/缩小按钮时触发\n' 因此“改变图形尺寸”扩展“选择图形”\n' <<extend>> 关系表示在特定条件下对基础用例的增强\nselect_shape ..> resize_shape : <<extend>>\\n<<EP1: 图形已被选中\\n并显示控制点>>\nnote right of select_shape\n  扩展点 EP1:\n  图形已被选中并显示控制点\n  触发条件：\n  - 拖动控制点\n  - 点击“放大”/“缩小”按钮\nend note\n\n' 扩展点 EP2：图形已被选中，用户在图形内部按下并拖动鼠标时触发\n' 因此“移动图形”扩展“选择图形”\n' <<extend>> 表示只有在选中图形后才可能发生的可选行为\nselect_shape ..> move_shape : <<extend>>\\n<<EP2: 图形已被选中>>\nnote right of select_shape\n  扩展点 EP2:\n  图形已被选中\n  触发条件：\n  - 在选中图形内部按下并拖动\nend note\n\n' 删除图形依赖于先选择图形（必须先选中才能删）\n' 因果说明：删除操作只能作用于已选中的图形\n' 故“删除图形”包含“选择图形”作为前置步骤的一部分\n' <<include>> 表示强制性依赖，流程中必须执行\n' 注释说明因果依赖关系\n' 必须先选择图形，才能执行删除\nselect_shape .> delete_shape : <<include>>\nnote right of delete_shape\n  包含关系说明：\n  删除图形前必须先选择图形\n  因此“删除图形”包含“选择图形”\nend note\n\n' 创建图层和管理图层独立，但它们影响当前上下文\n' 所有图形操作均作用于当前图层，但无需显式建模“当前图层”为用例\n' 根据约束，其他用例如创建、选择、删除等隐含作用于当前图层\n\n' 图形类型可扩展性通过设计支持，但不影响用例结构\n' 新增图形类型仍通过“创建图形”用例完成，故无需额外用例\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 5,
+        "nodes": 8,
+        "edges": 12,
+        "conflicts": 3
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "删除图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "选择图形",
+          "b": "调整图形尺寸",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "选择图形",
+          "b": "移动图形",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "选择图形",
+          "b": "调整图形尺寸",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "选择图形",
+          "b": "移动图形",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "删除图形"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【删除图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "extend_condition",
+          "target": {
+            "extension": "选择图形",
+            "base": "调整图形尺寸"
+          },
+          "prompt": "如果【选择图形】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q3",
+          "type": "extend_condition",
+          "target": {
+            "extension": "选择图形",
+            "base": "移动图形"
+          },
+          "prompt": "如果【选择图形】是对【移动图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q4",
+          "type": "extend_condition",
+          "target": {
+            "extension": "选择图形",
+            "base": "调整图形尺寸"
+          },
+          "prompt": "如果【选择图形】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q5",
+          "type": "extend_condition",
+          "target": {
+            "extension": "选择图形",
+            "base": "移动图形"
+          },
+          "prompt": "如果【选择图形】是对【移动图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "NONE",
+        "q3": "NONE",
+        "q4": "NONE",
+        "q5": "NONE"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "创建图层|assoc|管理图层",
+          "删除图形|assoc|选择图形",
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|选择图形",
+          "选择图形|assoc|移动图形",
+          "选择图形|assoc|调整图形尺寸",
+          "选择图形|include|删除图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 2,
+      "candidates": [
+        {
+          "candidate_id": "it2_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2099,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户 as User\n\n' 用例定义\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n' 基本关联：用户与用例之间的关系\nUser --> create_shape\nUser --> select_shape\nUser --> delete_shape\nUser --> resize_shape\nUser --> move_shape\nUser --> create_layer\nUser --> manage_layer\n\n' 包含关系（include）说明\n' 选择图形是删除图形的前提，但根据约束 forbid_include，不能从选择图形 include 删除图形\n' 因此不添加选择图形 -> 删除图形 的 include\n\n' 扩展关系（extend）说明\n\n' 改变图形尺寸在“图形已被选中并显示控制点”时扩展选择图形\n' 注：触发条件为用户拖动控制点或点击放大/缩小按钮，扩展点为 EP1\n' 满足 extend 条件，且未被禁止\nselect_shape ..> resize_shape : <<extend>>\\n{EP1: 图形已被选中并显示控制点}\n' 扩展因果说明：当图形被选中并显示控制点后，用户可通过拖动控制点或点击按钮触发尺寸调整\n\n' 移动图形在“图形已被选中”时扩展选择图形\n' 注：扩展点为 EP2，触发条件为在已选图形内部按下并拖动鼠标\n' 满足 extend 条件，且未被禁止（注意：约束中禁止的是反过来的 extend）\nselect_shape ..> move_shape : <<extend>>\\n{EP2: 图形已被选中}\n' 扩展因果说明：当图形被选中后，用户可在其内部按下鼠标拖动以触发移动操作\n\n' 其他用例之间无强制包含或扩展关系\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2116,
+          "plantuml": "@startuml\nactor 用户\n\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 扩展关系：选择图形成功后，在特定扩展点可触发“改变图形尺寸”\n' EP1: 图形已被选中并显示控制点，且用户拖动控制点或点击放大/缩小按钮\nselect_shape ..> resize_shape : extend\nnote on link\n  扩展点EP1：图形已被选中并显示控制点；\n  触发条件：用户拖动控制点或点击“放大/缩小”按钮\nend note\n\n'\n' 扩展关系：选择图形成功后，在特定扩展点可触发“移动图形”\n' EP2: 图形已被选中，且用户在图形内部按下并拖动\nselect_shape ..> move_shape : extend\nnote on link\n  扩展点EP2：图形已被选中；\n  触发条件：用户在选中图形内部按下鼠标并拖动\nend note\n\n'\n' 创建图形必须包含初始化默认状态（隐含流程）\n' 初始化包括：默认选中矩形、创建第一图层、提示第一页\ncreate_shape .> manage_layer : include\nnote on link\n  创建图形前系统自动初始化第一个图层并设置默认状态\nend note\n\n'\n' 管理图层操作中包含切换当前图层，并重置创建工具为矩形\nmanage_layer .> create_shape : include\nnote on link\n  切换图层后重置“创建图形选择框”为矩形\nend note\n\n'\n' 创建新图层时需设为当前图层，并重置图形创建状态\ncreate_layer .> manage_layer : include\nnote on link\n  新建图层后将其设为当前图层，属于图层管理的一部分\nend note\n\n'\n' 删除图形依赖于已有选中的图形\ndelete_shape .> select_shape : include\nnote on link\n  必须先选择图形才能执行删除操作\nend note\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2133,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户\n\n' 基本用例\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layers\n\n' 用户与用例的关联\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> resize_shape\n用户 --> move_shape\n用户 --> create_layer\n用户 --> manage_layers\n\n' 用例之间的关系\n\n' 选择图形是改变图形尺寸的前提，且在特定扩展点触发\n' 扩展点 EP1：图形已被选中并显示控制点，用户拖动控制点或点击“放大/缩小”按钮时触发\nselect_shape ..> resize_shape : extend <<extension>>\\n<<EP1: 图形已被选中并显示控制点>>\nnote right of select_shape .. resize_shape\n  扩展条件：\n  - 用户拖动控制点\n  - 或点击“放大/缩小”按钮\nend note\n\n' 选择图形是移动图形的前提，且在特定扩展点触发\n' 扩展点 EP2：图形已被选中，用户在图形内部按下并拖动时触发\nselect_shape ..> move_shape : extend <<extension>>\\n<<EP2: 图形已被选中>>\nnote right of select_shape .. move_shape\n  扩展条件：\n  - 用户在已选中图形内部按下鼠标并拖动\nend note\n\n' 删除图形依赖于先选择图形（但根据约束 forbid_include 不使用 include）\n' 冲突摘要指出不能有 “选择图形” include “删除图形”，因此不添加该关系\n' 尽管逻辑上有关联，但按硬性约束禁止 include 关系\n\n' 其他独立用例之间无 include/extend 关系\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 28): note right of select_shape .. resize_shape"
+        },
+        {
+          "candidate_id": "it2_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2150,
+          "plantuml": "@startuml\nactor 用户\n\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layers\n\n' 用户与核心用例的关联\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layers\n\n' 选择图形后可扩展为改变图形尺寸（在显示控制点后，拖动控制点或点击放大/缩小按钮）\n' 扩展点EP1：图形已被选中并显示控制点；触发条件：用户拖动控制点或点击“放大/缩小”按钮\nselect_shape ..> resize_shape : <<extend>>\nnote on link\n  扩展点EP1: 图形已被选中并显示控制点\n  触发条件: 拖动控制点或点击\"放大/缩小\"\nend note\n\n' 选择图形后可扩展为移动图形（在图形被选中后，于内部拖动）\n' 扩展点EP2：图形已被选中；触发条件：在已选中图形内部按下并拖动鼠标\nselect_shape ..> move_shape : <<extend>>\nnote on link\n  扩展点EP2: 图形已被选中\n  触发条件: 在选中图形内部按下并拖动\nend note\n\n' 删除图形依赖于先选择图形，但根据约束 forbid_include 中禁止 \"选择图形\" include \"删除图形\"\n' 同时根据冲突信息 edge_presence_uncertain 置信度低，且硬性要求不得建立错误 include\n' 因此不添加 include 关系，仅通过用户顺序操作表达逻辑先后\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2167,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户\n\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 选择图形 是 基础用例，改变图形尺寸 在 EP1 上扩展\n' 扩展点：EP1 - 图形已被选中并显示控制点\n' 触发条件：拖动控制点 或 点击放大/缩小按钮\nselect_shape ..> resize_shape : extends\\n<<extensionPoint>>\\nEP1: \"图形已被选中并显示控制点\"\nnote on link: 用户在控制点拖动鼠标或点击“放大/缩小”按钮时触发\n\n'\n' 选择图形 是 基础用例，移动图形 在 EP2 上扩展\n' 扩展点：EP2 - 图形已被选中\n' 触发条件：在已选图形内部按下并拖动鼠标\nselect_shape ..> move_shape : extends\\n<<extensionPoint>>\\nEP2: \"图形已被选中\"\nnote on link: 用户在已选中图形内部按下鼠标并拖动时触发\n\n'\n' 删除图形 必须依赖于 先选择图形（但根据约束 forbid_include 不允许 include）\n' 因此不绘制 include 关系，仅通过业务逻辑隐含先后顺序\n' 注释说明因果关系，但不建立 PlantUML 的 <<include>> 依赖\n' 用户必须先选择图形才能删除\nnote right of delete_shape\n  必须先执行「选择图形」以选中至少一个图形，\n  否则删除操作无效。\nend note\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2184,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 主要用例：用户核心操作\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n'\n' 关联关系：用户与用例\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> resize_shape\n用户 --> move_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 扩展关系说明（必须写明触发条件/扩展点）\n'\n\n' 扩展点 EP1：图形已被选中并显示控制点 → 触发改变尺寸\n' 当用户拖动控制点或点击“放大/缩小”按钮时，在EP1扩展点上扩展执行\nselect_shape ..> resize_shape : extend\nnote on link\n  扩展点EP1：图形已被选中并显示控制点\n  条件：用户拖动控制点或点击“放大/缩小”按钮\nend note\n\n' 扩展点 EP2：图形已被选中 → 触发移动图形\n' 当用户在已选中图形内部按下鼠标并拖动时，触发移动操作\nselect_shape ..> move_shape : extend\nnote on link\n  扩展点EP2：图形已被选中\n  条件：用户在选中图形内部按下鼠标并拖动\nend note\n\n'\n' 其他约束说明：\n' - 不允许“选择图形” include “删除图形” （根据 forbid_include 约束）\n' - “删除图形”依赖于“选择图形”的结果，但不是强制包含流程，而是条件性操作\n' - 因此使用独立用例 + 逻辑依赖，不使用 include 或 extend\n'\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 5,
+        "nodes": 8,
+        "edges": 15,
+        "conflicts": 2
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.4,
+            "sources": [
+              "it2_qwen_1",
+              "it2_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "移动图形",
+          "details": {
+            "confidence": 0.4,
+            "sources": [
+              "it2_qwen_1",
+              "it2_qwen_4"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "移动图形"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【移动图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "创建图层|assoc|管理图层",
+          "创建图形|assoc|管理图层",
+          "删除图形|assoc|选择图形",
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "管理图层|assoc|创建图形",
+          "选择图形|assoc|移动图形",
+          "选择图形|assoc|调整图形尺寸"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 3,
+      "candidates": [
+        {
+          "candidate_id": "it3_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3099,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' 用例：创建与管理图形\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\n\n'\n' 用例：图层管理\n'\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n'\n' 用户与基本用例的关联\n'\nUser --> create_shape : 创建基本图形\nUser --> select_shape : 选中一个或多个图形\nUser --> delete_shape : 删除已选中的图形\nUser --> create_layer : 添加新图层\nUser --> manage_layer : 切换当前图层\n\n'\n' include 关系（强制依赖）\n'\n\n' 创建图形必须基于当前图层的存在，但“创建图层”是独立入口点，此处不 include\n' 选择图形是删除的前提，但根据约束 forbid_include 中禁止 select -> delete 的 include\n' 因此使用 extend 模拟控制流，而非 include\n\n'\n' extend 关系（可选扩展）—— 基于需求中的扩展点 EP1 和 EP2\n'\n\n' 扩展点 EP1: 图形已被选中并显示控制点 → 改变尺寸\n' 当用户拖动控制点或点击放大/缩小按钮时触发\nselect_shape ..> resize_shape : <<extend>>\\n条件: 用户在控制点上拖动\\n或点击“放大/缩小”按钮\nnote right of select_shape\n  扩展点 EP1:\n  图形已被选中并显示控制点\nend note\n\n' 扩展点 EP2: 图形已被选中 → 移动图形\n' 当用户在已选图形内部按下并拖动时触发\nselect_shape ..> move_shape : <<extend>>\\n条件: 用户在已选图形内部\\n按下鼠标并拖动\nnote right of select_shape\n  扩展点 EP2:\n  图形已被选中\nend note\n\n'\n' 约束处理说明：\n' 根据【约束】，以下 include 被明确禁止：\n' - 选择图形 --include--> 删除图形\n' - 选择图形 --include--> 改变图形尺寸\n' - 选择图形 --include--> 移动图形\n' 故不使用箭头 <<include>>，而是通过 <<extend>> 表达扩展关系，符合语义且满足约束。\n'\n\n'\n' 其他系统行为说明（非用例，不建模）：\n' - 图形提示区域更新、工具栏重置为矩形等属于系统响应，不在用例图中体现\n' - 最大图层数限制（16）属于业务规则，不影响用例结构\n'\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3116,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 基础用例：用户与系统交互的核心功能\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layers\nusecase \"移动图形\" as move_shape\nusecase \"改变图形尺寸\" as resize_shape\n\n'\n' 关联：用户触发各个用例\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layers\n\n'\n' 扩展关系说明：\n'\n\n' 扩展点 EP1: 图形已被选中并显示控制点 → 可扩展为 改变图形尺寸\n' 触发条件：用户拖动控制点或点击“放大/缩小”按钮\nselect_shape ..> resize_shape : <<extend>>\\n{EP1: 图形已被选中并显示控制点}\nnote on link\n  扩展条件：\n  - 拖动控制点\n  - 点击“放大/缩小”按钮\nend note\n\n' 扩展点 EP2: 图形已被选中 → 可扩展为 移动图形\n' 触发条件：在已选中图形内部按下并拖动鼠标\nselect_shape ..> move_shape : <<extend>>\\n{EP2: 图形已被选中}\nnote on link\n  扩展条件：\n  - 在图形内部拖动\nend note\n\n'\n' 约束处理说明：\n' 根据【约束】禁止将 删除图形、改变图形尺寸、移动图形 include 进 选择图形\n' 因此不使用 <<include>>，而是通过 <<extend>> 正确建模可选性扩展行为\n'\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3133,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 基础用例：用户与系统交互的核心功能\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n'\n' 关联：用户触发的基本用例\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 扩展关系说明：\n' 改变图形尺寸 是 选择图形 的扩展，发生在控制点被拖动或点击放大/缩小按钮时\n' 移动图形 是 选择图形 的扩展，发生在选中图形内部按下并拖动时\n'\n\n' 扩展条件：用户在控制点上按下并拖动鼠标，或点击“放大/缩小”按钮\nselect_shape ..> resize_shape : <<extend>>\\n[EP1] 图形已被选中并显示控制点\n\n' 扩展条件：用户在已选中图形内部按下鼠标并拖动\nselect_shape ..> move_shape : <<extend>>\\n[EP2] 图形已被选中\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3150,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 基础用例\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n'\n' 关联：用户与基础用例\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 扩展关系（extend）\n'\n\n' 扩展点 EP1: 图形已被选中并显示控制点，可触发改变尺寸\n' 当用户拖动控制点或点击放大/缩小按钮时，触发改变图形尺寸\nselect_shape ..> resize_shape : extend\nnote on link\n  扩展点 EP1：图形已被选中并显示控制点\n  触发条件：拖动控制点 或 点击“放大/缩小”按钮\nend note\n\n' 扩展点 EP2: 图形已被选中，可触发移动图形\n' 当用户在已选中图形内部按下并拖动鼠标时，触发移动图形\nselect_shape ..> move_shape : extend\nnote on link\n  扩展点 EP2：图形已被选中\n  触发条件：在选中图形内部按下并拖动鼠标\nend note\n\n'\n' 包含关系（include）\n'\n\n' 创建图形必须包含选择图形类型和绘制操作（但根据需求，创建是独立流程）\n' 实际上创建图形不依赖于先执行选择图形，故无 include\n\n' 删除图形的前提是已有选中图形，但根据约束禁止 include 选择图形\n' 因此改为通过上下文关联，而非强制 include\n\n' 创建图层后需重置图形选择框为矩形，并更新提示\n' 但这属于系统内部行为，不构成用户用例间的包含\n\n' 管理图层切换后也重置图形选择框，同样为内部状态更新\n\n'\n' 根据【约束】禁止以下 include 关系：\n' - 选择图形 --include--> 删除图形（被禁）\n' - 选择图形 --include--> 改变图形尺寸（被禁）\n' - 选择图形 --include--> 移动图形（被禁）\n'\n' 故上述三者不能使用 dot notation 或 <<include>> 关联\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3167,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' Use Cases\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layers\n\n'\n' Associations between actor and use cases\n'\nUser --> create_shape\nUser --> select_shape\nUser --> delete_shape\nUser --> resize_shape\nUser --> move_shape\nUser --> create_layer\nUser --> manage_layers\n\n'\n' Include relationships (must be part of the base use case)\n'\n\n' 创建图形前需确保有当前图层，但由系统初始化保证，不涉及其他用例包含\n\n'\n' Extend relationships with extension points and conditions\n'\n\n' 扩展点 EP1: 图形已被选中并显示控制点 → 改变图形尺寸\n' 在选择图形后，当用户拖动控制点或点击放大/缩小按钮时触发改变尺寸\nselect_shape ..> resize_shape : extend\nnote on link\n  扩展点 EP1：图形已被选中并显示控制点\n  触发条件：用户拖动控制点或点击“放大/缩小”按钮\nend note\n\n' 扩展点 EP2: 图形已被选中 → 移动图形\n' 在选择图形后，当用户在图形内部按下并拖动鼠标时触发移动\nselect_shape ..> move_shape : extend\nnote on link\n  扩展点 EP2：图形已被选中\n  触发条件：用户在已选中图形内部按下鼠标并拖动\nend note\n\n' 删除图形依赖于先选择图形，但根据约束不能使用 include\n' 约束明确禁止：选择图形 --include--> 删除图形\n' 因此使用独立关联，逻辑上依赖但不建模为 include\n' 同样，改变图形尺寸和移动图形不能通过 include 从选择图形出发\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it3_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3184,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' 基础用例\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layers\n\n'\n' 用例之间的关系\n'\n\n' 扩展关系：改变图形尺寸 在选中且显示控制点时扩展选择图形\n' 当用户拖动控制点或点击放大/缩小按钮时，在EP1处触发改变图形尺寸\nselect_shape ..> resize_shape : extends \\n<<extensionPoint: EP1>>\nnote on link: 扩展点 EP1: 图形已被选中并显示控制点\\n触发条件: 拖动控制点 或 点击“放大/缩小”按钮\n\n' 扩展关系：移动图形 在选中图形后扩展选择图形\n' 当用户在已选图形内部按下并拖动鼠标时，触发移动图形\nselect_shape ..> move_shape : extends \\n<<extensionPoint: EP2>>\nnote on link: 扩展点 EP2: 图形已被选中\\n触发条件: 在选中图形内部按下并拖动\n\n'\n' include 关系需谨慎处理 —— 根据约束 forbid_include 显示不能有从 选择图形 到 删除、缩放、移动 的 include\n' 因此这些不是必须包含的步骤，而是通过 extend 实现的可选行为\n'\n\n'\n' 用户与用例的关联\n'\nUser --> create_shape : 使用\nUser --> select_shape : 使用\nUser --> delete_shape : 使用\nUser --> resize_shape : 使用\nUser --> move_shape : 使用\nUser --> create_layer : 使用\nUser --> manage_layers : 使用\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 8,
+        "edges": 11,
+        "conflicts": 2
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.5,
+            "sources": [
+              "it3_qwen_1",
+              "it3_qwen_2",
+              "it3_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "移动图形",
+          "details": {
+            "confidence": 0.5,
+            "sources": [
+              "it3_qwen_1",
+              "it3_qwen_2",
+              "it3_qwen_3"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "移动图形"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【移动图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "选择图形|assoc|移动图形",
+          "选择图形|assoc|调整图形尺寸"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 4,
+      "candidates": [
+        {
+          "candidate_id": "it4_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4099,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 基础用例：用户与系统交互的核心功能\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n'\n' 用例关联：用户直接触发的用例\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 扩展关系说明：\n'\n\n' 扩展点 EP1: 图形已被选中并显示控制点，用户可拖动控制点或点击放大/缩小按钮\n' 改变图形尺寸 是 选择图形 的扩展，触发条件：用户在控制点上拖动 或 点击“放大/缩小”按钮\nselect_shape ..> resize_shape : extend\nnote on link\n  扩展点 EP1: 图形已被选中并显示控制点\n  触发条件：拖动控制点 或 点击“放大/缩小”按钮\nend note\n\n' 扩展点 EP2: 图形已被选中，用户可在图形内部按下并拖动\n' 移动图形 是 选择图形 的扩展，触发条件：用户在已选中图形内部按下并拖动\nselect_shape ..> move_shape : extend\nnote on link\n  扩展点 EP2: 图形已被选中\n  触发条件：在已选中图形内部按下并拖动鼠标\nend note\n\n'\n' 包含关系说明（强制依赖）\n'\n\n' 删除图形 必须先选择图形（但根据约束，不能使用 include）\n' 根据约束：禁止在“选择图形”和“删除图形”之间使用 include\n' 因此，仅通过用户操作顺序隐含依赖，不绘制 include\n\n' 同理，“改变图形尺寸”和“移动图形”依赖于“选择图形”，但根据约束禁止使用 include\n' 已通过 extend 正确建模，符合约束要求\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4116,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 基础用例：用户与系统交互的核心功能\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\n\n'\n' 关联：用户触发的基本用例\n'\n用户 --> create_shape : 创建新图形\n用户 --> select_shape : 选中一个或多个图形\n用户 --> delete_shape : 删除已选中的图形\n用户 --> create_layer : 添加新的图层\n用户 --> manage_layer : 切换当前活动图层\n用户 --> resize_shape : 调整已选图形的大小\n用户 --> move_shape : 拖动已选图形改变位置\n\n'\n' 扩展关系说明：\n' 根据需求，\"改变图形尺寸\" 和 \"移动图形\" 是在 \"选择图形\" 的特定扩展点上被触发的\n' 需求中定义了两个扩展点：\n'   EP1: 图形已被选中并显示控制点（用于改变尺寸）\n'   EP2: 图形已被选中（用于移动）\n'\n' 注意：约束明确禁止将“选择图形” include “改变图形尺寸”或“移动图形”\n' 因此必须使用 <<extend>> 而非 <<include>>\n'\n\n' 扩展条件：当图形已被选中并显示控制点（EP1），且用户拖动控制点或点击放大/缩小按钮\nselect_shape ..> resize_shape : <<extend>>\nnote on link\n  扩展点 EP1: 图形已被选中并显示控制点\n  触发条件：用户拖动控制点或点击“放大/缩小”按钮\nend note\n\n' 扩展条件：当图形已被选中（EP2），且用户在图形内部按下并拖动\nselect_shape ..> move_shape : <<extend>>\nnote on link\n  扩展点 EP2: 图形已被选中\n  触发条件：用户在已选图形内部按下鼠标并拖动\nend note\n\n'\n' 其他逻辑依赖（隐式顺序）通过注释说明，不建模为 include\n' 例如：删除图形前必须先选择图形 —— 但根据约束，不能使用 include\n'\n' 约束说明：以下 include 被明确禁止：\n' - 选择图形 -> 删除图形 (include)\n' - 选择图形 -> 改变图形尺寸 (include)\n' - 选择图形 -> 移动图形 (include)\n' 因此这些关系只能以 extend 或无直接关系表达，此处已用 extend 正确建模\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4133,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户\n\n'\n' 基础用例：创建、选择、删除、图层管理等\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\n\n'\n' 用户与基础用例的关联\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 扩展关系：改变图形尺寸 扩展 选择图形（在控制点显示后）\n'\n' 扩展条件：当图形被选中并显示控制点（EP1），且用户拖动控制点或点击放大/缩小按钮\nselect_shape ..> resize_shape : <<extend>>\\n[EP1: 图形已被选中并显示控制点]\nnote on link\n  扩展条件：\n  - 用户拖动控制点\n  - 或点击“放大”/“缩小”按钮\nend note\n\n'\n' 扩展关系：移动图形 扩展 选择图形（在图形被选中后）\n'\n' 扩展条件：当图形被选中（EP2），且用户在图形内部按下并拖动\nselect_shape ..> move_shape : <<extend>>\\n[EP2: 图形已被选中]\nnote on link\n  扩展条件：\n  - 用户在已选中图形内部按下鼠标并拖动\nend note\n\n'\n' 包含关系：删除图形 需要 先选择图形（必须先选中才能删）\n'\n' 因果依赖：删除操作只能作用于已选中的图形\nselect_shape .> delete_shape : <<include>>\nnote on link\n  必须先选中图形才能执行删除\nend note\n\n'\n' 创建图形 与 创建图层 的独立性\n' 管理图层 和 创建图层 是独立操作\n'\n用户 --> create_layer\n用户 --> manage_layer\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4150,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户\n\n'\n' 基础用例：用户可直接执行的核心功能\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n'\n' 扩展用例：不能独立触发，依赖于基础用例的扩展点\n'\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\n\n'\n' 用户与基础用例的关联\n'\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n'\n' 扩展关系：基于选择图形的扩展点 EP1 和 EP2\n'\n\n' 扩展点 EP1: 图形已被选中并显示控制点 → 改变图形尺寸\n' 当用户拖动控制点或点击放大/缩小按钮时，触发改变图形尺寸\nselect_shape ..> resize_shape : <<extend>>\\n<<extensionPoint: EP1>>\nnote right of select_shape\n  扩展点 EP1: 图形已被选中并显示控制点\n  触发条件：用户拖动控制点或点击“放大/缩小”按钮\nend note\n\n' 扩展点 EP2: 图形已被选中 → 移动图形\n' 当用户在已选中图形内部按下并拖动时，触发移动图形\nselect_shape ..> move_shape : <<extend>>\\n<<extensionPoint: EP2>>\nnote right of select_shape\n  扩展点 EP2: 图形已被选中\n  触发条件：用户在选中图形内部按下鼠标并拖动\nend note\n\n'\n' 包含关系：无强制性 include（根据约束 forbid_include 明确禁止选择图形 include 删除/调整/移动）\n' 因此不添加 <<include>> 关系\n'\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it4_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4167,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户\n\n'\n' 用例：创建图形\n'\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n'\n' 基本关联：用户与用例\n'\n用户 --> create_shape : 创建新图形\n用户 --> select_shape : 选中图形以操作\n用户 --> delete_shape : 删除已选图形\n用户 --> resize_shape : 调整选中图形大小\n用户 --> move_shape : 拖动已选图形位置\n用户 --> create_layer : 添加新图层\n用户 --> manage_layer : 切换当前图层\n\n'\n' include 关系（强制包含）\n'\n\n' 创建图层时必须初始化当前图层状态（如默认选中矩形、提示页码）\n' 因此“创建图层”包含“创建图形”的初始化部分（即设置默认图形类型）\n' 但根据约束，不能 include “选择图形”等，此处仅反映合理 include\n\n' 根据需求3.6：新图层创建后，“创建图形选择框”重置为“矩形”\n' 表示创建图层后系统进入创建矩形的准备状态，这属于创建图形功能的子步骤\n' 所以创建图层 include 创建图形（作为初始化动作）\n' 注释说明因果关系\n' 创建图层会重置创建工具为“矩形”，因此包含创建图形的初始状态设置\ncreate_layer ..> create_shape : include\n\n' 管理图层切换后也重置创建工具为“矩形”\n' 因此也 include 创建图形的初始状态\n' 图层切换后默认创建状态为矩形，需重置创建工具\nmanage_layer ..> create_shape : include\n\n'\n' extend 关系（扩展）\n'\n\n' 改变图形尺寸是在“选择图形”达到扩展点 EP1 后可能触发的扩展\n' 触发条件：用户拖动控制点或点击放大/缩小按钮\n' 扩展点：EP1 —— 图形已被选中并显示控制点\n' 根据约束，不允许“选择图形” include “改变图形尺寸”，但可以被扩展\n' 同时约束禁止“改变图形尺寸” extend “选择图形”，方向正确即可\n' 改变图形尺寸在“选择图形”完成并显示控制点后，由用户操作触发\nselect_shape ..> resize_shape : extend\nnote on link\n  扩展点: EP1 (图形已被选中并显示控制点)\n  触发条件: 拖动控制点 或 点击“放大/缩小”按钮\nend note\n\n' 移动图形是在“选择图形”达到扩展点 EP2 后可能触发的扩展\n' 扩展点：EP2 —— 图形已被选中\n' 触发条件：在已选图形内部按下并拖动\n' 移动图形在“选择图形”完成后，用户拖动时触发\nselect_shape ..> move_shape : extend\nnote on link\n  扩展点: EP2 (图形已被选中)\n  触发条件: 在已选中图形内部按下鼠标并拖动\nend note\n\n'\n' 删除图形依赖于先有图形被选中，但它不是“选择图形”的扩展或包含\n' 需求中明确：用户先选择，再点击删除按钮\n' 但根据约束 forbid_include 中禁止“选择图形” include “删除图形”\n' 且无 extend 关系描述，故不建立 include/extend\n' 它们是独立用例，通过用户顺序调用来实现流程\n'\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 59):   扩展点: EP1 (图形已被选中并显示控制点)"
+        },
+        {
+          "candidate_id": "it4_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 4184,
+          "plantuml": "@startuml\nleft to right direction\nactor 用户\n\n' 创建图形操作始终作用于当前图层\nusecase \"创建图形\" as create_shape\nusecase \"选择图形\" as select_shape\nusecase \"删除图形\" as delete_shape\nusecase \"改变图形尺寸\" as resize_shape\nusecase \"移动图形\" as move_shape\nusecase \"创建图层\" as create_layer\nusecase \"管理图层\" as manage_layer\n\n' 基础关联：用户与各项功能\n用户 --> create_shape\n用户 --> select_shape\n用户 --> delete_shape\n用户 --> create_layer\n用户 --> manage_layer\n\n' 扩展关系：改变图形尺寸在特定扩展点上触发\n' 扩展点 EP1：图形已被选中并显示控制点，且用户拖动控制点或点击放大/缩小按钮\nselect_shape ..> resize_shape : extend\nnote on link\n  扩展条件：用户拖动控制点或点击“放大/缩小”按钮\n  触发扩展点 EP1：“图形已被选中并显示控制点”\nend note\n\n' 扩展关系：移动图形在特定扩展点上触发\n' 扩展点 EP2：图形已被选中，且用户在图形内部按下并拖动\nselect_shape ..> move_shape : extend\nnote on link\n  扩展条件：用户在已选中图形内部按下鼠标并拖动\n  触发扩展点 EP2：“图形已被选中”\nend note\n\n' 删除图形依赖于先选择图形，但根据约束不得使用 include\n' 约束明确禁止：选择图形 --include--> 删除图形\n' 因此仅通过用户直接触发，并隐含顺序逻辑\n用户 --> delete_shape\n\n' 创建图层和管理图层为独立用例，用户直接触发\n用户 --> create_layer\n用户 --> manage_layer\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 5,
+        "nodes": 8,
+        "edges": 12,
+        "conflicts": 1
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "删除图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it4_qwen_3"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "删除图形"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【删除图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "选择图形|assoc|移动图形",
+          "选择图形|assoc|调整图形尺寸"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": true
+    }
+  ],
+  "final": {
+    "final_usecase_puml": "out_qwen_full_context_01\\final_usecase.puml",
+    "nodes": [
+      "创建图层",
+      "创建图形",
+      "删除图形",
+      "用户",
+      "移动图形",
+      "管理图层",
+      "调整图形尺寸",
+      "选择图形"
+    ],
+    "edges": [
+      "用户|assoc|创建图层",
+      "用户|assoc|创建图形",
+      "用户|assoc|删除图形",
+      "用户|assoc|移动图形",
+      "用户|assoc|管理图层",
+      "用户|assoc|调整图形尺寸",
+      "用户|assoc|选择图形",
+      "选择图形|assoc|移动图形",
+      "选择图形|assoc|调整图形尺寸"
+    ]
+  }
+}

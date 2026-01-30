@@ -1,0 +1,107 @@
+@startuml
+actor 用户 as User
+
+'
+' 用例：启动图形编辑器
+'
+usecase "启动图形编辑器" as UC1
+User --> UC1
+'
+' 用例：创建图形
+'
+usecase "创建图形" as UC2
+User --> UC2
+' 创建图形时必须初始化编辑图层和提示信息（初始状态）
+UC1 ..> UC2 : include
+' 图形种类可扩展（约束条件）
+
+'
+' 用例：选择图形
+'
+usecase "选择图形" as UC3
+User --> UC3
+
+'
+' 用例：删除图形
+'
+usecase "删除图形" as UC4
+User --> UC4
+' 删除前必须先选择图形（强制依赖）
+UC3 ..> UC4 : include
+
+'
+' 用例：改变图形尺寸
+'
+usecase "改变图形尺寸" as UC5
+User --> UC5
+' 改变尺寸需先选择图形并操作控制点
+UC3 ..> UC5 : include
+
+'
+' 用例：移动图形
+'
+usecase "移动图形" as UC6
+User --> UC6
+' 移动前必须选择图形
+UC3 ..> UC6 : include
+
+'
+' 用例：创建图层
+'
+usecase "创建图层" as UC7
+User --> UC7
+' 创建图层后自动设置为当前图层并初始化状态
+UC7 ..> UC2 : include
+' 当图层数 ≤16 时才可创建新图层（触发条件）
+note right of UC7
+  最多支持16个图层
+end note
+
+'
+' 用例：管理图层（切换图层）
+'
+usecase "管理图层" as UC8
+User --> UC8
+' 切换图层后重置创建图形状态为矩形
+UC8 ..> UC2 : include
+
+'
+' 扩展关系说明
+'
+' 特定条件下可从“选择图形”扩展出“多选叠加图形”
+' 扩展点：在图形叠加区域点击
+(选择图形, UC3) <.. (多选叠加图形, UC3_1) : extend
+note on link
+  触发条件：图形发生叠加嵌套时点击叠加区域
+end note
+usecase "多选叠加图形" as UC3_1
+
+' 拖拽虚线框选多个图形是选择图形的一种方式
+(选择图形, UC3) <.. (框选多个图形, UC3_2) : extend
+note on link
+  触发条件：按下鼠标拖动释放形成虚线矩形区域
+end note
+usecase "框选多个图形" as UC3_2
+
+' 在空白处点击取消选择
+(选择图形, UC3) <.. (取消图形选择, UC3_3) : extend
+note on link
+  触发条件：在编辑区空白处点击
+end note
+usecase "取消图形选择" as UC3_3
+
+'
+' 尺寸调整的两种方式：拖动控制点或使用按钮
+(改变图形尺寸, UC5) <.. (拖动控制点调整尺寸, UC5_1) : extend
+note on link
+  触发条件：选择图形的控制点并拖动
+end note
+usecase "拖动控制点调整尺寸" as UC5_1
+
+(改变图形尺寸, UC5) <.. (点击放大缩小按钮, UC5_2) : extend
+note on link
+  触发条件：点击“放大”或“缩小”按钮
+end note
+usecase "点击放大缩小按钮" as UC5_2
+
+@enduml

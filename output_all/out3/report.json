@@ -1,0 +1,185 @@
+{
+  "args": {
+    "req": "examples\\req_primary_graph_editor.txt",
+    "out": "out3",
+    "max_iters": 5,
+    "backend": "mock",
+    "temperature": 0.9,
+    "n_samples": 6,
+    "models": [],
+    "seed": 7,
+    "interactive": false,
+    "jaccard_threshold": 0.98,
+    "render": "auto"
+  },
+  "constraints": {
+    "must_include": [],
+    "forbid_include": [],
+    "extend": [],
+    "forbid_extend": []
+  },
+  "iterations": [
+    {
+      "iter_index": 1,
+      "candidates": [
+        {
+          "candidate_id": "it1_mock_1",
+          "model": "mock",
+          "temperature": 0.9,
+          "seed": 1094,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n' 因果说明：移动图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时\nUC3 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_mock_2",
+          "model": "mock",
+          "temperature": 0.9,
+          "seed": 1111,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC5 ..> UC2 : <<include>>\n' 因果说明：删除图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时\nUC4 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_mock_3",
+          "model": "mock",
+          "temperature": 0.9,
+          "seed": 1128,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：调整图形尺寸 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时\nUC5 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_mock_4",
+          "model": "mock",
+          "temperature": 0.9,
+          "seed": 1145,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_mock_5",
+          "model": "mock",
+          "temperature": 0.9,
+          "seed": 1162,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC4 ..> UC2 : <<include>>\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_mock_6",
+          "model": "mock",
+          "temperature": 0.9,
+          "seed": 1179,
+          "plantuml": "@startuml\nleft to right direction\nskinparam shadowing false\nactor \"用户\" as U\n(创建图形) as UC1\n(选择图形) as UC2\n(移动图形) as UC3\n(删除图形) as UC4\n(调整图形尺寸) as UC5\n(等比例缩放) as UC6\nU --> UC1\nU --> UC2\nU --> UC3\nU --> UC4\nU --> UC5\nU --> UC6\n' 因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）\nUC3 ..> UC2 : <<include>>\n' 因果说明：删除图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时\nUC4 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时\n' 因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时\nUC6 ..> UC5 : <<extend>>  condition=按住Shift时\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 6,
+        "nodes": 7,
+        "edges": 13,
+        "conflicts": 4
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_kind_mismatch",
+          "a": "删除图形",
+          "b": "选择图形",
+          "details": {
+            "kinds": [
+              "extend",
+              "include"
+            ],
+            "support": {
+              "extend": 2,
+              "include": 4
+            }
+          }
+        },
+        {
+          "conflict_type": "edge_kind_mismatch",
+          "a": "调整图形尺寸",
+          "b": "选择图形",
+          "details": {
+            "kinds": [
+              "extend",
+              "include"
+            ],
+            "support": {
+              "extend": 1,
+              "include": 2
+            }
+          }
+        },
+        {
+          "conflict_type": "edge_kind_mismatch",
+          "a": "移动图形",
+          "b": "选择图形",
+          "details": {
+            "kinds": [
+              "extend",
+              "include"
+            ],
+            "support": {
+              "extend": 1,
+              "include": 5
+            }
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "调整图形尺寸",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.5,
+            "sources": [
+              "it1_mock_1",
+              "it1_mock_2",
+              "it1_mock_3"
+            ]
+          }
+        }
+      ],
+      "questions": [],
+      "answers": {},
+      "rule_report": {
+        "kept_edges": [
+          "删除图形|extend|选择图形",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|移动图形",
+          "用户|assoc|等比例缩放",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "移动图形|extend|选择图形",
+          "等比例缩放|extend|调整图形尺寸",
+          "调整图形尺寸|extend|选择图形"
+        ],
+        "dropped_edges": [],
+        "unresolved_conflicts": [],
+        "notes": {},
+        "clingo_available": false,
+        "clingo_check": {
+          "engine": "python_stub",
+          "status": "ok"
+        }
+      },
+      "converged": true
+    }
+  ],
+  "final": {
+    "final_usecase_puml": "out3\\final_usecase.puml",
+    "nodes": [
+      "创建图形",
+      "删除图形",
+      "用户",
+      "移动图形",
+      "等比例缩放",
+      "调整图形尺寸",
+      "选择图形"
+    ],
+    "edges": [
+      "删除图形|extend|选择图形",
+      "用户|assoc|创建图形",
+      "用户|assoc|删除图形",
+      "用户|assoc|移动图形",
+      "用户|assoc|等比例缩放",
+      "用户|assoc|调整图形尺寸",
+      "用户|assoc|选择图形",
+      "移动图形|extend|选择图形",
+      "等比例缩放|extend|调整图形尺寸",
+      "调整图形尺寸|extend|选择图形"
+    ]
+  }
+}

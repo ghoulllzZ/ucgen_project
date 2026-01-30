@@ -1,0 +1,23 @@
+left to right direction
+actor Editor
+
+usecase "启动图形编辑器" as UC_Start
+usecase "创建图形" as UC_CreateShape
+usecase "选择图形" as UC_SelectShape
+usecase "删除图形" as UC_DeleteShape
+usecase "调整图形尺寸" as UC_ResizeShape
+usecase "移动图形" as UC_MoveShape
+usecase "创建图层" as UC_CreateLayer
+usecase "切换图层" as UC_SwitchLayer
+usecase "创建自定义图形" as UC_CreateCustomShape
+
+Editor --> UC_Start
+Editor --> UC_CreateShape
+Editor --> UC_SelectShape
+Editor --> UC_DeleteShape
+Editor --> UC_ResizeShape
+Editor --> UC_MoveShape
+Editor --> UC_CreateLayer
+Editor --> UC_SwitchLayer
+Editor --> UC_CreateCustomShape
+@enduml

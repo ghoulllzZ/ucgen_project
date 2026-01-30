@@ -1,0 +1,1514 @@
+{
+  "stats": {
+    "total_candidates": 3,
+    "nodes": 20,
+    "edges": 44,
+    "conflicts": 31
+  },
+  "nodes": {
+    "用户": {
+      "name": "用户",
+      "node_type": "actor",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4"
+      ],
+      "status": "common"
+    },
+    "移动图形": {
+      "name": "移动图形",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4"
+      ],
+      "status": "common"
+    },
+    "调整图形尺寸": {
+      "name": "调整图形尺寸",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4"
+      ],
+      "status": "common"
+    },
+    "切换图层": {
+      "name": "切换图层",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown"
+    },
+    "显示初始界面": {
+      "name": "显示初始界面",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown"
+    },
+    "创建图形": {
+      "name": "创建图形",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4"
+      ],
+      "status": "common"
+    },
+    "删除图形": {
+      "name": "删除图形",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3"
+      ],
+      "status": "common"
+    },
+    "创建新图层": {
+      "name": "创建新图层",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4"
+      ],
+      "status": "common"
+    },
+    "更新图形提示": {
+      "name": "更新图形提示",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown"
+    },
+    "启动图形编辑器": {
+      "name": "启动图形编辑器",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_4"
+      ],
+      "status": "common"
+    },
+    "选择图形": {
+      "name": "选择图形",
+      "node_type": "usecase",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4"
+      ],
+      "status": "common"
+    },
+    "初始化编辑器": {
+      "name": "初始化编辑器",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown"
+    },
+    "管理图层": {
+      "name": "管理图层",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown"
+    },
+    "点击放大缩小按钮": {
+      "name": "点击放大缩小按钮",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown"
+    },
+    "切换当前图层": {
+      "name": "切换当前图层",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown"
+    },
+    "选择创建的图形类型": {
+      "name": "选择创建的图形类型",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown"
+    },
+    "拖动控制点调整尺寸": {
+      "name": "拖动控制点调整尺寸",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown"
+    },
+    "扩展支持的新图形类型": {
+      "name": "扩展支持的新图形类型",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown"
+    },
+    "动态绘制图形": {
+      "name": "动态绘制图形",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown"
+    },
+    "删除所选图形": {
+      "name": "删除所选图形",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown"
+    }
+  },
+  "edges": {
+    "用户|assoc|启动图形编辑器": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "启动图形编辑器",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_4"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 7,
+          "raw": "User --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 7,
+          "raw": "User --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "启动图形编辑器|include|显示初始界面": {
+      "src": "启动图形编辑器",
+      "kind": "include",
+      "dst": "显示初始界面",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 8,
+          "raw": "UC1 --> UC2 : <<include>>",
+          "label": "<<include>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|创建图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 12,
+          "raw": "User --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 10,
+          "raw": "User --> UC2 : 选择图形类型并绘制",
+          "label": "选择图形类型并绘制",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 12,
+          "raw": "User --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|选择图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 16,
+          "raw": "User --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 19,
+          "raw": "User --> UC3 : 点击或框选图形",
+          "label": "点击或框选图形",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 29,
+          "raw": "User --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|删除图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 20,
+          "raw": "User --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 29,
+          "raw": "User --> UC4 : 点击“删除元素”按钮",
+          "label": "点击“删除元素”按钮",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "删除图形|include|选择图形": {
+      "src": "删除图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 25,
+          "raw": "UC5 --> UC4 : <<include>>",
+          "label": "<<include>>",
+          "justification": "先选择图形，再点击“删除元素”按钮删除所选图形 删除图形前必须先选择图形 因果依赖：删除操作的前提是已有被选中的图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|调整图形尺寸": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 28,
+          "raw": "User --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 36,
+          "raw": "User --> UC5 : 拖动控制点或点击放大/缩小按钮",
+          "label": "拖动控制点或点击放大/缩小按钮",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 55,
+          "raw": "User --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "调整图形尺寸|include|选择图形": {
+      "src": "调整图形尺寸",
+      "kind": "include",
+      "dst": "选择图形",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 33,
+          "raw": "UC6 --> UC4 : <<include>>",
+          "label": "<<include>>",
+          "justification": "通过拖动控制点或点击“放大”“缩小”按钮调整尺寸 改变尺寸前必须选择图形 因果依赖：只有被选中的图形才能调整尺寸",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|移动图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 36,
+          "raw": "User --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 46,
+          "raw": "User --> UC6 : 在图形内部拖动",
+          "label": "在图形内部拖动",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 69,
+          "raw": "User --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "移动图形|include|选择图形": {
+      "src": "移动图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_4"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 41,
+          "raw": "UC7 --> UC4 : <<include>>",
+          "label": "<<include>>",
+          "justification": "在图形内部按下并拖动以移动位置 移动图形前必须选择图形 因果依赖：移动操作作用于已选中的图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 72,
+          "raw": "UC6 ..> UC3 : <<include>>",
+          "label": "<<include>>",
+          "justification": "在图形内部按下并拖动",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|创建新图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建新图层",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 44,
+          "raw": "User --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 55,
+          "raw": "User --> UC7 : 点击“新页”按钮",
+          "label": "点击“新页”按钮",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 78,
+          "raw": "User --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "创建新图层|extend|EXT8": {
+      "src": "创建新图层",
+      "kind": "extend",
+      "dst": "EXT8",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 51,
+          "raw": "UC8 ..> EXT8 : <<extend>>",
+          "label": "<<extend>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|切换图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "切换图层",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 57,
+          "raw": "User --> UC9",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "切换图层|include|显示初始界面": {
+      "src": "切换图层",
+      "kind": "include",
+      "dst": "显示初始界面",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 62,
+          "raw": "UC9 --> UC2 : <<include>>",
+          "label": "<<include>>",
+          "justification": "点击“下一页”切换当前图层，循环切换，提示编号 切换后重置创建状态为“矩形” 因果依赖：切换图层后必须重置绘图工具状态",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "显示初始界面|include|更新图形提示": {
+      "src": "显示初始界面",
+      "kind": "include",
+      "dst": "更新图形提示",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 69,
+          "raw": "UC2 --> UC10 : <<include>>",
+          "label": "<<include>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "创建新图层|include|更新图形提示": {
+      "src": "创建新图层",
+      "kind": "include",
+      "dst": "更新图形提示",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 70,
+          "raw": "UC8 --> UC10 : <<include>>",
+          "label": "<<include>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "切换图层|include|更新图形提示": {
+      "src": "切换图层",
+      "kind": "include",
+      "dst": "更新图形提示",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 71,
+          "raw": "UC9 --> UC10 : <<include>>",
+          "label": "<<include>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "创建图形|extend|EXT3": {
+      "src": "创建图形",
+      "kind": "extend",
+      "dst": "EXT3",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 79,
+          "raw": "UC3 ..> EXT3 : <<extend>>",
+          "label": "<<extend>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|初始化编辑器": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "初始化编辑器",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 6,
+          "raw": "User --> UC1 : 启动软件",
+          "label": "启动软件",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "初始化编辑器|include|创建图形": {
+      "src": "初始化编辑器",
+      "kind": "include",
+      "dst": "创建图形",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 12,
+          "raw": "UC1 --> UC2 : <<include>>",
+          "label": "<<include>>",
+          "justification": "初始化过程中必须包含默认图层和提示设置",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "创建图形|generalize|支持扩展图形类型\"asEXT1": {
+      "src": "创建图形",
+      "kind": "generalize",
+      "dst": "支持扩展图形类型\"asEXT1",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 15,
+          "raw": "UC2 <|-- \"支持扩展图形类型\" as EXT1 : <<extend>>\\n<<扩展点：新增图形类型>>",
+          "label": "<<extend>>\\n<<扩展点：新增图形类型>>",
+          "justification": "图形种类可在未来扩展（约束条件） 扩展点：当新增图形类型时，可扩展创建图形功能",
+          "condition": "",
+          "extension_point": "新增图形类型>>",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "创建图形|include|选择图形": {
+      "src": "创建图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 20,
+          "raw": "UC2 --> UC3 : <<include>> ' 创建后通常需要选择",
+          "label": "<<include>> ' 创建后通常需要选择",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "选择图形|include|删除图形\"asUC4": {
+      "src": "选择图形",
+      "kind": "include",
+      "dst": "删除图形\"asUC4",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 23,
+          "raw": "UC3 --> \"删除图形\" as UC4 : <<include>>",
+          "label": "<<include>>",
+          "justification": "可多选或取消选择 包含删除、改变尺寸、移动等操作的前提",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "选择图形|include|调整图形尺寸\"asUC5": {
+      "src": "选择图形",
+      "kind": "include",
+      "dst": "调整图形尺寸\"asUC5",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 24,
+          "raw": "UC3 --> \"改变图形尺寸\" as UC5 : <<include>>",
+          "label": "<<include>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "选择图形|include|移动图形\"asUC6": {
+      "src": "选择图形",
+      "kind": "include",
+      "dst": "移动图形\"asUC6",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 25,
+          "raw": "UC3 --> \"移动图形\" as UC6 : <<include>>",
+          "label": "<<include>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "选择图形|include|删除图形": {
+      "src": "选择图形",
+      "kind": "include",
+      "dst": "删除图形",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 32,
+          "raw": "UC3 --> UC4 : <<include>>",
+          "label": "<<include>>",
+          "justification": "必须先选择图形才能删除 因果依赖：未选择则无法删除",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "调整图形尺寸|include|使用放大缩小按钮\"asINC1": {
+      "src": "调整图形尺寸",
+      "kind": "include",
+      "dst": "使用放大缩小按钮\"asINC1",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 39,
+          "raw": "UC5 --> \"使用放大/缩小按钮\" as INC1 : <<include>>",
+          "label": "<<include>>",
+          "justification": "放大缩小按钮直接触发尺寸变化 包含通过按钮进行缩放操作",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "移动图形|generalize|保持状态跨编辑器移动\"asEXT2": {
+      "src": "移动图形",
+      "kind": "generalize",
+      "dst": "保持状态跨编辑器移动\"asEXT2",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 51,
+          "raw": "UC6 <|-- \"保持状态跨编辑器移动\" as EXT2 : <<extend>>\\n<<触发条件：编辑器被移动>>",
+          "label": "<<extend>>\\n<<触发条件：编辑器被移动>>",
+          "justification": "保持图层与控制状态不变 编辑器整体移动时状态持续 延伸场景：在复杂UI环境中移动编辑器 触发条件：用户拖动整个编辑器窗口",
+          "condition": "编辑器被移动>>",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "创建新图层|generalize|限制图层数量≤16\"asEXT3": {
+      "src": "创建新图层",
+      "kind": "generalize",
+      "dst": "限制图层数量≤16\"asEXT3",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 58,
+          "raw": "UC7 <|-- \"限制图层数量≤16\" as EXT3 : <<extend>>\\n<<扩展点：图层数≥16>>",
+          "label": "<<extend>>\\n<<扩展点：图层数≥16>>",
+          "justification": "最多创建16个图层，超限则不可创建 扩展点：达到图层上限时阻止创建",
+          "condition": "",
+          "extension_point": "图层数≥16>>",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "创建新图层|include|管理图层\"asUC8": {
+      "src": "创建新图层",
+      "kind": "include",
+      "dst": "管理图层\"asUC8",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 60,
+          "raw": "UC7 --> \"管理图层\" as UC8 : <<include>> ' 创建后常伴随切换或管理",
+          "label": "<<include>> ' 创建后常伴随切换或管理",
+          "justification": "新图层创建后自动设为当前图层，并初始化为矩形创建状态",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|管理图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "管理图层",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 64,
+          "raw": "User --> UC8 : 点击“下一页”按钮切换图层",
+          "label": "点击“下一页”按钮切换图层",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "管理图层|include|创建图形": {
+      "src": "管理图层",
+      "kind": "include",
+      "dst": "创建图形",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 68,
+          "raw": "UC8 --> UC2 : <<include>> ' 切换后进入创建矩形状态",
+          "label": "<<include>> ' 切换后进入创建矩形状态",
+          "justification": "切换到下一个图层，最后层回绕至第一层 每次切换后重置为创建矩形状态 初始化图层状态是管理的一部分",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "启动图形编辑器|include|创建图形": {
+      "src": "启动图形编辑器",
+      "kind": "include",
+      "dst": "创建图形",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 15,
+          "raw": "UC1 ..> UC2 : <<include>>",
+          "label": "<<include>>",
+          "justification": "初始状态下默认选择矩形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "创建图形|include|选择创建的图形类型": {
+      "src": "创建图形",
+      "kind": "include",
+      "dst": "选择创建的图形类型",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 19,
+          "raw": "UC2 ..> UC2_1 : <<include>>",
+          "label": "<<include>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "创建图形|include|动态绘制图形": {
+      "src": "创建图形",
+      "kind": "include",
+      "dst": "动态绘制图形",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 23,
+          "raw": "UC2 ..> UC2_2 : <<include>>",
+          "label": "<<include>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "选择图形|extend|选择图形": {
+      "src": "选择图形",
+      "kind": "extend",
+      "dst": "选择图形",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 34,
+          "raw": "UC3 --> UC3 : <<extend>>",
+          "label": "<<extend>>",
+          "justification": "单击图形内部选择单个图形 多选：叠加图形点击或拖拽框选 点击空白取消选择",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 37,
+          "raw": "UC3 --> UC3 : <<extend>>",
+          "label": "<<extend>>",
+          "justification": "扩展：在叠加区域点击可选择多个图形（扩展点：图形重叠区域点击）",
+          "condition": "",
+          "extension_point": "图形重叠区域点击）",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 40,
+          "raw": "UC3 --> UC3 : <<extend>>",
+          "label": "<<extend>>",
+          "justification": "扩展：按下并拖动鼠标形成选择框，选中区域内所有图形（扩展点：拖拽选择）",
+          "condition": "",
+          "extension_point": "拖拽选择）",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|删除所选图形": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "删除所选图形",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 46,
+          "raw": "User --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "删除所选图形|include|选择图形": {
+      "src": "删除所选图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 49,
+          "raw": "UC4 ..> UC3 : <<include>>",
+          "label": "<<include>>",
+          "justification": "必须先选择图形才能删除",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "调整图形尺寸|include|拖动控制点调整尺寸": {
+      "src": "调整图形尺寸",
+      "kind": "include",
+      "dst": "拖动控制点调整尺寸",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 59,
+          "raw": "UC5 ..> UC5_1 : <<include>>",
+          "label": "<<include>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "调整图形尺寸|include|点击放大缩小按钮": {
+      "src": "调整图形尺寸",
+      "kind": "include",
+      "dst": "点击放大缩小按钮",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 63,
+          "raw": "UC5 ..> UC5_2 : <<include>>",
+          "label": "<<include>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "创建新图层|extend|创建新图层": {
+      "src": "创建新图层",
+      "kind": "extend",
+      "dst": "创建新图层",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 81,
+          "raw": "UC7 --> UC7 : <<extend>>",
+          "label": "<<extend>>",
+          "justification": "最多16个图层",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "用户|assoc|切换当前图层": {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "切换当前图层",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 87,
+          "raw": "User --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "切换当前图层|include|选择创建的图形类型": {
+      "src": "切换当前图层",
+      "kind": "include",
+      "dst": "选择创建的图形类型",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 91,
+          "raw": "UC8 ..> UC2_1 : <<include>>",
+          "label": "<<include>>",
+          "justification": "点击“下一页”切换，循环到最后返回第一层 切换后恢复为创建矩形状态",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "选择创建的图形类型|extend|扩展支持的新图形类型": {
+      "src": "选择创建的图形类型",
+      "kind": "extend",
+      "dst": "扩展支持的新图形类型",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 98,
+          "raw": "UC2_1 ..> EXT_GraphType : <<extend>>",
+          "label": "<<extend>>",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    }
+  }
+}

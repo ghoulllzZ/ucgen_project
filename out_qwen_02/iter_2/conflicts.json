@@ -1,0 +1,21 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "拖动控制点调整尺寸",
+    "b": "调整图形尺寸",
+    "details": {
+      "confidence": 0.3333333333333333,
+      "sources": [
+        "it2_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "拖动控制点调整尺寸",
+    "b": "调整图形尺寸",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  }
+]

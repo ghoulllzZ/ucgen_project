@@ -1,0 +1,53 @@
+@startuml
+actor 用户
+
+'
+' 主要用例：用户核心操作
+'
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layer
+
+'
+' 关联关系：用户与用例
+'
+用户 --> create_shape
+用户 --> select_shape
+用户 --> delete_shape
+用户 --> resize_shape
+用户 --> move_shape
+用户 --> create_layer
+用户 --> manage_layer
+
+'
+' 扩展关系说明（必须写明触发条件/扩展点）
+'
+
+' 扩展点 EP1：图形已被选中并显示控制点 → 触发改变尺寸
+' 当用户拖动控制点或点击“放大/缩小”按钮时，在EP1扩展点上扩展执行
+select_shape ..> resize_shape : extend
+note on link
+  扩展点EP1：图形已被选中并显示控制点
+  条件：用户拖动控制点或点击“放大/缩小”按钮
+end note
+
+' 扩展点 EP2：图形已被选中 → 触发移动图形
+' 当用户在已选中图形内部按下鼠标并拖动时，触发移动操作
+select_shape ..> move_shape : extend
+note on link
+  扩展点EP2：图形已被选中
+  条件：用户在选中图形内部按下鼠标并拖动
+end note
+
+'
+' 其他约束说明：
+' - 不允许“选择图形” include “删除图形” （根据 forbid_include 约束）
+' - “删除图形”依赖于“选择图形”的结果，但不是强制包含流程，而是条件性操作
+' - 因此使用独立用例 + 逻辑依赖，不使用 include 或 extend
+'
+
+@enduml

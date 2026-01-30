@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+actor "用户" as User
+
+usecase "创建图形" as CreateGraphic
+usecase "选择图形" as SelectGraphic
+usecase "删除图形" as DeleteGraphic
+usecase "调整图形尺寸" as ResizeGraphic
+usecase "移动图形" as MoveGraphic
+usecase "创建图层" as CreateLayer
+usecase "图层导航" as LayerNavigation
+usecase "等比例缩放" as UniformScaling
+
+User --> CreateGraphic
+User --> SelectGraphic
+User --> DeleteGraphic
+User --> ResizeGraphic
+User --> MoveGraphic
+User --> CreateLayer
+User --> LayerNavigation
+User --> UniformScaling
+
+' 等比例缩放必须基于选择图形
+UniformScaling ..> SelectGraphic : include
+
+' 按住Shift时调整图形尺寸扩展为等比例缩放
+ResizeGraphic ..> UniformScaling : extend
+@enduml

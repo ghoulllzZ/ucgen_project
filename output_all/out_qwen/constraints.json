@@ -1,0 +1,171 @@
+{
+  "must_include": [
+    {
+      "base": "删除图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "调整图形尺寸",
+      "included": "选择图形"
+    },
+    {
+      "base": "删除所选图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "移动图形",
+      "included": "选择图形"
+    }
+  ],
+  "forbid_include": [
+    {
+      "base": "启动图形编辑器",
+      "included": "显示初始界面"
+    },
+    {
+      "base": "创建新图层",
+      "included": "EXT8"
+    },
+    {
+      "base": "切换图层",
+      "included": "显示初始界面"
+    },
+    {
+      "base": "显示初始界面",
+      "included": "更新图形提示"
+    },
+    {
+      "base": "创建新图层",
+      "included": "更新图形提示"
+    },
+    {
+      "base": "切换图层",
+      "included": "更新图形提示"
+    },
+    {
+      "base": "创建图形",
+      "included": "EXT3"
+    },
+    {
+      "base": "初始化编辑器",
+      "included": "创建图形"
+    },
+    {
+      "base": "创建图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "选择图形",
+      "included": "删除图形\"asUC4"
+    },
+    {
+      "base": "选择图形",
+      "included": "调整图形尺寸\"asUC5"
+    },
+    {
+      "base": "选择图形",
+      "included": "移动图形\"asUC6"
+    },
+    {
+      "base": "选择图形",
+      "included": "删除图形"
+    },
+    {
+      "base": "调整图形尺寸",
+      "included": "使用放大缩小按钮\"asINC1"
+    },
+    {
+      "base": "创建新图层",
+      "included": "管理图层\"asUC8"
+    },
+    {
+      "base": "管理图层",
+      "included": "创建图形"
+    },
+    {
+      "base": "启动图形编辑器",
+      "included": "创建图形"
+    },
+    {
+      "base": "创建图形",
+      "included": "选择创建的图形类型"
+    },
+    {
+      "base": "创建图形",
+      "included": "动态绘制图形"
+    },
+    {
+      "base": "调整图形尺寸",
+      "included": "拖动控制点调整尺寸"
+    },
+    {
+      "base": "调整图形尺寸",
+      "included": "点击放大缩小按钮"
+    },
+    {
+      "base": "创建新图层",
+      "included": "创建新图层"
+    },
+    {
+      "base": "切换当前图层",
+      "included": "选择创建的图形类型"
+    },
+    {
+      "base": "选择创建的图形类型",
+      "included": "扩展支持的新图形类型"
+    },
+    {
+      "base": "创建新图层",
+      "included": "启动图形编辑器"
+    },
+    {
+      "base": "管理图层",
+      "included": "创建新图层"
+    }
+  ],
+  "extend": [],
+  "forbid_extend": [
+    {
+      "base": "EXT8",
+      "extension": "创建新图层"
+    },
+    {
+      "base": "EXT3",
+      "extension": "创建图形"
+    },
+    {
+      "base": "创建新图层",
+      "extension": "创建新图层"
+    },
+    {
+      "base": "扩展支持的新图形类型",
+      "extension": "选择创建的图形类型"
+    },
+    {
+      "base": "启动图形编辑器",
+      "extension": "创建新图层"
+    },
+    {
+      "base": "创建新图层",
+      "extension": "管理图层"
+    }
+  ],
+  "keep_actors": [],
+  "forbid_actors": [],
+  "keep_usecases": [
+    "启动图形编辑器"
+  ],
+  "forbid_usecases": [
+    "切换图层",
+    "显示初始界面",
+    "更新图形提示",
+    "初始化编辑器",
+    "点击放大缩小按钮",
+    "切换当前图层",
+    "选择创建的图形类型",
+    "拖动控制点调整尺寸",
+    "扩展支持的新图形类型",
+    "动态绘制图形",
+    "删除所选图形"
+  ]
+}

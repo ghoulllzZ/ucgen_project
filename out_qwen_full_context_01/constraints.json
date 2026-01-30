@@ -1,0 +1,32 @@
+{
+  "must_include": [],
+  "forbid_include": [
+    {
+      "base": "选择图形",
+      "included": "删除图形"
+    },
+    {
+      "base": "选择图形",
+      "included": "调整图形尺寸"
+    },
+    {
+      "base": "选择图形",
+      "included": "移动图形"
+    }
+  ],
+  "extend": [],
+  "forbid_extend": [
+    {
+      "base": "调整图形尺寸",
+      "extension": "选择图形"
+    },
+    {
+      "base": "移动图形",
+      "extension": "选择图形"
+    }
+  ],
+  "keep_actors": [],
+  "forbid_actors": [],
+  "keep_usecases": [],
+  "forbid_usecases": []
+}

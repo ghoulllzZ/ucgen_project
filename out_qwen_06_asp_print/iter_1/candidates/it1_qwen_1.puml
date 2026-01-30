@@ -1,0 +1,129 @@
+@startuml
+actor 用户
+
+'
+' 系统初始化相关用例
+'
+usecase "启动图形编辑器" as usecase1
+usecase "创建初始图层" as usecase2
+usecase "显示第一页提示" as usecase3
+usecase "设置默认创建图形为矩形" as usecase4
+
+用户 --> usecase1
+usecase1 --> usecase2 : includes
+' 启动时必须创建第一个编辑图层
+usecase1 --> usecase3 : includes
+' 启动时提示区域必须显示“第一页”
+usecase1 --> usecase4 : includes
+' 启动时创建图形选择框必须显示矩形
+
+'
+' 图形创建功能
+'
+usecase "创建图形" as usecase5
+usecase "选择直线、椭圆或矩形" as usecase6
+usecase "在编辑区域绘制图形" as usecase7
+
+用户 --> usecase5
+usecase5 --> usecase6 : includes
+' 创建图形前必须选择图形类型
+usecase5 --> usecase7 : includes
+' 必须在编辑区域拖拽绘制图形
+usecase7 --> usecase2 : extends
+' 绘制图形仅在已创建的图层上进行，扩展点：存在当前图层
+
+'
+' 图形选择功能
+'
+usecase "选择图形" as usecase8
+usecase "单选图形" as usecase9
+usecase "多选图形" as usecase10
+usecase "取消选择" as usecase11
+
+用户 --> usecase8
+usecase8 --> usecase9 : includes
+' 单击图形内部可选中一个图形
+usecase8 --> usecase10 : includes
+' 拖拽矩形框或多层嵌套时可多选
+usecase8 --> usecase11 : includes
+' 在空白处点击取消所有选择
+
+'
+' 删除图形功能
+'
+usecase "删除所选图形" as usecase12
+usecase "点击删除按钮" as usecase13
+
+用户 --> usecase12
+usecase12 --> usecase13 : includes
+' 删除操作需通过点击删除按钮触发
+usecase12 --> usecase8 : includes
+' 必须先选择图形才能删除
+
+'
+' 改变图形尺寸功能
+'
+usecase "改变图形尺寸" as usecase14
+usecase "拖动控制点调整尺寸" as usecase15
+usecase "点击放大按钮" as usecase16
+usecase "点击缩小按钮" as usecase17
+
+用户 --> usecase14
+usecase14 --> usecase15 : includes
+' 通过拖动控制点可调整尺寸
+usecase14 --> usecase16 : includes
+' 可通过点击放大按钮实现
+usecase14 --> usecase17 : includes
+' 可通过点击缩小按钮实现
+usecase14 --> usecase8 : includes
+' 必须先选择图形才能调整尺寸
+
+'
+' 移动图形功能
+'
+usecase "移动图形" as usecase18
+
+用户 --> usecase18
+usecase18 --> usecase8 : includes
+' 必须先选择图形才能移动
+' 移动时保持图层和控制点状态不变
+
+'
+' 图层管理功能
+'
+usecase "创建新图层" as usecase19
+usecase "限制最多16个图层" as usecase20
+usecase "提示新图层编号" as usecase21
+usecase "设置新图层为当前图层" as usecase22
+usecase "重置创建图形为矩形" as usecase23
+
+用户 --> usecase19
+usecase19 --> usecase20 : includes
+' 创建新图层时必须检查数量是否超限
+usecase19 --> usecase21 : includes
+' 新图层创建后必须提示编号
+usecase19 --> usecase22 : includes
+' 新图层必须设为当前图层
+usecase19 --> usecase23 : includes
+' 新图层操作状态重置为创建矩形
+usecase20 --> usecase2 : extends
+' 扩展点：已有16个图层时无法创建，条件：图层数 ≥ 16
+
+'
+' 切换图层功能
+'
+usecase "切换当前图层" as usecase24
+usecase "点击下一页按钮" as usecase25
+usecase "循环切换至首页" as usecase26
+
+用户 --> usecase24
+usecase24 --> usecase25 : includes
+' 通过点击“下一页”按钮触发
+usecase24 --> usecase26 : includes
+' 若为最后一页则切换回第一页
+usecase24 --> usecase23 : includes
+' 切换后重置创建图形为矩形
+usecase24 --> usecase3 : includes
+' 切换后更新提示区域的页码提示
+
+@enduml

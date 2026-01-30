@@ -1,0 +1,74 @@
+[
+  {
+    "id": "q1",
+    "type": "actor_yes_no",
+    "target": {
+      "actor": "User"
+    },
+    "prompt": "参与者【User】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "缩小图形"
+    },
+    "prompt": "用例【缩小图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q3",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "动态绘制图形"
+    },
+    "prompt": "用例【动态绘制图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q4",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "更新当前图层状态"
+    },
+    "prompt": "用例【更新当前图层状态】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q5",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "放大图形"
+    },
+    "prompt": "用例【放大图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q6",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动图形编辑器"
+    },
+    "prompt": "用例【启动图形编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q7",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动软件"
+    },
+    "prompt": "用例【启动软件】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q8",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "调整尺寸"
+    },
+    "prompt": "用例【调整尺寸】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  }
+]

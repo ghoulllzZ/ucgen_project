@@ -1,0 +1,53 @@
+@startuml
+actor 用户 as User
+
+'
+' Use Cases
+'
+usecase "启动图形编辑器" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建新图层" as UC7
+usecase "管理图层" as UC8
+
+'
+' Actor Associations
+'
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+
+'
+' Include Relationships (with causal comments)
+'
+' 删除图形必须先选择图形
+UC4 .> UC3 : <<include>>
+
+' 调整图形尺寸必须先选择图形
+UC5 .> UC3 : <<include>>
+
+' 移动图形必须先选择图形
+UC6 .> UC3 : <<include>>
+
+'
+' Extend Relationships (with conditions)
+'
+' 创建图形时，当用户拖动鼠标可动态预览虚线框图形（扩展点：拖动过程中）
+' 否则仅在释放时绘制
+UC2 <.. UC3 : <<extend>>\n<<condition: 拖动鼠标中显示虚线预览>>
+
+' 创建新图层时，当图层数未超过16个才允许创建
+UC7 <.. UC8 : <<extend>>\n<<condition: 图层数 ≤ 16>>
+
+' 管理图层时，切换图层后提示区域更新编号，并重置为矩形创建状态
+UC8 <.. UC7 : <<extend>>\n<<condition: 切换后更新提示和状态>>
+
+@enduml

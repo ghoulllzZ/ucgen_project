@@ -1,0 +1,75 @@
+@startuml
+actor 用户 as User
+
+' 启动时初始化基本界面和默认图层
+usecase "启动图形编辑器" as UC1
+User --> UC1
+
+' 创建不同类型的图形（直线、椭圆、矩形）
+usecase "创建图形" as UC2
+User --> UC2
+
+' 选择一个或多个图形，支持单击、多选框选等
+usecase "选择图形" as UC3
+User --> UC3
+
+' 删除已选择的图形
+usecase "删除图形" as UC4
+User --> UC4
+
+' 调整图形尺寸：通过拖拽控制点或使用放大/缩小按钮
+usecase "改变图形尺寸" as UC5
+User --> UC5
+
+' 移动选中的图形到新位置
+usecase "移动图形" as UC6
+User --> UC6
+
+' 创建新的图层，最多16个
+usecase "创建新图层" as UC7
+User --> UC7
+
+' 在多个图层之间切换当前图层
+usecase "切换图层" as UC8
+User --> UC8
+
+' 图形提示区域显示当前页码信息
+usecase "显示当前页提示" as UC9
+UC1 --> UC9 : includes
+UC7 --> UC9 : includes
+UC8 --> UC9 : includes
+' 启动时必须显示“第一页”；创建新图层时提示编号；切换图层时更新提示
+
+' 图形工具区域默认设置为矩形创建状态
+usecase "初始化图形选择框为矩形" as UC10
+UC1 --> UC10 : includes
+UC7 --> UC10 : includes
+UC8 --> UC10 : includes
+' 启动、新建图层、切换图层后都重置为矩形选择状态
+
+' 支持后续扩展更多图形类型（如多边形、曲线等）
+usecase "扩展图形类型" as UC11
+' 约束允许在创建图形基础上扩展
+UC2 ..> UC11 : extends
+' 扩展点：当用户选择新增图形类型时触发（未来扩展）
+
+' 多选图形可通过点击叠加区域或框选实现
+' 已包含在“选择图形”用例中，无需单独拆分
+
+' 删除图形前必须先选择图形
+UC4 .> UC3 : includes
+' 因果依赖：只有选中图形后才能执行删除操作
+
+' 改变尺寸和移动图形的前提是图形已被选择
+UC5 .> UC3 : includes
+' 因果依赖：必须先选择图形才能调整其尺寸
+UC6 .> UC3 : includes
+' 因果依赖：必须先选择图形才能移动它
+
+' 创建新图层受数量限制（≤16）
+UC7 ..> "图层数未超过16" as Cond1
+note right of UC7
+  若图层数 ≥16，则禁止创建新图层
+end note
+
+@enduml

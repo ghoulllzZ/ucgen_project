@@ -1,0 +1,81 @@
+@startuml
+actor 用户
+
+'
+' 用例：创建图形
+'
+usecase "创建图形" as create_shape
+'
+' 用例：选择图形
+'
+usecase "选择图形" as select_shape
+'
+' 用例：删除图形
+'
+usecase "删除图形" as delete_shape
+'
+' 用例：改变图形尺寸（扩展自“选择图形”）
+'
+usecase "改变图形尺寸" as resize_shape
+'
+' 用例：移动图形（扩展自“选择图形”）
+'
+usecase "移动图形" as move_shape
+'
+' 用例：创建图层
+'
+usecase "创建图层" as create_layer
+'
+' 用例：管理图层
+'
+usecase "管理图层" as manage_layer
+
+'
+' 用户与各用例的关联
+'
+用户 --> create_shape
+用户 --> select_shape
+用户 --> delete_shape
+用户 --> create_layer
+用户 --> manage_layer
+
+'
+' 扩展关系说明：
+'
+
+' 扩展点 EP1：图形已被选中并显示控制点，此时可触发“改变图形尺寸”
+' 当用户拖动控制点或点击“放大/缩小”按钮时，执行“改变图形尺寸”
+select_shape ..> resize_shape : extend
+note on link
+  扩展点 EP1：图形已被选中并显示控制点
+  触发条件：用户拖动控制点或点击“放大/缩小”按钮
+end note
+
+' 扩展点 EP2：图形已被选中，此时可触发“移动图形”
+' 当用户在已选中图形内部按下并拖动鼠标时，执行“移动图形”
+select_shape ..> move_shape : extend
+note on link
+  扩展点 EP2：图形已被选中
+  触发条件：用户在已选中图形内部按下并拖动鼠标
+end note
+
+'
+' 包含关系说明：
+'
+
+' “删除图形”必须先选择图形，因此包含“选择图形”
+' 因果依赖：只有先选中图形，才能删除
+delete_shape --> select_shape : include
+note on link
+  必须先执行“选择图形”以确定目标图形
+end note
+
+' “改变图形尺寸”依赖于“选择图形”作为基础用例
+' 但因为是扩展关系，不需要 include；同理“移动图形”也是 extend 而非 include
+
+' “创建图层”操作后会重置图形创建状态为矩形，隐含对创建状态的初始化
+' 但这不是用例间的直接功能包含，不建模为 include
+
+' “管理图层”切换图层后重置创建状态为矩形，类似“创建图层”，但无直接包含关系
+
+@enduml

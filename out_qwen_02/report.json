@@ -1,0 +1,3828 @@
+{
+  "args": {
+    "req": "examples\\req_primary_graph_editor.txt",
+    "out": "out_qwen_02",
+    "max_iters": 5,
+    "backend": "qwen",
+    "temperature": 0.9,
+    "n_samples": 6,
+    "models": [],
+    "seed": 7,
+    "interactive": false,
+    "jaccard_threshold": 0.98,
+    "render": "auto"
+  },
+  "constraints": {
+    "must_include": [
+      {
+        "base": "删除图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "调整图形尺寸",
+        "included": "选择图形"
+      },
+      {
+        "base": "移动图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "点击选择图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "框选多个图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "点击空白取消选择",
+        "included": "选择图形"
+      }
+    ],
+    "forbid_include": [
+      {
+        "base": "启动图形编辑器",
+        "included": "创建图层"
+      },
+      {
+        "base": "启动图形编辑器",
+        "included": "初始化图形选择状态\""
+      },
+      {
+        "base": "创建图形",
+        "included": "创建图层"
+      },
+      {
+        "base": "创建图层",
+        "included": "初始化图形选择状态\""
+      },
+      {
+        "base": "管理图层",
+        "included": "初始化图形选择状态\""
+      },
+      {
+        "base": "创建图层",
+        "included": "检查图层数量上限\""
+      },
+      {
+        "base": "拖动控制点调整尺寸",
+        "included": "调整图形尺寸"
+      },
+      {
+        "base": "点击按钮调整尺寸",
+        "included": "调整图形尺寸"
+      },
+      {
+        "base": "拖动图形移动",
+        "included": "移动图形"
+      },
+      {
+        "base": "绘制直线",
+        "included": "创建图形"
+      },
+      {
+        "base": "绘制椭圆",
+        "included": "创建图形"
+      },
+      {
+        "base": "绘制矩形",
+        "included": "创建图形"
+      },
+      {
+        "base": "创建图形",
+        "included": "扩展图形类型\""
+      },
+      {
+        "base": "启动图形编辑器",
+        "included": "创建图形"
+      },
+      {
+        "base": "选择图形",
+        "included": "删除图形"
+      },
+      {
+        "base": "选择图形",
+        "included": "调整图形尺寸"
+      },
+      {
+        "base": "使用放大缩小按钮调整尺寸",
+        "included": "调整图形尺寸"
+      },
+      {
+        "base": "选择图形",
+        "included": "移动图形"
+      },
+      {
+        "base": "创建新图层",
+        "included": "创建图形"
+      },
+      {
+        "base": "切换当前图层",
+        "included": "创建图形"
+      },
+      {
+        "base": "创建新图层",
+        "included": "重置图形创建状态为矩形"
+      },
+      {
+        "base": "切换当前图层",
+        "included": "重置图形创建状态为矩形"
+      },
+      {
+        "base": "扩展支持的图形类型",
+        "included": "创建图形"
+      },
+      {
+        "base": "(创建图形)",
+        "included": "(选择直线、椭圆或矩形)"
+      },
+      {
+        "base": "(创建图形)",
+        "included": "(在编辑区域绘制图形)"
+      },
+      {
+        "base": "(选择图形)",
+        "included": "(单击选择单个图形)"
+      },
+      {
+        "base": "(选择图形)",
+        "included": "(多选叠加图形)"
+      },
+      {
+        "base": "(选择图形)",
+        "included": "(框选区域内图形)"
+      },
+      {
+        "base": "(选择图形)",
+        "included": "(取消选择所有图形)"
+      },
+      {
+        "base": "(删除所选图形)",
+        "included": "(选择图形)"
+      },
+      {
+        "base": "(调整图形尺寸)",
+        "included": "拖动控制点调整尺寸"
+      },
+      {
+        "base": "(调整图形尺寸)",
+        "included": "(点击放大按钮)"
+      },
+      {
+        "base": "(调整图形尺寸)",
+        "included": "(点击缩小按钮)"
+      },
+      {
+        "base": "(移动图形)",
+        "included": "(选择图形)"
+      },
+      {
+        "base": "(创建新图层)",
+        "included": "(检查图层数量是否超过16)"
+      },
+      {
+        "base": "点击选择图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "框选多个图形",
+        "included": "选择图形"
+      },
+      {
+        "base": "点击空白取消选择",
+        "included": "选择图形"
+      }
+    ],
+    "extend": [],
+    "forbid_extend": [
+      {
+        "base": "创建图层",
+        "extension": "创建图形"
+      },
+      {
+        "base": "扩展图形类型\"",
+        "extension": "创建图形"
+      },
+      {
+        "base": "移动图形",
+        "extension": "选择图形"
+      },
+      {
+        "base": "创建图形",
+        "extension": "创建新图层"
+      },
+      {
+        "base": "创建图形",
+        "extension": "切换当前图层"
+      },
+      {
+        "base": "创建图形",
+        "extension": "扩展支持的图形类型"
+      },
+      {
+        "base": "(点击放大按钮)",
+        "extension": "(调整图形尺寸)"
+      },
+      {
+        "base": "(点击缩小按钮)",
+        "extension": "(调整图形尺寸)"
+      },
+      {
+        "base": "调整图形尺寸",
+        "extension": "拖动控制点调整尺寸"
+      }
+    ],
+    "keep_actors": [],
+    "forbid_actors": [],
+    "keep_usecases": [
+      "拖动控制点调整尺寸",
+      "启动图形编辑器"
+    ],
+    "forbid_usecases": [
+      "绘制椭圆",
+      "点击选择图形",
+      "绘制直线",
+      "绘制矩形",
+      "检查图层数量上限\"",
+      "拖动图形移动",
+      "框选多个图形",
+      "点击按钮调整尺寸",
+      "点击空白取消选择",
+      "初始化图形选择状态\"",
+      "扩展图形类型\"",
+      "使用放大缩小按钮调整尺寸",
+      "扩展支持的图形类型",
+      "重置图形创建状态为矩形",
+      "切换当前图层",
+      "创建新图层)>(重置创建图形为矩形",
+      "启动图形编辑器)>(提示第一页",
+      "切换图层)>(选择目标图层作为当前层",
+      "启动图形编辑器)>(显示默认创建图形为矩形",
+      "启动图形编辑器)>(创建初始图层",
+      "创建新图层)>(提示新图层编号",
+      "切换图层)>(重置创建图形为矩形",
+      "创建新图层)>(设置新图层为当前图层",
+      "切换图层)>(更新图形提示区域编号",
+      "(显示第一页提示)",
+      "(点击放大按钮)",
+      "(选择目标图层作为当前层)",
+      "(启动图形编辑器)",
+      "(更新图层编号提示)",
+      "(多选图形)",
+      "(设置新图层为当前图层)",
+      "(提示新图层编号)",
+      "(创建图形)",
+      "(无法创建新图层)",
+      "(创建新图层)",
+      "(点击缩小按钮)",
+      "(在编辑区域绘制图形)",
+      "(删除图形)",
+      "(移动图形)",
+      "(检查图层数量是否超限)",
+      "(选择图形)",
+      "(设置创建图形为矩形)",
+      "(扩展图形种类)",
+      "(取消选择)",
+      "(选择图形类型)",
+      "(循环切换至首层)",
+      "(创建初始图层)",
+      "(单选图形)",
+      "(调整图形尺寸)",
+      "(切换图层)",
+      "(保持图层状态)",
+      "(重置为矩形创建状态)",
+      "拖动移动图形",
+      "取消所有选择",
+      "拖拽选择框选图形",
+      "动态绘制虚线轮廓",
+      "重置为矩形创建模式",
+      "管理图形图层隶属关系",
+      "强制限制最大图层数(16)",
+      "高亮控制点",
+      "提示当前页码",
+      "多选图形",
+      "按钮放大缩小图形",
+      "设置当前图层",
+      "检查图层数限制",
+      "更新状态提示",
+      "支持扩展图形类型",
+      "选择图形类型",
+      "循环切换图层",
+      "保持状态稳定",
+      "切换图层"
+    ]
+  },
+  "iterations": [
+    {
+      "iter_index": 1,
+      "candidates": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1054,
+          "plantuml": "@startuml\nactor 用户 as User\n\n' 软件初始启动时必须执行的初始化设置\nUser --> (初始化图形编辑器)\n(初始化图形编辑器) .> (创建图层) : include\n' 启动时默认创建第一个图层\n(初始化图形编辑器) .> (设置默认图形选择) : include\n' 创建图形选择框默认显示矩形\n(初始化图形编辑器) .> (显示页面提示) : include\n' 图形提示区域提示“第一页”\n\nusecase (初始化图形编辑器) as \"初始化图形编辑器\"\nusecase (创建图层) as \"创建图层\"\nusecase (设置默认图形选择) as \"设置默认图形选择\"\nusecase (显示页面提示) as \"显示页面提示\"\nusecase (创建图形) as \"创建图形\"\nusecase (选择图形) as \"选择图形\"\nusecase (删除图形) as \"删除图形\"\nusecase (改变图形尺寸) as \"改变图形尺寸\"\nusecase (移动图形) as \"移动图形\"\nusecase (切换图层) as \"切换图层\"\nusecase (管理多个图层) as \"管理多个图层\"\n\n' 用户通过工具栏选择图形类型并在编辑区绘制\nUser --> (创建图形)\n\n' 用户在编辑区点击或拖拽来选择一个或多个图形\nUser --> (选择图形)\n\n' 删除已选中的图形，需先选择再点击删除按钮\nUser --> (删除图形)\n(删除图形) .> (选择图形) : include\n' 必须先选择图形才能删除\n\n' 用户拖动控制点或使用放大缩小按钮调整尺寸\nUser --> (改变图形尺寸)\n(改变图形尺寸) .> (选择图形) : include\n' 改变尺寸前必须选择图形\n\n' 用户在图形内部拖动实现移动\nUser --> (移动图形)\n(移动图形) .> (选择图形) : include\n' 移动前必须选择图形\n\n' 用户点击“新页”按钮创建新图层\nUser --> (创建图层)\n' 创建图层后自动成为当前图层，并重置为矩形选择状态\n(创建图层) .> (设置默认图形选择) : include\n(创建图层) .> (显示页面提示) : include\n' 新图层创建时更新提示区域编号\n(创建图层) <-- (图层数未达上限) : extend\n' 扩展点：仅当图层数 ≤ 16 时可创建\n' 触发条件：用户点击“新页”且图层数 < 16\n\n' 用户点击“下一页”切换图层\nUser --> (切换图层)\n(切换图层) .> (显示页面提示) : include\n' 切换后提示当前页编号\n(切换图层) .> (设置默认图形选择) : include\n' 切换后重置为创建矩形状态\n(切换图层) .> (管理多个图层) : include\n' 多图层环境下的切换行为\n\n' 管理多个图层包括循环切换逻辑\n(管理多个图层) <-- (当前为最后一页则切至第一页) : extend\n' 扩展点：当前为最后一页时点击“下一页”\n' 触发条件：当前图层是最后一个\n\n' 图形编辑器支持未来扩展更多图形类型\n(创建图形) <-- (扩展图形类型) : extend\n' 扩展点：创建图形时可新增其他图形（如多边形）\n' 触发条件：系统支持新图形类型添加\n```\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 13): usecase (初始化图形编辑器) as \"初始化图形编辑器\""
+        },
+        {
+          "candidate_id": "it1_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1071,
+          "plantuml": "@startuml\nactor 用户 as User\n\n' 软件启动时必须初始化图形选择框、创建第一个图层并提示第一页\nusecase \"启动图形编辑器\" as UC1\nUser --> UC1\n\n' 创建图形是用户通过选择形状并在编辑区绘制来完成的\nusecase \"创建图形\" as UC2\nUser --> UC2\n\n' 选择图形包括单选、多选和取消选择\nusecase \"选择图形\" as UC3\nUser --> UC3\n\n' 删除图形依赖于先选择图形，然后点击删除按钮\nusecase \"删除图形\" as UC4\nUser --> UC4\n\n' 改变图形尺寸可通过拖动控制点或使用放大缩小按钮\nusecase \"改变图形尺寸\" as UC5\nUser --> UC5\n\n' 移动图形是在选择后拖动图形到新位置\nusecase \"移动图形\" as UC6\nUser --> UC6\n\n' 创建新图层会生成新的编辑图层并更新状态\nusecase \"创建图层\" as UC7\nUser --> UC7\n\n' 管理图层包括切换当前图层\nusecase \"管理图层\" as UC8\nUser --> UC8\n\n' 启动时必须创建初始图层和设置默认状态\n' 因果：启动图形编辑器必须包含创建第一个图层和初始化提示\nUC1 ..> UC7 : <<include>>\n' 启动时必须初始化图形工具区域为矩形\nUC1 ..> \"初始化图形选择状态\" as INIT_SHAPE : <<include>>\nnote on link\n  设置创建图形选择框为\"矩形\"\nend note\n\n' 创建图形前必须确保有当前图层\n' 因果：创建图形依赖于存在当前图层（由启动或创建图层提供）\nUC2 .> UC7 : <<extend>>\n' 扩展点：当无当前图层时，需先创建图层\nnote on link\n  触发条件：当前无图层存在\nend note\n\n' 选择图形是删除、改变尺寸、移动的前提\n' 因果：删除图形必须先选择图形\nUC4 .> UC3 : <<include>>\n\n' 因果：改变图形尺寸必须先选择图形\nUC5 .> UC3 : <<include>>\n\n' 因果：移动图形必须先选择图形\nUC6 .> UC3 : <<include>>\n\n' 创建图层时会自动设置当前图层，并提示编号，且设置图形选择状态为矩形\n' 因果：创建图层必须包含初始化该图层的图形选择状态\nUC7 ..> INIT_SHAPE : <<include>>\n\n' 管理图层（如下一页）切换当前图层，并重置图形选择状态为矩形\n' 因果：管理图层操作后必须重置图形选择状态\nUC8 ..> INIT_SHAPE : <<include>>\n\n' 图层数量限制：超过16个不能新建\n' 触发条件：当已有图层数量 >= 16 时，无法创建新图层\nUC7 .> \"检查图层数量上限\" as CHECK_LAYER_LIMIT : <<extend>>\nnote on link\n  触发条件：用户尝试创建第17个图层\nend note\n\n' 改变图形尺寸可通过两种方式：拖动控制点或点击放大/缩小按钮\nusecase \"拖动控制点调整尺寸\" as UC5a\nusecase \"点击按钮调整尺寸\" as UC5b\nUC5a --> UC5 : <<include>>\nUC5b --> UC5 : <<include>>\n\n' 移动图形通过在图形内部拖动实现\nusecase \"拖动图形移动\" as UC6a\nUC6a --> UC6 : <<include>>\n\n' 选择图形可通过点击单个图形、框选多个或点击空白取消\nusecase \"点击选择图形\" as UC3a\nusecase \"框选多个图形\" as UC3b\nusecase \"点击空白取消选择\" as UC3c\nUC3a --> UC3 : <<include>>\nUC3b --> UC3 : <<include>>\nUC3c --> UC3 : <<include>>\n\n' 创建图形支持多种类型：直线、椭圆、矩形\nusecase \"绘制直线\" as UC2a\nusecase \"绘制椭圆\" as UC2b\nusecase \"绘制矩形\" as UC2c\nUC2a --> UC2 : <<include>>\nUC2b --> UC2 : <<include>>\nUC2c --> UC2 : <<include>>\n\n' 约束：图形编辑器可在创建的图形种类上扩展\n' 因此未来可新增图形类型（如多边形），此处预留扩展点\nUC2 .> \"扩展图形类型\" as EXTEND_SHAPE : <<extend>>\nnote on link\n  触发条件：系统支持新增图形类型（如多边形）\nend note\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1088,
+          "plantuml": "@startuml\nactor 用户 as User\n\n' 初始启动功能\nusecase \"启动图形编辑器\" as UC1\nUser --> UC1\n\n' 创建图形功能\nusecase \"创建图形\" as UC2\nUser --> UC2\n' 启动后必须初始化界面状态\nUC1 ..> UC2 : <<include>>\n' 初始时默认选择矩形并创建第一个图层\n\n' 选择图形功能\nusecase \"选择图形\" as UC3\nUser --> UC3\n\n' 删除图形功能\nusecase \"删除图形\" as UC4\nUser --> UC4\n' 必须先选择图形才能删除\nUC3 .> UC4 : <<include>>\n\n' 改变图形尺寸功能\nusecase \"改变图形尺寸\" as UC5\nUser --> UC5\n' 只有选中图形后才能调整尺寸\nUC3 .> UC5 : <<include>>\n' 拖动控制点或使用放大缩小按钮均可触发\nusecase \"使用放大/缩小按钮调整尺寸\" as UC5a\nUC5a .> UC5 : <<include>>\n\n' 移动图形功能\nusecase \"移动图形\" as UC6\nUser --> UC6\n' 在图形内部按下并拖动触发移动\nUC3 .> UC6 : <<extend>>\n' 扩展条件：当在已选图形内部按下鼠标并拖动时触发\n\n' 创建图层功能\nusecase \"创建新图层\" as UC7\nUser --> UC7\n' 点击“新页”按钮触发创建\n' 最多允许16个图层\nUC7 ..> UC2 : <<extend>>\n' 扩展条件：新图层创建后自动进入“创建矩形”状态\nnote on link\n  新图层创建后，图形选择框重置为“矩形”\nend note\n\n' 管理图层（切换图层）\nusecase \"切换当前图层\" as UC8\nUser --> UC8\n' 点击“下一页”按钮进行图层切换\nUC8 ..> UC2 : <<extend>>\n' 扩展条件：切换图层后操作状态重置为“创建矩形”\n\n' 共享基础行为\nusecase \"重置图形创建状态为矩形\" as UC9\nUC7 .> UC9 : <<include>>\nUC8 .> UC9 : <<include>>\n' 每次创建新图层或切换图层后都必须重置创建状态\n\n' 约束条件说明：图形种类可扩展\nusecase \"扩展支持的图形类型\" as UC10\nUC10 .> UC2 : <<extend>>\n' 扩展点：未来可在“创建图形”中加入多边形、曲线等类型\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1105,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 启动时初始化界面和默认状态\n'\n用户 --> (启动图形编辑器)\n(启动图形编辑器) --> (创建初始图层)\n' 初始创建第一个图层是必须的步骤\n(启动图形编辑器) --> (显示默认创建图形为矩形)\n' 创建图形选择框默认显示矩形\n(启动图形编辑器) --> (提示第一页)\n' 图形提示区域显示“第一页”\n\n'\n' 创建图形功能相关用例\n'\n用户 --> (创建图形)\n(创建图形) ..> (选择直线、椭圆或矩形) : <<include>>\n' 创建图形前必须选择一种图形类型\n(创建图形) ..> (在编辑区域拖拽绘制图形) : <<include>>\n' 绘制过程包含确定起始点、拖动、释放终止\n\n'\n' 选择图形功能\n'\n用户 --> (选择图形)\n(选择图形) ..> (单击选择单个图形) : <<include>>\n' 单击图形内部可选中该图形\n(选择图形) ..> (多选叠加图形) : <<include>>\n' 叠加嵌套时点击可选择多个图形\n(选择图形) ..> (框选区域内图形) : <<include>>\n' 按下拖动释放形成虚线矩形，选中内部所有图形\n(选择图形) ..> (取消选择所有图形) : <<include>>\n' 在空白处点击取消原有选择\n\n'\n' 删除图形功能\n'\n用户 --> (删除所选图形)\n(删除所选图形) ..> (选择图形) : <<include>>\n' 必须先选择图形才能删除\n' 删除操作解除图形与当前图层的隶属关系\n\n'\n' 改变图形尺寸功能\n'\n用户 --> (改变图形尺寸)\n(改变图形尺寸) ..> (拖动控制点调整尺寸) : <<include>>\n' 选择控制点并拖动实现尺寸变化\n(改变图形尺寸) ..> (点击放大按钮) : <<extend>>\n' 当用户点击“放大”按钮时，对选中图形进行放大\n(改变图形尺寸) ..> (点击缩小按钮) : <<extend>>\n' 当用户点击“缩小”按钮时，对选中图形进行缩小\n\n'\n' 移动图形功能\n'\n用户 --> (移动图形)\n' 在选中图形内部按下并拖动即可移动\n(移动图形) ..> (选择图形) : <<include>>\n' 移动前必须已选择图形\n' 图形编辑器整体移动时，当前图层图形状态保持不变（系统行为，无需用户交互）\n\n'\n' 图层管理功能\n'\n用户 --> (创建新图层)\n' 点击“新页”按钮创建新图层\n(创建新图层) ..> (检查图层数量是否超过16) : <<include>>\n' 超过16个则禁止创建\n(创建新图层) --> (设置新图层为当前图层)\n(创建新图层) --> (提示新图层编号)\n(创建新图层) --> (重置创建图形为矩形)\n' 新图层操作状态恢复为创建矩形\n\n用户 --> (切换图层)\n' 点击“下一页”按钮切换图层\n(切换图层) --> (选择目标图层作为当前层)\n(切换图层) --> (更新图形提示区域编号)\n(切换图层) --> (重置创建图形为矩形)\n' 切换后操作状态恢复为创建矩形\n' 若当前为最后一页，则切换回第一页\n\n'\n' 扩展性说明（约束条件）\n'\n' (创建图形) ..> (扩展支持其他图形类型) : <<extend>>\n' 图形编辑器可在创建的图形种类上扩展（预留扩展点）\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1122,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 启动时初始化界面状态\n'\n用户 --> (启动图形编辑器)\n(启动图形编辑器) ..> (创建初始图层) : include\n' 启动时必须创建第一个编辑图层\n(启动图形编辑器) ..> (显示第一页提示) : include\n' 启动时图形提示区域应提示“第一页”\n(启动图形编辑器) ..> (设置创建图形为矩形) : include\n' 初始时创建图形选择框显示矩形\n\n'\n' 创建图形功能\n'\n用户 --> (创建图形)\n(创建图形) ..> (选择图形类型) : include\n' 必须先选择直线、椭圆或矩形类型\n(创建图形) ..> (在编辑区域绘制图形) : include\n' 绘制过程是创建图形的必要步骤\n(创建图形) --|> (扩展图形种类) : extend\n' <<扩展点：当支持新图形类型时触发>>\n' 图形编辑器可在创建的图形种类上扩展\n\n'\n' 选择图形功能\n'\n用户 --> (选择图形)\n(选择图形) ..> (单选图形) : include\n' 点击图形内部实现单选\n(选择图形) ..> (多选图形) : include\n' 支持叠加选择或拖拽框选多个图形\n(选择图形) ..> (取消选择) : include\n' 在空白处点击取消所有选择\n\n'\n' 删除图形功能\n'\n用户 --> (删除图形)\n(删除图形) ..> (选择图形) : include\n' 必须先选择图形才能删除\n' 包含关系表示删除前必须完成选择\n\n'\n' 改变图形尺寸功能\n'\n用户 --> (改变图形尺寸)\n(改变图形尺寸) ..> (拖动控制点调整尺寸) : include\n' 通过拖动控制点直接改变尺寸\n(改变图形尺寸) ..> (点击放大按钮) : include\n' 放大所选图形\n(改变图形尺寸) ..> (点击缩小按钮) : include\n' 缩小所选图形\n\n'\n' 移动图形功能\n'\n用户 --> (移动图形)\n' 用户可以直接在选择图形内部拖动来移动图形\n(移动图形) .>> (保持图层状态) : extend\n' 扩展点：当整个编辑器移动时，当前图层和控制点状态保持不变\n\n'\n' 创建图层功能\n'\n用户 --> (创建新图层)\n(创建新图层) ..> (检查图层数量是否超限) : include\n' 检查是否已有16个图层\n(创建新图层) --|> (无法创建新图层) : extend\n' 条件：图层数量超过16个时无法创建\n(创建新图层) ..> (设置新图层为当前图层) : include\n' 新图层被自动设为当前操作图层\n(创建新图层) ..> (提示新图层编号) : include\n' 图形提示区域显示新页编号\n(创建新图层) ..> (设置创建图形为矩形) : include\n' 新图层创建后默认处于矩形创建状态\n\n'\n' 管理图层功能\n'\n用户 --> (切换图层)\n(切换图层) ..> (选择目标图层作为当前层) : include\n' 将选定图层激活为当前编辑图层\n(切换图层) ..> (更新图层编号提示) : include\n' 提示区域同步显示当前图层编号\n(切换图层) ..> (循环切换至首层) : extend\n' 条件：当前为最后一页时，点击下一页回到第一页\n(切换图层) ..> (重置为矩形创建状态) : include\n' 每次图层切换后恢复为矩形创建模式\n\n'\n' 辅助用例（被包含）\n'\nusecase (启动图形编辑器) as UC1\nusecase (创建初始图层) as UC2\nusecase (显示第一页提示) as UC3\nusecase (设置创建图形为矩形) as UC4\n\nusecase (创建图形) as UC5\nusecase (选择图形类型) as UC6\nusecase (在编辑区域绘制图形) as UC7\nusecase (扩展图形种类) as UC8\n\nusecase (选择图形) as UC9\nusecase (单选图形) as UC10\nusecase (多选图形) as UC11\nusecase (取消选择) as UC12\n\nusecase (删除图形) as UC13\n\nusecase (改变图形尺寸) as UC14\nusecase (拖动控制点调整尺寸) as UC15\nusecase (点击放大按钮) as UC16\nusecase (点击缩小按钮) as UC17\n\nusecase (移动图形) as UC18\nusecase (保持图层状态) as UC19\n\nusecase (创建新图层) as UC20\nusecase (检查图层数量是否超限) as UC21\nusecase (无法创建新图层) as UC22\nusecase (设置新图层为当前图层) as UC23\nusecase (提示新图层编号) as UC24\n\nusecase (切换图层) as UC25\nusecase (选择目标图层作为当前层) as UC26\nusecase (更新图层编号提示) as UC27\nusecase (循环切换至首层) as UC28\nusecase (重置为矩形创建状态) as UC29\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 1139,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 软件初始启动功能\n'\nusecase \"启动图形编辑器\" as usecase1\n用户 --> usecase1\n' 初始启动时设置默认创建图形为矩形、创建第一个图层、提示为“第一页”\nusecase1 ..> usecase_create_shape : include\nnote on link: 启动后默认创建图形选择为矩形\nusecase1 ..> usecase_create_layer : include\nnote on link: 启动时自动创建第一个图层\nusecase1 ..> usecase_prompt_page : include\nnote on link: 启动时提示区域显示“第一页”\n\n'\n' 创建图形功能\n'\nusecase \"创建图形\" as usecase_create_shape\n用户 --> usecase_create_shape\n' 创建图形必须从选择框中选直线、椭圆或矩形之一，并在编辑区域绘制\nusecase_create_shape --> usecase_select_shape_type : include\n' 绘制过程中需动态显示虚线轮廓，释放鼠标完成绘制\nusecase_create_shape --> usecase_draw_dynamic_outline : include\n' 图形创建后隶属于当前图层\nusecase_create_shape --> usecase_manage_layer_relation : extend\nnote on link: 扩展点：图形成功创建后加入当前图层\n\n'\n' 选择图形功能\n'\nusecase \"选择图形\" as usecase_select_shape\n用户 --> usecase_select_shape\n' 单击图形内部选择单个图形，控制点高亮\nusecase_select_shape --> usecase_highlight_controls : include\n' 支持多选：叠加部分点击可选多个图形\nusecase_select_shape --> usecase_multi_select : extend\nnote on link: 扩展点：当图形重叠且点击重叠区，选择多个图形\n' 拖拽形成虚线矩形区域选择多个图形\nusecase_select_shape --> usecase_select_by_drag_box : include\n' 点击空白处取消所有选择\nusecase_select_shape --> usecase_deselect_all : include\n\n'\n' 删除图形功能\n'\nusecase \"删除图形\" as usecase_delete_shape\n用户 --> usecase_delete_shape\n' 必须先选择图形才能删除\nusecase_delete_shape <-- usecase_select_shape : extend\nnote on link: 扩展点：仅当有图形被选中时，“删除元素”按钮可用\n' 删除操作解除图形与当前图层的隶属关系\nusecase_delete_shape --> usecase_manage_layer_relation : include\n' 提示删除成功或更新状态\nusecase_delete_shape --> usecase_update_status : include\n\n'\n' 改变图形尺寸功能\n'\nusecase \"改变图形尺寸\" as usecase_resize_shape\n用户 --> usecase_resize_shape\n' 通过拖动控制点调整尺寸\nusecase_resize_shape --> usecase_drag_control_point : include\n' 通过“放大”/“缩小”按钮直接缩放\nusecase_resize_shape --> usecase_scale_via_button : include\n\n'\n' 移动图形功能\n'\nusecase \"移动图形\" as usecase_move_shape\n用户 --> usecase_move_shape\n' 在图形内部按下并拖动实现移动\nusecase_move_shape --> usecase_drag_shape : include\n' 编辑器整体移动时保持图层和选择状态不变\nusecase_move_shape --> usecase_preserve_state : extend\nnote on link: 扩展点：编辑器窗口移动时保持图形位置与选择状态\n\n'\n' 创建图层功能\n'\nusecase \"创建新图层\" as usecase_create_layer\n用户 --> usecase_create_layer\n' 点击“新页”按钮创建新图层\n' 新图层自动成为当前图层\nusecase_create_layer --> usecase_set_current_layer : include\n' 图形提示区域显示新编号\nusecase_create_layer --> usecase_prompt_page : include\n' 设置默认创建图形为矩形\nusecase_create_layer --> usecase_create_shape : include\n' 如果图层数 ≤ 16 才允许创建\nusecase_create_layer --> usecase_check_layer_limit : include\n' 检查图层数是否超过16（约束）\nusecase_check_layer_limit --> usecase_enforce_max_layers : extend\nnote on link: 扩展点：若图层数≥16，则禁止创建新图层\n\n'\n' 管理图层（切换图层）\n'\nusecase \"切换图层\" as usecase_switch_layer\n用户 --> usecase_switch_layer\n' 点击“下一页”按钮切换到下一个图层\n' 若当前为最后一页，则切回第一页\nusecase_switch_layer --> usecase_cycle_layers : include\n' 切换后当前图层更新\nusecase_switch_layer --> usecase_set_current_layer : include\n' 图形提示区域更新编号\nusecase_switch_layer --> usecase_prompt_page : include\n' 切换后恢复创建“矩形”状态\nusecase_switch_layer --> usecase_reset_to_rect_mode : include\n\n'\n' 其他用例与复用\n'\n\nusecase \"选择图形类型\" as usecase_select_shape_type\nusecase \"动态绘制虚线轮廓\" as usecase_draw_dynamic_outline\nusecase \"高亮控制点\" as usecase_highlight_controls\nusecase \"多选图形\" as usecase_multi_select\nusecase \"拖拽选择框选图形\" as usecase_select_by_drag_box\nusecase \"取消所有选择\" as usecase_deselect_all\nusecase \"管理图形-图层隶属关系\" as usecase_manage_layer_relation\nusecase \"更新状态提示\" as usecase_update_status\nusecase \"拖动控制点调整尺寸\" as usecase_drag_control_point\nusecase \"按钮放大/缩小图形\" as usecase_scale_via_button\nusecase \"拖动移动图形\" as usecase_drag_shape\nusecase \"保持状态稳定\" as usecase_preserve_state\nusecase \"检查图层数限制\" as usecase_check_layer_limit\nusecase \"强制限制最大图层数（16）\" as usecase_enforce_max_layers\nusecase \"循环切换图层\" as usecase_cycle_layers\nusecase \"重置为矩形创建模式\" as usecase_reset_to_rect_mode\nusecase \"提示当前页码\" as usecase_prompt_page\nusecase \"设置当前图层\" as usecase_set_current_layer\n\n'\n' 扩展与包含关系补充说明\n'\n\n' 根据约束：图形编辑器可在创建的图形种类上扩展\nusecase_select_shape_type --> usecase_extendable_shape_types : extend\nnote on link: 扩展点：未来可添加多边形、曲线等新图形类型\n\nusecase \"支持扩展图形类型\" as usecase_extendable_shape_types\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 5,
+        "nodes": 82,
+        "edges": 111,
+        "conflicts": 49
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "启动图形编辑器",
+          "b": "创建图层",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "启动图形编辑器",
+          "b": "初始化图形选择状态\"",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图形",
+          "b": "创建图层",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "删除图形",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "调整图形尺寸",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "移动图形",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图层",
+          "b": "初始化图形选择状态\"",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "管理图层",
+          "b": "初始化图形选择状态\"",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图层",
+          "b": "检查图层数量上限\"",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "拖动控制点调整尺寸",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "点击按钮调整尺寸",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "拖动图形移动",
+          "b": "移动图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "点击选择图形",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "框选多个图形",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "点击空白取消选择",
+          "b": "选择图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "绘制直线",
+          "b": "创建图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "绘制椭圆",
+          "b": "创建图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "绘制矩形",
+          "b": "创建图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建图形",
+          "b": "扩展图形类型\"",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "启动图形编辑器",
+          "b": "创建图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "删除图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "使用放大缩小按钮调整尺寸",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "选择图形",
+          "b": "移动图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建新图层",
+          "b": "创建图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "切换当前图层",
+          "b": "创建图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "创建新图层",
+          "b": "重置图形创建状态为矩形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "切换当前图层",
+          "b": "重置图形创建状态为矩形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "扩展支持的图形类型",
+          "b": "创建图形",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(创建图形)",
+          "b": "(选择直线、椭圆或矩形)",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(创建图形)",
+          "b": "(在编辑区域绘制图形)",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(选择图形)",
+          "b": "(单击选择单个图形)",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(选择图形)",
+          "b": "(多选叠加图形)",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(选择图形)",
+          "b": "(框选区域内图形)",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(选择图形)",
+          "b": "(取消选择所有图形)",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(删除所选图形)",
+          "b": "(选择图形)",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(调整图形尺寸)",
+          "b": "拖动控制点调整尺寸",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(调整图形尺寸)",
+          "b": "(点击放大按钮)",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(调整图形尺寸)",
+          "b": "(点击缩小按钮)",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(移动图形)",
+          "b": "(选择图形)",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "(创建新图层)",
+          "b": "(检查图层数量是否超过16)",
+          "details": {
+            "confidence": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建图形",
+          "b": "创建图层",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建图形",
+          "b": "扩展图形类型\"",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "选择图形",
+          "b": "移动图形",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建新图层",
+          "b": "创建图形",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "切换当前图层",
+          "b": "创建图形",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "扩展支持的图形类型",
+          "b": "创建图形",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "(调整图形尺寸)",
+          "b": "(点击放大按钮)",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "(调整图形尺寸)",
+          "b": "(点击缩小按钮)",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "绘制椭圆",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "点击选择图形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "绘制直线",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "绘制矩形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "检查图层数量上限\"",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "拖动图形移动",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "框选多个图形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "点击按钮调整尺寸",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "拖动控制点调整尺寸",
+          "b": "",
+          "details": {
+            "freq": 0.6,
+            "sources": [
+              "it1_qwen_2",
+              "it1_qwen_5",
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "点击空白取消选择",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "初始化图形选择状态\"",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "启动图形编辑器",
+          "b": "",
+          "details": {
+            "freq": 0.6,
+            "sources": [
+              "it1_qwen_2",
+              "it1_qwen_3",
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "扩展图形类型\"",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_2"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "使用放大缩小按钮调整尺寸",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "扩展支持的图形类型",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "重置图形创建状态为矩形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "切换当前图层",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "创建新图层)>(重置创建图形为矩形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "启动图形编辑器)>(提示第一页",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "切换图层)>(选择目标图层作为当前层",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "启动图形编辑器)>(显示默认创建图形为矩形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "启动图形编辑器)>(创建初始图层",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "创建新图层)>(提示新图层编号",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "切换图层)>(重置创建图形为矩形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "创建新图层)>(设置新图层为当前图层",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "切换图层)>(更新图形提示区域编号",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_4"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(显示第一页提示)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(点击放大按钮)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(选择目标图层作为当前层)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(启动图形编辑器)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(更新图层编号提示)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(多选图形)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(设置新图层为当前图层)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(提示新图层编号)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(创建图形)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(无法创建新图层)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(创建新图层)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(点击缩小按钮)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(在编辑区域绘制图形)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(删除图形)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(移动图形)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(检查图层数量是否超限)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(选择图形)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(设置创建图形为矩形)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(扩展图形种类)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(取消选择)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(选择图形类型)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(循环切换至首层)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(创建初始图层)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(单选图形)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(调整图形尺寸)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(切换图层)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(保持图层状态)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "(重置为矩形创建状态)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_5"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "拖动移动图形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "取消所有选择",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "拖拽选择框选图形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "动态绘制虚线轮廓",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "重置为矩形创建模式",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "管理图形图层隶属关系",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "强制限制最大图层数(16)",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "高亮控制点",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "提示当前页码",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "多选图形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "按钮放大缩小图形",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "设置当前图层",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "检查图层数限制",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "更新状态提示",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "支持扩展图形类型",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "选择图形类型",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "循环切换图层",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "保持状态稳定",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "usecase_uncertain",
+          "a": "切换图层",
+          "b": "",
+          "details": {
+            "freq": 0.2,
+            "sources": [
+              "it1_qwen_6"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建图形",
+          "b": "创建图层",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "拖动控制点调整尺寸",
+          "b": "调整图形尺寸",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "点击按钮调整尺寸",
+          "b": "调整图形尺寸",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "拖动图形移动",
+          "b": "移动图形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "点击选择图形",
+          "b": "选择图形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "框选多个图形",
+          "b": "选择图形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "点击空白取消选择",
+          "b": "选择图形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "绘制直线",
+          "b": "创建图形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "绘制椭圆",
+          "b": "创建图形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "绘制矩形",
+          "b": "创建图形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建图形",
+          "b": "扩展图形类型\"",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "使用放大缩小按钮调整尺寸",
+          "b": "调整图形尺寸",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "选择图形",
+          "b": "移动图形",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "创建新图层",
+          "b": "创建图形",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "切换当前图层",
+          "b": "创建图形",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "创建新图层",
+          "b": "重置图形创建状态为矩形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "切换当前图层",
+          "b": "重置图形创建状态为矩形",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "扩展支持的图形类型",
+          "b": "创建图形",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "(创建图形)",
+          "b": "(选择直线、椭圆或矩形)",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "(选择图形)",
+          "b": "(单击选择单个图形)",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "(选择图形)",
+          "b": "(多选叠加图形)",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "(选择图形)",
+          "b": "(框选区域内图形)",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "(选择图形)",
+          "b": "(取消选择所有图形)",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "(删除所选图形)",
+          "b": "(选择图形)",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "(调整图形尺寸)",
+          "b": "拖动控制点调整尺寸",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "(调整图形尺寸)",
+          "b": "(点击放大按钮)",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "(调整图形尺寸)",
+          "b": "(点击缩小按钮)",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "(移动图形)",
+          "b": "(选择图形)",
+          "details": {
+            "kind": "include"
+          }
+        },
+        {
+          "conflict_type": "relation_unknown",
+          "a": "(创建新图层)",
+          "b": "(检查图层数量是否超过16)",
+          "details": {
+            "kind": "include"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "启动图形编辑器",
+            "included": "创建图层"
+          },
+          "prompt": "用例【启动图形编辑器】执行过程中是否【必须】包含用例【创建图层】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "yes_no_include",
+          "target": {
+            "base": "启动图形编辑器",
+            "included": "初始化图形选择状态\""
+          },
+          "prompt": "用例【启动图形编辑器】执行过程中是否【必须】包含用例【初始化图形选择状态\"】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q3",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "创建图层"
+          },
+          "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【创建图层】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q4",
+          "type": "yes_no_include",
+          "target": {
+            "base": "删除图形",
+            "included": "选择图形"
+          },
+          "prompt": "用例【删除图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q5",
+          "type": "yes_no_include",
+          "target": {
+            "base": "调整图形尺寸",
+            "included": "选择图形"
+          },
+          "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q6",
+          "type": "yes_no_include",
+          "target": {
+            "base": "移动图形",
+            "included": "选择图形"
+          },
+          "prompt": "用例【移动图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q7",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图层",
+            "included": "初始化图形选择状态\""
+          },
+          "prompt": "用例【创建图层】执行过程中是否【必须】包含用例【初始化图形选择状态\"】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q8",
+          "type": "yes_no_include",
+          "target": {
+            "base": "管理图层",
+            "included": "初始化图形选择状态\""
+          },
+          "prompt": "用例【管理图层】执行过程中是否【必须】包含用例【初始化图形选择状态\"】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q9",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图层",
+            "included": "检查图层数量上限\""
+          },
+          "prompt": "用例【创建图层】执行过程中是否【必须】包含用例【检查图层数量上限\"】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q10",
+          "type": "yes_no_include",
+          "target": {
+            "base": "拖动控制点调整尺寸",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【拖动控制点调整尺寸】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q11",
+          "type": "yes_no_include",
+          "target": {
+            "base": "点击按钮调整尺寸",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【点击按钮调整尺寸】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q12",
+          "type": "yes_no_include",
+          "target": {
+            "base": "拖动图形移动",
+            "included": "移动图形"
+          },
+          "prompt": "用例【拖动图形移动】执行过程中是否【必须】包含用例【移动图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q13",
+          "type": "yes_no_include",
+          "target": {
+            "base": "点击选择图形",
+            "included": "选择图形"
+          },
+          "prompt": "用例【点击选择图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q14",
+          "type": "yes_no_include",
+          "target": {
+            "base": "框选多个图形",
+            "included": "选择图形"
+          },
+          "prompt": "用例【框选多个图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q15",
+          "type": "yes_no_include",
+          "target": {
+            "base": "点击空白取消选择",
+            "included": "选择图形"
+          },
+          "prompt": "用例【点击空白取消选择】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+          "default": "yes"
+        },
+        {
+          "id": "q16",
+          "type": "yes_no_include",
+          "target": {
+            "base": "绘制直线",
+            "included": "创建图形"
+          },
+          "prompt": "用例【绘制直线】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q17",
+          "type": "yes_no_include",
+          "target": {
+            "base": "绘制椭圆",
+            "included": "创建图形"
+          },
+          "prompt": "用例【绘制椭圆】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q18",
+          "type": "yes_no_include",
+          "target": {
+            "base": "绘制矩形",
+            "included": "创建图形"
+          },
+          "prompt": "用例【绘制矩形】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q19",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建图形",
+            "included": "扩展图形类型\""
+          },
+          "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【扩展图形类型\"】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q20",
+          "type": "yes_no_include",
+          "target": {
+            "base": "启动图形编辑器",
+            "included": "创建图形"
+          },
+          "prompt": "用例【启动图形编辑器】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q21",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "删除图形"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【删除图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q22",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q23",
+          "type": "yes_no_include",
+          "target": {
+            "base": "使用放大缩小按钮调整尺寸",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【使用放大缩小按钮调整尺寸】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q24",
+          "type": "yes_no_include",
+          "target": {
+            "base": "选择图形",
+            "included": "移动图形"
+          },
+          "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【移动图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q25",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建新图层",
+            "included": "创建图形"
+          },
+          "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q26",
+          "type": "yes_no_include",
+          "target": {
+            "base": "切换当前图层",
+            "included": "创建图形"
+          },
+          "prompt": "用例【切换当前图层】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q27",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建新图层",
+            "included": "重置图形创建状态为矩形"
+          },
+          "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【重置图形创建状态为矩形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q28",
+          "type": "yes_no_include",
+          "target": {
+            "base": "切换当前图层",
+            "included": "重置图形创建状态为矩形"
+          },
+          "prompt": "用例【切换当前图层】执行过程中是否【必须】包含用例【重置图形创建状态为矩形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q29",
+          "type": "yes_no_include",
+          "target": {
+            "base": "扩展支持的图形类型",
+            "included": "创建图形"
+          },
+          "prompt": "用例【扩展支持的图形类型】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q30",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(创建图形)",
+            "included": "(选择直线、椭圆或矩形)"
+          },
+          "prompt": "用例【(创建图形)】执行过程中是否【必须】包含用例【(选择直线、椭圆或矩形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q31",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(创建图形)",
+            "included": "(在编辑区域绘制图形)"
+          },
+          "prompt": "用例【(创建图形)】执行过程中是否【必须】包含用例【(在编辑区域绘制图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q32",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(选择图形)",
+            "included": "(单击选择单个图形)"
+          },
+          "prompt": "用例【(选择图形)】执行过程中是否【必须】包含用例【(单击选择单个图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q33",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(选择图形)",
+            "included": "(多选叠加图形)"
+          },
+          "prompt": "用例【(选择图形)】执行过程中是否【必须】包含用例【(多选叠加图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q34",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(选择图形)",
+            "included": "(框选区域内图形)"
+          },
+          "prompt": "用例【(选择图形)】执行过程中是否【必须】包含用例【(框选区域内图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q35",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(选择图形)",
+            "included": "(取消选择所有图形)"
+          },
+          "prompt": "用例【(选择图形)】执行过程中是否【必须】包含用例【(取消选择所有图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q36",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(删除所选图形)",
+            "included": "(选择图形)"
+          },
+          "prompt": "用例【(删除所选图形)】执行过程中是否【必须】包含用例【(选择图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q37",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(调整图形尺寸)",
+            "included": "拖动控制点调整尺寸"
+          },
+          "prompt": "用例【(调整图形尺寸)】执行过程中是否【必须】包含用例【拖动控制点调整尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q38",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(调整图形尺寸)",
+            "included": "(点击放大按钮)"
+          },
+          "prompt": "用例【(调整图形尺寸)】执行过程中是否【必须】包含用例【(点击放大按钮)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q39",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(调整图形尺寸)",
+            "included": "(点击缩小按钮)"
+          },
+          "prompt": "用例【(调整图形尺寸)】执行过程中是否【必须】包含用例【(点击缩小按钮)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q40",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(移动图形)",
+            "included": "(选择图形)"
+          },
+          "prompt": "用例【(移动图形)】执行过程中是否【必须】包含用例【(选择图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q41",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(创建新图层)",
+            "included": "(检查图层数量是否超过16)"
+          },
+          "prompt": "用例【(创建新图层)】执行过程中是否【必须】包含用例【(检查图层数量是否超过16)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q42",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建图形",
+            "base": "创建图层"
+          },
+          "prompt": "如果【创建图形】是对【创建图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q43",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建图形",
+            "base": "扩展图形类型\""
+          },
+          "prompt": "如果【创建图形】是对【扩展图形类型\"】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q44",
+          "type": "extend_condition",
+          "target": {
+            "extension": "选择图形",
+            "base": "移动图形"
+          },
+          "prompt": "如果【选择图形】是对【移动图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q45",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建新图层",
+            "base": "创建图形"
+          },
+          "prompt": "如果【创建新图层】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q46",
+          "type": "extend_condition",
+          "target": {
+            "extension": "切换当前图层",
+            "base": "创建图形"
+          },
+          "prompt": "如果【切换当前图层】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q47",
+          "type": "extend_condition",
+          "target": {
+            "extension": "扩展支持的图形类型",
+            "base": "创建图形"
+          },
+          "prompt": "如果【扩展支持的图形类型】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q48",
+          "type": "extend_condition",
+          "target": {
+            "extension": "(调整图形尺寸)",
+            "base": "(点击放大按钮)"
+          },
+          "prompt": "如果【(调整图形尺寸)】是对【(点击放大按钮)】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q49",
+          "type": "extend_condition",
+          "target": {
+            "extension": "(调整图形尺寸)",
+            "base": "(点击缩小按钮)"
+          },
+          "prompt": "如果【(调整图形尺寸)】是对【(点击缩小按钮)】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q50",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "绘制椭圆"
+          },
+          "prompt": "用例【绘制椭圆】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q51",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "点击选择图形"
+          },
+          "prompt": "用例【点击选择图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q52",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "绘制直线"
+          },
+          "prompt": "用例【绘制直线】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q53",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "绘制矩形"
+          },
+          "prompt": "用例【绘制矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q54",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "检查图层数量上限\""
+          },
+          "prompt": "用例【检查图层数量上限\"】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q55",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "拖动图形移动"
+          },
+          "prompt": "用例【拖动图形移动】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q56",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "框选多个图形"
+          },
+          "prompt": "用例【框选多个图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q57",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "点击按钮调整尺寸"
+          },
+          "prompt": "用例【点击按钮调整尺寸】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q58",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "拖动控制点调整尺寸"
+          },
+          "prompt": "用例【拖动控制点调整尺寸】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q59",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "点击空白取消选择"
+          },
+          "prompt": "用例【点击空白取消选择】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q60",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "初始化图形选择状态\""
+          },
+          "prompt": "用例【初始化图形选择状态\"】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q61",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "启动图形编辑器"
+          },
+          "prompt": "用例【启动图形编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "yes"
+        },
+        {
+          "id": "q62",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "扩展图形类型\""
+          },
+          "prompt": "用例【扩展图形类型\"】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q63",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "使用放大缩小按钮调整尺寸"
+          },
+          "prompt": "用例【使用放大缩小按钮调整尺寸】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q64",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "扩展支持的图形类型"
+          },
+          "prompt": "用例【扩展支持的图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q65",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "重置图形创建状态为矩形"
+          },
+          "prompt": "用例【重置图形创建状态为矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q66",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "切换当前图层"
+          },
+          "prompt": "用例【切换当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q67",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "创建新图层)>(重置创建图形为矩形"
+          },
+          "prompt": "用例【创建新图层)>(重置创建图形为矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q68",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "启动图形编辑器)>(提示第一页"
+          },
+          "prompt": "用例【启动图形编辑器)>(提示第一页】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q69",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "切换图层)>(选择目标图层作为当前层"
+          },
+          "prompt": "用例【切换图层)>(选择目标图层作为当前层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q70",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "启动图形编辑器)>(显示默认创建图形为矩形"
+          },
+          "prompt": "用例【启动图形编辑器)>(显示默认创建图形为矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q71",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "启动图形编辑器)>(创建初始图层"
+          },
+          "prompt": "用例【启动图形编辑器)>(创建初始图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q72",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "创建新图层)>(提示新图层编号"
+          },
+          "prompt": "用例【创建新图层)>(提示新图层编号】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q73",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "切换图层)>(重置创建图形为矩形"
+          },
+          "prompt": "用例【切换图层)>(重置创建图形为矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q74",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "创建新图层)>(设置新图层为当前图层"
+          },
+          "prompt": "用例【创建新图层)>(设置新图层为当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q75",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "切换图层)>(更新图形提示区域编号"
+          },
+          "prompt": "用例【切换图层)>(更新图形提示区域编号】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q76",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(显示第一页提示)"
+          },
+          "prompt": "用例【(显示第一页提示)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q77",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(点击放大按钮)"
+          },
+          "prompt": "用例【(点击放大按钮)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q78",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(选择目标图层作为当前层)"
+          },
+          "prompt": "用例【(选择目标图层作为当前层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q79",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(启动图形编辑器)"
+          },
+          "prompt": "用例【(启动图形编辑器)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q80",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(更新图层编号提示)"
+          },
+          "prompt": "用例【(更新图层编号提示)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q81",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(多选图形)"
+          },
+          "prompt": "用例【(多选图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q82",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(设置新图层为当前图层)"
+          },
+          "prompt": "用例【(设置新图层为当前图层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q83",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(提示新图层编号)"
+          },
+          "prompt": "用例【(提示新图层编号)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q84",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(创建图形)"
+          },
+          "prompt": "用例【(创建图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q85",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(无法创建新图层)"
+          },
+          "prompt": "用例【(无法创建新图层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q86",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(创建新图层)"
+          },
+          "prompt": "用例【(创建新图层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q87",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(点击缩小按钮)"
+          },
+          "prompt": "用例【(点击缩小按钮)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q88",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(在编辑区域绘制图形)"
+          },
+          "prompt": "用例【(在编辑区域绘制图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q89",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(删除图形)"
+          },
+          "prompt": "用例【(删除图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q90",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(移动图形)"
+          },
+          "prompt": "用例【(移动图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q91",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(检查图层数量是否超限)"
+          },
+          "prompt": "用例【(检查图层数量是否超限)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q92",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(选择图形)"
+          },
+          "prompt": "用例【(选择图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q93",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(设置创建图形为矩形)"
+          },
+          "prompt": "用例【(设置创建图形为矩形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q94",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(扩展图形种类)"
+          },
+          "prompt": "用例【(扩展图形种类)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q95",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(取消选择)"
+          },
+          "prompt": "用例【(取消选择)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q96",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(选择图形类型)"
+          },
+          "prompt": "用例【(选择图形类型)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q97",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(循环切换至首层)"
+          },
+          "prompt": "用例【(循环切换至首层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q98",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(创建初始图层)"
+          },
+          "prompt": "用例【(创建初始图层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q99",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(单选图形)"
+          },
+          "prompt": "用例【(单选图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q100",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(调整图形尺寸)"
+          },
+          "prompt": "用例【(调整图形尺寸)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q101",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(切换图层)"
+          },
+          "prompt": "用例【(切换图层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q102",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(保持图层状态)"
+          },
+          "prompt": "用例【(保持图层状态)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q103",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "(重置为矩形创建状态)"
+          },
+          "prompt": "用例【(重置为矩形创建状态)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q104",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "拖动移动图形"
+          },
+          "prompt": "用例【拖动移动图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q105",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "取消所有选择"
+          },
+          "prompt": "用例【取消所有选择】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q106",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "拖拽选择框选图形"
+          },
+          "prompt": "用例【拖拽选择框选图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q107",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "动态绘制虚线轮廓"
+          },
+          "prompt": "用例【动态绘制虚线轮廓】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q108",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "重置为矩形创建模式"
+          },
+          "prompt": "用例【重置为矩形创建模式】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q109",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "管理图形图层隶属关系"
+          },
+          "prompt": "用例【管理图形图层隶属关系】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q110",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "强制限制最大图层数(16)"
+          },
+          "prompt": "用例【强制限制最大图层数(16)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q111",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "高亮控制点"
+          },
+          "prompt": "用例【高亮控制点】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q112",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "提示当前页码"
+          },
+          "prompt": "用例【提示当前页码】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q113",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "多选图形"
+          },
+          "prompt": "用例【多选图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q114",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "按钮放大缩小图形"
+          },
+          "prompt": "用例【按钮放大缩小图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q115",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "设置当前图层"
+          },
+          "prompt": "用例【设置当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q116",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "检查图层数限制"
+          },
+          "prompt": "用例【检查图层数限制】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q117",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "更新状态提示"
+          },
+          "prompt": "用例【更新状态提示】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q118",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "支持扩展图形类型"
+          },
+          "prompt": "用例【支持扩展图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q119",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "选择图形类型"
+          },
+          "prompt": "用例【选择图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q120",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "循环切换图层"
+          },
+          "prompt": "用例【循环切换图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q121",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "保持状态稳定"
+          },
+          "prompt": "用例【保持状态稳定】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q122",
+          "type": "usecase_yes_no",
+          "target": {
+            "usecase": "切换图层"
+          },
+          "prompt": "用例【切换图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+          "default": "no"
+        },
+        {
+          "id": "q123",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建图形",
+            "base": "创建图层"
+          },
+          "prompt": "如果【创建图形】是对【创建图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q124",
+          "type": "yes_no_include",
+          "target": {
+            "base": "拖动控制点调整尺寸",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "是否确认：用例【拖动控制点调整尺寸】执行时必须包含【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q125",
+          "type": "yes_no_include",
+          "target": {
+            "base": "点击按钮调整尺寸",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "是否确认：用例【点击按钮调整尺寸】执行时必须包含【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q126",
+          "type": "yes_no_include",
+          "target": {
+            "base": "拖动图形移动",
+            "included": "移动图形"
+          },
+          "prompt": "是否确认：用例【拖动图形移动】执行时必须包含【移动图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q127",
+          "type": "yes_no_include",
+          "target": {
+            "base": "点击选择图形",
+            "included": "选择图形"
+          },
+          "prompt": "是否确认：用例【点击选择图形】执行时必须包含【选择图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q128",
+          "type": "yes_no_include",
+          "target": {
+            "base": "框选多个图形",
+            "included": "选择图形"
+          },
+          "prompt": "是否确认：用例【框选多个图形】执行时必须包含【选择图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q129",
+          "type": "yes_no_include",
+          "target": {
+            "base": "点击空白取消选择",
+            "included": "选择图形"
+          },
+          "prompt": "是否确认：用例【点击空白取消选择】执行时必须包含【选择图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q130",
+          "type": "yes_no_include",
+          "target": {
+            "base": "绘制直线",
+            "included": "创建图形"
+          },
+          "prompt": "是否确认：用例【绘制直线】执行时必须包含【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q131",
+          "type": "yes_no_include",
+          "target": {
+            "base": "绘制椭圆",
+            "included": "创建图形"
+          },
+          "prompt": "是否确认：用例【绘制椭圆】执行时必须包含【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q132",
+          "type": "yes_no_include",
+          "target": {
+            "base": "绘制矩形",
+            "included": "创建图形"
+          },
+          "prompt": "是否确认：用例【绘制矩形】执行时必须包含【创建图形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q133",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建图形",
+            "base": "扩展图形类型\""
+          },
+          "prompt": "如果【创建图形】是对【扩展图形类型\"】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q134",
+          "type": "yes_no_include",
+          "target": {
+            "base": "使用放大缩小按钮调整尺寸",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "是否确认：用例【使用放大缩小按钮调整尺寸】执行时必须包含【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q135",
+          "type": "extend_condition",
+          "target": {
+            "extension": "选择图形",
+            "base": "移动图形"
+          },
+          "prompt": "如果【选择图形】是对【移动图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q136",
+          "type": "extend_condition",
+          "target": {
+            "extension": "创建新图层",
+            "base": "创建图形"
+          },
+          "prompt": "如果【创建新图层】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q137",
+          "type": "extend_condition",
+          "target": {
+            "extension": "切换当前图层",
+            "base": "创建图形"
+          },
+          "prompt": "如果【切换当前图层】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q138",
+          "type": "yes_no_include",
+          "target": {
+            "base": "创建新图层",
+            "included": "重置图形创建状态为矩形"
+          },
+          "prompt": "是否确认：用例【创建新图层】执行时必须包含【重置图形创建状态为矩形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q139",
+          "type": "yes_no_include",
+          "target": {
+            "base": "切换当前图层",
+            "included": "重置图形创建状态为矩形"
+          },
+          "prompt": "是否确认：用例【切换当前图层】执行时必须包含【重置图形创建状态为矩形】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q140",
+          "type": "extend_condition",
+          "target": {
+            "extension": "扩展支持的图形类型",
+            "base": "创建图形"
+          },
+          "prompt": "如果【扩展支持的图形类型】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q141",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(创建图形)",
+            "included": "(选择直线、椭圆或矩形)"
+          },
+          "prompt": "是否确认：用例【(创建图形)】执行时必须包含【(选择直线、椭圆或矩形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q142",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(选择图形)",
+            "included": "(单击选择单个图形)"
+          },
+          "prompt": "是否确认：用例【(选择图形)】执行时必须包含【(单击选择单个图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q143",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(选择图形)",
+            "included": "(多选叠加图形)"
+          },
+          "prompt": "是否确认：用例【(选择图形)】执行时必须包含【(多选叠加图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q144",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(选择图形)",
+            "included": "(框选区域内图形)"
+          },
+          "prompt": "是否确认：用例【(选择图形)】执行时必须包含【(框选区域内图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q145",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(选择图形)",
+            "included": "(取消选择所有图形)"
+          },
+          "prompt": "是否确认：用例【(选择图形)】执行时必须包含【(取消选择所有图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q146",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(删除所选图形)",
+            "included": "(选择图形)"
+          },
+          "prompt": "是否确认：用例【(删除所选图形)】执行时必须包含【(选择图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q147",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(调整图形尺寸)",
+            "included": "拖动控制点调整尺寸"
+          },
+          "prompt": "是否确认：用例【(调整图形尺寸)】执行时必须包含【拖动控制点调整尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q148",
+          "type": "extend_condition",
+          "target": {
+            "extension": "(调整图形尺寸)",
+            "base": "(点击放大按钮)"
+          },
+          "prompt": "如果【(调整图形尺寸)】是对【(点击放大按钮)】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q149",
+          "type": "extend_condition",
+          "target": {
+            "extension": "(调整图形尺寸)",
+            "base": "(点击缩小按钮)"
+          },
+          "prompt": "如果【(调整图形尺寸)】是对【(点击缩小按钮)】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q150",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(移动图形)",
+            "included": "(选择图形)"
+          },
+          "prompt": "是否确认：用例【(移动图形)】执行时必须包含【(选择图形)】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q151",
+          "type": "yes_no_include",
+          "target": {
+            "base": "(创建新图层)",
+            "included": "(检查图层数量是否超过16)"
+          },
+          "prompt": "是否确认：用例【(创建新图层)】执行时必须包含【(检查图层数量是否超过16)】？（是=include，否=不建立 include）",
+          "default": "no"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "no",
+        "q3": "no",
+        "q4": "yes",
+        "q5": "yes",
+        "q6": "yes",
+        "q7": "no",
+        "q8": "no",
+        "q9": "no",
+        "q10": "no",
+        "q11": "no",
+        "q12": "no",
+        "q13": "yes",
+        "q14": "yes",
+        "q15": "yes",
+        "q16": "no",
+        "q17": "no",
+        "q18": "no",
+        "q19": "no",
+        "q20": "no",
+        "q21": "no",
+        "q22": "no",
+        "q23": "no",
+        "q24": "no",
+        "q25": "no",
+        "q26": "no",
+        "q27": "no",
+        "q28": "no",
+        "q29": "no",
+        "q30": "no",
+        "q31": "no",
+        "q32": "no",
+        "q33": "no",
+        "q34": "no",
+        "q35": "no",
+        "q36": "no",
+        "q37": "no",
+        "q38": "no",
+        "q39": "no",
+        "q40": "no",
+        "q41": "no",
+        "q42": "NONE",
+        "q43": "NONE",
+        "q44": "NONE",
+        "q45": "NONE",
+        "q46": "NONE",
+        "q47": "NONE",
+        "q48": "NONE",
+        "q49": "NONE",
+        "q50": "no",
+        "q51": "no",
+        "q52": "no",
+        "q53": "no",
+        "q54": "no",
+        "q55": "no",
+        "q56": "no",
+        "q57": "no",
+        "q58": "yes",
+        "q59": "no",
+        "q60": "no",
+        "q61": "yes",
+        "q62": "no",
+        "q63": "no",
+        "q64": "no",
+        "q65": "no",
+        "q66": "no",
+        "q67": "no",
+        "q68": "no",
+        "q69": "no",
+        "q70": "no",
+        "q71": "no",
+        "q72": "no",
+        "q73": "no",
+        "q74": "no",
+        "q75": "no",
+        "q76": "no",
+        "q77": "no",
+        "q78": "no",
+        "q79": "no",
+        "q80": "no",
+        "q81": "no",
+        "q82": "no",
+        "q83": "no",
+        "q84": "no",
+        "q85": "no",
+        "q86": "no",
+        "q87": "no",
+        "q88": "no",
+        "q89": "no",
+        "q90": "no",
+        "q91": "no",
+        "q92": "no",
+        "q93": "no",
+        "q94": "no",
+        "q95": "no",
+        "q96": "no",
+        "q97": "no",
+        "q98": "no",
+        "q99": "no",
+        "q100": "no",
+        "q101": "no",
+        "q102": "no",
+        "q103": "no",
+        "q104": "no",
+        "q105": "no",
+        "q106": "no",
+        "q107": "no",
+        "q108": "no",
+        "q109": "no",
+        "q110": "no",
+        "q111": "no",
+        "q112": "no",
+        "q113": "no",
+        "q114": "no",
+        "q115": "no",
+        "q116": "no",
+        "q117": "no",
+        "q118": "no",
+        "q119": "no",
+        "q120": "no",
+        "q121": "no",
+        "q122": "no",
+        "q123": "NONE",
+        "q124": "no",
+        "q125": "no",
+        "q126": "no",
+        "q127": "no",
+        "q128": "no",
+        "q129": "no",
+        "q130": "no",
+        "q131": "no",
+        "q132": "no",
+        "q133": "NONE",
+        "q134": "no",
+        "q135": "NONE",
+        "q136": "NONE",
+        "q137": "NONE",
+        "q138": "no",
+        "q139": "no",
+        "q140": "NONE",
+        "q141": "no",
+        "q142": "no",
+        "q143": "no",
+        "q144": "no",
+        "q145": "no",
+        "q146": "no",
+        "q147": "no",
+        "q148": "NONE",
+        "q149": "NONE",
+        "q150": "no",
+        "q151": "no"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "(切换图层)|assoc|(循环切换至首层)",
+          "(切换图层)|assoc|(更新图层编号提示)",
+          "(切换图层)|assoc|(选择目标图层作为当前层)",
+          "(切换图层)|assoc|(重置为矩形创建状态)",
+          "(创建图形)|assoc|(在编辑区域绘制图形)",
+          "(创建图形)|assoc|(选择图形类型)",
+          "(创建图形)|generalize|(扩展图形种类)",
+          "(创建图形)|include|(在编辑区域绘制图形)",
+          "(创建新图层)|assoc|(提示新图层编号)",
+          "(创建新图层)|assoc|(检查图层数量是否超限)",
+          "(创建新图层)|assoc|(设置创建图形为矩形)",
+          "(创建新图层)|assoc|(设置新图层为当前图层)",
+          "(创建新图层)|generalize|(无法创建新图层)",
+          "(删除图形)|assoc|(选择图形)",
+          "(启动图形编辑器)|assoc|(创建初始图层)",
+          "(启动图形编辑器)|assoc|(显示第一页提示)",
+          "(启动图形编辑器)|assoc|(设置创建图形为矩形)",
+          "(移动图形)|assoc|(保持图层状态)",
+          "(调整图形尺寸)|assoc|(点击放大按钮)",
+          "(调整图形尺寸)|assoc|(点击缩小按钮)",
+          "(调整图形尺寸)|assoc|拖动控制点调整尺寸",
+          "(选择图形)|assoc|(单选图形)",
+          "(选择图形)|assoc|(取消选择)",
+          "(选择图形)|assoc|(多选图形)",
+          "usecasechecklayerlimit|assoc|usecaseenforcemaxlayers",
+          "切换图层|assoc|usecasecyclelayers",
+          "切换图层|assoc|usecasepromptpage",
+          "切换图层|assoc|usecaseresettorectmode",
+          "切换图层|assoc|usecasesetcurrentlayer",
+          "创建图层|extend|检查图层数量上限\"",
+          "创建图层|include|初始化图形选择状态\"",
+          "创建图形|assoc|usecasedrawdynamicoutline",
+          "创建图形|assoc|usecasemanagelayerrelation",
+          "创建图形|assoc|usecaseselectshapetype",
+          "创建新图层|assoc|usecasechecklayerlimit",
+          "创建新图层|assoc|usecasepromptpage",
+          "创建新图层|assoc|usecasesetcurrentlayer",
+          "创建新图层|assoc|创建图形",
+          "删除图形|assoc|usecasemanagelayerrelation",
+          "删除图形|assoc|usecaseupdatestatus",
+          "删除图形|assoc|选择图形",
+          "删除图形|include|选择图形",
+          "启动图形编辑器|assoc|usecasecreatelayer",
+          "启动图形编辑器|assoc|usecasecreateshape",
+          "启动图形编辑器|assoc|usecasepromptpage",
+          "启动图形编辑器|include|创建图层",
+          "启动图形编辑器|include|创建图形",
+          "启动图形编辑器|include|初始化图形选择状态\"",
+          "用户|assoc|(切换图层)",
+          "用户|assoc|(创建图形)",
+          "用户|assoc|(创建新图层)",
+          "用户|assoc|(删除图形)",
+          "用户|assoc|(删除所选图形)",
+          "用户|assoc|(启动图形编辑器)",
+          "用户|assoc|(移动图形)",
+          "用户|assoc|(调整图形尺寸)",
+          "用户|assoc|(选择图形)",
+          "用户|assoc|切换图层",
+          "用户|assoc|切换当前图层",
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|创建新图层",
+          "用户|assoc|删除图形",
+          "用户|assoc|启动图形编辑器",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "移动图形|assoc|usecasedragshape",
+          "移动图形|assoc|usecasepreservestate",
+          "移动图形|include|选择图形",
+          "管理图层|include|初始化图形选择状态\"",
+          "调整图形尺寸|assoc|usecasedragcontrolpoint",
+          "调整图形尺寸|assoc|usecasescaleviabutton",
+          "调整图形尺寸|include|选择图形",
+          "选择图形|assoc|usecasedeselectall",
+          "选择图形|assoc|usecasehighlightcontrols",
+          "选择图形|assoc|usecasemultiselect",
+          "选择图形|assoc|usecaseselectbydragbox",
+          "选择图形|include|删除图形",
+          "选择图形|include|调整图形尺寸",
+          "选择图形类型|assoc|usecaseextendableshapetypes"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 2,
+      "candidates": [
+        {
+          "candidate_id": "it2_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2054,
+          "plantuml": "@startuml\nactor 用户\n\n'\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"创建图形\" as 创建图形\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\nusecase \"创建图层\" as 创建图层\nusecase \"管理图层\" as 管理图层\nusecase \"拖动控制点调整尺寸\" as 拖动控制点调整尺寸\n\n'\n用户 --> 启动图形编辑器\n用户 --> 创建图形\n用户 --> 选择图形\n用户 --> 删除图形\n用户 --> 调整图形尺寸\n用户 --> 移动图形\n用户 --> 创建图层\n用户 --> 管理图层\n\n'\n' 删除图形前必须先选择图形 '\n(删除图形) .> (选择图形) : include\n\n'\n' 调整尺寸前必须先选择图形 '\n(调整图形尺寸) .> (选择图形) : include\n\n'\n' 移动图形前必须先选择图形 '\n(移动图形) .> (选择图形) : include\n\n'\n' 拖动控制点是调整尺寸的一种方式，但根据约束不能 include '\n' 因此不添加拖动控制点调整尺寸 -> 调整图形尺寸 的 include '\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 5): usecase \"启动图形编辑器\" as 启动图形编辑器"
+        },
+        {
+          "candidate_id": "it2_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2071,
+          "plantuml": "@startuml\n\nactor 用户 as User\n\n'\n' 核心用例定义（依据约束 keep_usecases 和 forbid_usecases 过滤后保留）\n'\n\nusecase \"启动图形编辑器\" as startEditor\nusecase \"创建图形\" as createShape\nusecase \"选择图形\" as selectShape\nusecase \"删除图形\" as deleteShape\nusecase \"调整图形尺寸\" as resizeShape\nusecase \"移动图形\" as moveShape\nusecase \"创建图层\" as createLayer\nusecase \"管理图层\" as manageLayer\nusecase \"拖动控制点调整尺寸\" as dragResize\nusecase \"支持扩展图形类型\" as extendShapeType\n\n'\n' include 关系：强制性依赖（根据 must_include 约束）\n'\n\n' 删除图形 必须包含 选择图形\nUser --> selectShape : includes >\ndeleteShape .> selectShape : <<include>>\n\n' 调整图形尺寸 必须包含 选择图形\nUser --> selectShape : includes >\nresizeShape .> selectShape : <<include>>\n\n' 移动图形 必须包含 选择图形\nUser --> selectShape : includes >\nmoveShape .> selectShape : <<include>>\n\n' 拖动控制点调整尺寸 是 调整图形尺寸 的一种方式（被禁止反向包含，但正向允许）\n' 根据约束：不能有 (dragResize -> resizeShape) 的 include，因为 forbid_include 包含此条\n' 因此不添加 dragResize -> resizeShape 的 include\n\n' 创建图形 功能由用户触发\nUser --> createShape\n\n' 选择图形 包括点击选择、框选、取消等子行为（但这些子用例被 forbid_usecases 禁止，故不建模）\n\n' 创建图层 和 管理图层 由用户操作\nUser --> createLayer\nUser --> manageLayer\n\n' 启动图形编辑器 是独立起点\nUser --> startEditor\n\n'\n' extend 关系：条件性扩展（当前无必须的 extend，且 forbid_extend 限制了多个可能扩展）\n'\n' 根据约束，extend 列表为空，且多个潜在 extend 被明确禁止，因此不添加任何 extend\n\n'\n' 其他约束处理说明：\n' - 所有被 forbid_usecases 列出的用例均不出现\n' - 所有被 forbid_include 禁止的 include 均不建立\n' - 尽管存在不确定性边（confidence=0.2），但因不在 must_include 中且在 forbid_include 中，故排除\n' - “支持扩展图形类型” 存在，但不能被“创建图形”包含（forbid_include），也不能反过来 extend\n'\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2088,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' Use Cases\n'\nusecase \"启动图形编辑器\" as usecase_启动图形编辑器\nusecase \"创建图形\" as usecase_创建图形\nusecase \"选择图形\" as usecase_选择图形\nusecase \"删除图形\" as usecase_删除图形\nusecase \"调整图形尺寸\" as usecase_调整图形尺寸\nusecase \"移动图形\" as usecase_移动图形\nusecase \"创建图层\" as usecase_创建图层\nusecase \"管理图层\" as usecase_管理图层\nusecase \"拖动控制点调整尺寸\" as usecase_拖动控制点调整尺寸\n\n'\n' Include relationships (mandatory dependencies)\n'\n\n' 删除图形必须先选择图形\nusecase_删除图形 .> usecase_选择图形 : <<include>>\n\n' 调整图形尺寸必须先选择图形\nusecase_调整图形尺寸 .> usecase_选择图形 : <<include>>\n\n' 移动图形必须先选择图形\nusecase_移动图形 .> usecase_选择图形 : <<include>>\n\n'\n' Actor associations\n'\nUser --> usecase_启动图形编辑器\nUser --> usecase_创建图形\nUser --> usecase_选择图形\nUser --> usecase_删除图形\nUser --> usecase_调整图形尺寸\nUser --> usecase_移动图形\nUser --> usecase_创建图层\nUser --> usecase_管理图层\n\n'\n' Extend relationships (conditional extensions with condition comments)\n'\n\n' 拖动控制点调整尺寸是对调整图形尺寸的一种方式（但根据 forbid_include，不能 include）\n' 因此作为 extend，并注明触发条件\n' 当用户选择图形后，在控制点上拖动时触发尺寸调整的特定方式\nusecase_拖动控制点调整尺寸 ..> usecase_调整图形尺寸 : <<extend>>\n' 触发条件：用户已选择图形，并在控制点上按下并拖动鼠标\n\n'\n' Additional constraints from JSON:\n' - \"拖动控制点调整尺寸\" 不能 include \"调整图形尺寸\" → 使用 extend 替代\n' - \"创建图形\" 不能 include \"扩展图形类型\" → 忽略该子用例\n' - 多个被禁止的 include 已通过不建模来遵守\n' - 所有 forbid_usecases 被排除\n'\n\n@enduml\n"
+        },
+        {
+          "candidate_id": "it2_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2105,
+          "plantuml": "@startuml\nactor 用户 as User\n\nusecase \"启动图形编辑器\" as usecase1\nusecase \"创建图形\" as usecase2\nusecase \"选择图形\" as usecase3\nusecase \"删除图形\" as usecase4\nusecase \"调整图形尺寸\" as usecase5\nusecase \"移动图形\" as usecase6\nusecase \"创建图层\" as usecase7\nusecase \"管理图层\" as usecase8\nusecase \"拖动控制点调整尺寸\" as usecase9\n\nUser --> usecase1\nUser --> usecase2\nUser --> usecase3\nUser --> usecase4\nUser --> usecase5\nUser --> usecase6\nUser --> usecase7\nUser --> usecase8\nUser --> usecase9\n\n' 删除图形必须先选择图形\nusecase4 ..> usecase3 : include\n' 调整图形尺寸必须先选择图形\nusecase5 ..> usecase3 : include\n' 移动图形必须先选择图形\nusecase6 ..> usecase3 : include\n' 拖动控制点调整尺寸是调整图形尺寸的一种方式\nusecase9 ..> usecase5 : include\n\nnote right of usecase1\n软件启动时初始化界面状态：\n- 创建图形选择框默认为矩形\n- 编辑区域生成第一个图层\n- 图形提示区域显示“第一页”\nend note\n\nnote right of usecase7\n点击“新页”按钮创建新图层，最多16个。\n超过则无法创建。\nend note\n\nnote right of usecase8\n点击“下一页”切换图层，循环切换。\n切换后当前图层编号更新，图形创建状态重置为矩形。\nend note\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 33): note right of usecase1"
+        },
+        {
+          "candidate_id": "it2_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2122,
+          "plantuml": "@startuml\nactor 用户 as User\n\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"创建图形\" as 创建图形\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\nusecase \"创建图层\" as 创建图层\nusecase \"管理图层\" as 管理图层\nusecase \"拖动控制点调整尺寸\" as 拖动控制点调整尺寸\n\n' 用户必须先选择图形才能执行删除操作\n删除图形 .> 选择图形 : <<include>>\n\n' 调整尺寸前必须先选择图形\n调整图形尺寸 .> 选择图形 : <<include>>\n\n' 移动图形前必须先选择图形\n移动图形 .> 选择图形 : <<include>>\n\n' 拖动控制点是调整图形尺寸的一种方式\n' 拖动控制点调整尺寸被包含在调整图形尺寸中\n调整图形尺寸 .> 拖动控制点调整尺寸 : <<include>>\n\nUser --> 启动图形编辑器\nUser --> 创建图形\nUser --> 选择图形\nUser --> 删除图形\nUser --> 调整图形尺寸\nUser --> 移动图形\nUser --> 创建图层\nUser --> 管理图层\n\n' 创建图形依赖于用户从选择框中选取类型并在编辑区绘制\n' 根据约束，不能将“绘制直线/椭圆/矩形”作为 include，也不能拆分创建图形\n\n' 创建图层最多支持16个，但检查上限不作为独立用例（被禁）\n' 根据约束，不能 include “检查图层数量上限\"\"\n\n' 图层切换和创建后状态重置为矩形，但“重置为矩形”被禁止作为独立用例\n\n' 扩展图形类型被禁止与创建图形产生 include 或 extend 关系\n' 支持扩展图形种类是系统约束，不作为用例暴露\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 4): usecase \"启动图形编辑器\" as 启动图形编辑器"
+        },
+        {
+          "candidate_id": "it2_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 2139,
+          "plantuml": "@startuml\nactor 用户 as User\n\n'\n' Top-level use cases\n'\nusecase \"启动图形编辑器\" as StartEditor\nusecase \"创建图形\" as CreateShape\nusecase \"选择图形\" as SelectShape\nusecase \"删除图形\" as DeleteShape\nusecase \"调整图形尺寸\" as ResizeShape\nusecase \"移动图形\" as MoveShape\nusecase \"创建图层\" as CreateLayer\nusecase \"管理图层\" as ManageLayers\nusecase \"拖动控制点调整尺寸\" as DragResize\n\n'\n' Associations between actors and use cases\n'\nUser --> StartEditor\nUser --> CreateShape\nUser --> SelectShape\nUser --> DeleteShape\nUser --> ResizeShape\nUser --> MoveShape\nUser --> CreateLayer\nUser --> ManageLayers\n\n'\n' Include relationships with causal comments\n'\n' 删除图形前必须先选择图形\nDeleteShape .> SelectShape : include\n' 调整尺寸前必须先选择图形\nResizeShape .> SelectShape : include\n' 移动图形前必须先选择图形\nMoveShape .> SelectShape : include\n' 拖动控制点是调整尺寸的一种方式\nResizeShape .> DragResize : include\n\n@enduml\n"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 3,
+        "nodes": 11,
+        "edges": 16,
+        "conflicts": 2
+      },
+      "conflicts": [
+        {
+          "conflict_type": "edge_presence_uncertain",
+          "a": "拖动控制点调整尺寸",
+          "b": "调整图形尺寸",
+          "details": {
+            "confidence": 0.3333333333333333,
+            "sources": [
+              "it2_qwen_3"
+            ]
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "拖动控制点调整尺寸",
+          "b": "调整图形尺寸",
+          "details": {
+            "msg": "extend 缺少触发条件/扩展点"
+          }
+        },
+        {
+          "conflict_type": "extend_missing_condition",
+          "a": "拖动控制点调整尺寸",
+          "b": "调整图形尺寸",
+          "details": {
+            "msg": "extend 缺少条件/扩展点"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "yes_no_include",
+          "target": {
+            "base": "拖动控制点调整尺寸",
+            "included": "调整图形尺寸"
+          },
+          "prompt": "用例【拖动控制点调整尺寸】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+          "default": "no"
+        },
+        {
+          "id": "q2",
+          "type": "extend_condition",
+          "target": {
+            "extension": "拖动控制点调整尺寸",
+            "base": "调整图形尺寸"
+          },
+          "prompt": "如果【拖动控制点调整尺寸】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        },
+        {
+          "id": "q3",
+          "type": "extend_condition",
+          "target": {
+            "extension": "拖动控制点调整尺寸",
+            "base": "调整图形尺寸"
+          },
+          "prompt": "如果【拖动控制点调整尺寸】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+          "default": "NONE"
+        }
+      ],
+      "answers": {
+        "q1": "no",
+        "q2": "NONE",
+        "q3": "NONE"
+      },
+      "rule_report": {
+        "kept_edges": [
+          "删除图形|assoc|选择图形",
+          "删除图形|include|选择图形",
+          "用户|assoc|创建图层",
+          "用户|assoc|创建图形",
+          "用户|assoc|删除图形",
+          "用户|assoc|启动图形编辑器",
+          "用户|assoc|移动图形",
+          "用户|assoc|管理图层",
+          "用户|assoc|调整图形尺寸",
+          "用户|assoc|选择图形",
+          "移动图形|assoc|选择图形",
+          "移动图形|include|选择图形",
+          "调整图形尺寸|assoc|拖动控制点调整尺寸",
+          "调整图形尺寸|assoc|选择图形",
+          "调整图形尺寸|include|选择图形"
+        ],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": false
+    },
+    {
+      "iter_index": 3,
+      "candidates": [
+        {
+          "candidate_id": "it3_qwen_1",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3054,
+          "plantuml": "@startuml\n\nactor 用户\n\n'\n' 主要用例\n'\nusecase \"启动图形编辑器\" as usecase_启动\nusecase \"创建图形\" as usecase_创建图形\nusecase \"选择图形\" as usecase_选择图形\nusecase \"删除图形\" as usecase_删除图形\nusecase \"调整图形尺寸\" as usecase_调整尺寸\nusecase \"移动图形\" as usecase_移动图形\nusecase \"创建图层\" as usecase_创建图层\nusecase \"管理图层\" as usecase_管理图层\nusecase \"拖动控制点调整尺寸\" as usecase_拖动控制点\n\n'\n' 包含关系 (include)\n'\n用户 --> usecase_启动\n用户 --> usecase_创建图形\n用户 --> usecase_选择图形\n用户 --> usecase_删除图形\n用户 --> usecase_调整尺寸\n用户 --> usecase_移动图形\n用户 --> usecase_创建图层\n用户 --> usecase_管理图层\n\n'\n' 必须包含：删除前必须先选择图形\n'\nusecase_删除图形 .> usecase_选择图形 : <<include>>\n' 删除图形依赖于先选择图形\n\n'\n' 调整尺寸前必须选择图形\n'\nusecase_调整尺寸 .> usecase_选择图形 : <<include>>\n' 调整图形尺寸必须先选择图形\n\n'\n' 移动图形前必须选择图形\n'\nusecase_移动图形 .> usecase_选择图形 : <<include>>\n' 移动图形必须先选择图形\n\n'\n' 拖动控制点调整尺寸是调整图形尺寸的一种方式，但根据约束不能 include\n' 约束明确禁止：拖动控制点调整尺寸 -> include -> 调整图形尺寸\n' 同时 extend 缺少条件，也不能直接建立 extend\n' 因此此处不建立任何关系，仅保留用例存在（keep_usecases 要求保留）\n\n'\n' 创建图层与图层数量上限：约束禁止 include 检查上限\n' 所以不建模“检查是否超过16层”为子用例，逻辑内化\n\n'\n' 管理图层和创建图层都应重置创建状态为矩形，但约束禁止 include 该行为\n' 故不添加相关 include\n\n'\n' 创建图形 和 图形类型扩展：约束禁止 include 或 extend\n' 并且“支持扩展图形类型”被 forbid_usecases 明确禁止\n' 尽管需求说可扩展，但用例中不得出现\n' 遵循约束 > 需求\n\n'\n' 最终用例图输出\n'\n\nnote right of usecase_启动\n软件启动时：\n- 创建图形选择框默认显示矩形\n- 编辑区域创建第一个图层\n- 提示区域显示“第一页”\nend note\n\nnote right of usecase_创建图形\n用户从工具栏选择直线、椭圆或矩形，\n在编辑区拖动鼠标从起点到终点，\n动态绘制虚线轮廓，释放后生成实际图形，\n并隶属于当前图层。\nend note\n\nnote right of usecase_选择图形\n支持：\n- 单击图形内部选择单个\n- 叠加部分点击可多选\n- 框选区域内所有图形\n- 点击空白取消所有选择\n选择后外嵌矩形四角高亮控制点。\nend note\n\nnote right of usecase_删除图形\n点击“删除元素”按钮，\n解除所选图形与当前图层的隶属关系，\n实现删除。\nend note\n\nnote right of usecase_调整尺寸\n可通过：\n- 拖动控制点改变尺寸\n- 点击“放大”/“缩小”按钮直接调整\n两种方式均需先选择图形。\nend note\n\nnote right of usecase_移动图形\n在已选图形内部按下并拖动，\n即可移动图形至新位置。\n整个编辑器移动时，\n图形及其控制点状态保持不变。\nend note\n\nnote right of usecase_创建图层\n点击“新页”按钮创建新图层，\n设为当前图层，可进行各种操作；\n若图层数 ≥16，则不能再创建。\n提示区域显示新编号，\n图形选择框恢复为“矩形”。\nend note\n\nnote right of usecase_管理图层\n点击“下一页”切换图层，\n将目标图层设为当前层，\n提示区域更新编号；\n若已是最后层则循环回第一层；\n切换后创建图形状态重置为矩形。\nend note\n\nnote right of usecase_拖动控制点\n选择一个图形的控制点，\n按下鼠标拖动以改变其尺寸。\n该用例被要求保留。\nend note\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 72): note right of usecase_启动"
+        },
+        {
+          "candidate_id": "it3_qwen_2",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3071,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 启动与初始化\n'\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"创建图层\" as 创建图层\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\nusecase \"创建图形\" as 创建图形\nusecase \"管理图层\" as 管理图层\nusecase \"拖动控制点调整尺寸\" as 拖动控制点调整尺寸\n\n'\n' 显式包含关系（强制依赖）\n'\n' 删除图形前必须先选择图形\n用户 -> 删除图形\n用户 -> 调整图形尺寸\n用户 -> 移动图形\n用户 -> 创建图形\n用户 -> 管理图层\n用户 -> 创建图层\n用户 -> 选择图形\n用户 -> 启动图形编辑器\n用户 -> 拖动控制点调整尺寸\n\n' 删除图形必须先选择图形\n' 因果：只有选定图形后才能执行删除\n删除图形 ..> 选择图形 : <<include>>\n\n' 调整图形尺寸必须先选择图形\n' 因果：未选中图形无法进行尺寸操作\n调整图形尺寸 ..> 选择图形 : <<include>>\n\n' 移动图形必须先选择图形\n' 因果：图形需被选中才能拖动移动\n移动图形 ..> 选择图形 : <<include>>\n\n' 创建图形时，必须选择一种图形类型并绘制\n' 但根据约束，不能显式 include 绘制椭圆/直线/矩形，也不能 include “在编辑区域绘制图形”\n' 所以不拆分创建图形的子用例\n\n' 选择图形功能包括多种方式，但根据约束：\n'   - 禁止 include: 点击选择图形、框选多个图形、点击空白取消选择\n'   - 且这些用例已被 forbid_usecases 列出，故不可作为独立用例存在\n' 因此，选择图形作为一个整体用例，由用户直接触发\n\n' 拖动控制点调整尺寸 是 调整图形尺寸 的实现方式之一\n' 根据约束：禁止 include 关系从 拖动控制点调整尺寸 到 调整图形尺寸\n' 同时冲突摘要指出 extend 缺少条件 —— 但我们不能违反 forbid_include\n' 故此处使用 extend，并补充扩展点/条件\n\n' 拖动控制点调整尺寸 在特定条件下扩展 调整图形尺寸\n' 扩展点：当用户拖动图形角上的控制点时触发\n' 注意：虽然约束禁止 include，但未禁止 extend（除非明确列出）\n' 查看 forbid_extend：调整图形尺寸 不得 extend 拖动控制点调整尺寸，但反过来未禁\n' 允许 B extend A，只要 (B,A) 不在 forbid_extend 中\n' 此处是 拖动控制点调整尺寸 extend 调整图形尺寸 → 检查是否被禁止？\n' forbid_extend 包含 { \"base\": \"调整图形尺寸\", \"extension\": \"拖动控制点调整尺寸\" } → 即反向禁止\n' 所以当前方向（拖动扩展调整）是允许的\n\n' 因果说明：当用户拖动控制点时，才触发具体尺寸调整行为\n' 触发条件：用户已选择图形，并拖动其控制点\n调整图形尺寸 <.. 拖动控制点调整尺寸 : <<extend>>\\n<<when user drags corner control point>>\n\n'\n' 创建图层与管理图层\n'\n' 创建图层必须检查数量上限？但约束禁止 include “检查图层数量上限”\"\n' 且“检查图层数限制”等词均在 forbid_usecases 中，不能出现\n' 故不在用例图中体现检查逻辑\n\n' 创建图层最多16个，超限则无法创建 —— 可视为系统内部规则，不建模为独立用例\n\n' 创建图层和管理图层都涉及状态重置，但“重置图形创建状态为矩形”被禁止作为用例\n' 所以不单独建模\n\n' 管理图层包括切换当前图层，若已是最后页则循环回第一页\n' 这属于管理图层内部逻辑，不拆分子用例\n\n' 根据需求7：创建新图层时自动设为当前图层，提示编号，显示矩形\n' 需求8：切换图层后也重置为矩形状态\n' 但由于相关用例被禁止，只能通过主用例表达\n\n创建图层 ..> 创建图层 : <<include>>\\n<<must be under layer limit (≤16)>>\n' 但“检查图层数量是否超过16”是隐含条件，不可建模为用例，只能注释\n\n' 约束禁止：创建图层 include 检查图层数量上限 → 所以不能写 include\n' 因此只能让创建图层自身隐含该条件\n\n'\n' 图形种类扩展\n'\n' 约束(1): 图形编辑器可在创建的图形种类上扩展\n' 但“扩展支持的图形类型”、“扩展图形类型”等均在 forbid_usecases 中\n' 所以不能作为独立用例存在\n' 同时，禁止 include 或 extend 关联到创建图形\n\n' 因此，“扩展图形类型”仅作为备注，不建模为用例\n\n'\n' 最终用例集合（保留 keep_usecases 中的 + 必需核心用例）\n'\n' keep_usecases: 拖动控制点调整尺寸, 启动图形编辑器\n' 其他如创建图形、选择图形等虽未在 keep 中，但为必要功能，应保留\n\n'\n' 完整关联图\n'\n\nnote right of 启动图形编辑器\n  初始状态：\n  - 图形选择框显示“矩形”\n  - 默认创建第一个图层\n  - 提示区域显示“第一页”\nend note\n\nnote right of 创建图层\n  - 创建新图层并设为当前\n  - 提示新图层编号\n  - 图形选择框重置为“矩形”\n  - 图层数 >16 时禁止创建\nend note\n\nnote right of 管理图层\n  - 切换当前图层（下一页）\n  - 循环：最后一层后回到第一层\n  - 更新提示区域编号\n  - 重置图形创建状态为矩形\nend note\n\nnote right of 创建图形\n  - 选择直线、椭圆或矩形\n  - 在编辑区拖动绘制虚线轮廓\n  - 释放后生成实际图形\n  - 隶属当前图层\nend note\n\nnote right of 选择图形\n  - 单击图形内部选择\n  - 支持多选（叠加或框选）\n  - 点击空白取消所有选择\n  - 选中时高亮控制点\nend note\n\nnote right of 删除图形\n  - 点击“删除元素”按钮\n  - 删除所选图形\n  - 解除与图层隶属关系\nend note\n\nnote right of 调整图形尺寸\n  - 支持拖动控制点改变大小\n  - 或点击“放大/缩小”按钮\nend note\n\nnote right of 移动图形\n  - 在图形内部按下并拖动\n  - 实时移动至目标位置\nend note\n\nnote right of 拖动控制点调整尺寸\n  - 选择图形后，拖动四角控制点\n  - 动态调整宽度/高度\nend note\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 7): usecase \"启动图形编辑器\" as 启动图形编辑器"
+        },
+        {
+          "candidate_id": "it3_qwen_3",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3088,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 启动与初始状态\n'\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"创建图层\" as 创建图层\nusecase \"管理图层\" as 管理图层\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\nusecase \"创建图形\" as 创建图形\n\n'\n' 细化用例（根据约束保留必要项）\n'\nusecase \"拖动控制点调整尺寸\" as 拖动控制点调整尺寸\n\n'\n' 关联关系：用户触发的顶层用例\n'\n用户 --> 启动图形编辑器\n用户 --> 创建图形\n用户 --> 选择图形\n用户 --> 删除图形\n用户 --> 调整图形尺寸\n用户 --> 移动图形\n用户 --> 创建图层\n用户 --> 管理图层\n\n'\n' include 关系（强制性依赖，按约束条件建模）\n'\n\n' 删除图形前必须选择图形\n' 因果：删除操作的前提是已有被选中的图形\n删除图形 ..> 选择图形 : <<include>>\n\n' 调整尺寸前必须选择图形\n' 因果：只有选中图形后才能调整其尺寸\n调整图形尺寸 ..> 选择图形 : <<include>>\n\n' 移动图形前必须选择图形\n' 因果：未选中的图形无法被移动\n移动图形 ..> 选择图形 : <<include>>\n\n' 创建图层时需检查图层数量上限\n' 因果：当图层数达到16时禁止创建新图层\n创建图层 ..> \"检查图层数量是否超过16\" as check_layer_limit : <<include>>\nnote right of 创建图层\n  若图层数 ≥16，则禁止创建\nend note\n\n'\n' extend 关系（扩展行为，带条件说明）\n'\n\n' 拖动控制点是调整尺寸的一种方式，在特定交互下触发\n' 扩展点：当用户已选择一个图形，并拖动其控制点时触发\n拖动控制点调整尺寸 ..> 调整图形尺寸 : <<extend>>\nnote on link\n  触发条件：鼠标按下并拖动图形的控制点\nend note\n\n'\n' 其他结构化约束处理\n'\n\n' 根据约束，禁止将“拖动控制点调整尺寸”作为“调整图形尺寸”的 include\n' 故采用 extend 表达其为一种可选实现路径而非必需步骤\n\n' 创建图形不包含创建图层（禁止 include），且启动时不自动创建图层\n' 初始图层由系统直接生成，但不属于“启动图形编辑器”用例的子步骤\n\n' 图形类型扩展受约束限制，不可显式建模为用例\n' 约束：(创建图形) 不包含 (扩展支持的图形类型)，且禁止 extend\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 9): usecase \"启动图形编辑器\" as 启动图形编辑器"
+        },
+        {
+          "candidate_id": "it3_qwen_4",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3105,
+          "plantuml": "@startuml\nactor 用户\n\n'\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"创建图形\" as 创建图形\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\nusecase \"创建图层\" as 创建图层\nusecase \"管理图层\" as 管理图层\nusecase \"拖动控制点调整尺寸\" as 拖动控制点调整尺寸\n\n'\n用户 --> 启动图形编辑器\n用户 --> 创建图形\n用户 --> 选择图形\n用户 --> 删除图形\n用户 --> 调整图形尺寸\n用户 --> 移动图形\n用户 --> 创建图层\n用户 --> 管理图层\n\n'\n' 删除图形必须先选择图形\n删除图形 .> 选择图形 : <<include>>\n' 调整图形尺寸必须先选择图形\n调整图形尺寸 .> 选择图形 : <<include>>\n' 移动图形必须先选择图形\n移动图形 .> 选择图形 : <<include>>\n\n'\n' 拖动控制点调整尺寸 是 调整图形尺寸 的具体方式之一（强制包含）\n' 根据约束：不能 include，但根据冲突摘要存在不确定性，且 forbid_include 包含该对关系，因此不能使用 include\n' 冲突摘要指出 extend 缺少条件，但 forbid_include 明确禁止 include，故只能用 extend 并补充条件\n' 拖动控制点调整尺寸 在用户选择一个控制点并拖动时扩展 调整图形尺寸\n拖动控制点调整尺寸 <.. 调整图形尺寸 : <<extend>>\\n<<当用户选择图形的控制点并拖动时>>\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 5): usecase \"启动图形编辑器\" as 启动图形编辑器"
+        },
+        {
+          "candidate_id": "it3_qwen_5",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3122,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' Use Cases\n'\n\nusecase \"启动图形编辑器\" as usecase_1\nusecase \"创建图形\" as usecase_2\nusecase \"选择图形\" as usecase_3\nusecase \"删除图形\" as usecase_4\nusecase \"调整图形尺寸\" as usecase_5\nusecase \"移动图形\" as usecase_6\nusecase \"创建图层\" as usecase_7\nusecase \"管理图层\" as usecase_8\nusecase \"拖动控制点调整尺寸\" as usecase_9\n\n'\n' Actor Associations\n'\n\n用户 --> usecase_1 : 启动软件\n用户 --> usecase_2 : 选择并绘制图形\n用户 --> usecase_3 : 单击或框选图形\n用户 --> usecase_4 : 点击删除按钮\n用户 --> usecase_5 : 调整尺寸\n用户 --> usecase_6 : 拖动图形\n用户 --> usecase_7 : 点击“新页”按钮\n用户 --> usecase_8 : 点击“下一页”按钮\n用户 --> usecase_9 : 拖动控制点\n\n'\n' Include Relationships (<<include>>)\n'\n\n' 删除图形 必须包含 选择图形（先选后删）\nusecase_4 <.. usecase_3 : <<include>>\n' 调整图形尺寸 必须包含 选择图形（必须先选中图形）\nusecase_5 <.. usecase_3 : <<include>>\n' 移动图形 必须包含 选择图形（必须先选中图形）\nusecase_6 <.. usecase_3 : <<include>>\n\n'\n' Extend Relationships (<<extend>> with conditions)\n'\n\n' 拖动控制点调整尺寸 在选中图形且拖动控制点时扩展 调整图形尺寸\nusecase_9 <.. usecase_5 : <<extend>>\\n<<条件: 用户拖动图形的控制点>>\n\n'\n' Additional structural constraints from JSON\n'\n\n' 明确禁止将 \"拖动控制点调整尺寸\" 包含进 \"调整图形尺寸\"\n' 因此不使用 include，而用 extend 表达条件性行为\n\n' 根据约束，保持 \"拖动控制点调整尺寸\" 和 \"启动图形编辑器\" 存在\n' 其他被 forbid_usecases 列出的用例不得出现\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 37): usecase_4 <.. usecase_3 : <<include>>"
+        },
+        {
+          "candidate_id": "it3_qwen_6",
+          "model": "qwen",
+          "temperature": 0.9,
+          "seed": 3139,
+          "plantuml": "@startuml\nactor 用户\n\n'\n' 启动与初始化\n'\nusecase \"启动图形编辑器\" as 启动图形编辑器\nusecase \"拖动控制点调整尺寸\" as 拖动控制点调整尺寸\n\n'\n' 图形操作相关用例\n'\nusecase \"创建图形\" as 创建图形\nusecase \"选择图形\" as 选择图形\nusecase \"删除图形\" as 删除图形\nusecase \"调整图形尺寸\" as 调整图形尺寸\nusecase \"移动图形\" as 移动图形\n\n'\n' 图层管理相关用例\n'\nusecase \"创建图层\" as 创建图层\nusecase \"管理图层\" as 管理图层\n\n'\n' 建立 actor 与 use case 的关系\n'\n用户 --> 创建图形\n用户 --> 选择图形\n用户 --> 删除图形\n用户 --> 调整图形尺寸\n用户 --> 移动图形\n用户 --> 创建图层\n用户 --> 管理图层\n用户 --> 启动图形编辑器\n\n'\n' include 关系（强制依赖）\n'\n\n' 删除图形前必须先选择图形\n选择图形 .> 删除图形 : <<include>>\n\n' 调整尺寸前必须先选择图形\n选择图形 .> 调整图形尺寸 : <<include>>\n\n' 移动图形前必须先选择图形\n选择图形 .> 移动图形 : <<include>>\n\n' 拖动控制点是调整图形尺寸的一种方式（但根据约束，不能 include）\n' 根据约束：forbid_include 包含 (拖动控制点调整尺寸) -> (调整图形尺寸)\n' 因此不能使用 include。但需求中它是实现方式之一，考虑用 extend 并加条件。\n\n' 添加 extend 关系：当用户拖动控制点时，扩展“调整图形尺寸”\n' 注释说明触发条件\n' 拖动控制点调整尺寸 在 调整图形尺寸 过程中，当鼠标按下并拖动图形的控制点时触发\n拖动控制点调整尺寸 ..> 调整图形尺寸 : <<extend>>\\n<<when mouse drags corner control point>>\n\n@enduml\n",
+          "parse_error": "无法解析的 PlantUML 行 (line 7): usecase \"启动图形编辑器\" as 启动图形编辑器"
+        }
+      ],
+      "merged_stats": {
+        "total_candidates": 0,
+        "nodes": 0,
+        "edges": 0,
+        "conflicts": 0
+      },
+      "conflicts": [],
+      "questions": [],
+      "answers": {},
+      "rule_report": {
+        "kept_edges": [],
+        "notes": {
+          "decision": "kept_edges from validated + constraints"
+        }
+      },
+      "converged": true
+    }
+  ],
+  "final": {
+    "final_usecase_puml": "out_qwen_02\\final_usecase.puml",
+    "nodes": [],
+    "edges": []
+  }
+}

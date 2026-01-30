@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+actor User
+
+usecase "Create Graphic" as UC1
+usecase "Select Graphic" as UC2
+usecase "Delete Graphic" as UC3
+usecase "Adjust Graphic Size" as UC4
+usecase "Move Graphic" as UC5
+usecase "Create Layer" as UC6
+usecase "Manage Layer" as UC7
+usecase "Scale Proportionally" as UC8
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+
+' 等比例缩放必须先选择图形
+UC8 ..> UC2 : include
+' 按住Shift时，调整图形尺寸可扩展为等比例缩放
+UC4 <.. UC8 : extend
+@enduml

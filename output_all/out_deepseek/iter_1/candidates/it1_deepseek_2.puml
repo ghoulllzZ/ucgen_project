@@ -1,0 +1,40 @@
+@startuml
+left to right direction
+actor 用户 as User
+
+usecase "创建图形" as UC1
+usecase "选择图形类型" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "等比例缩放" as UC6
+usecase "移动图形" as UC7
+usecase "创建图层" as UC8
+usecase "检查图层限制" as UC9
+usecase "切换图层" as UC10
+usecase "设置当前图层" as UC11
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+User --> UC9
+User --> UC10
+User --> UC11
+
+' 因果：创建图形必须先选择图形类型
+UC1 ..> UC2 : include
+
+' 因果：创建图层前必须检查是否超过16个图层
+UC8 ..> UC9 : include
+
+' 因果：切换图层必须设置当前图层
+UC10 ..> UC11 : include
+
+' 触发条件：当用户点击放大或缩小按钮时
+UC6 ..> UC5 : extend
+@enduml

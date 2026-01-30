@@ -1,0 +1,22 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "选择图形",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "yes_no_include",
+    "target": {
+      "base": "选择图形",
+      "included": "移动图形"
+    },
+    "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【移动图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  }
+]

@@ -1,0 +1,24 @@
+@startuml
+actor User
+
+usecase "启动软件" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "改变图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "管理图层" as UC8
+
+' 删除图形先需选择图形
+UC4 .include> UC3
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+
+@enduml

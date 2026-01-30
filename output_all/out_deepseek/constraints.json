@@ -1,0 +1,114 @@
+{
+  "must_include": [
+    {
+      "base": "等比例缩放",
+      "included": "选择图形"
+    }
+  ],
+  "forbid_include": [
+    {
+      "base": "调整图形尺寸",
+      "included": "选择图形"
+    },
+    {
+      "base": "移动图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "删除图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "等比例缩放",
+      "included": "调整图形尺寸"
+    },
+    {
+      "base": "添加新图形类型",
+      "included": "创建图形"
+    },
+    {
+      "base": "调整图形尺寸",
+      "included": "等比例缩放"
+    },
+    {
+      "base": "ScaleProportionally",
+      "included": "SelectShape"
+    },
+    {
+      "base": "AdjustShapeSize",
+      "included": "ScaleProportionally"
+    }
+  ],
+  "extend": [
+    {
+      "base": "调整图形尺寸",
+      "extension": "等比例缩放",
+      "condition": "按住Shift时",
+      "extension_point": ""
+    }
+  ],
+  "forbid_extend": [
+    {
+      "base": "选择图形",
+      "extension": "调整图形尺寸"
+    },
+    {
+      "base": "选择图形",
+      "extension": "移动图形"
+    },
+    {
+      "base": "选择图形",
+      "extension": "删除图形"
+    },
+    {
+      "base": "创建图形",
+      "extension": "添加新图形类型"
+    },
+    {
+      "base": "等比例缩放",
+      "extension": "调整图形尺寸"
+    },
+    {
+      "base": "ScaleProportionally",
+      "extension": "AdjustShapeSize"
+    }
+  ],
+  "keep_actors": [],
+  "forbid_actors": [
+    "User",
+    "Editor",
+    "EditorUser"
+  ],
+  "keep_usecases": [
+    "等比例缩放"
+  ],
+  "forbid_usecases": [
+    "切换图层",
+    "设置当前图层",
+    "检查图层限制",
+    "选择图形类型",
+    "启动图形编辑器",
+    "添加新图形类型",
+    "启动编辑器",
+    "更改当前图层",
+    "图层管理",
+    "选择活动图层",
+    "图层导航",
+    "浏览图层",
+    "SelectGraphic",
+    "ResizeGraphic",
+    "MoveGraphic",
+    "CreateLayer",
+    "CreateGraphic",
+    "DeleteGraphic",
+    "SwitchLayerFocus",
+    "ScaleProportionally",
+    "变更当前图层",
+    "AdjustShapeSize",
+    "DeleteShape",
+    "SelectShape",
+    "CreateShape",
+    "SwitchCurrentLayer",
+    "MoveShape"
+  ]
+}

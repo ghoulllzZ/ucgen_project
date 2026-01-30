@@ -1,0 +1,54 @@
+@startuml
+left to right direction
+actor 用户
+
+'
+' 基础用例：用户可直接执行的核心功能
+'
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layer
+
+'
+' 扩展用例：不能独立触发，依赖于基础用例的扩展点
+'
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+
+'
+' 用户与基础用例的关联
+'
+用户 --> create_shape
+用户 --> select_shape
+用户 --> delete_shape
+用户 --> create_layer
+用户 --> manage_layer
+
+'
+' 扩展关系：基于选择图形的扩展点 EP1 和 EP2
+'
+
+' 扩展点 EP1: 图形已被选中并显示控制点 → 改变图形尺寸
+' 当用户拖动控制点或点击放大/缩小按钮时，触发改变图形尺寸
+select_shape ..> resize_shape : <<extend>>\n<<extensionPoint: EP1>>
+note right of select_shape
+  扩展点 EP1: 图形已被选中并显示控制点
+  触发条件：用户拖动控制点或点击“放大/缩小”按钮
+end note
+
+' 扩展点 EP2: 图形已被选中 → 移动图形
+' 当用户在已选中图形内部按下并拖动时，触发移动图形
+select_shape ..> move_shape : <<extend>>\n<<extensionPoint: EP2>>
+note right of select_shape
+  扩展点 EP2: 图形已被选中
+  触发条件：用户在选中图形内部按下鼠标并拖动
+end note
+
+'
+' 包含关系：无强制性 include（根据约束 forbid_include 明确禁止选择图形 include 删除/调整/移动）
+' 因此不添加 <<include>> 关系
+'
+
+@enduml

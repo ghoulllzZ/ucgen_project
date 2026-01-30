@@ -1,0 +1,114 @@
+@startuml
+actor 用户 as User
+
+' 软件初始启动时执行的默认设置
+usecase "启动图形编辑器" as usecase_start
+usecase "初始化编辑区域" as usecase_init_editor
+usecase "显示第一页提示" as usecase_show_first_page
+usecase "默认选择矩形工具" as usecase_default_rect_tool
+
+User --> usecase_start
+usecase_start --> usecase_init_editor : include
+' 启动时必须初始化编辑区域以创建第一个图层
+usecase_start --> usecase_show_first_page : include
+' 启动时必须在提示区显示“第一页”
+usecase_start --> usecase_default_rect_tool : include
+' 启动时工具栏默认选择矩形
+
+' 创建图形功能相关
+usecase "创建图形" as usecase_create_shape
+usecase "选择图形类型" as usecase_select_shape_type
+usecase "动态绘制图形" as usecase_draw_preview
+usecase "完成图形绘制" as usecase_finish_drawing
+
+User --> usecase_create_shape
+usecase_create_shape --> usecase_select_shape_type : include
+' 必须先选择图形类型才能继续创建
+usecase_create_shape --> usecase_draw_preview : include
+' 创建过程中必须进行拖拽预览
+usecase_create_shape --> usecase_finish_drawing : include
+' 释放鼠标后必须完成图形的最终绘制
+
+' 选择图形功能
+usecase "选择图形" as usecase_select_shape
+usecase "单选图形" as usecase_single_select
+usecase "多选图形" as usecase_multi_select
+usecase "框选图形" as usecase_box_select
+usecase "取消选择" as usecase_deselect_all
+
+User --> usecase_select_shape
+usecase_select_shape --> usecase_single_select : include
+' 点击图形内部实现单选
+usecase_select_shape --> usecase_multi_select : include
+' 叠加嵌套时点击可多选
+usecase_select_shape --> usecase_box_select : include
+' 拖拽形成虚线框内所有图形被选中
+usecase_select_shape --> usecase_deselect_all : include
+' 在空白处点击取消所有选择
+
+' 删除图形功能
+usecase "删除所选图形" as usecase_delete_shapes
+usecase "点击删除按钮" as usecase_click_delete_btn
+
+User --> usecase_delete_shapes
+usecase_delete_shapes --> usecase_click_delete_btn : include
+' 必须通过点击“删除元素”按钮触发删除
+' 前置条件：至少有一个图形被选中
+
+' 改变图形尺寸功能
+usecase "改变图形尺寸" as usecase_resize_shape
+usecase "拖动控制点调整尺寸" as usecase_drag_handle
+usecase "使用放大按钮" as usecase_zoom_in
+usecase "使用缩小按钮" as usecase_zoom_out
+
+User --> usecase_resize_shape
+usecase_resize_shape --> usecase_drag_handle : include
+' 通过拖动外框控制点改变尺寸
+usecase_resize_shape --> usecase_zoom_in : include
+' 点击“放大”按钮对选中图形统一放大
+usecase_resize_shape --> usecase_zoom_out : include
+' 点击“缩小”按钮对选中图形统一缩小
+
+' 移动图形功能
+usecase "移动图形" as usecase_move_shape
+usecase "拖动图形到新位置" as usecase_drag_to_move
+
+User --> usecase_move_shape
+usecase_move_shape --> usecase_drag_to_move : include
+' 在图形内部按下并拖动实现移动
+' 图层和控制点状态保持不变
+
+' 图层管理功能
+usecase "创建新图层" as usecase_create_layer
+usecase "点击新页按钮" as usecase_click_new_page
+usecase "限制最多16图层" as usecase_layer_limit
+
+usecase "切换图层" as usecase_switch_layer
+usecase "点击下一页按钮" as usecase_click_next_page
+usecase "循环切换至首层" as usecase_cycle_to_first
+
+User --> usecase_create_layer
+usecase_create_layer --> usecase_click_new_page : include
+' 点击“新页”按钮创建新图层
+usecase_create_layer --> usecase_layer_limit : extend
+' 扩展点：当图层数已达16时，禁止创建新图层
+' 触发条件：已有16个图层存在
+
+User --> usecase_switch_layer
+usecase_switch_layer --> usecase_click_next_page : include
+' 点击“下一页”按钮切换图层
+usecase_switch_layer --> usecase_cycle_to_first : extend
+' 当前为最后一个图层时，切换回第一个
+' 触发条件：当前图层是最后一个
+
+' 其他约束与依赖
+usecase_finish_drawing --> usecase_select_shape : extend
+' 新绘制的图形自动进入可选状态
+' 触发条件：图形刚被成功创建
+
+usecase_create_layer --> usecase_default_rect_tool : include
+' 新建图层后工具栏重置为矩形选择
+usecase_switch_layer --> usecase_default_rect_tool : include
+' 切换图层后操作状态恢复为创建矩形
+
+@enduml

@@ -1,0 +1,30 @@
+left to right direction
+actor Editor as E
+
+usecase "启动图形编辑器" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "改变图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "切换图层" as UC8
+usecase "创建自定义图形" as UC9
+
+' 当需要创建直线、椭圆、矩形之外的图形类型时，扩展创建图形功能
+UC9 --> UC2 : extends
+
+E --> UC1
+E --> UC2
+E --> UC3
+E --> UC4
+E --> UC5
+E --> UC6
+E --> UC7
+E --> UC8
+E --> UC9
+
+' 删除图形需先选择图形（按约束禁止使用include，仅作说明）
+' 改变图形尺寸需先选择图形（按约束禁止使用include，仅作说明）
+' 移动图形需先选择图形（按约束禁止使用include，仅作说明）
+@enduml

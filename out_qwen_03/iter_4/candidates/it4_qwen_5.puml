@@ -1,0 +1,19 @@
+@startuml
+actor 管理员
+
+usecase "编号零件" as usecase1
+usecase "命名零件类型" as usecase2
+usecase "记录零件价格" as usecase3
+usecase "查询组件价格" as usecase4
+
+管理员 --> usecase1
+管理员 --> usecase2
+管理员 --> usecase3
+管理员 --> usecase4
+
+' 查询组件价格依赖于零件的构成关系，但不强制包含编号、命名或价格记录
+' 根据约束，禁止将“记录零件价格”、“编号零件”、“命名零件类型”作为“查询组件价格”的include
+' 因此这些用例之间无include关系
+
+' 无extend关系，因为所有可能的extend均被禁止且缺少触发条件
+@enduml

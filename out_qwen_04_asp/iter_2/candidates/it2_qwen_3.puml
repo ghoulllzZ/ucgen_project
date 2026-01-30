@@ -1,0 +1,30 @@
+@startuml
+actor 用户
+
+usecase "启动图形编辑器" as usecase1
+usecase "创建图形" as usecase2
+usecase "选择图形" as usecase3
+usecase "删除图形" as usecase4
+usecase "调整图形尺寸" as usecase5
+usecase "移动图形" as usecase6
+usecase "创建新图层" as usecase7
+usecase "切换图层" as usecase8
+
+用户 --> usecase1
+用户 --> usecase2
+用户 --> usecase3
+用户 --> usecase4
+用户 --> usecase5
+用户 --> usecase6
+用户 --> usecase7
+用户 --> usecase8
+
+' 删除图形必须先选择图形（强制依赖）
+usecase4 ..> usecase3 : <<include>>
+
+' 调整图形尺寸必须先选择图形（强制依赖）
+usecase5 ..> usecase3 : <<include>>
+
+' 移动图形必须先选择图形（强制依赖）
+usecase6 ..> usecase3 : <<include>>
+@enduml

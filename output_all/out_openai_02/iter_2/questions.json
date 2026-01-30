@@ -1,0 +1,52 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "选择图形",
+      "included": "创建图形"
+    },
+    "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "yes_no_include",
+    "target": {
+      "base": "删除图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【删除图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q3",
+    "type": "yes_no_include",
+    "target": {
+      "base": "调整图形尺寸",
+      "included": "选择图形"
+    },
+    "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q4",
+    "type": "yes_no_include",
+    "target": {
+      "base": "移动图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【移动图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q5",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图层",
+      "included": "管理图层"
+    },
+    "prompt": "用例【创建图层】执行过程中是否【必须】包含用例【管理图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  }
+]

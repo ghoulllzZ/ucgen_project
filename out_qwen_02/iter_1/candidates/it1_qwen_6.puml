@@ -1,0 +1,145 @@
+@startuml
+actor 用户
+
+'
+' 软件初始启动功能
+'
+usecase "启动图形编辑器" as usecase1
+用户 --> usecase1
+' 初始启动时设置默认创建图形为矩形、创建第一个图层、提示为“第一页”
+usecase1 ..> usecase_create_shape : include
+note on link: 启动后默认创建图形选择为矩形
+usecase1 ..> usecase_create_layer : include
+note on link: 启动时自动创建第一个图层
+usecase1 ..> usecase_prompt_page : include
+note on link: 启动时提示区域显示“第一页”
+
+'
+' 创建图形功能
+'
+usecase "创建图形" as usecase_create_shape
+用户 --> usecase_create_shape
+' 创建图形必须从选择框中选直线、椭圆或矩形之一，并在编辑区域绘制
+usecase_create_shape --> usecase_select_shape_type : include
+' 绘制过程中需动态显示虚线轮廓，释放鼠标完成绘制
+usecase_create_shape --> usecase_draw_dynamic_outline : include
+' 图形创建后隶属于当前图层
+usecase_create_shape --> usecase_manage_layer_relation : extend
+note on link: 扩展点：图形成功创建后加入当前图层
+
+'
+' 选择图形功能
+'
+usecase "选择图形" as usecase_select_shape
+用户 --> usecase_select_shape
+' 单击图形内部选择单个图形，控制点高亮
+usecase_select_shape --> usecase_highlight_controls : include
+' 支持多选：叠加部分点击可选多个图形
+usecase_select_shape --> usecase_multi_select : extend
+note on link: 扩展点：当图形重叠且点击重叠区，选择多个图形
+' 拖拽形成虚线矩形区域选择多个图形
+usecase_select_shape --> usecase_select_by_drag_box : include
+' 点击空白处取消所有选择
+usecase_select_shape --> usecase_deselect_all : include
+
+'
+' 删除图形功能
+'
+usecase "删除图形" as usecase_delete_shape
+用户 --> usecase_delete_shape
+' 必须先选择图形才能删除
+usecase_delete_shape <-- usecase_select_shape : extend
+note on link: 扩展点：仅当有图形被选中时，“删除元素”按钮可用
+' 删除操作解除图形与当前图层的隶属关系
+usecase_delete_shape --> usecase_manage_layer_relation : include
+' 提示删除成功或更新状态
+usecase_delete_shape --> usecase_update_status : include
+
+'
+' 改变图形尺寸功能
+'
+usecase "改变图形尺寸" as usecase_resize_shape
+用户 --> usecase_resize_shape
+' 通过拖动控制点调整尺寸
+usecase_resize_shape --> usecase_drag_control_point : include
+' 通过“放大”/“缩小”按钮直接缩放
+usecase_resize_shape --> usecase_scale_via_button : include
+
+'
+' 移动图形功能
+'
+usecase "移动图形" as usecase_move_shape
+用户 --> usecase_move_shape
+' 在图形内部按下并拖动实现移动
+usecase_move_shape --> usecase_drag_shape : include
+' 编辑器整体移动时保持图层和选择状态不变
+usecase_move_shape --> usecase_preserve_state : extend
+note on link: 扩展点：编辑器窗口移动时保持图形位置与选择状态
+
+'
+' 创建图层功能
+'
+usecase "创建新图层" as usecase_create_layer
+用户 --> usecase_create_layer
+' 点击“新页”按钮创建新图层
+' 新图层自动成为当前图层
+usecase_create_layer --> usecase_set_current_layer : include
+' 图形提示区域显示新编号
+usecase_create_layer --> usecase_prompt_page : include
+' 设置默认创建图形为矩形
+usecase_create_layer --> usecase_create_shape : include
+' 如果图层数 ≤ 16 才允许创建
+usecase_create_layer --> usecase_check_layer_limit : include
+' 检查图层数是否超过16（约束）
+usecase_check_layer_limit --> usecase_enforce_max_layers : extend
+note on link: 扩展点：若图层数≥16，则禁止创建新图层
+
+'
+' 管理图层（切换图层）
+'
+usecase "切换图层" as usecase_switch_layer
+用户 --> usecase_switch_layer
+' 点击“下一页”按钮切换到下一个图层
+' 若当前为最后一页，则切回第一页
+usecase_switch_layer --> usecase_cycle_layers : include
+' 切换后当前图层更新
+usecase_switch_layer --> usecase_set_current_layer : include
+' 图形提示区域更新编号
+usecase_switch_layer --> usecase_prompt_page : include
+' 切换后恢复创建“矩形”状态
+usecase_switch_layer --> usecase_reset_to_rect_mode : include
+
+'
+' 其他用例与复用
+'
+
+usecase "选择图形类型" as usecase_select_shape_type
+usecase "动态绘制虚线轮廓" as usecase_draw_dynamic_outline
+usecase "高亮控制点" as usecase_highlight_controls
+usecase "多选图形" as usecase_multi_select
+usecase "拖拽选择框选图形" as usecase_select_by_drag_box
+usecase "取消所有选择" as usecase_deselect_all
+usecase "管理图形-图层隶属关系" as usecase_manage_layer_relation
+usecase "更新状态提示" as usecase_update_status
+usecase "拖动控制点调整尺寸" as usecase_drag_control_point
+usecase "按钮放大/缩小图形" as usecase_scale_via_button
+usecase "拖动移动图形" as usecase_drag_shape
+usecase "保持状态稳定" as usecase_preserve_state
+usecase "检查图层数限制" as usecase_check_layer_limit
+usecase "强制限制最大图层数（16）" as usecase_enforce_max_layers
+usecase "循环切换图层" as usecase_cycle_layers
+usecase "重置为矩形创建模式" as usecase_reset_to_rect_mode
+usecase "提示当前页码" as usecase_prompt_page
+usecase "设置当前图层" as usecase_set_current_layer
+
+'
+' 扩展与包含关系补充说明
+'
+
+' 根据约束：图形编辑器可在创建的图形种类上扩展
+usecase_select_shape_type --> usecase_extendable_shape_types : extend
+note on link: 扩展点：未来可添加多边形、曲线等新图形类型
+
+usecase "支持扩展图形类型" as usecase_extendable_shape_types
+
+@enduml

@@ -1,0 +1,105 @@
+@startuml
+actor 用户
+
+'
+' 初始化与启动相关用例
+'
+usecase "启动图形编辑器" as startEditor
+usecase "初始化编辑区域" as initWorkspace
+usecase "显示初始提示信息" as showInitialHint
+
+用户 --> startEditor
+startEditor --> initWorkspace : include
+' 启动时必须初始化编辑区域
+startEditor --> showInitialHint : include
+' 启动时必须显示初始提示信息
+
+'
+' 图形创建功能
+'
+usecase "创建图形" as createShape
+usecase "选择图形类型" as selectShapeType
+usecase "动态绘制图形" as drawShapeDynamically
+
+用户 --> createShape
+createShape --> selectShapeType : include
+' 创建图形前必须选择图形类型
+createShape --> drawShapeDynamically : include
+' 创建过程中必须执行动态绘制
+
+'
+' 选择图形功能
+'
+usecase "选择图形" as selectShape
+usecase "单选图形" as singleSelectShape
+usecase "多选图形" as multiSelectShape
+usecase "取消图形选择" as deselectShapes
+
+用户 --> selectShape
+selectShape --> singleSelectShape : include
+' 选择操作包含单选情形
+selectShape --> multiSelectShape : include
+' 选择操作包含多选情形
+selectShape --> deselectShapes : include
+' 选择操作包含取消选择的情形
+
+'
+' 删除图形功能
+'
+usecase "删除所选图形" as deleteSelectedShapes
+用户 --> deleteSelectedShapes
+deleteSelectedShapes --> selectShape : extend
+' '仅当已有图形被选择时，才能触发删除操作'
+
+'
+' 改变图形尺寸功能
+'
+usecase "调整图形尺寸" as resizeShape
+usecase "拖动控制点调整尺寸" as dragControlPointResize
+usecase "点击放大按钮" as clickZoomIn
+usecase "点击缩小按钮" as clickZoomOut
+
+用户 --> resizeShape
+resizeShape --> dragControlPointResize : include
+' 调整尺寸包括通过控制点拖动
+resizeShape --> clickZoomIn : include
+' 调整尺寸包括点击放大按钮
+resizeShape --> clickZoomOut : include
+' 调整尺寸包括点击缩小按钮
+
+'
+' 移动图形功能
+'
+usecase "移动图形" as moveShape
+用户 --> moveShape
+
+'
+' 图层管理功能
+'
+usecase "创建新图层" as createNewLayer
+usecase "限制图层数量≤16" as limitLayerCount
+usecase "提示新图层编号" as promptLayerNumber
+usecase "切换当前图层" as switchCurrentLayer
+
+用户 --> createNewLayer
+createNewLayer --> limitLayerCount : extend
+' '当图层数达到16个时，无法继续创建新图层'
+createNewLayer --> promptLayerNumber : include
+' 创建新图层时必须提示编号
+createNewLayer --> initWorkspace : include
+' 新图层创建时需初始化其工作空间状态
+
+用户 --> switchCurrentLayer
+switchCurrentLayer --> promptLayerNumber : include
+' 切换图层时更新提示信息
+
+'
+' 状态重置功能（根据需求隐含）
+'
+usecase "重置图形工具状态" as resetToolState
+switchCurrentLayer --> resetToolState : include
+' 切换图层后重置为创建矩形状态
+createNewLayer --> resetToolState : include
+' 新建图层后重置为创建矩形状态
+
+@enduml

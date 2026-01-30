@@ -1,0 +1,42 @@
+@startuml
+actor 用户 as User
+
+'
+' 主要用例
+'
+usecase "启动图形编辑器" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "调整图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建新图层" as UC7
+usecase "管理图层" as UC8
+
+'
+' include 关系（强制包含）
+'
+' 删除图形必须先选择图形
+UC4 ..> UC3 : <<include>>
+' 调整图形尺寸必须先选择图形
+UC5 ..> UC3 : <<include>>
+
+'
+' actor 与 use case 关联
+'
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+
+'
+' extend 关系（扩展，有条件触发）
+'
+' 约束中未指定明确的 extend，且 forbid_extend 限制了部分扩展，因此不添加非法 extend
+' 根据需求文本和约束，无合法的 extend 关系需要建模
+
+@enduml

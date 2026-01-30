@@ -1,0 +1,85 @@
+[
+  {
+    "id": "q1",
+    "type": "single_choice",
+    "target": {
+      "a": "删除图形",
+      "b": "选择图形"
+    },
+    "prompt": "在业务上，【删除图形】与【选择图形】更符合哪种关系？",
+    "choices": [
+      {
+        "value": "include",
+        "text": "删除图形 必须包含 选择图形（include：必经子步骤）"
+      },
+      {
+        "value": "extend",
+        "text": "删除图形 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+      },
+      {
+        "value": "none",
+        "text": "两者之间不需要 include/extend 关系"
+      }
+    ],
+    "observed": [
+      "extend",
+      "include"
+    ]
+  },
+  {
+    "id": "q2",
+    "type": "single_choice",
+    "target": {
+      "a": "调整图形尺寸",
+      "b": "选择图形"
+    },
+    "prompt": "在业务上，【调整图形尺寸】与【选择图形】更符合哪种关系？",
+    "choices": [
+      {
+        "value": "include",
+        "text": "调整图形尺寸 必须包含 选择图形（include：必经子步骤）"
+      },
+      {
+        "value": "extend",
+        "text": "调整图形尺寸 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+      },
+      {
+        "value": "none",
+        "text": "两者之间不需要 include/extend 关系"
+      }
+    ],
+    "observed": [
+      "extend",
+      "include"
+    ]
+  },
+  {
+    "id": "q3",
+    "type": "yes_no_include",
+    "target": {
+      "base": "移动图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【移动图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q4",
+    "type": "yes_no_include",
+    "target": {
+      "base": "等比例缩放",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q5",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "等比例缩放"
+    },
+    "prompt": "用例【等比例缩放】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "yes"
+  }
+]

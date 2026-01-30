@@ -1,0 +1,45 @@
+@startuml
+actor 用户 as User
+
+'
+usecase "启动图形编辑器" as 启动图形编辑器
+usecase "创建图形" as 创建图形
+usecase "选择图形" as 选择图形
+usecase "删除图形" as 删除图形
+usecase "调整图形尺寸" as 调整图形尺寸
+usecase "移动图形" as 移动图形
+usecase "创建新图层" as 创建新图层
+usecase "管理图层" as 管理图层
+
+'
+User --> 启动图形编辑器
+User --> 创建图形
+User --> 选择图形
+User --> 删除图形
+User --> 调整图形尺寸
+User --> 移动图形
+User --> 创建新图层
+User --> 管理图层
+
+'
+' 删除图形必须先选择图形（强制依赖）
+(删除图形) .> (选择图形) : include
+' 调整图形尺寸必须先选择图形
+(调整图形尺寸) .> (选择图形) : include
+' 移动图形必须先选择图形
+(移动图形) .> (选择图形) : include
+
+'
+' 创建图形后可被选择，但选择不是创建的必需步骤，此处无include
+' 根据约束，禁止将“选择图形” include 到 “删除图形”等操作中，已通过独立 usecase 处理
+
+'
+' 约束要求禁止某些 include 关系，例如：
+' - 禁止“启动图形编辑器” include “显示初始界面”等，已忽略这些无效 usecase
+' - 所有 forbid_usecases 已排除，如“切换当前图层”、“拖动控制点调整尺寸”等不单独建模
+
+'
+' extend关系：根据需求和约束，extend列表为空，且部分被禁止
+' 例如：EXT8、EXT3等均为禁止或未明确定义条件，故不生成任何extend
+
+@enduml

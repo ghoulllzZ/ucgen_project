@@ -1,0 +1,42 @@
+@startuml
+actor 用户
+
+usecase "启动图形编辑器" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "改变图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "管理图层" as UC8
+
+用户 -> UC1
+用户 -> UC2
+用户 -> UC3
+用户 -> UC4
+用户 -> UC5
+用户 -> UC6
+用户 -> UC7
+用户 -> UC8
+
+' 创建图形时必须包含动态绘制功能
+usecase "动态绘制图形" as UC2a
+UC2 .include UC2a
+
+' 删除图形时必须先选择图形
+UC4 .include UC3
+
+' 改变图形尺寸时可以选择放大或缩小
+usecase "放大图形" as UC5a
+usecase "缩小图形" as UC5b
+UC5 .extend UC5a : 用户点击"放大"按钮
+UC5 .extend UC5b : 用户点击"缩小"按钮
+
+' 创建图层时需更新当前图层状态
+usecase "更新当前图层状态" as UC7a
+UC7 .include UC7a
+
+' 管理图层时需提示当前层编号
+usecase "提示当前层编号" as UC8a
+UC8 .include UC8a
+@enduml

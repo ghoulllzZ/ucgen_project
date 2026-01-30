@@ -1,0 +1,177 @@
+{
+  "must_include": [
+    {
+      "base": "调整图形尺寸",
+      "included": "选择图形"
+    },
+    {
+      "base": "移动图形",
+      "included": "选择图形"
+    }
+  ],
+  "forbid_include": [
+    {
+      "base": "删除图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "调整图形尺寸",
+      "included": "选择图形"
+    },
+    {
+      "base": "移动图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "创建图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "创建图层",
+      "included": "管理图层"
+    },
+    {
+      "base": "创建图形",
+      "included": "selectshapetype"
+    },
+    {
+      "base": "创建图层",
+      "included": "initializenewlayer"
+    },
+    {
+      "base": "管理图层",
+      "included": "switchlayer"
+    },
+    {
+      "base": "管理图层",
+      "included": "resettoolstate"
+    },
+    {
+      "base": "启动图形编辑器",
+      "included": "initui"
+    },
+    {
+      "base": "初始化界面",
+      "included": "createdefaultlayer"
+    },
+    {
+      "base": "初始化界面",
+      "included": "showinitialhint"
+    },
+    {
+      "base": "创建图形",
+      "included": "dynamicpreview"
+    },
+    {
+      "base": "启动系统",
+      "included": "创建图层"
+    },
+    {
+      "base": "启动系统",
+      "included": "管理图层"
+    },
+    {
+      "base": "管理图层",
+      "included": "创建图形"
+    },
+    {
+      "base": "启动图形编辑器",
+      "included": "创建图层"
+    }
+  ],
+  "extend": [],
+  "forbid_extend": [
+    {
+      "base": "选择图形",
+      "extension": "删除图形"
+    },
+    {
+      "base": "选择图形",
+      "extension": "调整图形尺寸"
+    },
+    {
+      "base": "选择图形",
+      "extension": "移动图形"
+    },
+    {
+      "base": "选择图形",
+      "extension": "创建图形"
+    },
+    {
+      "base": "管理图层",
+      "extension": "创建图层"
+    },
+    {
+      "base": "extendsingle",
+      "extension": "选择图形"
+    },
+    {
+      "base": "extendmulti",
+      "extension": "选择图形"
+    },
+    {
+      "base": "limitlayercount",
+      "extension": "创建图层"
+    },
+    {
+      "base": "clickzoomin",
+      "extension": "调整图形尺寸"
+    },
+    {
+      "base": "clickzoomout",
+      "extension": "调整图形尺寸"
+    },
+    {
+      "base": "dragcontrolpoint",
+      "extension": "调整图形尺寸"
+    },
+    {
+      "base": "限制图层数量≤16",
+      "extension": "创建新图层"
+    },
+    {
+      "base": "重置图形工具状态",
+      "extension": "切换当前图层"
+    },
+    {
+      "base": "提示新图层编号",
+      "extension": "创建新图层"
+    },
+    {
+      "base": "提示当前层编号",
+      "extension": "切换当前图层"
+    }
+  ],
+  "keep_actors": [],
+  "forbid_actors": [],
+  "keep_usecases": [],
+  "forbid_usecases": [
+    "取消图形选择",
+    "启动图形编辑器",
+    "初始化编辑区域",
+    "拖动控制点调整尺寸",
+    "重置图形工具状态",
+    "动态绘制图形",
+    "提示新图层编号",
+    "点击缩小按钮",
+    "切换当前图层",
+    "点击放大按钮",
+    "限制图层数量≤16",
+    "显示初始提示信息",
+    "多选图形",
+    "删除所选图形",
+    "单选图形",
+    "初始化界面",
+    "初始化新图层",
+    "切换图层",
+    "创建默认图层",
+    "启动系统",
+    "selectshapetype",
+    "dynamicpreview",
+    "initializenewlayer",
+    "switchlayer",
+    "showinitialhint",
+    "resettoolstate",
+    "等比例缩放"
+  ]
+}

@@ -1,0 +1,1439 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "启动图形编辑器",
+      "included": "创建图层"
+    },
+    "prompt": "用例【启动图形编辑器】执行过程中是否【必须】包含用例【创建图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "yes_no_include",
+    "target": {
+      "base": "启动图形编辑器",
+      "included": "初始化图形选择状态\""
+    },
+    "prompt": "用例【启动图形编辑器】执行过程中是否【必须】包含用例【初始化图形选择状态\"】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q3",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图形",
+      "included": "创建图层"
+    },
+    "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【创建图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q4",
+    "type": "yes_no_include",
+    "target": {
+      "base": "删除图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【删除图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q5",
+    "type": "yes_no_include",
+    "target": {
+      "base": "调整图形尺寸",
+      "included": "选择图形"
+    },
+    "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q6",
+    "type": "yes_no_include",
+    "target": {
+      "base": "移动图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【移动图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q7",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图层",
+      "included": "初始化图形选择状态\""
+    },
+    "prompt": "用例【创建图层】执行过程中是否【必须】包含用例【初始化图形选择状态\"】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q8",
+    "type": "yes_no_include",
+    "target": {
+      "base": "管理图层",
+      "included": "初始化图形选择状态\""
+    },
+    "prompt": "用例【管理图层】执行过程中是否【必须】包含用例【初始化图形选择状态\"】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q9",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图层",
+      "included": "检查图层数量上限\""
+    },
+    "prompt": "用例【创建图层】执行过程中是否【必须】包含用例【检查图层数量上限\"】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q10",
+    "type": "yes_no_include",
+    "target": {
+      "base": "拖动控制点调整尺寸",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "用例【拖动控制点调整尺寸】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q11",
+    "type": "yes_no_include",
+    "target": {
+      "base": "点击按钮调整尺寸",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "用例【点击按钮调整尺寸】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q12",
+    "type": "yes_no_include",
+    "target": {
+      "base": "拖动图形移动",
+      "included": "移动图形"
+    },
+    "prompt": "用例【拖动图形移动】执行过程中是否【必须】包含用例【移动图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q13",
+    "type": "yes_no_include",
+    "target": {
+      "base": "点击选择图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【点击选择图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q14",
+    "type": "yes_no_include",
+    "target": {
+      "base": "框选多个图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【框选多个图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q15",
+    "type": "yes_no_include",
+    "target": {
+      "base": "点击空白取消选择",
+      "included": "选择图形"
+    },
+    "prompt": "用例【点击空白取消选择】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q16",
+    "type": "yes_no_include",
+    "target": {
+      "base": "绘制直线",
+      "included": "创建图形"
+    },
+    "prompt": "用例【绘制直线】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q17",
+    "type": "yes_no_include",
+    "target": {
+      "base": "绘制椭圆",
+      "included": "创建图形"
+    },
+    "prompt": "用例【绘制椭圆】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q18",
+    "type": "yes_no_include",
+    "target": {
+      "base": "绘制矩形",
+      "included": "创建图形"
+    },
+    "prompt": "用例【绘制矩形】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q19",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图形",
+      "included": "扩展图形类型\""
+    },
+    "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【扩展图形类型\"】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q20",
+    "type": "yes_no_include",
+    "target": {
+      "base": "启动图形编辑器",
+      "included": "创建图形"
+    },
+    "prompt": "用例【启动图形编辑器】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q21",
+    "type": "yes_no_include",
+    "target": {
+      "base": "选择图形",
+      "included": "删除图形"
+    },
+    "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【删除图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q22",
+    "type": "yes_no_include",
+    "target": {
+      "base": "选择图形",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q23",
+    "type": "yes_no_include",
+    "target": {
+      "base": "使用放大缩小按钮调整尺寸",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "用例【使用放大缩小按钮调整尺寸】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q24",
+    "type": "yes_no_include",
+    "target": {
+      "base": "选择图形",
+      "included": "移动图形"
+    },
+    "prompt": "用例【选择图形】执行过程中是否【必须】包含用例【移动图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q25",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建新图层",
+      "included": "创建图形"
+    },
+    "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q26",
+    "type": "yes_no_include",
+    "target": {
+      "base": "切换当前图层",
+      "included": "创建图形"
+    },
+    "prompt": "用例【切换当前图层】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q27",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建新图层",
+      "included": "重置图形创建状态为矩形"
+    },
+    "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【重置图形创建状态为矩形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q28",
+    "type": "yes_no_include",
+    "target": {
+      "base": "切换当前图层",
+      "included": "重置图形创建状态为矩形"
+    },
+    "prompt": "用例【切换当前图层】执行过程中是否【必须】包含用例【重置图形创建状态为矩形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q29",
+    "type": "yes_no_include",
+    "target": {
+      "base": "扩展支持的图形类型",
+      "included": "创建图形"
+    },
+    "prompt": "用例【扩展支持的图形类型】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q30",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(创建图形)",
+      "included": "(选择直线、椭圆或矩形)"
+    },
+    "prompt": "用例【(创建图形)】执行过程中是否【必须】包含用例【(选择直线、椭圆或矩形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q31",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(创建图形)",
+      "included": "(在编辑区域绘制图形)"
+    },
+    "prompt": "用例【(创建图形)】执行过程中是否【必须】包含用例【(在编辑区域绘制图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q32",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(选择图形)",
+      "included": "(单击选择单个图形)"
+    },
+    "prompt": "用例【(选择图形)】执行过程中是否【必须】包含用例【(单击选择单个图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q33",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(选择图形)",
+      "included": "(多选叠加图形)"
+    },
+    "prompt": "用例【(选择图形)】执行过程中是否【必须】包含用例【(多选叠加图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q34",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(选择图形)",
+      "included": "(框选区域内图形)"
+    },
+    "prompt": "用例【(选择图形)】执行过程中是否【必须】包含用例【(框选区域内图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q35",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(选择图形)",
+      "included": "(取消选择所有图形)"
+    },
+    "prompt": "用例【(选择图形)】执行过程中是否【必须】包含用例【(取消选择所有图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q36",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(删除所选图形)",
+      "included": "(选择图形)"
+    },
+    "prompt": "用例【(删除所选图形)】执行过程中是否【必须】包含用例【(选择图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q37",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(调整图形尺寸)",
+      "included": "拖动控制点调整尺寸"
+    },
+    "prompt": "用例【(调整图形尺寸)】执行过程中是否【必须】包含用例【拖动控制点调整尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q38",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(调整图形尺寸)",
+      "included": "(点击放大按钮)"
+    },
+    "prompt": "用例【(调整图形尺寸)】执行过程中是否【必须】包含用例【(点击放大按钮)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q39",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(调整图形尺寸)",
+      "included": "(点击缩小按钮)"
+    },
+    "prompt": "用例【(调整图形尺寸)】执行过程中是否【必须】包含用例【(点击缩小按钮)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q40",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(移动图形)",
+      "included": "(选择图形)"
+    },
+    "prompt": "用例【(移动图形)】执行过程中是否【必须】包含用例【(选择图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q41",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(创建新图层)",
+      "included": "(检查图层数量是否超过16)"
+    },
+    "prompt": "用例【(创建新图层)】执行过程中是否【必须】包含用例【(检查图层数量是否超过16)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q42",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建图形",
+      "base": "创建图层"
+    },
+    "prompt": "如果【创建图形】是对【创建图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q43",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建图形",
+      "base": "扩展图形类型\""
+    },
+    "prompt": "如果【创建图形】是对【扩展图形类型\"】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q44",
+    "type": "extend_condition",
+    "target": {
+      "extension": "选择图形",
+      "base": "移动图形"
+    },
+    "prompt": "如果【选择图形】是对【移动图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q45",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建新图层",
+      "base": "创建图形"
+    },
+    "prompt": "如果【创建新图层】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q46",
+    "type": "extend_condition",
+    "target": {
+      "extension": "切换当前图层",
+      "base": "创建图形"
+    },
+    "prompt": "如果【切换当前图层】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q47",
+    "type": "extend_condition",
+    "target": {
+      "extension": "扩展支持的图形类型",
+      "base": "创建图形"
+    },
+    "prompt": "如果【扩展支持的图形类型】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q48",
+    "type": "extend_condition",
+    "target": {
+      "extension": "(调整图形尺寸)",
+      "base": "(点击放大按钮)"
+    },
+    "prompt": "如果【(调整图形尺寸)】是对【(点击放大按钮)】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q49",
+    "type": "extend_condition",
+    "target": {
+      "extension": "(调整图形尺寸)",
+      "base": "(点击缩小按钮)"
+    },
+    "prompt": "如果【(调整图形尺寸)】是对【(点击缩小按钮)】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q50",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "绘制椭圆"
+    },
+    "prompt": "用例【绘制椭圆】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q51",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "点击选择图形"
+    },
+    "prompt": "用例【点击选择图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q52",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "绘制直线"
+    },
+    "prompt": "用例【绘制直线】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q53",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "绘制矩形"
+    },
+    "prompt": "用例【绘制矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q54",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "检查图层数量上限\""
+    },
+    "prompt": "用例【检查图层数量上限\"】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q55",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "拖动图形移动"
+    },
+    "prompt": "用例【拖动图形移动】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q56",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "框选多个图形"
+    },
+    "prompt": "用例【框选多个图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q57",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "点击按钮调整尺寸"
+    },
+    "prompt": "用例【点击按钮调整尺寸】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q58",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "拖动控制点调整尺寸"
+    },
+    "prompt": "用例【拖动控制点调整尺寸】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "yes"
+  },
+  {
+    "id": "q59",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "点击空白取消选择"
+    },
+    "prompt": "用例【点击空白取消选择】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q60",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "初始化图形选择状态\""
+    },
+    "prompt": "用例【初始化图形选择状态\"】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q61",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动图形编辑器"
+    },
+    "prompt": "用例【启动图形编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "yes"
+  },
+  {
+    "id": "q62",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "扩展图形类型\""
+    },
+    "prompt": "用例【扩展图形类型\"】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q63",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "使用放大缩小按钮调整尺寸"
+    },
+    "prompt": "用例【使用放大缩小按钮调整尺寸】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q64",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "扩展支持的图形类型"
+    },
+    "prompt": "用例【扩展支持的图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q65",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "重置图形创建状态为矩形"
+    },
+    "prompt": "用例【重置图形创建状态为矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q66",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "切换当前图层"
+    },
+    "prompt": "用例【切换当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q67",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "创建新图层)>(重置创建图形为矩形"
+    },
+    "prompt": "用例【创建新图层)>(重置创建图形为矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q68",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动图形编辑器)>(提示第一页"
+    },
+    "prompt": "用例【启动图形编辑器)>(提示第一页】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q69",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "切换图层)>(选择目标图层作为当前层"
+    },
+    "prompt": "用例【切换图层)>(选择目标图层作为当前层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q70",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动图形编辑器)>(显示默认创建图形为矩形"
+    },
+    "prompt": "用例【启动图形编辑器)>(显示默认创建图形为矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q71",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动图形编辑器)>(创建初始图层"
+    },
+    "prompt": "用例【启动图形编辑器)>(创建初始图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q72",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "创建新图层)>(提示新图层编号"
+    },
+    "prompt": "用例【创建新图层)>(提示新图层编号】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q73",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "切换图层)>(重置创建图形为矩形"
+    },
+    "prompt": "用例【切换图层)>(重置创建图形为矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q74",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "创建新图层)>(设置新图层为当前图层"
+    },
+    "prompt": "用例【创建新图层)>(设置新图层为当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q75",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "切换图层)>(更新图形提示区域编号"
+    },
+    "prompt": "用例【切换图层)>(更新图形提示区域编号】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q76",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(显示第一页提示)"
+    },
+    "prompt": "用例【(显示第一页提示)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q77",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(点击放大按钮)"
+    },
+    "prompt": "用例【(点击放大按钮)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q78",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(选择目标图层作为当前层)"
+    },
+    "prompt": "用例【(选择目标图层作为当前层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q79",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(启动图形编辑器)"
+    },
+    "prompt": "用例【(启动图形编辑器)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q80",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(更新图层编号提示)"
+    },
+    "prompt": "用例【(更新图层编号提示)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q81",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(多选图形)"
+    },
+    "prompt": "用例【(多选图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q82",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(设置新图层为当前图层)"
+    },
+    "prompt": "用例【(设置新图层为当前图层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q83",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(提示新图层编号)"
+    },
+    "prompt": "用例【(提示新图层编号)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q84",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(创建图形)"
+    },
+    "prompt": "用例【(创建图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q85",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(无法创建新图层)"
+    },
+    "prompt": "用例【(无法创建新图层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q86",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(创建新图层)"
+    },
+    "prompt": "用例【(创建新图层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q87",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(点击缩小按钮)"
+    },
+    "prompt": "用例【(点击缩小按钮)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q88",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(在编辑区域绘制图形)"
+    },
+    "prompt": "用例【(在编辑区域绘制图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q89",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(删除图形)"
+    },
+    "prompt": "用例【(删除图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q90",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(移动图形)"
+    },
+    "prompt": "用例【(移动图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q91",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(检查图层数量是否超限)"
+    },
+    "prompt": "用例【(检查图层数量是否超限)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q92",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(选择图形)"
+    },
+    "prompt": "用例【(选择图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q93",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(设置创建图形为矩形)"
+    },
+    "prompt": "用例【(设置创建图形为矩形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q94",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(扩展图形种类)"
+    },
+    "prompt": "用例【(扩展图形种类)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q95",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(取消选择)"
+    },
+    "prompt": "用例【(取消选择)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q96",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(选择图形类型)"
+    },
+    "prompt": "用例【(选择图形类型)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q97",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(循环切换至首层)"
+    },
+    "prompt": "用例【(循环切换至首层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q98",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(创建初始图层)"
+    },
+    "prompt": "用例【(创建初始图层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q99",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(单选图形)"
+    },
+    "prompt": "用例【(单选图形)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q100",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(调整图形尺寸)"
+    },
+    "prompt": "用例【(调整图形尺寸)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q101",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(切换图层)"
+    },
+    "prompt": "用例【(切换图层)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q102",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(保持图层状态)"
+    },
+    "prompt": "用例【(保持图层状态)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q103",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "(重置为矩形创建状态)"
+    },
+    "prompt": "用例【(重置为矩形创建状态)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q104",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "拖动移动图形"
+    },
+    "prompt": "用例【拖动移动图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q105",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "取消所有选择"
+    },
+    "prompt": "用例【取消所有选择】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q106",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "拖拽选择框选图形"
+    },
+    "prompt": "用例【拖拽选择框选图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q107",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "动态绘制虚线轮廓"
+    },
+    "prompt": "用例【动态绘制虚线轮廓】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q108",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "重置为矩形创建模式"
+    },
+    "prompt": "用例【重置为矩形创建模式】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q109",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "管理图形图层隶属关系"
+    },
+    "prompt": "用例【管理图形图层隶属关系】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q110",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "强制限制最大图层数(16)"
+    },
+    "prompt": "用例【强制限制最大图层数(16)】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q111",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "高亮控制点"
+    },
+    "prompt": "用例【高亮控制点】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q112",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "提示当前页码"
+    },
+    "prompt": "用例【提示当前页码】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q113",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "多选图形"
+    },
+    "prompt": "用例【多选图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q114",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "按钮放大缩小图形"
+    },
+    "prompt": "用例【按钮放大缩小图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q115",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "设置当前图层"
+    },
+    "prompt": "用例【设置当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q116",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "检查图层数限制"
+    },
+    "prompt": "用例【检查图层数限制】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q117",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "更新状态提示"
+    },
+    "prompt": "用例【更新状态提示】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q118",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "支持扩展图形类型"
+    },
+    "prompt": "用例【支持扩展图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q119",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "选择图形类型"
+    },
+    "prompt": "用例【选择图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q120",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "循环切换图层"
+    },
+    "prompt": "用例【循环切换图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q121",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "保持状态稳定"
+    },
+    "prompt": "用例【保持状态稳定】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q122",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "切换图层"
+    },
+    "prompt": "用例【切换图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q123",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建图形",
+      "base": "创建图层"
+    },
+    "prompt": "如果【创建图形】是对【创建图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q124",
+    "type": "yes_no_include",
+    "target": {
+      "base": "拖动控制点调整尺寸",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "是否确认：用例【拖动控制点调整尺寸】执行时必须包含【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q125",
+    "type": "yes_no_include",
+    "target": {
+      "base": "点击按钮调整尺寸",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "是否确认：用例【点击按钮调整尺寸】执行时必须包含【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q126",
+    "type": "yes_no_include",
+    "target": {
+      "base": "拖动图形移动",
+      "included": "移动图形"
+    },
+    "prompt": "是否确认：用例【拖动图形移动】执行时必须包含【移动图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q127",
+    "type": "yes_no_include",
+    "target": {
+      "base": "点击选择图形",
+      "included": "选择图形"
+    },
+    "prompt": "是否确认：用例【点击选择图形】执行时必须包含【选择图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q128",
+    "type": "yes_no_include",
+    "target": {
+      "base": "框选多个图形",
+      "included": "选择图形"
+    },
+    "prompt": "是否确认：用例【框选多个图形】执行时必须包含【选择图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q129",
+    "type": "yes_no_include",
+    "target": {
+      "base": "点击空白取消选择",
+      "included": "选择图形"
+    },
+    "prompt": "是否确认：用例【点击空白取消选择】执行时必须包含【选择图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q130",
+    "type": "yes_no_include",
+    "target": {
+      "base": "绘制直线",
+      "included": "创建图形"
+    },
+    "prompt": "是否确认：用例【绘制直线】执行时必须包含【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q131",
+    "type": "yes_no_include",
+    "target": {
+      "base": "绘制椭圆",
+      "included": "创建图形"
+    },
+    "prompt": "是否确认：用例【绘制椭圆】执行时必须包含【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q132",
+    "type": "yes_no_include",
+    "target": {
+      "base": "绘制矩形",
+      "included": "创建图形"
+    },
+    "prompt": "是否确认：用例【绘制矩形】执行时必须包含【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q133",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建图形",
+      "base": "扩展图形类型\""
+    },
+    "prompt": "如果【创建图形】是对【扩展图形类型\"】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q134",
+    "type": "yes_no_include",
+    "target": {
+      "base": "使用放大缩小按钮调整尺寸",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "是否确认：用例【使用放大缩小按钮调整尺寸】执行时必须包含【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q135",
+    "type": "extend_condition",
+    "target": {
+      "extension": "选择图形",
+      "base": "移动图形"
+    },
+    "prompt": "如果【选择图形】是对【移动图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q136",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建新图层",
+      "base": "创建图形"
+    },
+    "prompt": "如果【创建新图层】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q137",
+    "type": "extend_condition",
+    "target": {
+      "extension": "切换当前图层",
+      "base": "创建图形"
+    },
+    "prompt": "如果【切换当前图层】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q138",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建新图层",
+      "included": "重置图形创建状态为矩形"
+    },
+    "prompt": "是否确认：用例【创建新图层】执行时必须包含【重置图形创建状态为矩形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q139",
+    "type": "yes_no_include",
+    "target": {
+      "base": "切换当前图层",
+      "included": "重置图形创建状态为矩形"
+    },
+    "prompt": "是否确认：用例【切换当前图层】执行时必须包含【重置图形创建状态为矩形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q140",
+    "type": "extend_condition",
+    "target": {
+      "extension": "扩展支持的图形类型",
+      "base": "创建图形"
+    },
+    "prompt": "如果【扩展支持的图形类型】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q141",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(创建图形)",
+      "included": "(选择直线、椭圆或矩形)"
+    },
+    "prompt": "是否确认：用例【(创建图形)】执行时必须包含【(选择直线、椭圆或矩形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q142",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(选择图形)",
+      "included": "(单击选择单个图形)"
+    },
+    "prompt": "是否确认：用例【(选择图形)】执行时必须包含【(单击选择单个图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q143",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(选择图形)",
+      "included": "(多选叠加图形)"
+    },
+    "prompt": "是否确认：用例【(选择图形)】执行时必须包含【(多选叠加图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q144",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(选择图形)",
+      "included": "(框选区域内图形)"
+    },
+    "prompt": "是否确认：用例【(选择图形)】执行时必须包含【(框选区域内图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q145",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(选择图形)",
+      "included": "(取消选择所有图形)"
+    },
+    "prompt": "是否确认：用例【(选择图形)】执行时必须包含【(取消选择所有图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q146",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(删除所选图形)",
+      "included": "(选择图形)"
+    },
+    "prompt": "是否确认：用例【(删除所选图形)】执行时必须包含【(选择图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q147",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(调整图形尺寸)",
+      "included": "拖动控制点调整尺寸"
+    },
+    "prompt": "是否确认：用例【(调整图形尺寸)】执行时必须包含【拖动控制点调整尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q148",
+    "type": "extend_condition",
+    "target": {
+      "extension": "(调整图形尺寸)",
+      "base": "(点击放大按钮)"
+    },
+    "prompt": "如果【(调整图形尺寸)】是对【(点击放大按钮)】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q149",
+    "type": "extend_condition",
+    "target": {
+      "extension": "(调整图形尺寸)",
+      "base": "(点击缩小按钮)"
+    },
+    "prompt": "如果【(调整图形尺寸)】是对【(点击缩小按钮)】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q150",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(移动图形)",
+      "included": "(选择图形)"
+    },
+    "prompt": "是否确认：用例【(移动图形)】执行时必须包含【(选择图形)】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q151",
+    "type": "yes_no_include",
+    "target": {
+      "base": "(创建新图层)",
+      "included": "(检查图层数量是否超过16)"
+    },
+    "prompt": "是否确认：用例【(创建新图层)】执行时必须包含【(检查图层数量是否超过16)】？（是=include，否=不建立 include）",
+    "default": "no"
+  }
+]

@@ -1,0 +1,22 @@
+@startuml
+actor 管理员
+
+usecase "编号零件" as usecase1
+usecase "命名零件类型" as usecase2
+usecase "记录零件价格" as usecase3
+usecase "查询组件价格" as usecase4
+
+管理员 --> usecase1
+管理员 --> usecase2
+管理员 --> usecase3
+管理员 --> usecase4
+
+' 查询组件价格依赖于组件中包含的零件已有编号，但根据约束禁止 include 编号零件
+' 查询组件价格需要知道零件价格信息，但根据约束禁止直接 include 记录零件价格
+' 查询组件价格需要知道零件类型名称，但根据约束禁止 include 命名零件类型
+' 因此，这些强制性依赖被排除，尽管存在不确定性，仍以约束为准
+
+' 命名零件类型通常应在编号后进行，但约束禁止 include 编号零件
+' 记录零件价格时通常需要先有零件编号，但约束禁止 include 编号零件，且关系性质不明确（conflict: relation_unknown）
+
+@enduml

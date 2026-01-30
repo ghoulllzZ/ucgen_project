@@ -1,0 +1,582 @@
+[
+  {
+    "id": "q1",
+    "type": "single_choice",
+    "target": {
+      "a": "删除图形",
+      "b": "选择图形"
+    },
+    "prompt": "在业务上，【删除图形】与【选择图形】更符合哪种关系？",
+    "choices": [
+      {
+        "value": "include",
+        "text": "删除图形 必须包含 选择图形（include：必经子步骤）"
+      },
+      {
+        "value": "extend",
+        "text": "删除图形 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+      },
+      {
+        "value": "none",
+        "text": "两者之间不需要 include/extend 关系"
+      }
+    ],
+    "observed": [
+      "extend",
+      "include"
+    ]
+  },
+  {
+    "id": "q2",
+    "type": "single_choice",
+    "target": {
+      "a": "调整图形尺寸",
+      "b": "选择图形"
+    },
+    "prompt": "在业务上，【调整图形尺寸】与【选择图形】更符合哪种关系？",
+    "choices": [
+      {
+        "value": "include",
+        "text": "调整图形尺寸 必须包含 选择图形（include：必经子步骤）"
+      },
+      {
+        "value": "extend",
+        "text": "调整图形尺寸 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+      },
+      {
+        "value": "none",
+        "text": "两者之间不需要 include/extend 关系"
+      }
+    ],
+    "observed": [
+      "extend",
+      "include"
+    ]
+  },
+  {
+    "id": "q3",
+    "type": "single_choice",
+    "target": {
+      "a": "移动图形",
+      "b": "选择图形"
+    },
+    "prompt": "在业务上，【移动图形】与【选择图形】更符合哪种关系？",
+    "choices": [
+      {
+        "value": "include",
+        "text": "移动图形 必须包含 选择图形（include：必经子步骤）"
+      },
+      {
+        "value": "extend",
+        "text": "移动图形 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+      },
+      {
+        "value": "none",
+        "text": "两者之间不需要 include/extend 关系"
+      }
+    ],
+    "observed": [
+      "extend",
+      "include"
+    ]
+  },
+  {
+    "id": "q4",
+    "type": "single_choice",
+    "target": {
+      "a": "创建图形",
+      "b": "选择图形"
+    },
+    "prompt": "在业务上，【创建图形】与【选择图形】更符合哪种关系？",
+    "choices": [
+      {
+        "value": "include",
+        "text": "创建图形 必须包含 选择图形（include：必经子步骤）"
+      },
+      {
+        "value": "extend",
+        "text": "创建图形 在特定条件下扩展 选择图形（extend：条件触发，需条件/扩展点）"
+      },
+      {
+        "value": "none",
+        "text": "两者之间不需要 include/extend 关系"
+      }
+    ],
+    "observed": [
+      "extend",
+      "include"
+    ]
+  },
+  {
+    "id": "q5",
+    "type": "single_choice",
+    "target": {
+      "a": "创建图层",
+      "b": "管理图层"
+    },
+    "prompt": "在业务上，【创建图层】与【管理图层】更符合哪种关系？",
+    "choices": [
+      {
+        "value": "include",
+        "text": "创建图层 必须包含 管理图层（include：必经子步骤）"
+      },
+      {
+        "value": "extend",
+        "text": "创建图层 在特定条件下扩展 管理图层（extend：条件触发，需条件/扩展点）"
+      },
+      {
+        "value": "none",
+        "text": "两者之间不需要 include/extend 关系"
+      }
+    ],
+    "observed": [
+      "extend",
+      "include"
+    ]
+  },
+  {
+    "id": "q6",
+    "type": "yes_no_include",
+    "target": {
+      "base": "调整图形尺寸",
+      "included": "选择图形"
+    },
+    "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q7",
+    "type": "yes_no_include",
+    "target": {
+      "base": "移动图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【移动图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q8",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q9",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图层",
+      "included": "管理图层"
+    },
+    "prompt": "用例【创建图层】执行过程中是否【必须】包含用例【管理图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q10",
+    "type": "extend_condition",
+    "target": {
+      "extension": "选择图形",
+      "base": "extendsingle"
+    },
+    "prompt": "如果【选择图形】是对【extendsingle】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q11",
+    "type": "extend_condition",
+    "target": {
+      "extension": "选择图形",
+      "base": "extendmulti"
+    },
+    "prompt": "如果【选择图形】是对【extendmulti】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q12",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建图层",
+      "base": "limitlayercount"
+    },
+    "prompt": "如果【创建图层】是对【limitlayercount】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q13",
+    "type": "extend_condition",
+    "target": {
+      "extension": "调整图形尺寸",
+      "base": "clickzoomin"
+    },
+    "prompt": "如果【调整图形尺寸】是对【clickzoomin】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q14",
+    "type": "extend_condition",
+    "target": {
+      "extension": "调整图形尺寸",
+      "base": "clickzoomout"
+    },
+    "prompt": "如果【调整图形尺寸】是对【clickzoomout】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q15",
+    "type": "extend_condition",
+    "target": {
+      "extension": "调整图形尺寸",
+      "base": "dragcontrolpoint"
+    },
+    "prompt": "如果【调整图形尺寸】是对【dragcontrolpoint】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q16",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建图形",
+      "base": "选择图形"
+    },
+    "prompt": "如果【创建图形】是对【选择图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q17",
+    "type": "extend_condition",
+    "target": {
+      "extension": "删除图形",
+      "base": "选择图形"
+    },
+    "prompt": "如果【删除图形】是对【选择图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q18",
+    "type": "extend_condition",
+    "target": {
+      "extension": "调整图形尺寸",
+      "base": "选择图形"
+    },
+    "prompt": "如果【调整图形尺寸】是对【选择图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q19",
+    "type": "extend_condition",
+    "target": {
+      "extension": "移动图形",
+      "base": "选择图形"
+    },
+    "prompt": "如果【移动图形】是对【选择图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q20",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建图层",
+      "base": "管理图层"
+    },
+    "prompt": "如果【创建图层】是对【管理图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q21",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建新图层",
+      "base": "限制图层数量≤16"
+    },
+    "prompt": "如果【创建新图层】是对【限制图层数量≤16】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q22",
+    "type": "extend_condition",
+    "target": {
+      "extension": "切换当前图层",
+      "base": "重置图形工具状态"
+    },
+    "prompt": "如果【切换当前图层】是对【重置图形工具状态】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q23",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建新图层",
+      "base": "提示新图层编号"
+    },
+    "prompt": "如果【创建新图层】是对【提示新图层编号】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q24",
+    "type": "extend_condition",
+    "target": {
+      "extension": "切换当前图层",
+      "base": "提示当前层编号"
+    },
+    "prompt": "如果【切换当前图层】是对【提示当前层编号】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q25",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "初始化界面"
+    },
+    "prompt": "用例【初始化界面】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q26",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "初始化新图层"
+    },
+    "prompt": "用例【初始化新图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q27",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "切换图层"
+    },
+    "prompt": "用例【切换图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q28",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "创建默认图层"
+    },
+    "prompt": "用例【创建默认图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q29",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动系统"
+    },
+    "prompt": "用例【启动系统】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q30",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图形",
+      "included": "selectshapetype"
+    },
+    "prompt": "是否确认：用例【创建图形】执行时必须包含【selectshapetype】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q31",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图层",
+      "included": "initializenewlayer"
+    },
+    "prompt": "是否确认：用例【创建图层】执行时必须包含【initializenewlayer】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q32",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建图层",
+      "base": "limitlayercount"
+    },
+    "prompt": "如果【创建图层】是对【limitlayercount】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q33",
+    "type": "yes_no_include",
+    "target": {
+      "base": "管理图层",
+      "included": "switchlayer"
+    },
+    "prompt": "是否确认：用例【管理图层】执行时必须包含【switchlayer】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q34",
+    "type": "yes_no_include",
+    "target": {
+      "base": "管理图层",
+      "included": "resettoolstate"
+    },
+    "prompt": "是否确认：用例【管理图层】执行时必须包含【resettoolstate】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q35",
+    "type": "yes_no_include",
+    "target": {
+      "base": "启动图形编辑器",
+      "included": "initui"
+    },
+    "prompt": "是否确认：用例【启动图形编辑器】执行时必须包含【initui】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q36",
+    "type": "yes_no_include",
+    "target": {
+      "base": "初始化界面",
+      "included": "createdefaultlayer"
+    },
+    "prompt": "是否确认：用例【初始化界面】执行时必须包含【createdefaultlayer】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q37",
+    "type": "yes_no_include",
+    "target": {
+      "base": "初始化界面",
+      "included": "showinitialhint"
+    },
+    "prompt": "是否确认：用例【初始化界面】执行时必须包含【showinitialhint】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q38",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图形",
+      "included": "dynamicpreview"
+    },
+    "prompt": "是否确认：用例【创建图形】执行时必须包含【dynamicpreview】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q39",
+    "type": "extend_condition",
+    "target": {
+      "extension": "调整图形尺寸",
+      "base": "clickzoomin"
+    },
+    "prompt": "如果【调整图形尺寸】是对【clickzoomin】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q40",
+    "type": "extend_condition",
+    "target": {
+      "extension": "调整图形尺寸",
+      "base": "clickzoomout"
+    },
+    "prompt": "如果【调整图形尺寸】是对【clickzoomout】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q41",
+    "type": "extend_condition",
+    "target": {
+      "extension": "调整图形尺寸",
+      "base": "dragcontrolpoint"
+    },
+    "prompt": "如果【调整图形尺寸】是对【dragcontrolpoint】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q42",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图形",
+      "included": "选择图形"
+    },
+    "prompt": "是否确认：用例【创建图形】执行时必须包含【选择图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q43",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图层",
+      "included": "管理图层"
+    },
+    "prompt": "是否确认：用例【创建图层】执行时必须包含【管理图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q44",
+    "type": "yes_no_include",
+    "target": {
+      "base": "启动系统",
+      "included": "创建图层"
+    },
+    "prompt": "是否确认：用例【启动系统】执行时必须包含【创建图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q45",
+    "type": "yes_no_include",
+    "target": {
+      "base": "启动系统",
+      "included": "管理图层"
+    },
+    "prompt": "是否确认：用例【启动系统】执行时必须包含【管理图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q46",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建图形",
+      "base": "选择图形"
+    },
+    "prompt": "如果【创建图形】是对【选择图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q47",
+    "type": "yes_no_include",
+    "target": {
+      "base": "管理图层",
+      "included": "创建图形"
+    },
+    "prompt": "是否确认：用例【管理图层】执行时必须包含【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q48",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建图层",
+      "base": "管理图层"
+    },
+    "prompt": "如果【创建图层】是对【管理图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q49",
+    "type": "extend_condition",
+    "target": {
+      "extension": "切换当前图层",
+      "base": "重置图形工具状态"
+    },
+    "prompt": "如果【切换当前图层】是对【重置图形工具状态】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q50",
+    "type": "extend_condition",
+    "target": {
+      "extension": "切换当前图层",
+      "base": "提示当前层编号"
+    },
+    "prompt": "如果【切换当前图层】是对【提示当前层编号】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  }
+]

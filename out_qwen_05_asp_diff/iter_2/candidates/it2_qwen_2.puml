@@ -1,0 +1,77 @@
+@startuml
+actor 用户 as User
+
+'
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layers
+
+'
+User -> create_shape
+User -> select_shape
+User -> delete_shape
+User -> resize_shape
+User -> move_shape
+User -> create_layer
+User -> manage_layers
+
+'
+' 创建图形过程中必须包含初始化默认状态（隐含启动与初始提示）'
+create_shape ..> (初始化编辑区域) : <<include>>
+(初始化编辑区域) : 注：需求1中初始状态由创建图形用例触发隐含完成
+
+'
+' 选择图形功能包含单选与多选行为，但这些用例被禁止显式建模'
+' 因此合并为统一选择操作 '
+select_shape ..> (单选图形) : <<include>>
+select_shape ..> (多选图形) : <<include>>
+(单选图形) : 注：根据需求3，点击内部选择一个图形
+(多选图形) : 注：拖拽框选或叠加点击选择多个
+
+'
+' 删除图形前必须先选择图形，存在强制依赖 '
+delete_shape --> select_shape : <<include>>
+' 删除动作依赖于已有选中图形 '
+
+'
+' 改变尺寸包括拖动控制点和使用放大缩小按钮 '
+resize_shape --> (拖动控制点调整尺寸) : <<include>>
+resize_shape --> (点击放大按钮) : <<include>>
+resize_shape --> (点击缩小按钮) : <<include>>
+(拖动控制点调整尺寸) : 注：通过控制点拖动改变尺寸
+(点击放大按钮) : 注：点击“放大”按钮整体放大
+(点击缩小按钮) : 注：点击“缩小”按钮整体缩小
+
+'
+' 移动图形时编辑器整体移动不影响当前状态 '
+move_shape --> (动态绘制图形) : <<extend>>
+' 当在移动过程中实时渲染图形位置时触发扩展 '
+
+'
+' 创建新图层时会提示编号并重置工具状态 '
+create_layer --> (提示新图层编号) : <<include>>
+create_layer --> (重置图形工具状态) : <<include>>
+(提示新图层编号) : 注：图形提示区域显示新页编号
+(重置图形工具状态) : 注：创建图形选择框恢复为矩形
+
+'
+' 管理图层包含切换图层操作 '
+manage_layers --> (切换当前图层) : <<include>>
+' 切换后当前图层变更，并重置创建状态 '
+
+'
+' 图层数量超过16则无法创建，是创建图层的扩展条件 '
+create_layer --> (限制图层数量≤16) : <<extend>>
+' 当已存在16个图层时，“新页”按钮失效 '
+
+'
+' 启动系统时初始化界面，但该用例被禁止独立存在 '
+' 故作为创建图形的间接结果处理 '
+(启动图形编辑器) : 注：被禁止显式建模，其功能融入其他用例
+' 初始化编辑区域和显示初始提示信息被合并到创建图层或首次创建图形中 '
+
+@enduml

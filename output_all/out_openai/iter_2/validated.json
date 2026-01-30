@@ -1,0 +1,645 @@
+{
+  "actors": [
+    {
+      "name": "User",
+      "decision": "accept",
+      "reasons": [
+        "constraints.keep_actors"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ]
+      }
+    }
+  ],
+  "usecases": [
+    {
+      "name": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "管理图层",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "启动软件",
+      "decision": "accept",
+      "reasons": [
+        "constraints.keep_usecases"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建图层",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ]
+      },
+      "parent": null
+    }
+  ],
+  "relations": [
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "启动软件",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_openai_1",
+            "line_no": 31,
+            "raw": "User -> UC1",
+            "label": "",
+            "justification": "创建图形功能不能包含选择图形 UC2 .include. UC3 创建图层功能不能包含管理图层 UC7 .include. UC8 创建图形功能不能包含启动软件 UC2 .include. UC1 创建图层功能不能包含启动软件 UC7 .include. UC1 管理图层功能不能包含启动软件 UC8 .include. UC1",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_1",
+              "model": "openai"
+            }
+          },
+          {
+            "candidate_id": "it2_openai_2",
+            "line_no": 14,
+            "raw": "User -> UC1",
+            "label": "",
+            "justification": "用户启动软件以使用图形编辑器",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_2",
+              "model": "openai"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_openai_1",
+            "line_no": 32,
+            "raw": "User -> UC2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_1",
+              "model": "openai"
+            }
+          },
+          {
+            "candidate_id": "it2_openai_2",
+            "line_no": 22,
+            "raw": "User -> UC2",
+            "label": "",
+            "justification": "创建图层与管理图层之间不直接关联 但用户可以在创建图层后使用图形工具",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_2",
+              "model": "openai"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_openai_1",
+            "line_no": 33,
+            "raw": "User -> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_1",
+              "model": "openai"
+            }
+          },
+          {
+            "candidate_id": "it2_openai_2",
+            "line_no": 23,
+            "raw": "User -> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_2",
+              "model": "openai"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 0.8333333333333334,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_openai_1",
+            "line_no": 34,
+            "raw": "User -> UC4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_1",
+              "model": "openai"
+            }
+          },
+          {
+            "candidate_id": "it2_openai_3",
+            "line_no": 19,
+            "raw": "User --> UC_DeleteShape",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_3",
+              "model": "openai"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_openai_1",
+            "line_no": 35,
+            "raw": "User -> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_1",
+              "model": "openai"
+            }
+          },
+          {
+            "candidate_id": "it2_openai_2",
+            "line_no": 24,
+            "raw": "User -> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_2",
+              "model": "openai"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_openai_1",
+            "line_no": 36,
+            "raw": "User -> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_1",
+              "model": "openai"
+            }
+          },
+          {
+            "candidate_id": "it2_openai_2",
+            "line_no": 25,
+            "raw": "User -> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_2",
+              "model": "openai"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_openai_1",
+            "line_no": 37,
+            "raw": "User -> UC7",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_1",
+              "model": "openai"
+            }
+          },
+          {
+            "candidate_id": "it2_openai_2",
+            "line_no": 26,
+            "raw": "User -> UC7",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_2",
+              "model": "openai"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "管理图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_openai_1",
+          "it2_openai_2",
+          "it2_openai_3",
+          "it2_openai_4",
+          "it2_openai_5",
+          "it2_openai_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_openai_1",
+            "line_no": 38,
+            "raw": "User -> UC8",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_1",
+              "model": "openai"
+            }
+          },
+          {
+            "candidate_id": "it2_openai_2",
+            "line_no": 27,
+            "raw": "User -> UC8",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_2",
+              "model": "openai"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "删除图形",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 0.3333333333333333,
+        "sources": [
+          "it2_openai_2",
+          "it2_openai_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_openai_2",
+            "line_no": 18,
+            "raw": "UC4 ..> UC3 : include",
+            "label": "include",
+            "justification": "创建图形功能必须先选择图形 删除图形需要选择图形",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_2",
+              "model": "openai"
+            }
+          },
+          {
+            "candidate_id": "it2_openai_6",
+            "line_no": 14,
+            "raw": "DeleteShape --> SelectShape : include",
+            "label": "include",
+            "justification": "创建图形必须先选择一个图形",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_6",
+              "model": "openai"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "创建图形",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.16666666666666666,
+        "sources": [
+          "it2_openai_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_openai_5",
+            "line_no": 14,
+            "raw": "CreateShape --> SelectShape : include",
+            "label": "include",
+            "justification": "删除图形功能必须包含选择图形",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_openai_5",
+              "model": "openai"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

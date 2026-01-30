@@ -1,0 +1,1273 @@
+{
+  "stats": {
+    "total_candidates": 6,
+    "nodes": 10,
+    "edges": 29,
+    "conflicts": 0
+  },
+  "nodes": {
+    "管理员": {
+      "name": "管理员",
+      "node_type": "actor",
+      "freq": 4,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_2",
+        "it1_qwen_4",
+        "it1_qwen_5"
+      ],
+      "status": "common"
+    },
+    "查询组件价格": {
+      "name": "查询组件价格",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4",
+        "it1_qwen_5",
+        "it1_qwen_6"
+      ],
+      "status": "common"
+    },
+    "命名零件类型": {
+      "name": "命名零件类型",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4",
+        "it1_qwen_5",
+        "it1_qwen_6"
+      ],
+      "status": "common"
+    },
+    "编号零件": {
+      "name": "编号零件",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4",
+        "it1_qwen_5",
+        "it1_qwen_6"
+      ],
+      "status": "common"
+    },
+    "构建组件": {
+      "name": "构建组件",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_4"
+      ],
+      "status": "unknown"
+    },
+    "记录零件价格": {
+      "name": "记录零件价格",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_2",
+        "it1_qwen_3",
+        "it1_qwen_4",
+        "it1_qwen_5",
+        "it1_qwen_6"
+      ],
+      "status": "common"
+    },
+    "定义组件构成": {
+      "name": "定义组件构成",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown"
+    },
+    "仓库管理员": {
+      "name": "仓库管理员",
+      "node_type": "actor",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_3",
+        "it1_qwen_6"
+      ],
+      "status": "unknown"
+    },
+    "构建组件结构": {
+      "name": "构建组件结构",
+      "node_type": "usecase",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_3",
+        "it1_qwen_6"
+      ],
+      "status": "unknown"
+    },
+    "构建组件层次结构": {
+      "name": "构建组件层次结构",
+      "node_type": "usecase",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_5"
+      ],
+      "status": "unknown"
+    }
+  },
+  "edges": {
+    "管理员|assoc|编号零件": {
+      "src": "管理员",
+      "kind": "assoc",
+      "dst": "编号零件",
+      "freq": 4,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_2",
+        "it1_qwen_4",
+        "it1_qwen_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "line_no": 10,
+          "raw": "admin --> UC1 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_1",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 10,
+          "raw": "admin --> UC1 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 10,
+          "raw": "admin --> UC1 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_5",
+          "line_no": 10,
+          "raw": "admin --> UC1 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_5",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "管理员|assoc|命名零件类型": {
+      "src": "管理员",
+      "kind": "assoc",
+      "dst": "命名零件类型",
+      "freq": 4,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_2",
+        "it1_qwen_4",
+        "it1_qwen_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "line_no": 11,
+          "raw": "admin --> UC2 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_1",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 11,
+          "raw": "admin --> UC2 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 11,
+          "raw": "admin --> UC2 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_5",
+          "line_no": 11,
+          "raw": "admin --> UC2 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_5",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "管理员|assoc|记录零件价格": {
+      "src": "管理员",
+      "kind": "assoc",
+      "dst": "记录零件价格",
+      "freq": 4,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_2",
+        "it1_qwen_4",
+        "it1_qwen_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "line_no": 12,
+          "raw": "admin --> UC3 : 管理零件价格",
+          "label": "管理零件价格",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_1",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 12,
+          "raw": "admin --> UC3 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 12,
+          "raw": "admin --> UC3 : 管理零件价格",
+          "label": "管理零件价格",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_5",
+          "line_no": 12,
+          "raw": "admin --> UC3 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_5",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "管理员|assoc|构建组件": {
+      "src": "管理员",
+      "kind": "assoc",
+      "dst": "构建组件",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "line_no": 13,
+          "raw": "admin --> UC4 : 定义组件结构",
+          "label": "定义组件结构",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_1",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 13,
+          "raw": "admin --> UC4 : 定义组件结构",
+          "label": "定义组件结构",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "管理员|assoc|查询组件价格": {
+      "src": "管理员",
+      "kind": "assoc",
+      "dst": "查询组件价格",
+      "freq": 4,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_2",
+        "it1_qwen_4",
+        "it1_qwen_5"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "line_no": 14,
+          "raw": "admin --> UC5 : 获取组件总价格",
+          "label": "获取组件总价格",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_1",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 14,
+          "raw": "admin --> UC5 : 获取价格信息",
+          "label": "获取价格信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 14,
+          "raw": "admin --> UC5 : 获取组件总价",
+          "label": "获取组件总价",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_5",
+          "line_no": 14,
+          "raw": "admin --> UC5 : 获取价格信息",
+          "label": "获取价格信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_5",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "记录零件价格|assoc|编号零件": {
+      "src": "记录零件价格",
+      "kind": "assoc",
+      "dst": "编号零件",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "line_no": 17,
+          "raw": "UC3 .> UC1 : include",
+          "label": "include",
+          "justification": "编号零件是记录零件价格的前提，必须先有编号",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_1",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "line_no": 17,
+          "raw": "UC3 .> UC1 : include",
+          "label": "include",
+          "justification": "编号零件是记录零件价格的前提，必须先有编号",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_6",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "记录零件价格|assoc|命名零件类型": {
+      "src": "记录零件价格",
+      "kind": "assoc",
+      "dst": "命名零件类型",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_1"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "line_no": 20,
+          "raw": "UC3 .> UC2 : include",
+          "label": "include",
+          "justification": "命名零件类型是记录零件价格的前提，必须先有名称",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_1",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "构建组件|assoc|编号零件": {
+      "src": "构建组件",
+      "kind": "assoc",
+      "dst": "编号零件",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "line_no": 23,
+          "raw": "UC4 .> UC1 : include",
+          "label": "include",
+          "justification": "构建组件依赖于已存在的零件或组件，必须包含零件定义（含编号和命名）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_1",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 17,
+          "raw": "UC4 .> UC1 : include",
+          "label": "include",
+          "justification": "构建组件时必须包含已有零件或组件",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "构建组件|assoc|命名零件类型": {
+      "src": "构建组件",
+      "kind": "assoc",
+      "dst": "命名零件类型",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "line_no": 24,
+          "raw": "UC4 .> UC2 : include",
+          "label": "include",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_1",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 18,
+          "raw": "UC4 .> UC2 : include",
+          "label": "include",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "查询组件价格|assoc|构建组件": {
+      "src": "查询组件价格",
+      "kind": "assoc",
+      "dst": "构建组件",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "line_no": 27,
+          "raw": "UC5 .> UC4 : include",
+          "label": "include",
+          "justification": "查询组件价格时必须已构建组件结构，否则无法计算",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_1",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 22,
+          "raw": "UC5 .> UC4 : include",
+          "label": "include",
+          "justification": "查询组件价格必须递归包含其所有子组件和零件的价格",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "查询组件价格|assoc|记录零件价格": {
+      "src": "查询组件价格",
+      "kind": "assoc",
+      "dst": "记录零件价格",
+      "freq": 5,
+      "sources": [
+        "it1_qwen_1",
+        "it1_qwen_2",
+        "it1_qwen_4",
+        "it1_qwen_5",
+        "it1_qwen_6"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_1",
+          "line_no": 30,
+          "raw": "UC5 .> UC3 : include",
+          "label": "include",
+          "justification": "查询组件价格时，需要获取所有子零件和子组件的价格数据，因此依赖记录价格",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_1",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 19,
+          "raw": "UC5 ..> UC3 : include",
+          "label": "include",
+          "justification": "查询组件价格依赖于零件价格记录",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 23,
+          "raw": "UC5 .> UC3 : include",
+          "label": "include",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_5",
+          "line_no": 17,
+          "raw": "UC5 ..> UC3 : include",
+          "label": "include",
+          "justification": "查询组件价格必须包含计算其构成零件或子组件的价格",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_5",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "line_no": 29,
+          "raw": "UC5 .> UC3 : include",
+          "label": "include",
+          "justification": "查询组件价格需要所有子零件或子组件的价格信息",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_6",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "管理员|assoc|定义组件构成": {
+      "src": "管理员",
+      "kind": "assoc",
+      "dst": "定义组件构成",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 13,
+          "raw": "admin --> UC4 : 构建组件结构",
+          "label": "构建组件结构",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "查询组件价格|assoc|定义组件构成": {
+      "src": "查询组件价格",
+      "kind": "assoc",
+      "dst": "定义组件构成",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 17,
+          "raw": "UC5 ..> UC4 : include",
+          "label": "include",
+          "justification": "查询组件价格必须基于组件的构成定义",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "定义组件构成|assoc|编号零件": {
+      "src": "定义组件构成",
+      "kind": "assoc",
+      "dst": "编号零件",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_2"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 21,
+          "raw": "UC4 ..> UC1 : include",
+          "label": "include",
+          "justification": "定义组件构成需要先有零件编号",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "命名零件类型|assoc|编号零件": {
+      "src": "命名零件类型",
+      "kind": "assoc",
+      "dst": "编号零件",
+      "freq": 3,
+      "sources": [
+        "it1_qwen_2",
+        "it1_qwen_4",
+        "it1_qwen_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_2",
+          "line_no": 23,
+          "raw": "UC2 ..> UC1 : include",
+          "label": "include",
+          "justification": "命名零件类型与编号对应，需同步管理",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_2",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 26,
+          "raw": "UC2 .> UC1 : include",
+          "label": "include",
+          "justification": "编号零件是命名零件类型的前提",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "line_no": 20,
+          "raw": "UC2 .> UC1 : include",
+          "label": "include",
+          "justification": "命名零件类型与编号零件通常同时进行，视为包含",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_6",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "仓库管理员|assoc|编号零件": {
+      "src": "仓库管理员",
+      "kind": "assoc",
+      "dst": "编号零件",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_3",
+        "it1_qwen_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 10,
+          "raw": "admin --> UC1 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "line_no": 10,
+          "raw": "admin --> UC1 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_6",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "仓库管理员|assoc|命名零件类型": {
+      "src": "仓库管理员",
+      "kind": "assoc",
+      "dst": "命名零件类型",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_3",
+        "it1_qwen_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 11,
+          "raw": "admin --> UC2 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "line_no": 11,
+          "raw": "admin --> UC2 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_6",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "仓库管理员|assoc|记录零件价格": {
+      "src": "仓库管理员",
+      "kind": "assoc",
+      "dst": "记录零件价格",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_3",
+        "it1_qwen_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 12,
+          "raw": "admin --> UC3 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "line_no": 12,
+          "raw": "admin --> UC3 : 管理零件信息",
+          "label": "管理零件信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_6",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "仓库管理员|assoc|构建组件结构": {
+      "src": "仓库管理员",
+      "kind": "assoc",
+      "dst": "构建组件结构",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_3",
+        "it1_qwen_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 13,
+          "raw": "admin --> UC4 : 组装组件",
+          "label": "组装组件",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "line_no": 13,
+          "raw": "admin --> UC4 : 构建组件",
+          "label": "构建组件",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_6",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "仓库管理员|assoc|查询组件价格": {
+      "src": "仓库管理员",
+      "kind": "assoc",
+      "dst": "查询组件价格",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_3",
+        "it1_qwen_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 14,
+          "raw": "admin --> UC5 : 获取价格信息",
+          "label": "获取价格信息",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "line_no": 14,
+          "raw": "admin --> UC5 : 获取价格",
+          "label": "获取价格",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_6",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "查询组件价格|assoc|构建组件结构": {
+      "src": "查询组件价格",
+      "kind": "assoc",
+      "dst": "构建组件结构",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_3",
+        "it1_qwen_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 17,
+          "raw": "UC5 ..> UC4 : include",
+          "label": "include",
+          "justification": "查询组件价格必须包含构建组件结构，因为只有存在结构才能计算组件总价",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "line_no": 27,
+          "raw": "UC5 .> UC4 : include",
+          "label": "include",
+          "justification": "查询组件价格时，若组件由零件或其他组件构成，必须递归计算其总和",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_6",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "构建组件结构|assoc|记录零件价格": {
+      "src": "构建组件结构",
+      "kind": "assoc",
+      "dst": "记录零件价格",
+      "freq": 2,
+      "sources": [
+        "it1_qwen_3",
+        "it1_qwen_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 19,
+          "raw": "UC4 ..> UC3 : include",
+          "label": "include",
+          "justification": "构建组件结构必须包含记录零件价格，因为组件价格依赖零件价格",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        },
+        {
+          "candidate_id": "it1_qwen_6",
+          "line_no": 24,
+          "raw": "UC4 .> UC3 : include",
+          "label": "include",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_6",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "编号零件|assoc|命名零件类型": {
+      "src": "编号零件",
+      "kind": "assoc",
+      "dst": "命名零件类型",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_3"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_3",
+          "line_no": 21,
+          "raw": "UC1 ..> UC2 : include",
+          "label": "include",
+          "justification": "编号零件与命名零件类型是记录零件基本信息的必要组成部分",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_3",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "构建组件|assoc|记录零件价格": {
+      "src": "构建组件",
+      "kind": "assoc",
+      "dst": "记录零件价格",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_4"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_4",
+          "line_no": 19,
+          "raw": "UC4 .> UC3 : include",
+          "label": "include",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_4",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "管理员|assoc|构建组件层次结构": {
+      "src": "管理员",
+      "kind": "assoc",
+      "dst": "构建组件层次结构",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_5",
+          "line_no": 13,
+          "raw": "admin --> UC4 : 组装组件",
+          "label": "组装组件",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_5",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "构建组件层次结构|assoc|编号零件": {
+      "src": "构建组件层次结构",
+      "kind": "assoc",
+      "dst": "编号零件",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_5",
+          "line_no": 19,
+          "raw": "UC4 ..> UC1 : include",
+          "label": "include",
+          "justification": "构建组件层次结构必须包含对零件或组件的引用（隐含对编号、命名、定价的依赖）",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_5",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "构建组件层次结构|assoc|命名零件类型": {
+      "src": "构建组件层次结构",
+      "kind": "assoc",
+      "dst": "命名零件类型",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_5",
+          "line_no": 20,
+          "raw": "UC4 ..> UC2 : include",
+          "label": "include",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_5",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "构建组件层次结构|assoc|记录零件价格": {
+      "src": "构建组件层次结构",
+      "kind": "assoc",
+      "dst": "记录零件价格",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_5",
+          "line_no": 21,
+          "raw": "UC4 ..> UC3 : include",
+          "label": "include",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_5",
+            "model": "qwen"
+          }
+        }
+      ]
+    },
+    "构建组件结构|assoc|编号零件": {
+      "src": "构建组件结构",
+      "kind": "assoc",
+      "dst": "编号零件",
+      "freq": 1,
+      "sources": [
+        "it1_qwen_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it1_qwen_6",
+          "line_no": 23,
+          "raw": "UC4 .> UC1 : include",
+          "label": "include",
+          "justification": "构建组件结构依赖于零件已存在，需先编号和定价",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it1_qwen_6",
+            "model": "qwen"
+          }
+        }
+      ]
+    }
+  }
+}

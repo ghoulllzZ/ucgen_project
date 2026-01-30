@@ -1,0 +1,61 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "查询组件价格",
+    "b": "记录零件价格",
+    "details": {
+      "confidence": 0.5,
+      "sources": [
+        "it2_qwen_1",
+        "it2_qwen_2",
+        "it2_qwen_5"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "查询组件价格",
+    "b": "编号零件",
+    "details": {
+      "confidence": 0.3333333333333333,
+      "sources": [
+        "it2_qwen_1",
+        "it2_qwen_5"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "查询组件价格",
+    "b": "命名零件类型",
+    "details": {
+      "confidence": 0.3333333333333333,
+      "sources": [
+        "it2_qwen_1",
+        "it2_qwen_5"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "命名零件类型",
+    "b": "编号零件",
+    "details": {
+      "confidence": 0.16666666666666666,
+      "sources": [
+        "it2_qwen_2"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "记录零件价格",
+    "b": "编号零件",
+    "details": {
+      "confidence": 0.16666666666666666,
+      "sources": [
+        "it2_qwen_2"
+      ]
+    }
+  }
+]

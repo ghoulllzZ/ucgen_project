@@ -1,0 +1,765 @@
+{
+  "actors": [
+    {
+      "name": "用户",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该参与者"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ]
+      }
+    }
+  ],
+  "usecases": [
+    {
+      "name": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "等比例缩放",
+      "decision": "accept",
+      "reasons": [
+        "constraints.keep_usecases"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 5,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "管理图层",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 4,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建图层",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 4,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "更改当前图层",
+      "decision": "unknown",
+      "reasons": [
+        "需求文本未找到直接依据，需确认/补充"
+      ],
+      "evidence": {
+        "freq": 1,
+        "sources": [
+          "it2_deepseek_3"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "创建新图层",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 1,
+        "sources": [
+          "it2_deepseek_4"
+        ]
+      },
+      "parent": null
+    }
+  ],
+  "relations": [
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_1",
+            "line_no": 13,
+            "raw": "用户 --> UC1",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_1",
+              "model": "deepseek"
+            }
+          },
+          {
+            "candidate_id": "it2_deepseek_3",
+            "line_no": 13,
+            "raw": "用户 --> UC1",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_3",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_1",
+            "line_no": 14,
+            "raw": "用户 --> UC2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_1",
+              "model": "deepseek"
+            }
+          },
+          {
+            "candidate_id": "it2_deepseek_3",
+            "line_no": 14,
+            "raw": "用户 --> UC2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_3",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_1",
+            "line_no": 15,
+            "raw": "用户 --> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_1",
+              "model": "deepseek"
+            }
+          },
+          {
+            "candidate_id": "it2_deepseek_3",
+            "line_no": 15,
+            "raw": "用户 --> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_3",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_1",
+            "line_no": 16,
+            "raw": "用户 --> UC4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_1",
+              "model": "deepseek"
+            }
+          },
+          {
+            "candidate_id": "it2_deepseek_3",
+            "line_no": 16,
+            "raw": "用户 --> UC4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_3",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_1",
+            "line_no": 17,
+            "raw": "用户 --> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_1",
+              "model": "deepseek"
+            }
+          },
+          {
+            "candidate_id": "it2_deepseek_3",
+            "line_no": 17,
+            "raw": "用户 --> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_3",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 4,
+        "confidence": 0.8,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_1",
+            "line_no": 18,
+            "raw": "用户 --> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_1",
+              "model": "deepseek"
+            }
+          },
+          {
+            "candidate_id": "it2_deepseek_3",
+            "line_no": 18,
+            "raw": "用户 --> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_3",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "管理图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 4,
+        "confidence": 0.8,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_1",
+            "line_no": 19,
+            "raw": "用户 --> UC7",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_1",
+              "model": "deepseek"
+            }
+          },
+          {
+            "candidate_id": "it2_deepseek_4",
+            "line_no": 19,
+            "raw": "用户 --> UC7",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_4",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "等比例缩放",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_1",
+            "line_no": 20,
+            "raw": "用户 --> UC8",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_1",
+              "model": "deepseek"
+            }
+          },
+          {
+            "candidate_id": "it2_deepseek_3",
+            "line_no": 20,
+            "raw": "用户 --> UC8",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_3",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "等比例缩放",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 1.0,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_3",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_1",
+            "line_no": 23,
+            "raw": "UC8 ..> UC2 : include",
+            "label": "include",
+            "justification": "等比例缩放必须在选择图形后进行",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_1",
+              "model": "deepseek"
+            }
+          },
+          {
+            "candidate_id": "it2_deepseek_3",
+            "line_no": 23,
+            "raw": "UC8 ..> UC2 : include",
+            "label": "include",
+            "justification": "等比例缩放必须在选择图形后进行",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_3",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "调整图形尺寸",
+      "kind": "assoc",
+      "dst": "等比例缩放",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 4,
+        "confidence": 0.8,
+        "sources": [
+          "it2_deepseek_1",
+          "it2_deepseek_4",
+          "it2_deepseek_5",
+          "it2_deepseek_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_1",
+            "line_no": 26,
+            "raw": "UC4 ..> UC8 : extend",
+            "label": "extend",
+            "justification": "当按住Shift时，调整图形尺寸扩展为等比例缩放",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_1",
+              "model": "deepseek"
+            }
+          },
+          {
+            "candidate_id": "it2_deepseek_4",
+            "line_no": 26,
+            "raw": "UC4 --> UC8 : extend",
+            "label": "extend",
+            "justification": "调整图形尺寸在按住Shift时扩展等比例缩放",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_4",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "更改当前图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it2_deepseek_3"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_3",
+            "line_no": 19,
+            "raw": "用户 --> UC7",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_3",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "等比例缩放",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it2_deepseek_3"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_3",
+            "line_no": 25,
+            "raw": "UC8 ..> UC4 : extend",
+            "label": "extend",
+            "justification": "按住Shift时，调整图形尺寸扩展为等比例缩放",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_3",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建新图层",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.2,
+        "sources": [
+          "it2_deepseek_4"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_deepseek_4",
+            "line_no": 18,
+            "raw": "用户 --> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_deepseek_4",
+              "model": "deepseek"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

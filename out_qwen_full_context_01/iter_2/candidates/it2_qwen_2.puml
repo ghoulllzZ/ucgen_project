@@ -1,0 +1,67 @@
+@startuml
+actor 用户
+
+'
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layer
+
+'
+用户 --> create_shape
+用户 --> select_shape
+用户 --> delete_shape
+用户 --> create_layer
+用户 --> manage_layer
+
+'
+' 扩展关系：选择图形成功后，在特定扩展点可触发“改变图形尺寸”
+' EP1: 图形已被选中并显示控制点，且用户拖动控制点或点击放大/缩小按钮
+select_shape ..> resize_shape : extend
+note on link
+  扩展点EP1：图形已被选中并显示控制点；
+  触发条件：用户拖动控制点或点击“放大/缩小”按钮
+end note
+
+'
+' 扩展关系：选择图形成功后，在特定扩展点可触发“移动图形”
+' EP2: 图形已被选中，且用户在图形内部按下并拖动
+select_shape ..> move_shape : extend
+note on link
+  扩展点EP2：图形已被选中；
+  触发条件：用户在选中图形内部按下鼠标并拖动
+end note
+
+'
+' 创建图形必须包含初始化默认状态（隐含流程）
+' 初始化包括：默认选中矩形、创建第一图层、提示第一页
+create_shape .> manage_layer : include
+note on link
+  创建图形前系统自动初始化第一个图层并设置默认状态
+end note
+
+'
+' 管理图层操作中包含切换当前图层，并重置创建工具为矩形
+manage_layer .> create_shape : include
+note on link
+  切换图层后重置“创建图形选择框”为矩形
+end note
+
+'
+' 创建新图层时需设为当前图层，并重置图形创建状态
+create_layer .> manage_layer : include
+note on link
+  新建图层后将其设为当前图层，属于图层管理的一部分
+end note
+
+'
+' 删除图形依赖于已有选中的图形
+delete_shape .> select_shape : include
+note on link
+  必须先选择图形才能执行删除操作
+end note
+
+@enduml

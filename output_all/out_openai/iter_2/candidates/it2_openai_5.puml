@@ -1,0 +1,27 @@
+@startuml
+actor User
+
+usecase "启动软件" as StartSoftware
+usecase "创建图形" as CreateShape
+usecase "选择图形" as SelectShape
+usecase "删除图形" as DeleteShape
+usecase "改变图形尺寸" as ResizeShape
+usecase "移动图形" as MoveShape
+usecase "创建图层" as CreateLayer
+usecase "管理图层" as ManageLayer
+
+' 删除图形功能必须包含选择图形
+CreateShape --> SelectShape : include
+' 创建图层和管理图层之间没有直接关系
+' 创建图形与启动软件之间没有直接关系
+
+User --> StartSoftware
+User --> CreateShape
+User --> SelectShape
+User --> DeleteShape
+User --> ResizeShape
+User --> MoveShape
+User --> CreateLayer
+User --> ManageLayer
+
+@enduml

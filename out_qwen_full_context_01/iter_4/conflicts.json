@@ -1,0 +1,13 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "选择图形",
+    "b": "删除图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it4_qwen_3"
+      ]
+    }
+  }
+]

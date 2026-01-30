@@ -1,0 +1,42 @@
+{
+  "must_include": [
+    {
+      "base": "删除图形",
+      "included": "选择图形"
+    }
+  ],
+  "forbid_include": [
+    {
+      "base": "创建图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "创建图层",
+      "included": "管理图层"
+    },
+    {
+      "base": "创建图形",
+      "included": "启动软件"
+    },
+    {
+      "base": "创建图层",
+      "included": "启动软件"
+    },
+    {
+      "base": "管理图层",
+      "included": "启动软件"
+    }
+  ],
+  "extend": [],
+  "forbid_extend": [],
+  "keep_actors": [
+    "User"
+  ],
+  "forbid_actors": [],
+  "keep_usecases": [
+    "启动软件"
+  ],
+  "forbid_usecases": [
+    "启动图形编辑器"
+  ]
+}

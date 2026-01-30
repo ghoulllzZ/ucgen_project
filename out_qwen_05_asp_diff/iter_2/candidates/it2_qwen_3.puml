@@ -1,0 +1,104 @@
+@startuml
+actor 用户 as User
+
+'
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layer
+
+User --> create_shape
+User --> select_shape
+User --> delete_shape
+User --> resize_shape
+User --> move_shape
+User --> create_layer
+User --> manage_layer
+
+' 创建图形过程中必须包含从工具栏选择图形类型
+create_shape ..> select_shape_type : <<include>>
+usecase "选择图形类型" as select_shape_type
+
+' 选择图形功能包含单选和多选，但这些用例被禁止直接建模，因此通过扩展表达其行为变体
+' 在点击一个图形内部时触发单选（条件：无图形被选或点击非选区）
+select_shape <-- extend_single : <<extend>>
+note on link
+  扩展点：在图形内部点击且未进行拖拽
+end note
+usecase "单选图形" as extend_single
+
+' 在拖拽鼠标形成矩形区域时触发多选
+select_shape <-- extend_multi : <<extend>>
+note on link
+  扩展点：按下鼠标并拖动后释放，形成选择框
+end note
+usecase "多选图形" as extend_multi
+
+' 删除图形前必须先选择图形
+delete_shape ..> select_shape : <<include>>
+' 改变尺寸前必须选择图形
+resize_shape ..> select_shape : <<include>>
+' 移动图形前必须选择图形
+move_shape ..> select_shape : <<include>>
+
+' 创建图层会初始化新图层并设置为当前层
+create_layer ..> initialize_new_layer : <<include>>
+usecase "初始化新图层" as initialize_new_layer
+
+' 创建图层时若超过16层则无法创建（约束条件）
+create_layer <-- limit_layer_count : <<extend>>
+note on link
+  触发条件：图层数量 ≥ 16 时禁用“新页”按钮
+end note
+usecase "限制图层数量≤16" as limit_layer_count
+
+' 管理图层包括切换图层，并重置图形工具状态
+manage_layer ..> switch_layer : <<include>>
+usecase "切换图层" as switch_layer
+
+' 图层切换后重置创建图形选择框为矩形
+manage_layer ..> reset_tool_state : <<include>>
+usecase "重置图形工具状态" as reset_tool_state
+
+' 启动系统时执行初始设置
+User --> system_startup : 
+usecase "启动图形编辑器" as system_startup
+
+system_startup ..> init_ui : <<include>>
+usecase "初始化界面" as init_ui
+
+' 初始化界面包括默认图层创建、提示信息显示等
+init_ui ..> create_default_layer : <<include>>
+usecase "创建默认图层" as create_default_layer
+
+init_ui ..> show_initial_hint : <<include>>
+usecase "显示初始提示信息" as show_initial_hint
+
+' 创建图形时动态绘制虚线轮廓是过程一部分，但该用例被禁止独立存在
+create_shape ..> dynamic_preview : <<include>>
+usecase "动态绘制图形" as dynamic_preview
+
+' 改变尺寸可通过拖动控制点或点击放大/缩小按钮
+resize_shape <-- click_zoom_in : <<extend>>
+note on link
+  扩展点：点击“放大”按钮
+end note
+usecase "点击放大按钮" as click_zoom_in
+
+resize_shape <-- click_zoom_out : <<extend>>
+note on link
+  扩展点：点击“缩小”按钮
+end note
+usecase "点击缩小按钮" as click_zoom_out
+
+' 拖动控制点是改变尺寸的一种方式
+resize_shape <-- drag_control_point : <<extend>>
+note on link
+  扩展点：拖动图形角上的控制点
+end note
+usecase "拖动控制点调整尺寸" as drag_control_point
+
+@enduml

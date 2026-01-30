@@ -1,0 +1,30 @@
+@startuml
+actor User
+
+usecase "创建图形" as UC1
+usecase "选择图形" as UC2
+usecase "删除图形" as UC3
+usecase "改变图形尺寸" as UC4
+usecase "移动图形" as UC5
+usecase "创建图层" as UC6
+usecase "管理图层" as UC7
+
+User -> UC1
+User -> UC2
+User -> UC3
+User -> UC4
+User -> UC5
+User -> UC6
+User -> UC7
+
+' 删除图形必须先选择图形
+UC3 .include. UC2
+' 创建图层后可进行图形创建等操作
+UC6 .include. UC1
+UC6 .include. UC2
+UC6 .include. UC3
+UC6 .include. UC4
+UC6 .include. UC5
+' 图层管理扩展创建图层操作
+UC7 .extend. UC6 : 当点击“下一页”时
+@enduml

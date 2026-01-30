@@ -1,0 +1,37 @@
+@startuml
+actor 用户
+
+usecase "软件初始启动" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "改变图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "管理图层" as UC8
+
+用户 -> UC1
+用户 -> UC2
+用户 -> UC3
+用户 -> UC4
+用户 -> UC5
+用户 -> UC6
+用户 -> UC7
+用户 -> UC8
+
+' 创建图形功能必须包括选择图形功能
+UC2 --> UC3 : include
+
+' 删除图形功能必须包括选择图形功能
+UC4 --> UC3 : include
+
+' 改变图形尺寸功能在选择图形时扩展
+UC5 <|-- UC3 : extend (选择图形后)
+
+' 移动图形功能在选择图形时扩展
+UC6 <|-- UC3 : extend (选择图形后)
+
+' 创建图层功能必须包括管理图层功能
+UC7 --> UC8 : include
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+actor "管理员" as admin
+
+usecase "编号零件" as UC1
+usecase "命名零件类型" as UC2
+usecase "记录零件价格" as UC3
+usecase "定义组件构成" as UC4
+usecase "查询组件价格" as UC5
+
+admin --> UC1 : 管理零件信息
+admin --> UC2 : 管理零件信息
+admin --> UC3 : 管理零件信息
+admin --> UC4 : 构建组件结构
+admin --> UC5 : 获取价格信息
+
+' 查询组件价格必须基于组件的构成定义
+UC5 ..> UC4 : include
+' 查询组件价格依赖于零件价格记录
+UC5 ..> UC3 : include
+' 定义组件构成需要先有零件编号
+UC4 ..> UC1 : include
+' 命名零件类型与编号对应，需同步管理
+UC2 ..> UC1 : include
+
+@enduml

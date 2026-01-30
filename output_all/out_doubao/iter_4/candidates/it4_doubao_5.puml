@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+actor Editor
+
+usecase "启动图形编辑器" as UC1 #mustkeep
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "改变图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "切换图层" as UC8 #mustkeep
+usecase "创建自定义图形" as UC9 #mustkeep
+
+Editor --> UC1
+Editor --> UC2
+Editor --> UC3
+Editor --> UC4
+Editor --> UC5
+Editor --> UC6
+Editor --> UC7
+Editor --> UC8
+Editor --> UC9
+
+' 当用户需要使用预设图形类型之外的自定义图形时，扩展基础创建图形功能
+UC9 --|> UC2 : extend
+@enduml

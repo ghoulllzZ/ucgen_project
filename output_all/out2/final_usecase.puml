@@ -1,0 +1,25 @@
+@startuml
+title Final Use Case Diagram
+left to right direction
+skinparam shadowing false
+
+actor "用户" as A1
+
+(创建图形) as UC1
+(删除图形) as UC2
+(移动图形) as UC3
+(等比例缩放) as UC4
+(调整图形尺寸) as UC5
+(选择图形) as UC6
+
+UC4 ..> UC5 : <<extend>>
+A1 --> UC4
+A1 --> UC2
+A1 --> UC5
+UC5 ..> UC6 : <<extend>>
+A1 --> UC6
+A1 --> UC1
+UC3 ..> UC6 : <<extend>>
+UC2 ..> UC6 : <<extend>>
+A1 --> UC3
+@enduml

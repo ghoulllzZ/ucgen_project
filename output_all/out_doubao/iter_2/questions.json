@@ -1,0 +1,38 @@
+[
+  {
+    "id": "q1",
+    "type": "actor_yes_no",
+    "target": {
+      "actor": "GraphicEditorUser"
+    },
+    "prompt": "参与者【GraphicEditorUser】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "actor_yes_no",
+    "target": {
+      "actor": "GraphicDesigner"
+    },
+    "prompt": "参与者【GraphicDesigner】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q3",
+    "type": "actor_yes_no",
+    "target": {
+      "actor": "EditorOperator"
+    },
+    "prompt": "参与者【EditorOperator】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q4",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "扩展图形类型"
+    },
+    "prompt": "用例【扩展图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  }
+]

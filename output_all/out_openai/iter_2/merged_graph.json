@@ -1,0 +1,948 @@
+{
+  "stats": {
+    "total_candidates": 6,
+    "nodes": 9,
+    "edges": 10,
+    "conflicts": 0
+  },
+  "nodes": {
+    "User": {
+      "name": "User",
+      "node_type": "actor",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common"
+    },
+    "删除图形": {
+      "name": "删除图形",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common"
+    },
+    "移动图形": {
+      "name": "移动图形",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common"
+    },
+    "管理图层": {
+      "name": "管理图层",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common"
+    },
+    "启动软件": {
+      "name": "启动软件",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common"
+    },
+    "调整图形尺寸": {
+      "name": "调整图形尺寸",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common"
+    },
+    "创建图层": {
+      "name": "创建图层",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common"
+    },
+    "创建图形": {
+      "name": "创建图形",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common"
+    },
+    "选择图形": {
+      "name": "选择图形",
+      "node_type": "usecase",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common"
+    }
+  },
+  "edges": {
+    "User|assoc|启动软件": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "启动软件",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_openai_1",
+          "line_no": 31,
+          "raw": "User -> UC1",
+          "label": "",
+          "justification": "创建图形功能不能包含选择图形 UC2 .include. UC3 创建图层功能不能包含管理图层 UC7 .include. UC8 创建图形功能不能包含启动软件 UC2 .include. UC1 创建图层功能不能包含启动软件 UC7 .include. UC1 管理图层功能不能包含启动软件 UC8 .include. UC1",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_1",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_2",
+          "line_no": 14,
+          "raw": "User -> UC1",
+          "label": "",
+          "justification": "用户启动软件以使用图形编辑器",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_2",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_3",
+          "line_no": 16,
+          "raw": "User --> UC_StartSoftware",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_3",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_4",
+          "line_no": 15,
+          "raw": "User --> UC1",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_4",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_5",
+          "line_no": 18,
+          "raw": "User --> StartSoftware",
+          "label": "",
+          "justification": "创建图层和管理图层之间没有直接关系 创建图形与启动软件之间没有直接关系",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_5",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_6",
+          "line_no": 16,
+          "raw": "User --> StartSoftware",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_6",
+            "model": "openai"
+          }
+        }
+      ]
+    },
+    "User|assoc|创建图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_openai_1",
+          "line_no": 32,
+          "raw": "User -> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_1",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_2",
+          "line_no": 22,
+          "raw": "User -> UC2",
+          "label": "",
+          "justification": "创建图层与管理图层之间不直接关联 但用户可以在创建图层后使用图形工具",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_2",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_3",
+          "line_no": 17,
+          "raw": "User --> UC_CreateShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_3",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_4",
+          "line_no": 16,
+          "raw": "User --> UC2",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_4",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_5",
+          "line_no": 19,
+          "raw": "User --> CreateShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_5",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_6",
+          "line_no": 17,
+          "raw": "User --> CreateShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_6",
+            "model": "openai"
+          }
+        }
+      ]
+    },
+    "User|assoc|选择图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_openai_1",
+          "line_no": 33,
+          "raw": "User -> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_1",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_2",
+          "line_no": 23,
+          "raw": "User -> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_2",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_3",
+          "line_no": 18,
+          "raw": "User --> UC_SelectShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_3",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_4",
+          "line_no": 17,
+          "raw": "User --> UC3",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_4",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_5",
+          "line_no": 20,
+          "raw": "User --> SelectShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_5",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_6",
+          "line_no": 18,
+          "raw": "User --> SelectShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_6",
+            "model": "openai"
+          }
+        }
+      ]
+    },
+    "User|assoc|删除图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "freq": 5,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_openai_1",
+          "line_no": 34,
+          "raw": "User -> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_1",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_3",
+          "line_no": 19,
+          "raw": "User --> UC_DeleteShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_3",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_4",
+          "line_no": 18,
+          "raw": "User --> UC4",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_4",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_5",
+          "line_no": 21,
+          "raw": "User --> DeleteShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_5",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_6",
+          "line_no": 19,
+          "raw": "User --> DeleteShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_6",
+            "model": "openai"
+          }
+        }
+      ]
+    },
+    "User|assoc|调整图形尺寸": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_openai_1",
+          "line_no": 35,
+          "raw": "User -> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_1",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_2",
+          "line_no": 24,
+          "raw": "User -> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_2",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_3",
+          "line_no": 20,
+          "raw": "User --> UC_ChangeShapeSize",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_3",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_4",
+          "line_no": 19,
+          "raw": "User --> UC5",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_4",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_5",
+          "line_no": 22,
+          "raw": "User --> ResizeShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_5",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_6",
+          "line_no": 20,
+          "raw": "User --> ChangeShapeSize",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_6",
+            "model": "openai"
+          }
+        }
+      ]
+    },
+    "User|assoc|移动图形": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_openai_1",
+          "line_no": 36,
+          "raw": "User -> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_1",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_2",
+          "line_no": 25,
+          "raw": "User -> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_2",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_3",
+          "line_no": 21,
+          "raw": "User --> UC_MoveShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_3",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_4",
+          "line_no": 20,
+          "raw": "User --> UC6",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_4",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_5",
+          "line_no": 23,
+          "raw": "User --> MoveShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_5",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_6",
+          "line_no": 21,
+          "raw": "User --> MoveShape",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_6",
+            "model": "openai"
+          }
+        }
+      ]
+    },
+    "User|assoc|创建图层": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "创建图层",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_openai_1",
+          "line_no": 37,
+          "raw": "User -> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_1",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_2",
+          "line_no": 26,
+          "raw": "User -> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_2",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_3",
+          "line_no": 22,
+          "raw": "User --> UC_CreateLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_3",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_4",
+          "line_no": 21,
+          "raw": "User --> UC7",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_4",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_5",
+          "line_no": 24,
+          "raw": "User --> CreateLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_5",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_6",
+          "line_no": 22,
+          "raw": "User --> CreateLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_6",
+            "model": "openai"
+          }
+        }
+      ]
+    },
+    "User|assoc|管理图层": {
+      "src": "User",
+      "kind": "assoc",
+      "dst": "管理图层",
+      "freq": 6,
+      "sources": [
+        "it2_openai_1",
+        "it2_openai_2",
+        "it2_openai_3",
+        "it2_openai_4",
+        "it2_openai_5",
+        "it2_openai_6"
+      ],
+      "status": "common",
+      "meta": [
+        {
+          "candidate_id": "it2_openai_1",
+          "line_no": 38,
+          "raw": "User -> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_1",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_2",
+          "line_no": 27,
+          "raw": "User -> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_2",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_3",
+          "line_no": 23,
+          "raw": "User --> UC_ManageLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_3",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_4",
+          "line_no": 22,
+          "raw": "User --> UC8",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_4",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_5",
+          "line_no": 25,
+          "raw": "User --> ManageLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_5",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_6",
+          "line_no": 23,
+          "raw": "User --> ManageLayer",
+          "label": "",
+          "justification": "",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_6",
+            "model": "openai"
+          }
+        }
+      ]
+    },
+    "删除图形|assoc|选择图形": {
+      "src": "删除图形",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 2,
+      "sources": [
+        "it2_openai_2",
+        "it2_openai_6"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_openai_2",
+          "line_no": 18,
+          "raw": "UC4 ..> UC3 : include",
+          "label": "include",
+          "justification": "创建图形功能必须先选择图形 删除图形需要选择图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_2",
+            "model": "openai"
+          }
+        },
+        {
+          "candidate_id": "it2_openai_6",
+          "line_no": 14,
+          "raw": "DeleteShape --> SelectShape : include",
+          "label": "include",
+          "justification": "创建图形必须先选择一个图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_6",
+            "model": "openai"
+          }
+        }
+      ]
+    },
+    "创建图形|assoc|选择图形": {
+      "src": "创建图形",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "freq": 1,
+      "sources": [
+        "it2_openai_5"
+      ],
+      "status": "unknown",
+      "meta": [
+        {
+          "candidate_id": "it2_openai_5",
+          "line_no": 14,
+          "raw": "CreateShape --> SelectShape : include",
+          "label": "include",
+          "justification": "删除图形功能必须包含选择图形",
+          "condition": "",
+          "extension_point": "",
+          "provenance": {
+            "candidate_id": "it2_openai_5",
+            "model": "openai"
+          }
+        }
+      ]
+    }
+  }
+}

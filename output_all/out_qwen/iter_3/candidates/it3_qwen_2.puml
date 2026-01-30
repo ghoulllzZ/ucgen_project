@@ -1,0 +1,80 @@
+@startuml
+left to right direction
+actor 用户 as User
+
+'
+' 启动与初始化功能
+'
+usecase "启动图形编辑器" as UC1
+User --> UC1
+
+'
+' 创建图形功能分解（根据约束，不使用被禁用的子用例）
+'
+usecase "创建图形" as UC2
+User --> UC2
+' 创建图形前必须选择图形类型，但“选择创建的图形类型”被禁用，故合并到创建图形中理解
+
+'
+' 选择图形是多个操作的前提
+'
+usecase "选择图形" as UC3
+User --> UC3
+
+'
+' 删除图形依赖于先选择图形
+'
+usecase "删除图形" as UC4
+User --> UC4
+' 删除图形必须先选择图形
+UC4 .> UC3 : include
+
+'
+' 调整图形尺寸功能
+'
+usecase "调整图形尺寸" as UC5
+User --> UC5
+' 调整尺寸前必须选择图形
+UC5 .> UC3 : include
+
+'
+' 移动图形功能
+'
+usecase "移动图形" as UC6
+User --> UC6
+' 移动图形前必须选择图形
+UC6 .> UC3 : include
+
+'
+' 创建新图层功能
+'
+usecase "创建新图层" as UC7
+User --> UC7
+' 图层数量超过16则无法创建 —— 扩展点控制
+' EXT1: 图层数量未超限时才可创建新图层
+note right of UC7
+  扩展点：是否已达最大图层数(16)
+  若达到，则不可执行
+end note
+
+'
+' 管理图层（即切换图层）功能
+'
+usecase "管理图层" as UC8
+User --> UC8
+' 切换图层后重置为创建矩形状态，但不包含显示初始界面等被禁用用例
+' 管理图层时，将目标图层设为当前，并提示编号
+' 不允许 include 显示初始界面 或 更新图形提示
+
+'
+' 用例间关系约束处理说明：
+' 根据约束，“管理图层”不能 include “创建图形”，已避免
+' “创建新图层”不允许 include “EXT8”，已忽略该扩展
+' 多个被禁用的用例如“切换图层”、“更新图形提示”等均未出现
+
+'
+' extend 关系（按需添加，必须注明条件）
+'
+' 无明确允许的 extend 关系，且约束中 forbid_extend 存在多项，故不添加非法 extend
+
+@enduml

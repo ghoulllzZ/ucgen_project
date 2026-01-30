@@ -1,0 +1,32 @@
+@startuml
+actor "管理员" as admin
+
+usecase "编号零件" as UC1
+usecase "命名零件类型" as UC2
+usecase "记录零件价格" as UC3
+usecase "构建组件" as UC4
+usecase "查询组件价格" as UC5
+
+admin --> UC1 : 管理零件信息
+admin --> UC2 : 管理零件信息
+admin --> UC3 : 管理零件价格
+admin --> UC4 : 定义组件结构
+admin --> UC5 : 获取组件总价格
+
+' 编号零件是记录零件价格的前提，必须先有编号
+UC3 .> UC1 : include
+
+' 命名零件类型是记录零件价格的前提，必须先有名称
+UC3 .> UC2 : include
+
+' 构建组件依赖于已存在的零件或组件，必须包含零件定义（含编号和命名）
+UC4 .> UC1 : include
+UC4 .> UC2 : include
+
+' 查询组件价格时必须已构建组件结构，否则无法计算
+UC5 .> UC4 : include
+
+' 查询组件价格时，需要获取所有子零件和子组件的价格数据，因此依赖记录价格
+UC5 .> UC3 : include
+
+@enduml

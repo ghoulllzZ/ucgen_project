@@ -1,0 +1,94 @@
+=== 输出诊断汇总 ===
+candidates=6 nodes=16 edges=22 conflicts=5
+
+=================
+1) 相同部分（共识/已通过验证）
+=================
+[Stage2 共识节点]
+ - 用户 (actor) | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 创建图层 (usecase) | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 创建图形 (usecase) | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 删除图形 (usecase) | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 移动图形 (usecase) | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 等比例缩放 (usecase) | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 调整图形尺寸 (usecase) | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 选择图形 (usecase) | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+
+[Stage2 共识关系]
+ - 用户 -[assoc]-> 创建图层 | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 创建图形 | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 删除图形 | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 移动图形 | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 等比例缩放 | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 调整图形尺寸 | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 选择图形 | freq=6 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+
+[Stage3 验证通过（accept）]
+ - actors=1 usecases=8 relations=20
+ - 切换图层 -[assoc]-> 设置当前图层 | conf=0.16666666666666666 freq=1 sources=it1_deepseek_2
+ - 创建图层 -[assoc]-> 检查图层限制 | conf=0.16666666666666666 freq=1 sources=it1_deepseek_2
+ - 创建图形 -[assoc]-> 选择图形类型 | conf=0.16666666666666666 freq=1 sources=it1_deepseek_2
+ - 用户 -[assoc]-> 切换图层 | conf=0.5 freq=3 sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_6
+ - 用户 -[assoc]-> 创建图层 | conf=1.0 freq=6 sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 创建图形 | conf=1.0 freq=6 sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 删除图形 | conf=1.0 freq=6 sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 启动图形编辑器 | conf=0.16666666666666666 freq=1 sources=it1_deepseek_4
+ - 用户 -[assoc]-> 启动编辑器 | conf=0.16666666666666666 freq=1 sources=it1_deepseek_5
+ - 用户 -[assoc]-> 检查图层限制 | conf=0.16666666666666666 freq=1 sources=it1_deepseek_2
+ - 用户 -[assoc]-> 添加新图形类型 | conf=0.16666666666666666 freq=1 sources=it1_deepseek_5
+ - 用户 -[assoc]-> 移动图形 | conf=1.0 freq=6 sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 等比例缩放 | conf=1.0 freq=6 sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 管理图层 | conf=0.5 freq=3 sources=it1_deepseek_3,it1_deepseek_4,it1_deepseek_5
+ - 用户 -[assoc]-> 设置当前图层 | conf=0.16666666666666666 freq=1 sources=it1_deepseek_2
+ - 用户 -[assoc]-> 调整图形尺寸 | conf=1.0 freq=6 sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 选择图形 | conf=1.0 freq=6 sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_3,it1_deepseek_4,...(+2)
+ - 用户 -[assoc]-> 选择图形类型 | conf=0.16666666666666666 freq=1 sources=it1_deepseek_2
+ - 等比例缩放 -[assoc]-> 调整图形尺寸 | conf=0.16666666666666666 freq=1 sources=it1_deepseek_2
+ - 等比例缩放 -[include]-> 选择图形 | conf=0.16666666666666666 freq=1 sources=it1_deepseek_1
+
+==================
+2) 不同部分（候选之间的明确冲突）
+==================
+（无：当前冲突主要表现为“不确定/缺条件”，见第 3 部分）
+
+========================
+3) 模糊部分（待确认/置信度不足/缺触发条件）
+========================
+[Stage2 待确认节点（status=unknown）]
+ - 切换图层 (usecase) | freq=3 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_6
+ - 管理图层 (usecase) | freq=3 | sources=it1_deepseek_3,it1_deepseek_4,it1_deepseek_5
+ - 启动图形编辑器 (usecase) | freq=1 | sources=it1_deepseek_4
+ - 启动编辑器 (usecase) | freq=1 | sources=it1_deepseek_5
+ - 检查图层限制 (usecase) | freq=1 | sources=it1_deepseek_2
+ - 添加新图形类型 (usecase) | freq=1 | sources=it1_deepseek_5
+ - 设置当前图层 (usecase) | freq=1 | sources=it1_deepseek_2
+ - 选择图形类型 (usecase) | freq=1 | sources=it1_deepseek_2
+
+[Stage2 待确认关系（status=unknown）]
+ - 用户 -[assoc]-> 切换图层 | freq=3 | sources=it1_deepseek_1,it1_deepseek_2,it1_deepseek_6
+ - 用户 -[assoc]-> 管理图层 | freq=3 | sources=it1_deepseek_3,it1_deepseek_4,it1_deepseek_5
+ - 切换图层 -[assoc]-> 设置当前图层 | freq=1 | sources=it1_deepseek_2 | hint: has_justif=True has_cond=False has_extpt=False
+ - 创建图层 -[assoc]-> 检查图层限制 | freq=1 | sources=it1_deepseek_2 | hint: has_justif=True has_cond=False has_extpt=False
+ - 创建图形 -[assoc]-> 选择图形类型 | freq=1 | sources=it1_deepseek_2 | hint: has_justif=True has_cond=False has_extpt=False
+ - 用户 -[assoc]-> 启动图形编辑器 | freq=1 | sources=it1_deepseek_4
+ - 用户 -[assoc]-> 启动编辑器 | freq=1 | sources=it1_deepseek_5
+ - 用户 -[assoc]-> 检查图层限制 | freq=1 | sources=it1_deepseek_2
+ - 用户 -[assoc]-> 添加新图形类型 | freq=1 | sources=it1_deepseek_5
+ - 用户 -[assoc]-> 设置当前图层 | freq=1 | sources=it1_deepseek_2
+ - 用户 -[assoc]-> 选择图形类型 | freq=1 | sources=it1_deepseek_2
+ - 等比例缩放 -[assoc]-> 调整图形尺寸 | freq=1 | sources=it1_deepseek_2 | hint: has_justif=True has_cond=True has_extpt=False
+ - 添加新图形类型 -[extend]-> 创建图形 | freq=1 | sources=it1_deepseek_5 | hint: has_justif=True has_cond=False has_extpt=False
+ - 等比例缩放 -[extend]-> 调整图形尺寸 | freq=1 | sources=it1_deepseek_4 | hint: has_justif=True has_cond=False has_extpt=False
+ - 等比例缩放 -[include]-> 选择图形 | freq=1 | sources=it1_deepseek_1 | hint: has_justif=True has_cond=False has_extpt=False
+
+[Stage3 判定为 unknown 的关系]
+ - usecases(unknown)=7 relations(unknown)=2
+ - 添加新图形类型 -[extend]-> 创建图形 | reasons=extend 缺少触发条件/扩展点 | conf=0.16666666666666666 freq=1
+ - 等比例缩放 -[extend]-> 调整图形尺寸 | reasons=extend 缺少触发条件/扩展点 | conf=0.16666666666666666 freq=1
+
+[conflicts.json 中的“不确定/缺条件”】【列表】]
+ - [edge_presence_uncertain] 等比例缩放 -> 选择图形 | conf=0.16666666666666666 sources=it1_deepseek_1
+ - [edge_presence_uncertain] 等比例缩放 -> 调整图形尺寸 | conf=0.16666666666666666 sources=it1_deepseek_4
+ - [edge_presence_uncertain] 添加新图形类型 -> 创建图形 | conf=0.16666666666666666 sources=it1_deepseek_5
+ - [extend_missing_condition] 等比例缩放 -> 调整图形尺寸 | msg=extend 缺少触发条件/扩展点
+ - [extend_missing_condition] 添加新图形类型 -> 创建图形 | msg=extend 缺少触发条件/扩展点

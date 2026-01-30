@@ -1,0 +1,82 @@
+@startuml
+actor 用户
+
+usecase "启动图形编辑器" as usecase1
+usecase "创建图形" as usecase2
+usecase "选择图形" as usecase3
+usecase "删除图形" as usecase4
+usecase "改变图形尺寸" as usecase5
+usecase "移动图形" as usecase6
+usecase "创建新图层" as usecase7
+usecase "切换图层" as usecase8
+
+用户 --> usecase1
+用户 --> usecase2
+用户 --> usecase3
+用户 --> usecase4
+用户 --> usecase5
+用户 --> usecase6
+用户 --> usecase7
+用户 --> usecase8
+
+' 启动时自动初始化第一个图层并设置默认创建图形为矩形
+usecase1 ..> usecase7 : <<include>>\n[初始启动]
+note on link
+  软件启动时默认创建第一个编辑图层，
+  并将创建图形选择框设为矩形
+end note
+
+' 创建图形必须在当前图层的编辑区域进行
+usecase2 .> usecase8 : <<include>>\n[必须在当前图层]
+note on link
+  创建图形操作依赖于当前图层的存在
+end note
+
+' 选择图形是删除、改变尺寸和移动的前提
+usecase4 .> usecase3 : <<include>>\n[必须先选中]
+note on link
+  删除操作前必须至少选择一个图形
+end note
+
+usecase5 .> usecase3 : <<include>>\n[必须先选中]
+note on link
+  改变尺寸操作前必须选择一个图形
+end note
+
+usecase6 .> usecase3 : <<include>>\n[必须先选中]
+note on link
+  移动图形操作前必须选择一个图形
+end note
+
+' 改变图形尺寸包括拖动控制点和使用放大/缩小按钮
+usecase5 .> usecase2 : <<include>>\n[支持多种方式]
+note on link
+  改变尺寸可通过拖动控制点或点击放大/缩小按钮实现
+end note
+
+' 创建新图层后自动切换为当前图层
+usecase7 .> usecase8 : <<extend>>\n<<extension point: 新图层创建成功>>
+note on link
+  当新图层创建成功时，自动将其设为当前图层
+end note
+
+' 切换图层达到末尾时循环回到第一页
+usecase8 .> usecase8 : <<extend>>\n<<extension point: 当前为最后一页时>>
+note on link
+  如果当前图层是最后一个，点击“下一页”则切换到第一个图层
+end note
+
+' 选择图形功能包含单选和多选行为
+' 根据约束，尽管存在不确定性，但“选择图形”本身被保留且必须存在
+usecase3 .> usecase3 : <<include>>\n[基础选择机制]
+note on link
+  选择图形统一处理单选、多选和取消选择逻辑
+end note
+
+' 图层数量限制为最多16个（作为业务规则隐含在创建新图层中）
+usecase7 .> usecase7 : <<extend>>\n<<extension point: 图层数 < 16>>
+note on link
+  只有当图层数少于16时才允许创建新图层
+end note
+
+@enduml

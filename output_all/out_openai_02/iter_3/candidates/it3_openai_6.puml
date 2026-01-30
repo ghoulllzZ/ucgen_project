@@ -1,0 +1,27 @@
+@startuml
+actor User
+
+usecase "创建图形" as UC_Create
+usecase "选择图形" as UC_Select
+usecase "删除图形" as UC_Delete
+usecase "改变图形尺寸" as UC_Resize
+usecase "移动图形" as UC_Move
+usecase "创建图层" as UC_CreateLayer
+usecase "管理图层" as UC_ManageLayer
+
+User -> UC_Create
+User -> UC_Select
+User -> UC_Delete
+User -> UC_Resize
+User -> UC_Move
+User -> UC_CreateLayer
+User -> UC_ManageLayer
+
+' 删除图形需要先选择图形
+UC_Delete .include. UC_Select
+' 改变图形尺寸需要先选择图形
+UC_Resize .include. UC_Select
+' 移动图形需要先选择图形
+UC_Move .include. UC_Select
+
+@enduml

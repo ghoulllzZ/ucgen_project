@@ -1,0 +1,99 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图层",
+      "included": "管理图层"
+    },
+    "prompt": "用例【创建图层】执行过程中是否【必须】包含用例【管理图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q3",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图形",
+      "included": "启动软件"
+    },
+    "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【启动软件】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q4",
+    "type": "yes_no_include",
+    "target": {
+      "base": "删除图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【删除图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q5",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图层",
+      "included": "启动软件"
+    },
+    "prompt": "用例【创建图层】执行过程中是否【必须】包含用例【启动软件】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q6",
+    "type": "yes_no_include",
+    "target": {
+      "base": "管理图层",
+      "included": "启动软件"
+    },
+    "prompt": "用例【管理图层】执行过程中是否【必须】包含用例【启动软件】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q7",
+    "type": "actor_yes_no",
+    "target": {
+      "actor": "User"
+    },
+    "prompt": "参与者【User】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+    "default": "yes"
+  },
+  {
+    "id": "q8",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动软件"
+    },
+    "prompt": "用例【启动软件】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "yes"
+  },
+  {
+    "id": "q9",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动图形编辑器"
+    },
+    "prompt": "用例【启动图形编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q10",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图形",
+      "included": "启动软件"
+    },
+    "prompt": "是否确认：用例【创建图形】执行时必须包含【启动软件】？（是=include，否=不建立 include）",
+    "default": "no"
+  }
+]

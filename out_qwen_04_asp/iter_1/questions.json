@@ -1,0 +1,307 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "启动图形编辑器",
+      "included": "创建新图层"
+    },
+    "prompt": "用例【启动图形编辑器】执行过程中是否【必须】包含用例【创建新图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图形",
+      "included": "切换图层"
+    },
+    "prompt": "用例【创建图形】执行过程中是否【必须】包含用例【切换图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q3",
+    "type": "yes_no_include",
+    "target": {
+      "base": "删除图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【删除图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q4",
+    "type": "yes_no_include",
+    "target": {
+      "base": "调整图形尺寸",
+      "included": "选择图形"
+    },
+    "prompt": "用例【调整图形尺寸】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q5",
+    "type": "yes_no_include",
+    "target": {
+      "base": "移动图形",
+      "included": "选择图形"
+    },
+    "prompt": "用例【移动图形】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q6",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建新图层",
+      "included": "切换图层"
+    },
+    "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【切换图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q7",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动图形编辑器"
+    },
+    "prompt": "用例【启动图形编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "yes"
+  },
+  {
+    "id": "q8",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "图层数未超过16\""
+    },
+    "prompt": "用例【图层数未超过16\"】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q9",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "显示当前页提示"
+    },
+    "prompt": "用例【显示当前页提示】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q10",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "扩展图形类型"
+    },
+    "prompt": "用例【扩展图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q11",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "切换图层"
+    },
+    "prompt": "用例【切换图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "yes"
+  },
+  {
+    "id": "q12",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "初始化图形选择框为矩形"
+    },
+    "prompt": "用例【初始化图形选择框为矩形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q13",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "取消选择"
+    },
+    "prompt": "用例【取消选择】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q14",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "点击删除按钮"
+    },
+    "prompt": "用例【点击删除按钮】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q15",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "拖动控制点调整尺寸"
+    },
+    "prompt": "用例【拖动控制点调整尺寸】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q16",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "多选图形"
+    },
+    "prompt": "用例【多选图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q17",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "显示第一页提示"
+    },
+    "prompt": "用例【显示第一页提示】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q18",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "使用放大按钮"
+    },
+    "prompt": "用例【使用放大按钮】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q19",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "单选图形"
+    },
+    "prompt": "用例【单选图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q20",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "删除所选图形"
+    },
+    "prompt": "用例【删除所选图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q21",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "点击新页按钮"
+    },
+    "prompt": "用例【点击新页按钮】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q22",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "默认选择矩形工具"
+    },
+    "prompt": "用例【默认选择矩形工具】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q23",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "拖动图形到新位置"
+    },
+    "prompt": "用例【拖动图形到新位置】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q24",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "动态绘制图形"
+    },
+    "prompt": "用例【动态绘制图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q25",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "框选图形"
+    },
+    "prompt": "用例【框选图形】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q26",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "初始化编辑区域"
+    },
+    "prompt": "用例【初始化编辑区域】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q27",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "点击下一页按钮"
+    },
+    "prompt": "用例【点击下一页按钮】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q28",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "循环切换至首层"
+    },
+    "prompt": "用例【循环切换至首层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q29",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "限制最多16图层"
+    },
+    "prompt": "用例【限制最多16图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q30",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "完成图形绘制"
+    },
+    "prompt": "用例【完成图形绘制】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q31",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "使用缩小按钮"
+    },
+    "prompt": "用例【使用缩小按钮】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q32",
+    "type": "yes_no_include",
+    "target": {
+      "base": "启动图形编辑器",
+      "included": "创建新图层"
+    },
+    "prompt": "是否确认：用例【启动图形编辑器】执行时必须包含【创建新图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q33",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建图形",
+      "included": "切换图层"
+    },
+    "prompt": "是否确认：用例【创建图形】执行时必须包含【切换图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  }
+]

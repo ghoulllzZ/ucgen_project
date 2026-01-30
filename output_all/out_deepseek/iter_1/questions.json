@@ -1,0 +1,135 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "等比例缩放",
+      "included": "选择图形"
+    },
+    "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【选择图形】？（是=include，否=不建立 include）",
+    "default": "yes"
+  },
+  {
+    "id": "q2",
+    "type": "yes_no_include",
+    "target": {
+      "base": "等比例缩放",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "用例【等比例缩放】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q3",
+    "type": "yes_no_include",
+    "target": {
+      "base": "添加新图形类型",
+      "included": "创建图形"
+    },
+    "prompt": "用例【添加新图形类型】执行过程中是否【必须】包含用例【创建图形】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q4",
+    "type": "extend_condition",
+    "target": {
+      "extension": "等比例缩放",
+      "base": "调整图形尺寸"
+    },
+    "prompt": "如果【等比例缩放】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "按住Shift时"
+  },
+  {
+    "id": "q5",
+    "type": "extend_condition",
+    "target": {
+      "extension": "添加新图形类型",
+      "base": "创建图形"
+    },
+    "prompt": "如果【添加新图形类型】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q6",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "切换图层"
+    },
+    "prompt": "用例【切换图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q7",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "设置当前图层"
+    },
+    "prompt": "用例【设置当前图层】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q8",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "检查图层限制"
+    },
+    "prompt": "用例【检查图层限制】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q9",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "选择图形类型"
+    },
+    "prompt": "用例【选择图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q10",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动图形编辑器"
+    },
+    "prompt": "用例【启动图形编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q11",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "添加新图形类型"
+    },
+    "prompt": "用例【添加新图形类型】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q12",
+    "type": "usecase_yes_no",
+    "target": {
+      "usecase": "启动编辑器"
+    },
+    "prompt": "用例【启动编辑器】是否确实存在并需要保留在最终用例图中？（是=保留，否=移除）",
+    "default": "no"
+  },
+  {
+    "id": "q13",
+    "type": "extend_condition",
+    "target": {
+      "extension": "等比例缩放",
+      "base": "调整图形尺寸"
+    },
+    "prompt": "如果【等比例缩放】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "按住Shift时"
+  },
+  {
+    "id": "q14",
+    "type": "extend_condition",
+    "target": {
+      "extension": "添加新图形类型",
+      "base": "创建图形"
+    },
+    "prompt": "如果【添加新图形类型】是对【创建图形】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  }
+]

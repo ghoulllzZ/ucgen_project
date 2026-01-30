@@ -1,0 +1,31 @@
+# 可选：用于真实 LLM 的配置示例（未配置不会影响 MockLLM 跑通）
+
+openai:
+  api_key: "${OPENAI_API_KEY}"
+  base_url: "${OPENAI_BASE_URL}"
+  model: "${OPENAI_MODEL}"
+
+deepseek:
+  api_key: "${DEEPSEEK_API_KEY}"
+  base_url: "${DEEPSEEK_BASE_URL}"
+  model: "${DEEPSEEK_MODEL}"
+
+qwen:
+  api_key: "${QWEN_API_KEY}"
+  base_url: "${QWEN_BASE_URL}"
+  model: "${QWEN_MODEL}"
+
+gemini:
+  api_key: "${GEMINI_API_KEY}"
+  model: "${GEMINI_MODEL}"
+
+doubao:
+  api_key: "${ARK_API_KEY}"
+  base_url: "${ARK_BASE_URL}"
+  model: "${DOUBAO_MODEL}"
+
+grok:
+  api_key: "${XAI_API_KEY}"
+  base_url: "${XAI_BASE_URL}"
+  model: "${XAI_MODEL}"
+

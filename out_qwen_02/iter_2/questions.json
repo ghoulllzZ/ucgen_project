@@ -1,0 +1,32 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "拖动控制点调整尺寸",
+      "included": "调整图形尺寸"
+    },
+    "prompt": "用例【拖动控制点调整尺寸】执行过程中是否【必须】包含用例【调整图形尺寸】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "extend_condition",
+    "target": {
+      "extension": "拖动控制点调整尺寸",
+      "base": "调整图形尺寸"
+    },
+    "prompt": "如果【拖动控制点调整尺寸】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q3",
+    "type": "extend_condition",
+    "target": {
+      "extension": "拖动控制点调整尺寸",
+      "base": "调整图形尺寸"
+    },
+    "prompt": "如果【拖动控制点调整尺寸】是对【调整图形尺寸】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  }
+]

@@ -1,0 +1,25 @@
+@startuml
+actor User
+
+usecase "启动软件" as StartSoftware
+usecase "创建图形" as CreateShape
+usecase "选择图形" as SelectShape
+usecase "删除图形" as DeleteShape
+usecase "改变图形尺寸" as ChangeShapeSize
+usecase "移动图形" as MoveShape
+usecase "创建图层" as CreateLayer
+usecase "管理图层" as ManageLayer
+
+' 创建图形必须先选择一个图形
+DeleteShape --> SelectShape : include
+
+User --> StartSoftware
+User --> CreateShape
+User --> SelectShape
+User --> DeleteShape
+User --> ChangeShapeSize
+User --> MoveShape
+User --> CreateLayer
+User --> ManageLayer
+
+@enduml

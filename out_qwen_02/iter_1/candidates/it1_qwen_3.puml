@@ -1,0 +1,70 @@
+@startuml
+actor 用户 as User
+
+' 初始启动功能
+usecase "启动图形编辑器" as UC1
+User --> UC1
+
+' 创建图形功能
+usecase "创建图形" as UC2
+User --> UC2
+' 启动后必须初始化界面状态
+UC1 ..> UC2 : <<include>>
+' 初始时默认选择矩形并创建第一个图层
+
+' 选择图形功能
+usecase "选择图形" as UC3
+User --> UC3
+
+' 删除图形功能
+usecase "删除图形" as UC4
+User --> UC4
+' 必须先选择图形才能删除
+UC3 .> UC4 : <<include>>
+
+' 改变图形尺寸功能
+usecase "改变图形尺寸" as UC5
+User --> UC5
+' 只有选中图形后才能调整尺寸
+UC3 .> UC5 : <<include>>
+' 拖动控制点或使用放大缩小按钮均可触发
+usecase "使用放大/缩小按钮调整尺寸" as UC5a
+UC5a .> UC5 : <<include>>
+
+' 移动图形功能
+usecase "移动图形" as UC6
+User --> UC6
+' 在图形内部按下并拖动触发移动
+UC3 .> UC6 : <<extend>>
+' 扩展条件：当在已选图形内部按下鼠标并拖动时触发
+
+' 创建图层功能
+usecase "创建新图层" as UC7
+User --> UC7
+' 点击“新页”按钮触发创建
+' 最多允许16个图层
+UC7 ..> UC2 : <<extend>>
+' 扩展条件：新图层创建后自动进入“创建矩形”状态
+note on link
+  新图层创建后，图形选择框重置为“矩形”
+end note
+
+' 管理图层（切换图层）
+usecase "切换当前图层" as UC8
+User --> UC8
+' 点击“下一页”按钮进行图层切换
+UC8 ..> UC2 : <<extend>>
+' 扩展条件：切换图层后操作状态重置为“创建矩形”
+
+' 共享基础行为
+usecase "重置图形创建状态为矩形" as UC9
+UC7 .> UC9 : <<include>>
+UC8 .> UC9 : <<include>>
+' 每次创建新图层或切换图层后都必须重置创建状态
+
+' 约束条件说明：图形种类可扩展
+usecase "扩展支持的图形类型" as UC10
+UC10 .> UC2 : <<extend>>
+' 扩展点：未来可在“创建图形”中加入多边形、曲线等类型
+
+@enduml

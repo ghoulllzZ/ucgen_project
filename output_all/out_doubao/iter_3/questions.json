@@ -1,0 +1,11 @@
+[
+  {
+    "id": "q1",
+    "type": "actor_yes_no",
+    "target": {
+      "actor": "Editor"
+    },
+    "prompt": "参与者【Editor】是否确实存在并需要保留在用例图中？（是=保留，否=移除）",
+    "default": "yes"
+  }
+]

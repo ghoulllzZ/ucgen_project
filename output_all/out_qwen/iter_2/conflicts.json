@@ -1,0 +1,13 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "移动图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it2_qwen_5"
+      ]
+    }
+  }
+]

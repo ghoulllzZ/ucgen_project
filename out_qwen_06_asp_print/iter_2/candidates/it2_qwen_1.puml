@@ -1,0 +1,53 @@
+@startuml
+actor 用户
+
+usecase "启动图形编辑器" as usecase1
+usecase "创建图形" as usecase2
+usecase "选择图形" as usecase3
+usecase "删除图形" as usecase4
+usecase "改变图形尺寸" as usecase5
+usecase "移动图形" as usecase6
+usecase "创建新图层" as usecase7
+usecase "切换图层" as usecase8
+
+用户 --> usecase1
+用户 --> usecase2
+用户 --> usecase3
+用户 --> usecase4
+用户 --> usecase5
+用户 --> usecase6
+用户 --> usecase7
+用户 --> usecase8
+
+' 启动时必须初始化图形编辑环境，包含创建初始图层和默认提示
+usecase1 ..> usecase3 : <<include>>
+' 创建图形前必须先选择图形类型（隐含在功能描述中）
+usecase2 ..> usecase3 : <<include>>
+
+' 删除图形的前提是已经选择图形
+' 先选择图形，再点击删除按钮才能删除
+usecase4 ..> usecase3 : <<include>>
+
+' 改变图形尺寸前必须选择图形
+' 尺寸改变操作作用于已选中的图形
+usecase5 ..> usecase3 : <<include>>
+
+' 移动图形前必须选择图形
+' 只有选中图形后才能拖动移动
+usecase6 ..> usecase3 : <<include>>
+
+' 创建新图层成功后自动切换为当前图层
+' 新图层创建后立即成为当前操作图层
+usecase7 ..> usecase8 : <<extend>> 
+' 扩展点：新图层创建成功时触发图层切换
+
+' 切换图层时若到达末尾则循环回到第一页
+' 当前为最后一页时点击“下一页”会跳转到第一页
+usecase8 ..> usecase1 : <<extend>> 
+' 扩展点：当前图层为最后一个图层时触发循环切换
+
+' 根据约束，禁止启动时包含创建新图层或选择图形
+' 禁止创建图形与切换图层之间相互包含
+' 已遵守：无非法 include/extend
+
+@enduml

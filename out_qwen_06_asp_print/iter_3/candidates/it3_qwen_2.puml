@@ -1,0 +1,62 @@
+@startuml
+actor 用户
+
+'
+' 启动与初始化相关用例
+'
+usecase "启动图形编辑器" as usecase_启动图形编辑器
+usecase "创建新图层" as usecase_创建新图层
+usecase "切换图层" as usecase_切换图层
+
+用户 --> usecase_启动图形编辑器
+用户 --> usecase_创建新图层
+用户 --> usecase_切换图层
+
+'
+' 图形操作相关用例
+'
+usecase "创建图形" as usecase_创建图形
+usecase "选择图形" as usecase_选择图形
+usecase "删除图形" as usecase_删除图形
+usecase "调整图形尺寸" as usecase_调整图形尺寸
+usecase "移动图形" as usecase_移动图形
+
+用户 --> usecase_创建图形
+用户 --> usecase_选择图形
+user -> usecase_删除图形
+user -> usecase_调整图形尺寸
+user -> usecase_移动图形
+
+'
+' 用例之间的关系
+'
+
+' 选择图形是删除、调整尺寸、移动的前提（必须先选中）
+usecase_删除图形 ..> usecase_选择图形 : <<include>>
+usecase_调整图形尺寸 ..> usecase_选择图形 : <<include>>
+usecase_移动图形 ..> usecase_选择图形 : <<include>>
+
+' 创建图形后，可能扩展出对图层的管理需求（但不强制）
+' Note: 根据约束 forbid_include，创建图形不能 include 切换图层，也不能 include 选择图形
+
+' 创建新图层时会自动设置为当前图层并提示编号，但“切换图层”本身不包含创建
+' 根据约束：切换图层 cannot extend 创建新图层
+' 所以两者独立
+
+' 启动图形编辑器时初始化第一个图层和界面状态
+' 但根据约束，启动不能 include 创建新图层 或 选择图形
+' 因此使用其他方式表达初始状态：隐含在系统初始化中
+
+' 调整图形尺寸可通过拖动控制点或点击按钮实现
+' 但“点击放大/缩小按钮”被 forbid_usecases，所以合并到“调整图形尺寸”中作为内部行为
+
+' 选择图形功能包含单选、多选、取消选择等子行为
+' 根据约束 must_include: 选择图形 include 选择图形 → 表示自包含或核心路径
+' 实际上这是冗余的，PlantUML 不支持 self-include，故忽略无效约束
+
+' extend 关系：无明确扩展需求，且 extend 被空数组约束，不添加额外 extend
+
+' 图形类型可扩展（约束条件(1)），但由于“扩展图形类型”在 forbid_usecases 中，不能作为一个 usecase 出现
+' 故不建模为单独用例，仅作为“创建图形”的可扩展性备注
+
+@enduml

@@ -1,0 +1,703 @@
+{
+  "actors": [
+    {
+      "name": "用户",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该参与者"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      }
+    }
+  ],
+  "usecases": [
+    {
+      "name": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "需求文本中出现该用例/事件"
+      ],
+      "evidence": {
+        "freq": 6,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ]
+      },
+      "parent": null
+    },
+    {
+      "name": "等比例缩放",
+      "decision": "accept",
+      "reasons": [
+        "constraints.keep_usecases"
+      ],
+      "evidence": {
+        "freq": 2,
+        "sources": [
+          "it2_qwen_3",
+          "it2_qwen_5"
+        ]
+      },
+      "parent": null
+    }
+  ],
+  "relations": [
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "创建图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_1",
+            "line_no": 10,
+            "raw": "U --> UC1",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 10,
+            "raw": "U --> UC1",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_1",
+            "line_no": 11,
+            "raw": "U --> UC2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 11,
+            "raw": "U --> UC2",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "移动图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_1",
+            "line_no": 12,
+            "raw": "U --> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 12,
+            "raw": "U --> UC3",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "删除图形",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_1",
+            "line_no": 13,
+            "raw": "U --> UC4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 13,
+            "raw": "U --> UC4",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 6,
+        "confidence": 1.0,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_1",
+            "line_no": 14,
+            "raw": "U --> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 14,
+            "raw": "U --> UC5",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "移动图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "领域先验：移动/删除/调整尺寸通常必须先选择目标图形"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 0.3333333333333333,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_1",
+            "line_no": 16,
+            "raw": "UC3 ..> UC2 : <<include>>",
+            "label": "<<include>>",
+            "justification": "因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_6",
+            "line_no": 16,
+            "raw": "UC3 ..> UC2 : <<include>>",
+            "label": "<<include>>",
+            "justification": "因果说明：移动图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_6",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "删除图形",
+      "kind": "include",
+      "dst": "选择图形",
+      "decision": "reject",
+      "reasons": [
+        "constraints.forbid_include"
+      ],
+      "evidence": {
+        "freq": 5,
+        "confidence": 0.8333333333333334,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2",
+          "it2_qwen_3",
+          "it2_qwen_4",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_1",
+            "line_no": 18,
+            "raw": "UC4 ..> UC2 : <<include>>",
+            "label": "<<include>>",
+            "justification": "因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 16,
+            "raw": "UC4 ..> UC2 : <<include>>",
+            "label": "<<include>>",
+            "justification": "因果说明：删除图形 过程中必须包含 选择图形（执行前需要锁定/选中目标）",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "调整图形尺寸",
+      "kind": "extend",
+      "dst": "选择图形",
+      "decision": "reject",
+      "reasons": [
+        "constraints.forbid_extend"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 0.3333333333333333,
+        "sources": [
+          "it2_qwen_1",
+          "it2_qwen_2"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_1",
+            "line_no": 20,
+            "raw": "UC5 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时",
+            "label": "<<extend>>  condition=当拖拽前未选中任何图形时",
+            "justification": "因果说明：调整图形尺寸 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前",
+            "condition": "当拖拽前未选中任何图形时",
+            "extension_point": "拖拽开始前",
+            "provenance": {
+              "candidate_id": "it2_qwen_1",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_2",
+            "line_no": 18,
+            "raw": "UC5 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时",
+            "label": "<<extend>>  condition=当拖拽前未选中任何图形时",
+            "justification": "因果说明：调整图形尺寸 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前",
+            "condition": "当拖拽前未选中任何图形时",
+            "extension_point": "拖拽开始前",
+            "provenance": {
+              "candidate_id": "it2_qwen_2",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "用户",
+      "kind": "assoc",
+      "dst": "等比例缩放",
+      "decision": "accept",
+      "reasons": [
+        "结构关系默认通过"
+      ],
+      "evidence": {
+        "freq": 2,
+        "confidence": 0.3333333333333333,
+        "sources": [
+          "it2_qwen_3",
+          "it2_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_3",
+            "line_no": 16,
+            "raw": "U --> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_3",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_5",
+            "line_no": 16,
+            "raw": "U --> UC6",
+            "label": "",
+            "justification": "",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "调整图形尺寸",
+      "kind": "include",
+      "dst": "选择图形",
+      "decision": "reject",
+      "reasons": [
+        "constraints.forbid_include"
+      ],
+      "evidence": {
+        "freq": 3,
+        "confidence": 0.5,
+        "sources": [
+          "it2_qwen_4",
+          "it2_qwen_5",
+          "it2_qwen_6"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_4",
+            "line_no": 18,
+            "raw": "UC5 ..> UC2 : <<include>>",
+            "label": "<<include>>",
+            "justification": "因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_4",
+              "model": "qwen"
+            }
+          },
+          {
+            "candidate_id": "it2_qwen_5",
+            "line_no": 18,
+            "raw": "UC5 ..> UC2 : <<include>>",
+            "label": "<<include>>",
+            "justification": "因果说明：调整图形尺寸 过程中必须包含 选择图形（执行前需要锁定/选中目标）",
+            "condition": "",
+            "extension_point": "",
+            "provenance": {
+              "candidate_id": "it2_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "移动图形",
+      "kind": "extend",
+      "dst": "选择图形",
+      "decision": "accept",
+      "reasons": [
+        "extend 具备条件/扩展点"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.16666666666666666,
+        "sources": [
+          "it2_qwen_4"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_4",
+            "line_no": 20,
+            "raw": "UC3 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时",
+            "label": "<<extend>>  condition=当拖拽前未选中任何图形时",
+            "justification": "因果说明：移动图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前",
+            "condition": "当拖拽前未选中任何图形时",
+            "extension_point": "拖拽开始前",
+            "provenance": {
+              "candidate_id": "it2_qwen_4",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "删除图形",
+      "kind": "extend",
+      "dst": "选择图形",
+      "decision": "reject",
+      "reasons": [
+        "constraints.forbid_extend"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.16666666666666666,
+        "sources": [
+          "it2_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_5",
+            "line_no": 20,
+            "raw": "UC4 ..> UC2 : <<extend>>  condition=当拖拽前未选中任何图形时",
+            "label": "<<extend>>  condition=当拖拽前未选中任何图形时",
+            "justification": "因果说明：删除图形 是对 选择图形 的条件扩展；触发条件：当拖拽前未选中任何图形时；扩展点：拖拽开始前",
+            "condition": "当拖拽前未选中任何图形时",
+            "extension_point": "拖拽开始前",
+            "provenance": {
+              "candidate_id": "it2_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "src": "等比例缩放",
+      "kind": "extend",
+      "dst": "调整图形尺寸",
+      "decision": "accept",
+      "reasons": [
+        "extend 具备条件/扩展点"
+      ],
+      "evidence": {
+        "freq": 1,
+        "confidence": 0.16666666666666666,
+        "sources": [
+          "it2_qwen_5"
+        ],
+        "examples": [
+          {
+            "candidate_id": "it2_qwen_5",
+            "line_no": 22,
+            "raw": "UC6 ..> UC5 : <<extend>>  condition=按住Shift时",
+            "label": "<<extend>>  condition=按住Shift时",
+            "justification": "因果说明：等比例缩放 是对 调整图形尺寸 的条件扩展；触发条件：按住Shift时；扩展点：拖拽控制点时",
+            "condition": "按住Shift时",
+            "extension_point": "拖拽控制点时",
+            "provenance": {
+              "candidate_id": "it2_qwen_5",
+              "model": "qwen"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

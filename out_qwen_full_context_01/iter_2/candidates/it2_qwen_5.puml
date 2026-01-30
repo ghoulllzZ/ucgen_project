@@ -1,0 +1,45 @@
+@startuml
+left to right direction
+actor 用户
+
+'
+usecase "创建图形" as create_shape
+usecase "选择图形" as select_shape
+usecase "删除图形" as delete_shape
+usecase "改变图形尺寸" as resize_shape
+usecase "移动图形" as move_shape
+usecase "创建图层" as create_layer
+usecase "管理图层" as manage_layer
+
+'
+用户 --> create_shape
+用户 --> select_shape
+用户 --> delete_shape
+用户 --> create_layer
+用户 --> manage_layer
+
+'
+' 选择图形 是 基础用例，改变图形尺寸 在 EP1 上扩展
+' 扩展点：EP1 - 图形已被选中并显示控制点
+' 触发条件：拖动控制点 或 点击放大/缩小按钮
+select_shape ..> resize_shape : extends\n<<extensionPoint>>\nEP1: "图形已被选中并显示控制点"
+note on link: 用户在控制点拖动鼠标或点击“放大/缩小”按钮时触发
+
+'
+' 选择图形 是 基础用例，移动图形 在 EP2 上扩展
+' 扩展点：EP2 - 图形已被选中
+' 触发条件：在已选图形内部按下并拖动鼠标
+select_shape ..> move_shape : extends\n<<extensionPoint>>\nEP2: "图形已被选中"
+note on link: 用户在已选中图形内部按下鼠标并拖动时触发
+
+'
+' 删除图形 必须依赖于 先选择图形（但根据约束 forbid_include 不允许 include）
+' 因此不绘制 include 关系，仅通过业务逻辑隐含先后顺序
+' 注释说明因果关系，但不建立 PlantUML 的 <<include>> 依赖
+' 用户必须先选择图形才能删除
+note right of delete_shape
+  必须先执行「选择图形」以选中至少一个图形，
+  否则删除操作无效。
+end note
+
+@enduml

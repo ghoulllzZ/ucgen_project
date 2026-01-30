@@ -1,0 +1,71 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.4,
+      "sources": [
+        "it1_openai_2",
+        "it1_openai_6"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建图层",
+    "b": "管理图层",
+    "details": {
+      "confidence": 0.4,
+      "sources": [
+        "it1_openai_2",
+        "it1_openai_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建图形",
+    "b": "启动软件",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_openai_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "删除图形",
+    "b": "选择图形",
+    "details": {
+      "confidence": 0.4,
+      "sources": [
+        "it1_openai_3",
+        "it1_openai_6"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建图层",
+    "b": "启动软件",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_openai_6"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "管理图层",
+    "b": "启动软件",
+    "details": {
+      "confidence": 0.2,
+      "sources": [
+        "it1_openai_6"
+      ]
+    }
+  }
+]

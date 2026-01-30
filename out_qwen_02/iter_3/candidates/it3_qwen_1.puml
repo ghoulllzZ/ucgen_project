@@ -1,0 +1,137 @@
+@startuml
+
+actor 用户
+
+'
+' 主要用例
+'
+usecase "启动图形编辑器" as usecase_启动
+usecase "创建图形" as usecase_创建图形
+usecase "选择图形" as usecase_选择图形
+usecase "删除图形" as usecase_删除图形
+usecase "调整图形尺寸" as usecase_调整尺寸
+usecase "移动图形" as usecase_移动图形
+usecase "创建图层" as usecase_创建图层
+usecase "管理图层" as usecase_管理图层
+usecase "拖动控制点调整尺寸" as usecase_拖动控制点
+
+'
+' 包含关系 (include)
+'
+用户 --> usecase_启动
+用户 --> usecase_创建图形
+用户 --> usecase_选择图形
+用户 --> usecase_删除图形
+用户 --> usecase_调整尺寸
+用户 --> usecase_移动图形
+用户 --> usecase_创建图层
+用户 --> usecase_管理图层
+
+'
+' 必须包含：删除前必须先选择图形
+'
+usecase_删除图形 .> usecase_选择图形 : <<include>>
+' 删除图形依赖于先选择图形
+
+'
+' 调整尺寸前必须选择图形
+'
+usecase_调整尺寸 .> usecase_选择图形 : <<include>>
+' 调整图形尺寸必须先选择图形
+
+'
+' 移动图形前必须选择图形
+'
+usecase_移动图形 .> usecase_选择图形 : <<include>>
+' 移动图形必须先选择图形
+
+'
+' 拖动控制点调整尺寸是调整图形尺寸的一种方式，但根据约束不能 include
+' 约束明确禁止：拖动控制点调整尺寸 -> include -> 调整图形尺寸
+' 同时 extend 缺少条件，也不能直接建立 extend
+' 因此此处不建立任何关系，仅保留用例存在（keep_usecases 要求保留）
+
+'
+' 创建图层与图层数量上限：约束禁止 include 检查上限
+' 所以不建模“检查是否超过16层”为子用例，逻辑内化
+
+'
+' 管理图层和创建图层都应重置创建状态为矩形，但约束禁止 include 该行为
+' 故不添加相关 include
+
+'
+' 创建图形 和 图形类型扩展：约束禁止 include 或 extend
+' 并且“支持扩展图形类型”被 forbid_usecases 明确禁止
+' 尽管需求说可扩展，但用例中不得出现
+' 遵循约束 > 需求
+
+'
+' 最终用例图输出
+'
+
+note right of usecase_启动
+软件启动时：
+- 创建图形选择框默认显示矩形
+- 编辑区域创建第一个图层
+- 提示区域显示“第一页”
+end note
+
+note right of usecase_创建图形
+用户从工具栏选择直线、椭圆或矩形，
+在编辑区拖动鼠标从起点到终点，
+动态绘制虚线轮廓，释放后生成实际图形，
+并隶属于当前图层。
+end note
+
+note right of usecase_选择图形
+支持：
+- 单击图形内部选择单个
+- 叠加部分点击可多选
+- 框选区域内所有图形
+- 点击空白取消所有选择
+选择后外嵌矩形四角高亮控制点。
+end note
+
+note right of usecase_删除图形
+点击“删除元素”按钮，
+解除所选图形与当前图层的隶属关系，
+实现删除。
+end note
+
+note right of usecase_调整尺寸
+可通过：
+- 拖动控制点改变尺寸
+- 点击“放大”/“缩小”按钮直接调整
+两种方式均需先选择图形。
+end note
+
+note right of usecase_移动图形
+在已选图形内部按下并拖动，
+即可移动图形至新位置。
+整个编辑器移动时，
+图形及其控制点状态保持不变。
+end note
+
+note right of usecase_创建图层
+点击“新页”按钮创建新图层，
+设为当前图层，可进行各种操作；
+若图层数 ≥16，则不能再创建。
+提示区域显示新编号，
+图形选择框恢复为“矩形”。
+end note
+
+note right of usecase_管理图层
+点击“下一页”切换图层，
+将目标图层设为当前层，
+提示区域更新编号；
+若已是最后层则循环回第一层；
+切换后创建图形状态重置为矩形。
+end note
+
+note right of usecase_拖动控制点
+选择一个图形的控制点，
+按下鼠标拖动以改变其尺寸。
+该用例被要求保留。
+end note
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+actor User
+
+usecase "启动软件" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "改变图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "管理图层" as UC8
+
+' 用户启动软件以使用图形编辑器
+User -> UC1
+
+' 创建图形功能必须先选择图形
+' 删除图形需要选择图形
+UC4 ..> UC3 : include
+
+' 创建图层与管理图层之间不直接关联
+' 但用户可以在创建图层后使用图形工具
+User -> UC2
+User -> UC3
+User -> UC5
+User -> UC6
+User -> UC7
+User -> UC8
+@enduml

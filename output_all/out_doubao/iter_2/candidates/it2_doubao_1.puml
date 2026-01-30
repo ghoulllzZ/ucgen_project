@@ -1,0 +1,24 @@
+@startuml
+actor "Graphic Editor User" as EditorUser
+
+usecase "启动图形编辑器" as UC_Start
+usecase "创建自定义图形" as UC_CreateCustom
+usecase "选择图形" as UC_Select
+usecase "删除图形" as UC_Delete
+usecase "调整图形尺寸" as UC_Resize
+usecase "移动图形" as UC_Move
+usecase "创建图层" as UC_CreateLayer
+usecase "切换图层" as UC_SwitchLayer
+
+EditorUser --> UC_Start
+EditorUser --> UC_CreateCustom
+EditorUser --> UC_Select
+EditorUser --> UC_Delete
+EditorUser --> UC_Resize
+EditorUser --> UC_Move
+EditorUser --> UC_CreateLayer
+EditorUser --> UC_SwitchLayer
+
+' 图形种类可扩展，符合约束要求
+note right of UC_CreateCustom: 支持扩展新增图形类型
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+actor "管理员" as admin
+
+usecase "编号零件" as UC1
+usecase "命名零件类型" as UC2
+usecase "记录零件价格" as UC3
+usecase "构建组件层次结构" as UC4
+usecase "查询组件价格" as UC5
+
+admin --> UC1 : 管理零件信息
+admin --> UC2 : 管理零件信息
+admin --> UC3 : 管理零件信息
+admin --> UC4 : 组装组件
+admin --> UC5 : 获取价格信息
+
+' 查询组件价格必须包含计算其构成零件或子组件的价格
+UC5 ..> UC3 : include
+' 构建组件层次结构必须包含对零件或组件的引用（隐含对编号、命名、定价的依赖）
+UC4 ..> UC1 : include
+UC4 ..> UC2 : include
+UC4 ..> UC3 : include
+
+' 组件价格查询依赖于其内部零件与子组件的价格记录（通过包含关系间接实现）
+' 零件和组件构成更高层组件时，需已存在基础零件信息
+
+@enduml

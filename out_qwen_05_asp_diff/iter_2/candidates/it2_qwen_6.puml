@@ -1,0 +1,97 @@
+@startuml
+actor 用户 as User
+
+'
+' 创建图形功能（基础用例）
+'
+usecase "创建图形" as createShape
+User -> createShape
+
+'
+' 选择图形功能：包含单选与多选行为，但根据约束不能单独建模为用例
+' 因此合并为统一“选择图形”用例
+'
+usecase "选择图形" as selectShape
+User -> selectShape
+
+'
+' 删除图形功能依赖于先选择图形
+'
+' 删除图形必须在选择图形之后进行（强制依赖）
+'
+usecase "删除图形" as deleteShape
+User -> deleteShape
+deleteShape .> selectShape : <<include>>
+
+'
+' 改变图形尺寸功能：可通过拖动控制点或点击放大/缩小按钮
+' 根据约束，不能使用“点击放大按钮”、“点击缩小按钮”、“拖动控制点调整尺寸”
+' 因此抽象为统一入口“改变图形尺寸”
+'
+usecase "改变图形尺寸" as resizeShape
+User -> resizeShape
+
+'
+' 移动图形功能
+'
+usecase "移动图形" as moveShape
+User -> moveShape
+
+'
+' 创建图层功能
+' 条件：图层数量未超过16
+'
+' 创建新图层时会检查数量限制（扩展点）
+'
+usecase "创建新图层" as createNewLayer
+User -> createNewLayer
+' 当图层数量 ≥ 16 时无法创建新图层
+createNewLayer ..> "限制图层数量≤16" : <<extend>>\n<<condition: 图层数量 < 16>>
+
+'
+' 管理图层：切换图层
+' 切换后重置工具状态为创建矩形
+'
+usecase "切换当前图层" as switchLayer
+User -> switchLayer
+' 切换图层后自动重置图形工具状态
+switchLayer ..> "重置图形工具状态" : <<extend>>\n<<condition: 成功切换图层后>>
+
+'
+' 图形提示区域会显示当前页信息
+'
+' 在创建新图层或切换图层时提示编号信息
+'
+createNewLayer ..> "提示新图层编号" : <<extend>>\n<<condition: 新图层创建成功>>
+switchLayer ..> "提示当前层编号" : <<extend>>\n<<condition: 图层切换完成>>
+
+'
+' 启动初始化相关（根据需求文本第1条）
+' 但由于以下用例被禁止建模：
+' - 启动图形编辑器
+' - 初始化编辑区域
+' - 显示初始提示信息
+' 故不单独建模，其行为由系统自动执行
+'
+
+'
+' 扩展用例说明（受约束禁止直接作为独立用例暴露）
+' 如下用例不得出现在最终 usecase 列表中
+'
+' usecase "取消图形选择" : forbidden by constraint
+' usecase "启动图形编辑器" : forbidden by constraint
+' usecase "初始化编辑区域" : forbidden by constraint
+' usecase "拖动控制点调整尺寸" : forbidden by constraint
+' usecase "重置图形工具状态" : forbidden by constraint
+' usecase "动态绘制图形" : forbidden by constraint
+' usecase "提示新图层编号" : forbidden by constraint
+' usecase "点击缩小按钮" : forbidden by constraint
+' usecase "切换当前图层" : forbidden by constraint
+' usecase "点击放大按钮" : forbidden by constraint
+' usecase "限制图层数量≤16" : forbidden by constraint
+' usecase "显示初始提示信息" : forbidden by constraint
+' usecase "多选图形" : forbidden by constraint
+' usecase "删除所选图形" : forbidden by constraint
+' usecase "单选图形" : forbidden by constraint
+
+@enduml

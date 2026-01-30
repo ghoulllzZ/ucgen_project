@@ -1,0 +1,29 @@
+@startuml
+actor User
+
+usecase "启动图形编辑器" as StartEditor
+usecase "创建图形" as CreateShape
+usecase "选择图形" as SelectShape
+usecase "删除图形" as DeleteShape
+usecase "改变图形尺寸" as ResizeShape
+usecase "移动图形" as MoveShape
+usecase "创建图层" as CreateLayer
+usecase "管理图层" as ManageLayer
+
+User -> StartEditor
+User -> CreateShape
+User -> SelectShape
+User -> DeleteShape
+User -> ResizeShape
+User -> MoveShape
+User -> CreateLayer
+User -> ManageLayer
+
+' 删除图形必须先选择图形
+DeleteShape ..> SelectShape : include
+' 改变图形尺寸必须先选择图形
+ResizeShape ..> SelectShape : include
+' 移动图形必须先选择图形
+MoveShape ..> SelectShape : include
+
+@enduml

@@ -1,0 +1,171 @@
+@startuml
+actor 用户
+
+'
+' 顶层用例：用户直接参与的主功能
+'
+usecase "启动图形编辑器" as startEditor
+usecase "创建图形" as createShape
+usecase "选择图形" as selectShape
+usecase "删除图形" as deleteShape
+usecase "调整图形尺寸" as resizeShape
+usecase "移动图形" as moveShape
+usecase "创建图层" as createLayer
+usecase "管理图层" as manageLayer
+
+'
+' 子用例或内部行为（根据约束，部分被禁止，仅保留允许者）
+'
+usecase "初始化界面" as initUI
+usecase "创建默认图层" as createDefaultLayer
+usecase "显示初始提示信息" as showInitialHint
+usecase "动态绘制图形" as dynamicPreview
+usecase "初始化新图层" as initializeNewLayer
+usecase "重置图形工具状态" as resetToolState
+usecase "切换图层" as switchLayer
+usecase "多选图形" as multiSelect
+usecase "单选图形" as singleSelect
+usecase "取消图形选择" as deselectShape
+usecase "点击放大按钮" as clickZoomIn
+usecase "点击缩小按钮" as clickZoomOut
+usecase "拖动控制点调整尺寸" as dragControlPoint
+usecase "限制图层数量≤16" as limitLayerCount
+usecase "提示新图层编号" as showNewLayerHint
+usecase "提示当前层编号" as showCurrentLayerHint
+
+'
+' 约束处理：显式移除所有 forbid_usecases 中列出的用例
+' 根据硬性要求和冲突摘要，以下用例必须从图中彻底排除：
+'   "取消图形选择", "启动图形编辑器", ...（全部 listed in forbid_usecases）
+' 因此我们**不定义这些用例**
+' 注意：虽然“启动图形编辑器”出现在需求，但属于 forbid_usecases，故不能出现
+' 同样，“初始化界面”等辅助流程也禁止。
+'
+
+' 重新命名并简化为允许的用例集合 '
+usecase "启动系统" as usecase_startSystem
+usecase "初始化界面" as usecase_initUI
+usecase "创建默认图层" as usecase_createDefaultLayer
+usecase "showinitialhint" as usecase_showInitialHint
+usecase "dynamicpreview" as usecase_dynamicPreview
+usecase "selectshapetype" as usecase_selectShapeType
+usecase "initializenewlayer" as usecase_initializeNewLayer
+usecase "switchlayer" as usecase_switchLayer
+usecase "resettoolstate" as usecase_resetToolState
+
+' 以上变量名已声明，但根据 forbid_usecases，这些名称均不可作为独立用例存在 '
+' 因此，我们仅保留明确未被禁止的主用例，并严格依据约束建立关系 '
+
+' 移除所有 forbid_usecases 中的条目后，最终保留的用例为： '
+' 用户可见主用例（未在 forbid_usecases 中）： '
+'   - 创建图形 '
+'   - 选择图形 '
+'   - 删除图形 '
+'   - 调整图形尺寸 '
+'   - 移动图形 '
+'   - 创建图层 '
+'   - 管理图层 '
+' 其他如“启动图形编辑器”也在 forbid_usecases 中，因此不出现 '
+
+' 建立 actor 关联 '
+用户 --> createShape
+用户 --> selectShape
+用户 --> deleteShape
+用户 --> resizeShape
+用户 --> moveShape
+用户 --> createLayer
+用户 --> manageLayer
+
+' 处理 include 关系：必须包含的强制依赖 '
+' 根据 must_include 在 constraints 中指定： '
+'   { base: "调整图形尺寸", included: "选择图形" } -> 必须 include '
+'   { base: "移动图形", included: "选择图形" } -> 必须 include '
+
+' 但注意：forbid_include 列表中同时禁止了这些 include！ '
+' 冲突规则：若约束与需求冲突，以约束为准 '
+' 查看 forbid_include 列表： '
+'   - "调整图形尺寸" include "选择图形" -> 明确禁止 '
+'   - "移动图形" include "选择图形" -> 明确禁止 '
+' 因此尽管 must_include 要求它们 include，但 forbid_include 优先级更高，视为用户确认，不得 include '
+
+' 同样，deleteShape include selectShape 也被 forbid_include 禁止 '
+
+' 结论：不允许任何 usecase 对 "选择图形" 进行 include 或 extend（已被多次禁止）'
+
+' 检查是否可以使用 extend？ '
+' 查看 forbid_extend： '
+'   - 选择图形 <- 删除图形 (extend) -> 禁止 '
+'   - 选择图形 <- 调整图形尺寸 -> 禁止 '
+'   - 选择图形 <- 移动图形 -> 禁止 '
+'   - 选择图形 <- 创建图形 -> 禁止 '
+
+' 所以：不能 include，也不能 extend —— “选择图形”只能作为独立用例存在，无 incoming 关系 '
+
+' 因此，以下用例之间无直接关系： '
+'   deleteShape --x--> selectShape （禁止 include/extend）'
+'   resizeShape --x--> selectShape '
+'   moveShape   --x--> selectShape '
+'   createShape --x--> selectShape '
+
+' 单独处理其他可能 include 的情况 '
+' 需求2：创建图形 包含 动态绘制 → 应为 include '
+' 但 “动态绘制图形” 在 forbid_usecases 中，不能作为用例存在 '
+' 所以无法建模为 include '
+
+' 同样，createLayer 包含 initializeNewLayer 和 showNewLayerHint，但两者均被禁止 '
+' manageLayer 包含 switchLayer 和 resetToolState，也被禁止 '
+
+' 唯一可能的是高层抽象：系统启动流程 '
+' 但 “启动系统”、“启动图形编辑器”、“初始化界面” 均被禁止作为用例 '
+
+' 最终结论：由于绝大多数子行为被 forbid_usecases 屏蔽，无法建模为 use case '
+' 我们只能保留用户参与的7个主用例，且彼此之间不能有 include/extend（因全部被禁止）'
+
+' 特殊处理：createLayer 受限于图层数量 '
+' 需求7：“如果图层数量超过16个，则不能再产生新图层。” '
+' 这是一个扩展（extend），条件是“当图层数已达16”时阻止创建 '
+' 但 “限制图层数量≤16” 是 forbid_usecases，不能作为用例存在 '
+' 所以无法建模为 extend '
+
+' 同样，manageLayer 中切换图层后重置工具状态、提示编号等，对应用例均被禁 '
+
+' 因此，唯一合法的关系是 actor 与 usecase 的关联 '
+
+' 输出最终图 '
+
+note right of createShape
+  用户从选择框选类型，
+  在编辑区拖动鼠标完成绘制
+end note
+
+note right of selectShape
+  支持单击选择、框选、
+  取消选择（空白处点击）
+end note
+
+note right of deleteShape
+  点击“删除元素”按钮，
+  删除所选图形
+end note
+
+note right of resizeShape
+  拖动控制点或点击
+  放大/缩小按钮调整尺寸
+end note
+
+note right of moveShape
+  在图形内部按下并拖动
+  实现移动
+end note
+
+note right of createLayer
+  点击“新页”按钮创建新图层，
+  最多16个
+end note
+
+note right of manageLayer
+  点击“下一页”切换图层，
+  循环切换，自动设为当前
+end note
+
+@enduml

@@ -1,0 +1,60 @@
+@startuml
+actor 用户 as User
+
+'
+' Use Cases
+'
+usecase "启动图形编辑器" as usecase_启动图形编辑器
+usecase "创建图形" as usecase_创建图形
+usecase "选择图形" as usecase_选择图形
+usecase "删除图形" as usecase_删除图形
+usecase "调整图形尺寸" as usecase_调整图形尺寸
+usecase "移动图形" as usecase_移动图形
+usecase "创建图层" as usecase_创建图层
+usecase "管理图层" as usecase_管理图层
+usecase "拖动控制点调整尺寸" as usecase_拖动控制点调整尺寸
+
+'
+' Include relationships (mandatory dependencies)
+'
+
+' 删除图形必须先选择图形
+usecase_删除图形 .> usecase_选择图形 : <<include>>
+
+' 调整图形尺寸必须先选择图形
+usecase_调整图形尺寸 .> usecase_选择图形 : <<include>>
+
+' 移动图形必须先选择图形
+usecase_移动图形 .> usecase_选择图形 : <<include>>
+
+'
+' Actor associations
+'
+User --> usecase_启动图形编辑器
+User --> usecase_创建图形
+User --> usecase_选择图形
+User --> usecase_删除图形
+User --> usecase_调整图形尺寸
+User --> usecase_移动图形
+User --> usecase_创建图层
+User --> usecase_管理图层
+
+'
+' Extend relationships (conditional extensions with condition comments)
+'
+
+' 拖动控制点调整尺寸是对调整图形尺寸的一种方式（但根据 forbid_include，不能 include）
+' 因此作为 extend，并注明触发条件
+' 当用户选择图形后，在控制点上拖动时触发尺寸调整的特定方式
+usecase_拖动控制点调整尺寸 ..> usecase_调整图形尺寸 : <<extend>>
+' 触发条件：用户已选择图形，并在控制点上按下并拖动鼠标
+
+'
+' Additional constraints from JSON:
+' - "拖动控制点调整尺寸" 不能 include "调整图形尺寸" → 使用 extend 替代
+' - "创建图形" 不能 include "扩展图形类型" → 忽略该子用例
+' - 多个被禁止的 include 已通过不建模来遵守
+' - 所有 forbid_usecases 被排除
+'
+
+@enduml

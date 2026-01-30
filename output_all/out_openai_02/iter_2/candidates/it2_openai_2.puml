@@ -1,0 +1,35 @@
+@startuml
+actor User
+
+usecase "创建图形" as UC1
+usecase "选择图形" as UC2
+usecase "删除图形" as UC3
+usecase "改变图形尺寸" as UC4
+usecase "移动图形" as UC5
+usecase "创建图层" as UC6
+usecase "管理图层" as UC7
+
+' 选择图形的执行过程必须包含创建图形
+UC2 ..> UC1 : <<include>>
+
+' 删除图形的执行过程必须包含选择图形
+UC3 ..> UC2 : <<include>>
+
+' 改变图形尺寸的执行过程必须包含选择图形
+UC4 ..> UC2 : <<include>>
+
+' 移动图形的执行过程必须包含选择图形
+UC5 ..> UC2 : <<include>>
+
+' 创建图层的执行过程必须包含管理图层
+UC6 ..> UC7 : <<include>>
+
+User -> UC1
+User -> UC2
+User -> UC3
+User -> UC4
+User -> UC5
+User -> UC6
+User -> UC7
+
+@enduml

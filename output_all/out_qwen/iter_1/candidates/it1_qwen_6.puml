@@ -1,0 +1,85 @@
+@startuml
+actor 用户 as User
+
+'
+' 初始化系统
+usecase "启动图形编辑器" as UC1
+'
+' 图形操作功能
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "改变图形尺寸" as UC5
+usecase "移动图形" as UC6
+
+'
+' 图层管理功能
+usecase "创建新图层" as UC7
+usecase "切换图层" as UC8
+
+'
+' 系统初始化行为
+User --> UC1 : 启动软件
+'
+' 图形创建与操作
+User --> UC2 : 选择图形类型并绘制
+User --> UC3 : 点击或框选图形
+User --> UC4 : 点击“删除元素”按钮
+User --> UC5 : 拖动控制点或点击放大/缩小
+User --> UC6 : 在图形内拖动
+
+'
+' 图层管理操作
+User --> UC7 : 点击“新页”按钮
+User --> UC8 : 点击“下一页”按钮
+
+'
+' 包含关系（include）：强制依赖
+' 启动时必须初始化默认图层和提示信息
+UC1 ..> UC7 : <<include>>
+' 启动包含创建第一个图层
+
+'
+' 创建图形必须在当前图层上进行
+UC2 ..> UC8 : <<include>>
+' 创建图形前需确保有当前图层（隐式依赖）
+
+'
+' 删除图形前必须先选择图形
+UC4 ..> UC3 : <<include>>
+' 删除依赖于选择状态
+
+'
+' 改变尺寸和移动都要求图形被选中
+UC5 ..> UC3 : <<include>>
+' 调整尺寸前必须选择图形
+UC6 ..> UC3 : <<include>>
+' 移动前必须选择图形
+
+'
+' 扩展关系（extend）：条件触发
+' 当图层数未达上限时才能创建新图层
+(创建新图层, 启动图形编辑器) as extend1
+UC7 ..> UC1 : <<extend>>
+note on link
+  扩展点: 启动后允许创建新图层
+  条件: 图层数 ≤ 16
+end note
+
+'
+' 切换图层可扩展于创建新图层之后的操作
+UC8 ..> UC7 : <<extend>>
+note on link
+  扩展点: 新图层创建后可切换
+  条件: 存在多个图层
+end note
+
+'
+' 根据约束（1）：可在创建的图形种类上扩展
+(创建图形, <<extend>>) as ExtendCreate
+UC2 <--|> ExtendCreate
+note right of ExtendCreate
+  可扩展支持多边形、曲线等新图形类型
+end note
+
+@enduml

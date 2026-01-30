@@ -1,0 +1,28 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "选择图形",
+    "b": "调整图形尺寸",
+    "details": {
+      "confidence": 0.5,
+      "sources": [
+        "it3_qwen_1",
+        "it3_qwen_2",
+        "it3_qwen_3"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "选择图形",
+    "b": "移动图形",
+    "details": {
+      "confidence": 0.5,
+      "sources": [
+        "it3_qwen_1",
+        "it3_qwen_2",
+        "it3_qwen_3"
+      ]
+    }
+  }
+]

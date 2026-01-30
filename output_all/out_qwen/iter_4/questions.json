@@ -1,0 +1,42 @@
+[
+  {
+    "id": "q1",
+    "type": "yes_no_include",
+    "target": {
+      "base": "创建新图层",
+      "included": "启动图形编辑器"
+    },
+    "prompt": "用例【创建新图层】执行过程中是否【必须】包含用例【启动图形编辑器】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q2",
+    "type": "yes_no_include",
+    "target": {
+      "base": "管理图层",
+      "included": "创建新图层"
+    },
+    "prompt": "用例【管理图层】执行过程中是否【必须】包含用例【创建新图层】？（是=include，否=不建立 include）",
+    "default": "no"
+  },
+  {
+    "id": "q3",
+    "type": "extend_condition",
+    "target": {
+      "extension": "创建新图层",
+      "base": "启动图形编辑器"
+    },
+    "prompt": "如果【创建新图层】是对【启动图形编辑器】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  },
+  {
+    "id": "q4",
+    "type": "extend_condition",
+    "target": {
+      "extension": "管理图层",
+      "base": "创建新图层"
+    },
+    "prompt": "如果【管理图层】是对【创建新图层】的 extend，请补充触发条件/扩展点（若不需要该 extend，请输入 NONE）",
+    "default": "NONE"
+  }
+]

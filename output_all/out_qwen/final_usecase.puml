@@ -1,0 +1,28 @@
+@startuml
+title Final Use Case Diagram
+left to right direction
+skinparam shadowing false
+
+actor "用户" as A1
+
+(创建图形) as UC1
+(创建新图层) as UC2
+(删除图形) as UC3
+(启动图形编辑器) as UC4
+(移动图形) as UC5
+(管理图层) as UC6
+(调整图形尺寸) as UC7
+(选择图形) as UC8
+
+A1 --> UC2
+A1 --> UC3
+UC3 ..> UC8 : <<include>>
+A1 --> UC8
+UC7 ..> UC8 : <<include>>
+A1 --> UC7
+A1 --> UC6
+A1 --> UC4
+A1 --> UC5
+UC5 ..> UC8 : <<include>>
+A1 --> UC1
+@enduml

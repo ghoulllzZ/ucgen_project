@@ -1,0 +1,51 @@
+{
+  "must_include": [
+    {
+      "base": "移动图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "删除图形",
+      "included": "选择图形"
+    }
+  ],
+  "forbid_include": [
+    {
+      "base": "删除图形",
+      "included": "选择图形"
+    },
+    {
+      "base": "调整图形尺寸",
+      "included": "选择图形"
+    },
+    {
+      "base": "等比例缩放",
+      "included": "调整图形尺寸"
+    },
+    {
+      "base": "移动图形",
+      "included": "选择图形"
+    }
+  ],
+  "extend": [],
+  "forbid_extend": [
+    {
+      "base": "选择图形",
+      "extension": "删除图形"
+    },
+    {
+      "base": "选择图形",
+      "extension": "调整图形尺寸"
+    },
+    {
+      "base": "选择图形",
+      "extension": "移动图形"
+    }
+  ],
+  "keep_actors": [],
+  "forbid_actors": [],
+  "keep_usecases": [
+    "等比例缩放"
+  ],
+  "forbid_usecases": []
+}

@@ -1,0 +1,43 @@
+@startuml
+actor 用户
+
+usecase "软件初始启动" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "改变图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "管理图层" as UC8
+
+用户 -> UC1
+用户 -> UC2
+用户 -> UC3
+用户 -> UC4
+用户 -> UC5
+用户 -> UC6
+用户 -> UC7
+用户 -> UC8
+
+' 创建图形功能必须包含指定图形类型的选择
+UC2 ..> UC1 : include
+
+' 选择图形功能可以扩展为多选
+UC3 .> UC2 : extend (在叠加部分点击可选择多个图形)
+
+' 删除图形功能必须在图形选择后进行
+UC4 ..> UC3 : include
+
+' 改变图形尺寸功能可以扩展为直接放大或缩小
+UC5 .> UC2 : extend (点击“放大”或“缩小”按钮)
+
+' 移动图形功能可以扩展为整体编辑器移动的状态保持
+UC6 .> UC2 : extend (整个图形编辑器移动时)
+
+' 创建图层功能必须包含新层生成和状态提示
+UC7 ..> UC1 : include
+
+' 管理图层功能可以扩展为循环切换层
+UC8 .> UC1 : extend (当前为最后一个图层时切换)
+
+@enduml

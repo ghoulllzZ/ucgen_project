@@ -1,0 +1,94 @@
+@startuml
+actor 用户 as User
+
+' 用例定义
+usecase "启动图形编辑器" as startEditor
+usecase "创建图形" as createShape
+usecase "选择图形" as selectShape
+usecase "删除图形" as deleteShape
+usecase "调整图形尺寸" as resizeShape
+usecase "移动图形" as moveShape
+usecase "创建图层" as createLayer
+usecase "管理图层" as manageLayer
+
+' 约束中允许的 include 关系（以 must_include 为准，但需避开 forbid_include）
+' 根据冲突摘要，must_include 中的包含关系与 forbid_include 冲突，优先级：forbid > must_include
+' 因此不添加任何被 forbid 的 include
+
+' 添加非禁止的 include 关系
+' 注意：forbid_include 明确禁止了“删除图形”包含“选择图形”，因此不能写
+' 同样，“调整图形尺寸”和“移动图形”也不能 include “选择图形”
+
+' 根据需求逻辑，某些操作隐含前置动作，但约束禁止直接建模为 include
+' 因此只保留未被禁止的合理 include
+
+' 创建图层必须初始化新图层状态（如提示、默认形状等）
+' 但“initializenewlayer”在 forbid_usecases 中，不能使用
+' 所以分解成合法用例之间的关系
+
+' 根据需求7：创建图层时自动成为当前图层，并提示编号，工具状态重置为矩形
+' 这些是创建图层的一部分，但不能引入 forbid_usecases 中的用例
+
+' 启动系统时会触发创建第一个图层和管理图层？但“启动系统”被禁用
+' 只能使用“启动图形编辑器”
+
+' 需求1表明启动时即创建图层并显示提示
+' 故：启动图形编辑器 → 创建图层（include），因为必须先创建初始图层
+' 但“启动图形编辑器”是否 include “创建图层”？
+' 需求1说“编辑区域默认产生第一个编辑图层”，这是启动的一部分
+
+' 检查 forbid_include：无此项禁止，可添加
+' 注释说明因果
+' 启动编辑器时必须自动创建第一个图层
+startEditor ..> createLayer : include
+
+' 创建图层最多16个，超过不能创建 —— 这是一个扩展条件
+' 但“limitlayercount”被 forbid_usecases 禁止，不能作为独立用例
+' 因此不能建模为 extend
+
+' 管理图层包括切换图层、循环切换、重置工具状态
+' 需求8提到切换后状态重置为创建矩形
+' 但“resettoolstate”被禁止，不能作为用例
+
+' 创建图层时提示编号，“showinitialhint”被禁，不能单独存在
+
+' 综上，只能使用未被禁止的用例和关系
+
+' 建立 actor 到 use case 的基本关联
+User --> startEditor
+User --> createShape
+User --> selectShape
+User --> deleteShape
+User --> resizeShape
+User --> moveShape
+User --> createLayer
+User --> manageLayer
+
+' 处理 extend 关系
+' 根据需求，某些行为在特定条件下扩展基础用例
+' 但所有可能的 extend 目标都在 forbid_extend 中列出，均被禁止
+
+' 例如：
+' - 拖动控制点扩展调整尺寸 → 被禁止
+' - 点击放大/缩小按钮扩展调整尺寸 → 被禁止
+' - 创建图层时提示编号 → 被禁止
+' - 切换图层时提示编号 → 被禁止
+' - 图层数量限制扩展创建图层 → 被禁止
+
+' 因此，不添加任何 extend 关系
+
+' 检查是否存在合法的 extend？
+' 需求3：点击空白取消选择 —— 是否为选择图形的扩展？
+' 即：在空白处点击可取消选择，是选择操作的一种结果
+' 但这属于“选择图形”内部行为，无需额外用例
+
+' 需求5：通过按钮放大缩小图形 → 是调整尺寸的方式之一
+' 即：点击放大/缩小按钮是对“调整图形尺寸”的一种触发方式
+' 但“clickzoomin”等被 forbid，不能建模
+
+' 因此，放弃所有 extend
+
+' 最终模型仅包含 actor、usecase 和直接关联
+' 以及一个必要的 include：启动编辑器必须包含创建初始图层
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+actor 管理员
+
+usecase "编号零件" as usecase1
+usecase "命名零件类型" as usecase2
+usecase "记录零件价格" as usecase3
+usecase "查询组件价格" as usecase4
+
+管理员 --> usecase1
+管理员 --> usecase2
+管理员 --> usecase3
+管理员 --> usecase4
+
+' 查询组件价格 需要内部使用零件的编号、名称和价格信息来递归计算总价，但根据约束不能 include 这些用例
+' 因此不添加 include 关系以遵守 forbid_include 约束
+
+@enduml

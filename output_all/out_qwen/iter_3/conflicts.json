@@ -1,0 +1,40 @@
+[
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "创建新图层",
+    "b": "启动图形编辑器",
+    "details": {
+      "confidence": 0.25,
+      "sources": [
+        "it3_qwen_1"
+      ]
+    }
+  },
+  {
+    "conflict_type": "edge_presence_uncertain",
+    "a": "管理图层",
+    "b": "创建新图层",
+    "details": {
+      "confidence": 0.25,
+      "sources": [
+        "it3_qwen_1"
+      ]
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "创建新图层",
+    "b": "启动图形编辑器",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  },
+  {
+    "conflict_type": "extend_missing_condition",
+    "a": "管理图层",
+    "b": "创建新图层",
+    "details": {
+      "msg": "extend 缺少触发条件/扩展点"
+    }
+  }
+]

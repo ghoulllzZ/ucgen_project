@@ -1,0 +1,17 @@
+@startuml
+title Final Use Case Diagram
+left to right direction
+skinparam shadowing false
+
+actor "管理员" as A1
+
+(命名零件类型) as UC1
+(查询组件价格) as UC2
+(编号零件) as UC3
+(记录零件价格) as UC4
+
+A1 --> UC4
+A1 --> UC3
+A1 --> UC1
+A1 --> UC2
+@enduml

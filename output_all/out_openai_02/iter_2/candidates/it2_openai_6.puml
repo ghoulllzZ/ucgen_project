@@ -1,0 +1,29 @@
+@startuml
+actor User
+
+usecase "创建图形" as UC1
+usecase "选择图形" as UC2
+usecase "删除图形" as UC3
+usecase "改变图形尺寸" as UC4
+usecase "移动图形" as UC5
+usecase "创建图层" as UC6
+usecase "管理图层" as UC7
+
+User -> UC1
+User -> UC2
+User -> UC3
+User -> UC4
+User -> UC5
+User -> UC6
+User -> UC7
+
+' UC1的执行必须包含 UC4
+UC1 .down.> UC4 : include
+
+' UC2的执行可能扩展 UC2
+UC2 .down.> UC5 : extend (当选择图形时)
+
+' UC6的执行可能扩展 UC7
+UC6 .down.> UC7 : extend (当层数超过16)
+
+@enduml

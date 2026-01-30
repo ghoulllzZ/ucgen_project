@@ -1,0 +1,42 @@
+@startuml
+actor User
+
+usecase "启动软件" as UC1
+usecase "创建图形" as UC2
+usecase "选择图形" as UC3
+usecase "删除图形" as UC4
+usecase "改变图形尺寸" as UC5
+usecase "移动图形" as UC6
+usecase "创建图层" as UC7
+usecase "管理图层" as UC8
+
+User -> UC1
+User -> UC2
+User -> UC3
+User -> UC4
+User -> UC5
+User -> UC6
+User -> UC7
+User -> UC8
+
+' UC2 必须包含选择图形的动作
+UC2 ..> UC3 : <<include>>
+
+' UC4 需要选择图形之后才能执行删除
+UC4 ..> UC3 : <<include>>
+
+' UC5 在用户选择图形的情况下对改变尺寸进行扩展
+' 触发条件: 用户选择了一个图形
+UC5 -|> UC3 : <<extend>>
+
+' UC6 在选择图形的情况下对移动图形进行扩展
+' 触发条件: 用户选择了一个图形
+UC6 -|> UC3 : <<extend>>
+
+' UC7 需要创建新图层
+UC7 ..> UC1 : <<include>>
+
+' UC8 在管理图层的过程中需要查看当前图层
+UC8 ..> UC1 : <<include>>
+
+@enduml

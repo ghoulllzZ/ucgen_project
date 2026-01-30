@@ -1,0 +1,80 @@
+=== 输出诊断汇总 ===
+candidates=4 nodes=9 edges=19 conflicts=4
+
+=================
+1) 相同部分（共识/已通过验证）
+=================
+[Stage2 共识节点]
+ - 用户 (actor) | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 创建图形 (usecase) | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 创建新图层 (usecase) | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 删除图形 (usecase) | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 启动图形编辑器 (usecase) | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 移动图形 (usecase) | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 管理图层 (usecase) | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 调整图形尺寸 (usecase) | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 选择图形 (usecase) | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+
+[Stage2 共识关系]
+ - 用户 -[assoc]-> 创建图形 | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 创建新图层 | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 删除图形 | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 启动图形编辑器 | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 移动图形 | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 管理图层 | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 调整图形尺寸 | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 选择图形 | freq=4 | sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 删除图形 -[include]-> 选择图形 | freq=3 | sources=it3_qwen_1,it3_qwen_5,it3_qwen_6
+ - 移动图形 -[include]-> 选择图形 | freq=3 | sources=it3_qwen_1,it3_qwen_5,it3_qwen_6
+ - 调整图形尺寸 -[include]-> 选择图形 | freq=3 | sources=it3_qwen_1,it3_qwen_5,it3_qwen_6
+
+[Stage3 验证通过（accept）]
+ - actors=1 usecases=8 relations=17
+ - 创建图形 -[assoc]-> 创建图形 | conf=0.25 freq=1 sources=it3_qwen_4
+ - 创建新图层 -[assoc]-> 创建新图层 | conf=0.25 freq=1 sources=it3_qwen_4
+ - 删除图形 -[assoc]-> 选择图形 | conf=0.25 freq=1 sources=it3_qwen_4
+ - 用户 -[assoc]-> 创建图形 | conf=1.0 freq=4 sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 创建新图层 | conf=1.0 freq=4 sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 删除图形 | conf=1.0 freq=4 sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 启动图形编辑器 | conf=1.0 freq=4 sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 移动图形 | conf=1.0 freq=4 sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 管理图层 | conf=1.0 freq=4 sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 调整图形尺寸 | conf=1.0 freq=4 sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 用户 -[assoc]-> 选择图形 | conf=1.0 freq=4 sources=it3_qwen_1,it3_qwen_4,it3_qwen_5,it3_qwen_6
+ - 移动图形 -[assoc]-> 选择图形 | conf=0.25 freq=1 sources=it3_qwen_4
+ - 管理图层 -[assoc]-> 管理图层 | conf=0.25 freq=1 sources=it3_qwen_4
+ - 调整图形尺寸 -[assoc]-> 选择图形 | conf=0.25 freq=1 sources=it3_qwen_4
+ - 删除图形 -[include]-> 选择图形 | conf=0.75 freq=3 sources=it3_qwen_1,it3_qwen_5,it3_qwen_6
+ - 移动图形 -[include]-> 选择图形 | conf=0.75 freq=3 sources=it3_qwen_1,it3_qwen_5,it3_qwen_6
+ - 调整图形尺寸 -[include]-> 选择图形 | conf=0.75 freq=3 sources=it3_qwen_1,it3_qwen_5,it3_qwen_6
+
+==================
+2) 不同部分（候选之间的明确冲突）
+==================
+（无：当前冲突主要表现为“不确定/缺条件”，见第 3 部分）
+
+========================
+3) 模糊部分（待确认/置信度不足/缺触发条件）
+========================
+[Stage2 待确认节点（status=unknown）]
+
+[Stage2 待确认关系（status=unknown）]
+ - 创建图形 -[assoc]-> 创建图形 | freq=1 | sources=it3_qwen_4 | hint: has_justif=True has_cond=False has_extpt=False
+ - 创建新图层 -[assoc]-> 创建新图层 | freq=1 | sources=it3_qwen_4 | hint: has_justif=True has_cond=False has_extpt=True
+ - 删除图形 -[assoc]-> 选择图形 | freq=1 | sources=it3_qwen_4 | hint: has_justif=True has_cond=False has_extpt=False
+ - 移动图形 -[assoc]-> 选择图形 | freq=1 | sources=it3_qwen_4 | hint: has_justif=True has_cond=False has_extpt=False
+ - 管理图层 -[assoc]-> 管理图层 | freq=1 | sources=it3_qwen_4 | hint: has_justif=True has_cond=False has_extpt=False
+ - 调整图形尺寸 -[assoc]-> 选择图形 | freq=1 | sources=it3_qwen_4 | hint: has_justif=True has_cond=False has_extpt=False
+ - 创建新图层 -[extend]-> 启动图形编辑器 | freq=1 | sources=it3_qwen_1 | hint: has_justif=True has_cond=False has_extpt=False
+ - 管理图层 -[extend]-> 创建新图层 | freq=1 | sources=it3_qwen_1 | hint: has_justif=True has_cond=False has_extpt=False
+
+[Stage3 判定为 unknown 的关系]
+ - usecases(unknown)=0 relations(unknown)=2
+ - 创建新图层 -[extend]-> 启动图形编辑器 | reasons=extend 缺少触发条件/扩展点 | conf=0.25 freq=1
+ - 管理图层 -[extend]-> 创建新图层 | reasons=extend 缺少触发条件/扩展点 | conf=0.25 freq=1
+
+[conflicts.json 中的“不确定/缺条件”】【列表】]
+ - [edge_presence_uncertain] 创建新图层 -> 启动图形编辑器 | conf=0.25 sources=it3_qwen_1
+ - [edge_presence_uncertain] 管理图层 -> 创建新图层 | conf=0.25 sources=it3_qwen_1
+ - [extend_missing_condition] 创建新图层 -> 启动图形编辑器 | msg=extend 缺少触发条件/扩展点
+ - [extend_missing_condition] 管理图层 -> 创建新图层 | msg=extend 缺少触发条件/扩展点
